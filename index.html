@@ -199,18 +199,18 @@
 <p>在$str值为：0，’0′，false,null,””</p>
 </li>
 <li><p>写出如下程序的输出结果</p>
-<p> &lt;?php    </p>
-<pre><code>function get_arr($arr){
-    unset($arr[0]);
-}
-$arr1 = array(1, 2);
-$arr2 = array(1, 2);
-get_arr(&amp;$arr1);
-get_arr($arr2);
-echo count($arr1);
-echo count($arr2);
-</code></pre><p> ?&gt;</p>
-</li>
+<pre><code>&lt;?php
+    function get_arr($arr){
+        unset($arr[0]);
+    }
+    $arr1 = array(1, 2);
+    $arr2 = array(1, 2);
+    get_arr(&amp;$arr1);
+    get_arr($arr2);
+    echo count($arr1);
+    echo count($arr2);
+?&gt;
+</code></pre></li>
 </ol>
 <h2 id="MYSQL"><a href="#MYSQL" class="headerlink" title="MYSQL"></a>MYSQL</h2><ol>
 <li><p>MyISAM和 InnoDB 的基本区别？创建索引的语句怎么写？</p>
@@ -252,8 +252,17 @@ echo count($arr2);
 <p>  firefox的firebug<br>  chrome的开发者工具</p>
 </li>
 <li><p>设计一个页面(4个 div 第一个div 宽960px 居中;第2-4个div  3等分960px;)</p>
-<p>  <style><br>  Body{Text-align:center; Margin:0; Padding:0; }<br>  #box{Width:960px; Margin:0 auto; }<br>  .small{Width:320px; Float:left; }<br>  </style><br>  &lt;divid=’box’&gt;<br>  &lt;divclass=’small’&gt;<br>  &lt;divclass=’small’&gt;<br>  &lt;divclass=’small’&gt;<br>  </p>
-</li>
+<pre><code>&lt;style&gt;
+Body{Text-align:center; Margin:0; Padding:0; }
+#box{Width:960px; Margin:0 auto; }
+.small{Width:320px; Float:left; }
+&lt;/style&gt;
+&lt;divid=’box’&gt;
+&lt;divclass=’small’&gt;&lt;/div&gt;
+&lt;divclass=’small’&gt;&lt;/div&gt;
+&lt;divclass=’small’&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre></li>
 <li><p>用javascript取得一个input的值？取得一个input的属性？</p>
 <p>  document.getElementById(‘name’).value;<br>  document.getElementById(‘name’).type;</p>
 </li>
@@ -313,7 +322,7 @@ echo count($arr2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/02/php面试问题/" data-id="cjj3q6ey70002n8eir7tgwhgp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/02/php面试问题/" data-id="cjj3qa5770002o0eizqy1upyj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -464,7 +473,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/25/github上搭建Hexo博客/" data-id="cjj3q6exh0000n8eiyzctvpu1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/25/github上搭建Hexo博客/" data-id="cjj3qa56q0000o0eimun25vpr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -509,7 +518,7 @@ hexo deploy
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/04/10/hello-world/" data-id="cjj3q6exp0001n8eir75ftdfm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/04/10/hello-world/" data-id="cjj3qa5710001o0eigobfr0jd" class="article-share-link">Share</a>
       
       
     </footer>
