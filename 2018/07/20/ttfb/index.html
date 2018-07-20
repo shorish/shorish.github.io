@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="服务器网页访问很慢，TTFB时间过长问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现ngin">
+<meta name="description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ttfb">
+<meta property="og:title" content="服务器网页访问很慢，TTFB时间过长">
 <meta property="og:url" content="http://yoursite.com/2018/07/20/ttfb/index.html">
 <meta property="og:site_name" content="shorish">
-<meta property="og:description" content="服务器网页访问很慢，TTFB时间过长问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现ngin">
+<meta property="og:description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg">
-<meta property="og:updated_time" content="2018-07-20T15:06:42.996Z">
+<meta property="og:updated_time" content="2018-07-20T15:14:17.686Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ttfb">
-<meta name="twitter:description" content="服务器网页访问很慢，TTFB时间过长问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现ngin">
+<meta name="twitter:title" content="服务器网页访问很慢，TTFB时间过长">
+<meta name="twitter:description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
 <meta name="twitter:image" content="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>ttfb | shorish</title>
+  <title>服务器网页访问很慢，TTFB时间过长 | shorish</title>
   
 
 
@@ -251,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ttfb</h1>
+          <h1 class="post-title" itemprop="name headline">服务器网页访问很慢，TTFB时间过长</h1>
         
 
         <div class="post-meta">
@@ -301,8 +301,8 @@
       
 
       
-        <h2 id="服务器网页访问很慢，TTFB时间过长"><a href="#服务器网页访问很慢，TTFB时间过长" class="headerlink" title="服务器网页访问很慢，TTFB时间过长"></a>服务器网页访问很慢，TTFB时间过长</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg" alt=""></p>
-<h3 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h3><ol>
+        <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg" alt=""></p>
+<h2 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h2><ol>
 <li>首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决</li>
 <li><p>考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容</p>
 <pre><code>&lt;?php&gt;
@@ -357,8 +357,8 @@ $ vim /usr/local/php/etc/php.ini
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/25/hexo-in-github/" rel="next" title="hexo-in-github">
-                <i class="fa fa-chevron-left"></i> hexo-in-github
+              <a href="/2018/06/25/hexo-in-github/" rel="next" title="在Github上搭建Hexo博客">
+                <i class="fa fa-chevron-left"></i> 在Github上搭建Hexo博客
               </a>
             
           </div>
@@ -479,7 +479,7 @@ $ vim /usr/local/php/etc/php.ini
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器网页访问很慢，TTFB时间过长"><span class="nav-number">1.</span> <span class="nav-text">服务器网页访问很慢，TTFB时间过长</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">1.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决尝试"><span class="nav-number">1.2.</span> <span class="nav-text">解决尝试</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决尝试"><span class="nav-number">2.</span> <span class="nav-text">解决尝试</span></a></li></ol></div>
             
 
           </div>
