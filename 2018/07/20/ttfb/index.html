@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/visugar/p/6821777.html  ##github上搭建Hexo博客 hexo步骤 编写markdown hexo clean 清理你的项目缓存 hexo g 将你刚刚编写的md编译为浏览器可以识别的html hexo d 发布到远程仓库 主题库https://hexo.io/themes/  安装git for windows  下">
+<meta name="description" content="服务器网页访问很慢，TTFB时间过长问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现ngin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="github上搭建Hexo博客">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/github上搭建Hexo博客/index.html">
+<meta property="og:title" content="服务器网页访问很慢，TTFB时间过长">
+<meta property="og:url" content="http://yoursite.com/2018/07/20/ttfb/index.html">
 <meta property="og:site_name" content="shorish">
-<meta property="og:description" content="https://www.cnblogs.com/visugar/p/6821777.html  ##github上搭建Hexo博客 hexo步骤 编写markdown hexo clean 清理你的项目缓存 hexo g 将你刚刚编写的md编译为浏览器可以识别的html hexo d 发布到远程仓库 主题库https://hexo.io/themes/  安装git for windows  下">
+<meta property="og:description" content="服务器网页访问很慢，TTFB时间过长问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现ngin">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-08T12:51:17.023Z">
+<meta property="og:image" content="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg">
+<meta property="og:updated_time" content="2018-07-20T15:03:50.516Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="github上搭建Hexo博客">
-<meta name="twitter:description" content="https://www.cnblogs.com/visugar/p/6821777.html  ##github上搭建Hexo博客 hexo步骤 编写markdown hexo clean 清理你的项目缓存 hexo g 将你刚刚编写的md编译为浏览器可以识别的html hexo d 发布到远程仓库 主题库https://hexo.io/themes/  安装git for windows  下">
+<meta name="twitter:title" content="服务器网页访问很慢，TTFB时间过长">
+<meta name="twitter:description" content="服务器网页访问很慢，TTFB时间过长问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现ngin">
+<meta name="twitter:image" content="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/25/github上搭建Hexo博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/20/ttfb/"/>
 
 
 
 
 
-  <title>github上搭建Hexo博客 | shorish</title>
+  <title>服务器网页访问很慢，TTFB时间过长 | shorish</title>
   
 
 
@@ -232,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/github上搭建Hexo博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/ttfb/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="wang jing">
@@ -249,7 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">github上搭建Hexo博客</h1>
+          <h1 class="post-title" itemprop="name headline">服务器网页访问很慢，TTFB时间过长</h1>
         
 
         <div class="post-meta">
@@ -261,8 +263,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-25T18:21:34+08:00">
-                2018-06-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T23:01:45+08:00">
+                2018-07-20
               </time>
             
 
@@ -299,126 +301,36 @@
       
 
       
-        <blockquote>
-<p><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">https://www.cnblogs.com/visugar/p/6821777.html</a></p>
-</blockquote>
-<p>##github上搭建Hexo博客</p>
-<p>hexo步骤</p>
-<pre><code>编写markdown
-hexo clean 清理你的项目缓存
-hexo g 将你刚刚编写的md编译为浏览器可以识别的html
-hexo d 发布到远程仓库
-</code></pre><p>主题库<br><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-<ol>
-<li><p>安装git for windows</p>
-<ul>
-<li><a href="https://gitforwindows.org/" target="_blank" rel="noopener">下载地址</a></li>
-<li>安装：一直点击下一步</li>
-<li><p>查看版本</p>
-<pre><code>git version
-</code></pre></li>
-</ul>
+        <h2 id="服务器网页访问很慢，TTFB时间过长"><a href="#服务器网页访问很慢，TTFB时间过长" class="headerlink" title="服务器网页访问很慢，TTFB时间过长"></a>服务器网页访问很慢，TTFB时间过长</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg" alt=""></p>
+<h3 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h3><ol>
+<li>首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决</li>
+<li><p>考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容</p>
+<pre><code>&lt;?php&gt;
+    phpinfo();
+&lt;?&gt;
+</code></pre><p> 访问还是很慢</p>
 </li>
-<li><p>安装NodeJs</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a></li>
-<li>安装：一直点击下一步，Custom Setup中勾选 <code>Add to PATH</code> </li>
-<li><p>查看版本</p>
-<pre><code>node -v
-</code></pre></li>
-</ul>
+<li><p>发现nginx访问日志文件<code>/app/nginx/logs/access.log</code>文件比较大，有2.6G</p>
+<p> 将日志文件改名，重启nginx<br> 访问还是很慢    </p>
 </li>
-<li><p>安装hexo</p>
-<ul>
-<li><p>创建blog目录，进入目录</p>
-<pre><code>mkdir blogdir
-cd blogdir
-</code></pre></li>
-<li><p>安装命令：<code>npm -i -g hexo</code></p>
+</ol>
+<ol start="3">
+<li><p>查看php日志文件<code>/usr/local/php/var/log/php-fpm.log</code>中有警告<code>WARNING: server reached pm.max_children setting (5), consider raising it</code>，经百度查询问题，修改配置文件<code>/usr/local/php/etc/php-fpm.conf</code></p>
+<pre><code>#修改配置文件  
+修改pm.max_children = 1000 
+#重启PHP
+$ kill -sigint `cat /usr/local/php/var/php-fpm.pid`
+$ /usr/local/php/sbin/php-fpm -g php-fpm.pid 
+</code></pre><p> 重启PHP，访问还是很慢</p>
 </li>
-<li><p>查看版本</p>
-<pre><code>hexo -v
-</code></pre></li>
-</ul>
-</li>
-<li><p>构建hexo项目，本地测试</p>
-<ul>
-<li><p>生成hexo代码</p>
-<pre><code>hexo init
-hexo clean
-hexo generate
-</code></pre></li>
-<li><p>启动本地服务器</p>
-<pre><code>#注：hexo 3.0把服务器独立成个别模块，需要单独安装
-npm install hexo-server --save
-hexo server
-</code></pre></li>
-<li>打开浏览器测试： <code>http://localhost:4000</code></li>
-</ul>
-</li>
-<li><p>gitbash中配置git环境，生成ssh密钥</p>
-<ul>
-<li><p>执行</p>
-<pre><code>git config --global user.name &quot;YourName&quot;
-git config --global user.email &quot;YourEmail&quot;
-</code></pre></li>
-<li><p>创建ssh公钥</p>
-<pre><code>ssh-keygen -t rsa -C &quot;yourmail@example.com&quot;
-生成ssh，找到id_rsa.pub文件内容
-</code></pre></li>
-</ul>
-</li>
-<li><p>申请github账号，创建repo，配置免密登录</p>
-<ul>
-<li>申请账号，<a href="https://github.com/" target="_blank" rel="noopener">github地址</a></li>
-<li>创建仓库<ul>
-<li>新建仓库</li>
-<li>仓库名：yourname.github.io</li>
-</ul>
-</li>
-<li>配置免密登录<ul>
-<li>Setting——SSH and GPG keys——New SSH key——粘贴刚创建id_rsa.pub公钥文件内容</li>
-<li>验证是否成功 <code>ssh -T git@github.com</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>部署hexo</p>
-<ul>
-<li>安装部署工具<pre><code>npm install hexo-deployer-git --save
-</code></pre></li>
-<li><p>配置部署参数</p>
-<pre><code>编辑_config.yml，最下方添加内容
-    deploy:
-      type: git
-      repo: git@github.com:yourname/yourname.github.io.git
-      branch: master
-
-repo也可以是https://github.com/yourname/yourname.github.io.git
-</code></pre></li>
-<li><p>部署到github<br>   执行命令</p>
-<pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre></li>
-</ul>
-</li>
-<li><p>修改配置内容</p>
-<ul>
-<li><p>选择主题</p>
-<p>  下载主题<a href="https://hexo.io/themes/" target="_blank" rel="noopener">下载地址</a>，如<code>next</code><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">下载地址</a>，解压到themes目录下，配置 <code>themes/next/_config.yml</code></p>
-</li>
-<li>导航栏</li>
-<li>侧边栏</li>
-</ul>
-</li>
-<li><p>hexo使用</p>
-<ul>
-<li><p>发布新文章</p>
-<pre><code>hexo new title  
-</code></pre><p>在source-&gt;_posts目录下，存放要发布的文章</p>
-</li>
-</ul>
+</ol>
+<ol start="4">
+<li><p>检查PHP配置文件<code>/usr/local/php/etc/php.ini</code>，发现xdebug扩展远程调试开关是打开的，将其关闭</p>
+<pre><code>#修改配置文件
+$ vim /usr/local/php/etc/php.ini
+修改参数xdebug.remote_enable=0  
+#重启PHP
+</code></pre><p> 访问慢的问题得以解决</p>
 </li>
 </ol>
 
@@ -445,8 +357,8 @@ hexo deploy
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/04/10/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/06/25/github上搭建Hexo博客/" rel="next" title="github上搭建Hexo博客">
+                <i class="fa fa-chevron-left"></i> github上搭建Hexo博客
               </a>
             
           </div>
@@ -454,10 +366,6 @@ hexo deploy
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/20/ttfb/" rel="prev" title="服务器网页访问很慢，TTFB时间过长">
-                服务器网页访问很慢，TTFB时间过长 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,8 +417,17 @@ hexo deploy
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -552,6 +469,22 @@ hexo deploy
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器网页访问很慢，TTFB时间过长"><span class="nav-number">1.</span> <span class="nav-text">服务器网页访问很慢，TTFB时间过长</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题分析"><span class="nav-number">1.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决尝试"><span class="nav-number">1.2.</span> <span class="nav-text">解决尝试</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
