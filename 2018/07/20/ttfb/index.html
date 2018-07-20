@@ -1,307 +1,209 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="">
+<html>
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
-<meta property="og:type" content="article">
-<meta property="og:title" content="服务器网页访问很慢，TTFB时间过长">
-<meta property="og:url" content="http://yoursite.com/2018/07/20/ttfb/index.html">
-<meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
-<meta property="og:locale" content="default">
-<meta property="og:image" content="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg">
-<meta property="og:updated_time" content="2018-07-20T15:14:17.686Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="服务器网页访问很慢，TTFB时间过长">
-<meta name="twitter:description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
-<meta name="twitter:image" content="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2018/07/20/ttfb/"/>
-
-
-
-
-
-  <title>服务器网页访问很慢，TTFB时间过长 | shorish's Blog</title>
-  
-
-
-
-
-
-
-
-
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>服务器网页访问很慢，TTFB时间过长 | shorish&#39;s Blog</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长
+解决尝试
+首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决
+考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容
+&amp;lt;?php&amp;gt;
+    phpinfo();
+&amp;lt;?&amp;gt;
+ 访问还是很慢
+
+发现nginx访问日志文件/app/nginx/">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="服务器网页访问很慢，TTFB时间过长 | shorish&#39;s Blog">
+    <meta name="twitter:description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长
+解决尝试
+首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决
+考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容
+&amp;lt;?php&amp;gt;
+    phpinfo();
+&amp;lt;?&amp;gt;
+ 访问还是很慢
+
+发现nginx访问日志文件/app/nginx/">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="服务器网页访问很慢，TTFB时间过长 | shorish&#39;s Blog">
+    <meta property="og:description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长
+解决尝试
+首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决
+考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容
+&amp;lt;?php&amp;gt;
+    phpinfo();
+&amp;lt;?&amp;gt;
+ 访问还是很慢
+
+发现nginx访问日志文件/app/nginx/">
+
+    
+    <meta name="author" content="wang jing">
+    
+    <link rel="stylesheet" href="/css/vno.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+    
+    <link rel="icon" href="/images/favicon.png">
+    
+
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="shorish&#39;s Blog" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://yoursite.com/2018/07/20/ttfb/"/>
+
+    
+    <link rel="author" href="https://plus.google.com/118328736821069549236"/>
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+<body class="home-template no-js">
 
-  
-  
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
     
-  
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
 
-  <div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">shorish's Blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+        <a href="/" title="前往 shorish&#39;s Blog 的主页"><img src="/images/logo.png" width="80" alt="shorish&#39;s Blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for shorish&#39;s Blog">shorish&#39;s Blog</a></h1>
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description"></p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">文章</a></li>
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <li class="navigation__item"><a href="/archives">归档</a></li>
             
-            Archives
-          </a>
-        </li>
-      
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
 
-      
-    </ul>
+  <!-- Weibo-->
   
+  <li class="navigation__item">
+    <a href="http://weibo.com/ikeson" title="我的微博" target="_blank">
+      <i class='social fa fa-weibo'></i>
+      <span class="label">Weibo</span>
+    </a>
+  </li>
 
+
+  <!-- Github -->
   
+  <li class="navigation__item">
+    <a href="https://github.com/skx926" title="查看我的GitHub主页" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+  <li class="navigation__item">
+    <a href="https://plus.google.com/118328736821069549236" title="Google+" target="_blank">
+      <i class='social fa fa-google-plus-square'></i>
+      <span class="label">Google+</span>
+    </a>
+  </li>
+
+
+<!-- Facebook -->
+
+
+<!-- Twitter -->
+
+  <li class="navigation__item">
+    <a href="https://twitter.com/skx926" title="上Twitter找我" target="_blank">
+      <i class='social fa fa-twitter'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+<!-- instagram -->
+
+  <li class="navigation__item">
+    <a href="https://www.instagram.com/skx926" title="上Instagram找我" target="_blank">
+      <i class='social fa fa-instagram'></i>
+      <span class="label">Twitter</span>
+    </a>
+  </li>
+
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
 </nav>
 
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/ttfb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wang jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">服务器网页访问很慢，TTFB时间过长</h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T23:01:45+08:00">
-                2018-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
-      
-      
+    </div>
 
-      
-        <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg" alt=""></p>
+    <div class="panel-cover--overlay cover-disabled"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-07-20T15:01:45.000Z" class="post-list__meta--date date">2018-07-20</time>
+ &#8226; <span class="post-meta__tags tags">分类&nbsp;
+</span>
+    </div>
+    <h1 class="post-title">服务器网页访问很慢，TTFB时间过长</h1>
+  </header>
+
+  <section class="post">
+    <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg" alt=""></p>
 <h2 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h2><ol>
 <li>首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决</li>
 <li><p>考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容</p>
@@ -334,362 +236,100 @@ $ vim /usr/local/php/etc/php.ini
 </li>
 </ol>
 
-      
-    </div>
-    
-    
-    
+  </section>
 
-    
+</article>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/06/25/hexo-in-github/" rel="next" title="在Github上搭建Hexo博客">
-                <i class="fa fa-chevron-left"></i> 在Github上搭建Hexo博客
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-
-  
-
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-            
-              <p class="site-author-name" itemprop="name">wang jing</p>
-              <p class="site-description motion-element" itemprop="description"></p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives/">
-              
-                  <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
-
-            
-
-            
-
-          </nav>
-
-          
-
-          
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题分析"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决尝试"><span class="nav-number">2.</span> <span class="nav-text">解决尝试</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">wang jing</span>
-
-  
-</div>
-
-
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
-
-
-
-
+<section class="read-more">
+     
         
 
-
-
-
-
-
-
         
-      </div>
-    </footer>
+            <div class="read-more-item">
+                <span class="read-more-item-dim">更早的文章</span>
+                <h2 class="post-list__post-title post-title"><a href="/2018/06/25/hexo-in-github/" title="在Github上搭建Hexo博客">在Github上搭建Hexo博客</a></h2>
+                <p class="excerpt">
+                
+                
+https://www.cnblogs.com/visugar/p/6821777.html
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
+搭建步骤
+安装git for windows
+
+下载地址
+安装：一直点击下一步
+查看版本
+git version
+
+
+
+安装NodeJs
+
+下载地址
+安装：一直点击下一步，Custom Setup中勾选
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2018-06-25T10:21:34.000Z" class="post-list__meta--date date">2018-06-25</time>
+ &#8226; <span class="post-list__meta--tags tags">于&nbsp;
+</span><a class="btn-border-small" href="/2018/06/25/hexo-in-github/">继续阅读</a></div>
+
+            </div>
         
-      </div>
-    
+   
+</section>
 
-    
 
-  </div>
 
+<section class="post-comments">
   
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "",
+  productKey: "7e456de65fb945698c448c72191454ce",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 </script>
 
+</section>
 
 
 
 
 
+            <footer class="footer">
+    <span class="footer__copyright">
+        本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    </span>
+    <span class="footer__copyright">
+        基于 <a href="http://hexo.io">Hexo</a> 搭建，感谢 <a href="https://pages.github.com/">GitHub Pages</a> 提供免费的托管服务
+    </span>
+    <span class="footer__copyright">
+        &copy; 2018 - 本站由 <a href="/">wang jing</a> 创建,
+        使用<a href="https://github.com/skx926/hexo-theme-vno">hexo-theme-vno</a>主题
+    </span>
+</footer>
 
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/js/main.js"></script>
 
-  
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
+	ga('create', 'UA-73055515-1', 'auto');
+	ga('send', 'pageview');
+</script>
 
 </body>
 </html>
