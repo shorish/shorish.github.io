@@ -5,12 +5,12 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://blog.wangyuehan.net">
   <title>shorish&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="shorish&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://blog.wangyuehan.net/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -46,7 +46,7 @@
 			<img src="" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">wang jing</a></h1>
+		  <h1 class="header-author"><a href="/">Wang Jing</a></h1>
 		</hgroup>
 		
 
@@ -55,7 +55,9 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/">标签</a></li>
+	        
+				<li><a href="/categories/">分类</a></li>
 	        
 			</ul>
 		</nav>
@@ -79,11 +81,7 @@
 				
 					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -104,10 +102,12 @@
 				<img src="" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">wang jing</h1>
+			  <h1 class="header-author js-header-author">Wang Jing</h1>
 			</hgroup>
 			
 			
+			
+				
 			
 				
 			
@@ -120,22 +120,20 @@
 					
 						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/">标签</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
 		        
 				</ul>
 			</nav>
@@ -152,19 +150,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-blog-custom-domain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hexo-custom-domain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/14/blog-custom-domain/">Hexo+GitHub博客绑定个人域名</a>
+      <a class="article-title" href="/2018/09/14/hexo-custom-domain/">Hexo+GitHub博客绑定个人域名</a>
     </h1>
   
 
         
-        <a href="/2018/09/14/blog-custom-domain/" class="archive-article-date">
+        <a href="/2018/09/14/hexo-custom-domain/" class="archive-article-date">
   	<time datetime="2018-09-14T02:52:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-14</time>
 </a>
         
@@ -172,8 +170,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Hexo-GitHub博客绑定个人域名"><a href="#Hexo-GitHub博客绑定个人域名" class="headerlink" title="Hexo+GitHub博客绑定个人域名"></a>Hexo+GitHub博客绑定个人域名</h2><h3 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h3><p>使用Hexo+GitHub搭建的博客访问地址为<code>shorish.github.io</code>，希望通过个人域名<code>blog.wangyuehan.net</code>访问博客</p>
-<h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
+        <h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><p>使用Hexo+GitHub搭建的博客访问地址为<code>shorish.github.io</code>，希望通过个人域名<code>blog.wangyuehan.net</code>访问博客</p>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ol>
 <li><p>Hexo项目中设置CNAME</p>
 <p> 在Hexo项目中，source目录下新建CNAME文件（无扩展名），文件中填写个人域名 <code>blog.wangyuehan.net</code></p>
 </li>
@@ -190,7 +188,7 @@
 </li>
 </ol>
 <p>另外域名解析也通过IP地址的方式添加，但这个方式GitHub会给出警告，并且GitHub如果改变IP后我们的域名解析也要修改，所以还是建议使用CNAME方式</p>
-<h3 id="报错"><a href="#报错" class="headerlink" title="报错:"></a>报错:</h3><ol>
+<h2 id="报错"><a href="#报错" class="headerlink" title="报错:"></a>报错:</h2><ol>
 <li><p>访问显示GitHub返回的404错误，这个问题是Hexo项目中没有设置CNAME<br><img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914110515blog-custom-domain.png" alt=""></p>
 </li>
 <li><p>配置完成后还是无法访问，这个问题是GitHub只通过https协议访问，注意自己是否使用了http协议，所以无法访问</p>
@@ -204,11 +202,33 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/博客搭建//" class="article-tag-list-link color5">博客搭建</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/14/blog-custom-domain/">展开全文 >></a>
+          <a class="article-more-a" href="/2018/09/14/hexo-custom-domain/">展开全文 >></a>
         </p>
       
 
@@ -283,6 +303,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/书签//" class="article-tag-list-link color3">书签</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -376,7 +407,29 @@ $ vim /usr/local/php/etc/php.ini
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/服务器//" class="article-tag-list-link color4">服务器</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -560,7 +613,29 @@ hexo d 发布到远程仓库
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/博客搭建//" class="article-tag-list-link color5">博客搭建</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -675,7 +750,7 @@ hexo d 发布到远程仓库
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 wang jing
+    		&copy; 2018 Wang Jing
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -756,6 +831,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -813,22 +896,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
             </li>
           
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
         </ul>
   		
     	</section>
@@ -837,7 +904,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">路还远&lt;br&gt;&lt;br&gt;不断前行</div>
   	  	
     	</section>
     

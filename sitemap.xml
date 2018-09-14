@@ -2,37 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2018/09/14/blog-custom-domain/</loc>
+    <loc>https://blog.wangyuehan.net/2018/09/14/hexo-custom-domain/</loc>
     
-    <lastmod>2018-09-14T03:57:53.334Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/09/09/bookmark/</loc>
-    
-    <lastmod>2018-09-14T03:09:12.477Z</lastmod>
+    <lastmod>2018-09-14T06:42:04.178Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/06/25/hexo-in-github/</loc>
+    <loc>https://blog.wangyuehan.net/2018/06/25/hexo-in-github/</loc>
     
-    <lastmod>2018-07-20T15:42:00.919Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2018/07/20/ttfb/</loc>
-    
-    <lastmod>2018-07-20T15:39:39.893Z</lastmod>
+    <lastmod>2018-09-14T06:41:56.847Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2018/04/10/hello-world/</loc>
+    <loc>https://blog.wangyuehan.net/2018/07/20/ttfb/</loc>
     
-    <lastmod>2018-04-10T09:06:39.000Z</lastmod>
+    <lastmod>2018-09-14T06:41:47.387Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
+    
+    <lastmod>2018-09-14T06:29:03.375Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.wangyuehan.net/tags/index.html</loc>
+    
+    <lastmod>2018-09-14T06:22:43.782Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.wangyuehan.net/2018/04/10/hello-world/</loc>
+    
+    <lastmod>2018-09-14T06:22:06.223Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.wangyuehan.net/categories/index.html</loc>
+    
+    <lastmod>2018-09-14T06:17:30.107Z</lastmod>
     
   </url>
   
