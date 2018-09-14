@@ -231,6 +231,144 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/14/blog-custom-domain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wang jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/14/blog-custom-domain/" itemprop="url">Hexo+GitHub博客绑定个人域名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-14T10:52:44+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Hexo-GitHub博客绑定个人域名"><a href="#Hexo-GitHub博客绑定个人域名" class="headerlink" title="Hexo+GitHub博客绑定个人域名"></a>Hexo+GitHub博客绑定个人域名</h2><p>目标：使用Hexo+GitHub搭建的博客访问地址为<code>shorish.github.io</code>，希望通过个人域名<code>blog.wangyuehan.net</code>访问博客</p>
+<ol>
+<li><p>查看GitHub博客的IP地址</p>
+<p> 使用ping命令查看<code>shorish.github.io</code>的IP地址</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914103035blog-custom-domain.png" alt=""></p>
+</li>
+<li><p>配置域名解析</p>
+<p> 我的个人域名在腾讯云，进入到域名管理中添加域名解析。记录地址：blog，记录类型：A，记录值：步骤一中的IP地址，线路类型和TTL保留默认值</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914103600blog-custom-domain.png" alt=""></p>
+<p> 过几分钟可以通过ping命令验证域名解析是否成功，下面表示成功</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914104350blog-custom-domain.png" alt=""></p>
+</li>
+<li><p>在GitHub上配置个人域名</p>
+<p> 登录GitHub，进入<code>shorish/shorish.github.io</code>仓库，菜单Settings -&gt; Options -&gt; GitHub Pages -&gt; Custom domain，填写个人域名</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914102639blog-custom-domain.png" alt=""></p>
+<p> 接下来通过个人域名便可以访问blog</p>
+</li>
+</ol>
+<p>另外域名解析还可以通过CNAME的方式添加，但这个方式我没有配置成功</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/bookmark/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -919,7 +1057,7 @@ hexo d 发布到远程仓库
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
