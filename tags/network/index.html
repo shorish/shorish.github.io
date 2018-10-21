@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://blog.wangyuehan.net">
-  <title>在Github上搭建Hexo博客 | shorish&#39;s Blog</title>
+  <title>Tag: network | shorish&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="https://www.cnblogs.com/visugar/p/6821777.html  搭建步骤 安装git for windows  下载地址 安装：一直点击下一步 查看版本 git version    安装NodeJs  下载地址 安装：一直点击下一步，Custom Setup中勾选 Add to PATH  查看版本 node -v    安装hexo  创建blog目录，进入目">
-<meta name="keywords" content="Hexo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="在Github上搭建Hexo博客">
-<meta property="og:url" content="https://blog.wangyuehan.net/2018/06/25/hexo-in-github/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="shorish&#39;s Blog">
+<meta property="og:url" content="https://blog.wangyuehan.net/tags/network/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="https://www.cnblogs.com/visugar/p/6821777.html  搭建步骤 安装git for windows  下载地址 安装：一直点击下一步 查看版本 git version    安装NodeJs  下载地址 安装：一直点击下一步，Custom Setup中勾选 Add to PATH  查看版本 node -v    安装hexo  创建blog目录，进入目">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-14T06:41:56.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Github上搭建Hexo博客">
-<meta name="twitter:description" content="https://www.cnblogs.com/visugar/p/6821777.html  搭建步骤 安装git for windows  下载地址 安装：一直点击下一步 查看版本 git version    安装NodeJs  下载地址 安装：一直点击下一步，Custom Setup中勾选 Add to PATH  查看版本 node -v    安装hexo  创建blog目录，进入目">
+<meta name="twitter:title" content="shorish&#39;s Blog">
   
     <link rel="alternative" href="/atom.xml" title="shorish&#39;s Blog" type="application/atom+xml">
   
@@ -176,297 +171,75 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hexo-in-github" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      在Github上搭建Hexo博客
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-title">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/10/21/centos-firewall/" class="archive-article-date">
+  	<time datetime="2018-10-21T05:52:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-21</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/10/21/centos-firewall/">Centos7 firewall配置</a>
     </h1>
   
 
-        
-        <a href="/2018/06/25/hexo-in-github/" class="archive-article-date">
-  	<time datetime="2018-06-25T10:21:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">https://www.cnblogs.com/visugar/p/6821777.html</a></p>
-</blockquote>
-<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ol>
-<li><p>安装git for windows</p>
-<ul>
-<li><a href="https://gitforwindows.org/" target="_blank" rel="noopener">下载地址</a></li>
-<li>安装：一直点击下一步</li>
-<li><p>查看版本</p>
-<pre><code>git version
-</code></pre></li>
-</ul>
-</li>
-<li><p>安装NodeJs</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a></li>
-<li>安装：一直点击下一步，Custom Setup中勾选 <code>Add to PATH</code> </li>
-<li><p>查看版本</p>
-<pre><code>node -v
-</code></pre></li>
-</ul>
-</li>
-<li><p>安装hexo</p>
-<ul>
-<li><p>创建blog目录，进入目录</p>
-<pre><code>mkdir blogdir
-cd blogdir
-</code></pre></li>
-<li><p>安装命令：<code>npm -i -g hexo</code></p>
-</li>
-<li><p>查看版本</p>
-<pre><code>hexo -v
-</code></pre></li>
-</ul>
-</li>
-<li><p>构建hexo项目，本地测试</p>
-<ul>
-<li><p>生成hexo代码</p>
-<pre><code>hexo init
-hexo clean
-hexo generate
-</code></pre></li>
-<li><p>启动本地服务器</p>
-<pre><code>#注：hexo 3.0把服务器独立成个别模块，需要单独安装
-npm install hexo-server --save
-hexo server
-</code></pre></li>
-<li>打开浏览器测试： <code>http://localhost:4000</code></li>
-</ul>
-</li>
-<li><p>gitbash中配置git环境，生成ssh密钥</p>
-<ul>
-<li><p>执行</p>
-<pre><code>git config --global user.name &quot;YourName&quot;
-git config --global user.email &quot;YourEmail&quot;
-</code></pre></li>
-<li><p>创建ssh公钥</p>
-<pre><code>ssh-keygen -t rsa -C &quot;yourmail@example.com&quot;
-生成ssh，找到id_rsa.pub文件内容
-</code></pre></li>
-</ul>
-</li>
-<li><p>申请github账号，创建repo，配置免密登录</p>
-<ul>
-<li>申请账号，<a href="https://github.com/" target="_blank" rel="noopener">github地址</a></li>
-<li>创建仓库<ul>
-<li>新建仓库</li>
-<li>仓库名：yourname.github.io</li>
-</ul>
-</li>
-<li>配置免密登录<ul>
-<li>Setting——SSH and GPG keys——New SSH key——粘贴刚创建id_rsa.pub公钥文件内容</li>
-<li>验证是否成功 <code>ssh -T git@github.com</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>部署hexo</p>
-<ul>
-<li>安装部署工具<pre><code>npm install hexo-deployer-git --save
-</code></pre></li>
-<li><p>配置部署参数</p>
-<pre><code>编辑_config.yml，最下方添加内容
-    deploy:
-      type: git
-      repo: git@github.com:yourname/yourname.github.io.git
-      branch: master
-
-repo也可以是https://github.com/yourname/yourname.github.io.git
-</code></pre></li>
-<li><p>部署到github<br>   执行命令</p>
-<pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre></li>
-</ul>
-</li>
-<li><p>修改配置内容</p>
-<ul>
-<li><p>选择主题</p>
-<p>  下载主题<a href="https://hexo.io/themes/" target="_blank" rel="noopener">下载地址</a>，如<code>next</code><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">下载地址</a>，解压到themes目录下，配置 <code>themes/next/_config.yml</code></p>
-</li>
-<li>导航栏</li>
-<li>侧边栏</li>
-</ul>
-</li>
-<li><p>hexo使用</p>
-<ul>
-<li><p>发布新文章</p>
-<pre><code>hexo new title  
-</code></pre><p>在source-&gt;_posts目录下，存放要发布的文章</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>hexo编写步骤</p>
-<pre><code>hexo new &lt;title&gt;
-编辑markdown
-hexo clean 清理你的项目缓存
-hexo g 将你刚刚编写的md编译为浏览器可以识别的html
-hexo d 发布到远程仓库
-</code></pre><p>主题库<br><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">network</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">command</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/博客搭建//" class="article-tag-list-link color5">博客搭建</a>
+        			<a href="/categories/Linux//" class="article-tag-list-link color1">Linux</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://blog.wangyuehan.net/2018/06/25/hexo-in-github/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/20/ttfb/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          服务器网页访问很慢，TTFB时间过长
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/04/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-  <div id="SOHUCS" sid="hexo-in-github" ></div> 
-<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
-<script type="text/javascript">
-    window.changyan.api.config({
-        appid: "cytOGBuke",
-        conf: "prod_ec4a0e20da2ca35ff89428f2964511e4"
-    });
-</script>
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -489,9 +262,9 @@ hexo d 发布到远程仓库
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

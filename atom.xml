@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2018-10-21T06:02:21.638Z</updated>
+  <updated>2018-10-21T06:07:41.456Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.wangyuehan.net/2018/10/21/centos-firewall/"/>
     <id>https://blog.wangyuehan.net/2018/10/21/centos-firewall/</id>
     <published>2018-10-21T05:52:00.000Z</published>
-    <updated>2018-10-21T06:02:21.638Z</updated>
+    <updated>2018-10-21T06:07:41.456Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Centos7-firewall配置"><a href="#Centos7-firewall配置" class="headerlink" title="Centos7 firewall配置"></a>Centos7 firewall配置</h2><p>Centos7中默认使用的防火墙是firewall，下面是一些常用的命令</p><h3 id="firewall服务管理"><a href="#firewall服务管理" class="headerlink" title="firewall服务管理"></a>firewall服务管理</h3><pre><code>#开启服务 systemctl start firewalld.service#关闭防火墙systemctl stop firewalld.service#开机自动启动systemctl enable firewalld.service#关闭开机制动启动systemctl disable firewalld.service#查看状态systemctl status firewalld</code></pre><h3 id="firewall-cmd配置命令"><a href="#firewall-cmd配置命令" class="headerlink" title="firewall-cmd配置命令"></a>firewall-cmd配置命令</h3><pre><code>#查看状态firewall-cmd --state    //running 表示运行#获取活动的区域firewall-cmd --get-active-zones#修改配置文件后 使用命令重新加载firewall-cmd --reload#启用某个服务firewall-cmd --zone=public --add-service=httpsfirewall-cmd --permanent --zone=public --add-service=https#开启某个端口firewall-cmd --permanent --zone=public --add-port=8080-8081/tcpfirewall-cmd  --zone=public --add-port=8080-8081/tcp#查看开启的端口和服务firewall-cmd --permanent --zone=public --list-servicesfirewall-cmd --permanent --zone=public --list-ports</code></pre>]]></content>
     
@@ -36,6 +36,10 @@
     
       <category term="Linux" scheme="https://blog.wangyuehan.net/categories/Linux/"/>
     
+    
+      <category term="network" scheme="https://blog.wangyuehan.net/tags/network/"/>
+    
+      <category term="command" scheme="https://blog.wangyuehan.net/tags/command/"/>
     
   </entry>
   
