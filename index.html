@@ -193,7 +193,35 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="添加分类"><a href="#添加分类" class="headerlink" title="添加分类"></a>添加分类</h3><ol>
+<li><p>创建分类显示页</p>
+<pre><code>hexo new page categories  #创建了source/categories/index.md文件
+index.md文件中添加内容
+
+type: &quot;categories&quot;
+</code></pre></li>
+<li><p>创建文章页</p>
+<pre><code>hexo new title pagename  #创建了source/_posts/pagename.md文件
+</code></pre><p> pagename.md文件中添加内容</p>
+<pre><code>categories: 
+    - Linux
+</code></pre></li>
+</ol>
+<h3 id="添加标签"><a href="#添加标签" class="headerlink" title="添加标签"></a>添加标签</h3><ol>
+<li><p>创建标签显示页</p>
+<pre><code>hexo new page tags  #创建了source/tags/index.md文件
+index.md文件中添加内容
+
+type: &quot;tags&quot;
+</code></pre></li>
+<li><p>创建文章页</p>
+<pre><code>hexo new title pagename #创建了source/_posts/pagename.md文件
+</code></pre><p> pagename.md文件中添加内容</p>
+<pre><code>tags: 
+    - 新页面
+</code></pre></li>
+</ol>
+
       
 
       
