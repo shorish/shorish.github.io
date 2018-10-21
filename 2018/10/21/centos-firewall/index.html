@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://blog.wangyuehan.net">
   <title>Centos7 firewall配置 | shorish&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Centos7 firewall配置Centos7中默认使用的防火墙是firewall，下面是一些常用的命令 firewall服务管理#开启服务  systemctl start firewalld.service #关闭防火墙 systemctl stop firewalld.service #开机自动启动 systemctl enable firewalld.service #关闭开机制动启动">
+  <meta name="description" content="Centos7 firewall配置Centos7中默认使用的防火墙是firewall，下面是一些常用的命令 firewall服务管理#开启服务  systemctl start firewalld.service  #关闭防火墙 systemctl stop firewalld.service  #开机自动启动 systemctl enable firewalld.service  #关闭开机制">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos7 firewall配置">
 <meta property="og:url" content="https://blog.wangyuehan.net/2018/10/21/centos-firewall/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="Centos7 firewall配置Centos7中默认使用的防火墙是firewall，下面是一些常用的命令 firewall服务管理#开启服务  systemctl start firewalld.service #关闭防火墙 systemctl stop firewalld.service #开机自动启动 systemctl enable firewalld.service #关闭开机制动启动">
+<meta property="og:description" content="Centos7 firewall配置Centos7中默认使用的防火墙是firewall，下面是一些常用的命令 firewall服务管理#开启服务  systemctl start firewalld.service  #关闭防火墙 systemctl stop firewalld.service  #开机自动启动 systemctl enable firewalld.service  #关闭开机制">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T06:00:56.326Z">
+<meta property="og:updated_time" content="2018-10-21T06:02:21.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7 firewall配置">
-<meta name="twitter:description" content="Centos7 firewall配置Centos7中默认使用的防火墙是firewall，下面是一些常用的命令 firewall服务管理#开启服务  systemctl start firewalld.service #关闭防火墙 systemctl stop firewalld.service #开机自动启动 systemctl enable firewalld.service #关闭开机制动启动">
+<meta name="twitter:description" content="Centos7 firewall配置Centos7中默认使用的防火墙是firewall，下面是一些常用的命令 firewall服务管理#开启服务  systemctl start firewalld.service  #关闭防火墙 systemctl stop firewalld.service  #开机自动启动 systemctl enable firewalld.service  #关闭开机制">
   
     <link rel="alternative" href="/atom.xml" title="shorish&#39;s Blog" type="application/atom+xml">
   
@@ -198,26 +198,35 @@ var _hmt = _hmt || [];
         <h2 id="Centos7-firewall配置"><a href="#Centos7-firewall配置" class="headerlink" title="Centos7 firewall配置"></a>Centos7 firewall配置</h2><p>Centos7中默认使用的防火墙是firewall，下面是一些常用的命令</p>
 <h3 id="firewall服务管理"><a href="#firewall服务管理" class="headerlink" title="firewall服务管理"></a>firewall服务管理</h3><pre><code>#开启服务 
 systemctl start firewalld.service
+
 #关闭防火墙
 systemctl stop firewalld.service
+
 #开机自动启动
 systemctl enable firewalld.service
+
 #关闭开机制动启动
 systemctl disable firewalld.service
+
 #查看状态
 systemctl status firewalld
 </code></pre><h3 id="firewall-cmd配置命令"><a href="#firewall-cmd配置命令" class="headerlink" title="firewall-cmd配置命令"></a>firewall-cmd配置命令</h3><pre><code>#查看状态
 firewall-cmd --state    //running 表示运行
+
 #获取活动的区域
 firewall-cmd --get-active-zones
+
 #修改配置文件后 使用命令重新加载
 firewall-cmd --reload
+
 #启用某个服务
 firewall-cmd --zone=public --add-service=https
 firewall-cmd --permanent --zone=public --add-service=https
+
 #开启某个端口
 firewall-cmd --permanent --zone=public --add-port=8080-8081/tcp
 firewall-cmd  --zone=public --add-port=8080-8081/tcp
+
 #查看开启的端口和服务
 firewall-cmd --permanent --zone=public --list-services
 firewall-cmd --permanent --zone=public --list-ports
