@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/categories/index.html</loc>
+    
+    <lastmod>2018-10-21T06:39:25.604Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.wangyuehan.net/tags/index.html</loc>
+    
+    <lastmod>2018-10-21T06:39:14.612Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/10/21/hexo-categories-tags/</loc>
     
     <lastmod>2018-10-21T06:27:18.290Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://blog.wangyuehan.net/2018/10/21/centos-firewall/</loc>
     
     <lastmod>2018-10-21T06:11:00.108Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/tags/index.html</loc>
-    
-    <lastmod>2018-10-21T06:07:06.115Z</lastmod>
     
   </url>
   
@@ -61,13 +68,6 @@
     <loc>https://blog.wangyuehan.net/2018/04/10/hello-world/</loc>
     
     <lastmod>2018-09-14T06:22:06.223Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/categories/index.html</loc>
-    
-    <lastmod>2018-09-14T06:17:30.107Z</lastmod>
     
   </url>
   
