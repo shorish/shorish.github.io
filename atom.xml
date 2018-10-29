@@ -79,7 +79,7 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://blog.wangyuehan.net/category/hexo/"/>
+      <category term="hexo" scheme="https://blog.wangyuehan.net/categories/hexo/"/>
     
     
   </entry>
@@ -103,12 +103,12 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://blog.wangyuehan.net/category/Linux/"/>
+      <category term="Linux" scheme="https://blog.wangyuehan.net/categories/Linux/"/>
     
     
-      <category term="network" scheme="https://blog.wangyuehan.net/tag/network/"/>
+      <category term="network" scheme="https://blog.wangyuehan.net/tags/network/"/>
     
-      <category term="command" scheme="https://blog.wangyuehan.net/tag/command/"/>
+      <category term="command" scheme="https://blog.wangyuehan.net/tags/command/"/>
     
   </entry>
   
@@ -132,10 +132,10 @@
     
     </summary>
     
-      <category term="tools" scheme="https://blog.wangyuehan.net/category/tools/"/>
+      <category term="tools" scheme="https://blog.wangyuehan.net/categories/tools/"/>
     
     
-      <category term="sublime" scheme="https://blog.wangyuehan.net/tag/sublime/"/>
+      <category term="sublime" scheme="https://blog.wangyuehan.net/tags/sublime/"/>
     
   </entry>
   
@@ -157,7 +157,7 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://blog.wangyuehan.net/category/hexo/"/>
+      <category term="hexo" scheme="https://blog.wangyuehan.net/categories/hexo/"/>
     
     
   </entry>
@@ -180,7 +180,7 @@
     
     </summary>
     
-      <category term="bookmark" scheme="https://blog.wangyuehan.net/category/bookmark/"/>
+      <category term="bookmark" scheme="https://blog.wangyuehan.net/categories/bookmark/"/>
     
     
   </entry>
@@ -203,12 +203,12 @@
     
     </summary>
     
-      <category term="server" scheme="https://blog.wangyuehan.net/category/server/"/>
+      <category term="server" scheme="https://blog.wangyuehan.net/categories/server/"/>
     
     
-      <category term="php" scheme="https://blog.wangyuehan.net/tag/php/"/>
+      <category term="php" scheme="https://blog.wangyuehan.net/tags/php/"/>
     
-      <category term="problem" scheme="https://blog.wangyuehan.net/tag/problem/"/>
+      <category term="problem" scheme="https://blog.wangyuehan.net/tags/problem/"/>
     
   </entry>
   
@@ -231,7 +231,7 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://blog.wangyuehan.net/category/hexo/"/>
+      <category term="hexo" scheme="https://blog.wangyuehan.net/categories/hexo/"/>
     
     
   </entry>
@@ -254,7 +254,7 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://blog.wangyuehan.net/category/hexo/"/>
+      <category term="hexo" scheme="https://blog.wangyuehan.net/categories/hexo/"/>
     
     
   </entry>
