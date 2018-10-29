@@ -180,7 +180,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/29/pyenv-virtualenv/">pyenv-virtualenv</a>
+      <a class="article-title" href="/2018/10/29/pyenv-virtualenv/">Mac下Python多版本管理pyenv和pyenv-virtualenv</a>
     </h1>
   
 
@@ -197,97 +197,103 @@ var _hmt = _hmt || [];
 <pre><code>brew update
 brew install pyenv
 </code></pre><p><strong>2、配置</strong></p>
-<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vim ~/.zshrc    #使用zsh shell
-vim ~/.bash_profile #使用系统默认
-</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
-<pre><code># pyenv
-echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.zshrc
-</code></pre></li>
-<li><p>使配置生效</p>
-<pre><code>source ~/.zshrc
-#或
-source ~/.bash_profile  
-</code></pre></li>
-</ol>
-<p><strong>3、安装zlib</strong></p>
+<pre><code>1. 编辑配置文件
+
+    vim ~/.zshrc    #使用zsh shell
+    vim ~/.bash_profile #使用系统默认
+在.zshrc或.bash_profile文件最后写入
+
+    # pyenv
+    echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.zshrc
+
+2. 使配置生效
+
+    source ~/.zshrc
+    #或
+    source ~/.bash_profile  
+</code></pre><p><strong>3、安装zlib</strong></p>
 <pre><code>brew install zlib
 
 #如果命令pyenv install 3.7.0报错需执行下面命令
 ln -s /usr/local/Cellar/zlib/1.2.11/lib/* /usr/local/lib
 ln -s /usr/local/Cellar/zlib/1.2.11/include/* /usr/local/include
 </code></pre><p><strong>4、使用</strong></p>
-<ul>
-<li><p>查看可安装版本</p>
-<pre><code>pyenv install --list    #查看可安装版本
-</code></pre></li>
-<li><p>安装指定版本</p>
-<pre><code>pyenv install 3.7.0     #安装指定版本
-</code></pre></li>
-<li><p>查看当前python版本</p>
-<pre><code>pyenv version       #查看当前python版本
-</code></pre></li>
-<li><p>查看已安装python版本</p>
-<pre><code>pyenv versions      #查看已安装python版本
-</code></pre></li>
-<li><p>设置python版本</p>
-<pre><code>pyenv global 3.7.0  #对所有的Shell全局有效，版本号写入~/.pyenv/version文件
-pyenv local 3.7.0   #对当前目录有效，版本号写入当前目录下的.python-version文件
-pyenv shell 3.7.0   #对当前会话有效
-</code></pre></li>
-<li><p>重置python版本设置</p>
-<pre><code>pyenv shell --unset
-pyenv local --unset
-</code></pre></li>
-<li><p>卸载版本</p>
-<pre><code>pyenv uninstall 3.7.0   
-</code></pre></li>
-</ul>
-<h3 id="二、pyenv-virtualenv安装和使用"><a href="#二、pyenv-virtualenv安装和使用" class="headerlink" title="二、pyenv-virtualenv安装和使用"></a>二、pyenv-virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
+<pre><code>- 查看可安装版本
+
+    pyenv install --list    #查看可安装版本
+
+- 安装指定版本
+
+    pyenv install 3.7.0     #安装指定版本
+
+- 查看当前python版本
+
+    pyenv version       #查看当前python版本
+
+- 查看已安装python版本
+
+    pyenv versions      #查看已安装python版本
+
+- 设置python版本
+
+    pyenv global 3.7.0  #对所有的Shell全局有效，版本号写入~/.pyenv/version文件
+    pyenv local 3.7.0   #对当前目录有效，版本号写入当前目录下的.python-version文件
+    pyenv shell 3.7.0   #对当前会话有效
+
+- 重置python版本设置
+
+    pyenv shell --unset
+    pyenv local --unset
+
+- 卸载版本
+
+    pyenv uninstall 3.7.0   
+</code></pre><h3 id="二、pyenv-virtualenv安装和使用"><a href="#二、pyenv-virtualenv安装和使用" class="headerlink" title="二、pyenv-virtualenv安装和使用"></a>二、pyenv-virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
 <pre><code>brew update
 brew install pyenv-virtualenv
 </code></pre><p><strong>2、配置</strong></p>
-<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vim ~/.zshrc    #使用zsh shell
-vim ~/.bash_profile #使用系统默认
-</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
-<pre><code># pyenv-virtualenv
-if which pyenv-virtualenv-init &gt; /dev/null;
-  then eval &quot;$(pyenv virtualenv-init -)&quot;;
-fi      
-</code></pre></li>
-<li><p>使配置生效</p>
-<pre><code>source ~/.zshrc
-#或
-source ~/.bash_profile  
-</code></pre></li>
-</ol>
-<p><strong>3、使用</strong></p>
-<ul>
-<li><p>从当前版本创建虚拟环境</p>
-<pre><code>pyenv virtualenv py370
-</code></pre></li>
-<li><p>指定版本创建虚拟环境</p>
-<pre><code>pyenv virtualenv 3.7.0 py370
-</code></pre></li>
-<li><p>查看已创建的虚拟环境</p>
-<pre><code>pyenv versions
-</code></pre></li>
-<li><p>激活和停用虚拟环境</p>
-<pre><code>#手动激活
-pyenv activate py370
-pyenv deactivate
+<pre><code>1. 编辑配置文件
 
-#自动激活，进入目录自动激活
-pyenv local py370
-</code></pre></li>
-<li><p>删除现有虚拟环境</p>
-<pre><code>pyenv uninstall py370
-</code></pre></li>
-</ul>
+    vim ~/.zshrc    #使用zsh shell
+    vim ~/.bash_profile #使用系统默认
+在.zshrc或.bash_profile文件最后写入
 
+    # pyenv-virtualenv
+    if which pyenv-virtualenv-init &gt; /dev/null;
+      then eval &quot;$(pyenv virtualenv-init -)&quot;;
+    fi      
+
+2. 使配置生效
+
+    source ~/.zshrc
+    #或
+    source ~/.bash_profile  
+</code></pre><p><strong>3、使用</strong></p>
+<pre><code>- 从当前版本创建虚拟环境
+
+    pyenv virtualenv py370
+
+- 指定版本创建虚拟环境
+
+    pyenv virtualenv 3.7.0 py370
+
+- 查看已创建的虚拟环境
+
+    pyenv versions
+
+- 激活和停用虚拟环境
+
+    #手动激活
+    pyenv activate py370
+    pyenv deactivate
+
+    #自动激活，进入目录自动激活
+    pyenv local py370
+
+- 删除现有虚拟环境
+
+    pyenv uninstall py370
+</code></pre>
       
 
       
