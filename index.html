@@ -173,6 +173,276 @@ var _hmt = _hmt || [];
           <div id="js-content" class="content-ll">
             
   
+    <article id="title-pyenv-virtualenv" class="article article-type-title  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/pyenv-virtualenv/">pyenv-virtualenv</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/29/pyenv-virtualenv/" class="archive-article-date">
+  	<time datetime="2018-10-29T03:51:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、pyenv安装和使用"><a href="#一、pyenv安装和使用" class="headerlink" title="一、pyenv安装和使用"></a>一、pyenv安装和使用</h3><p><strong>1、安装</strong></p>
+<pre><code>brew update
+brew install pyenv
+</code></pre><p><strong>2、配置</strong></p>
+<ol>
+<li><p>编辑配置文件</p>
+<pre><code>vim ~/.zshrc    #使用zsh shell
+vim ~/.bash_profile #使用系统默认
+</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
+<pre><code># pyenv
+echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.zshrc
+</code></pre></li>
+<li><p>使配置生效</p>
+<pre><code>source ~/.zshrc
+#或
+source ~/.bash_profile  
+</code></pre></li>
+</ol>
+<p><strong>3、安装zlib</strong></p>
+<pre><code>brew install zlib
+
+#如果命令pyenv install 3.7.0报错需执行下面命令
+ln -s /usr/local/Cellar/zlib/1.2.11/lib/* /usr/local/lib
+ln -s /usr/local/Cellar/zlib/1.2.11/include/* /usr/local/include
+</code></pre><p><strong>4、使用</strong></p>
+<ul>
+<li><p>查看可安装版本</p>
+<pre><code>pyenv install --list    #查看可安装版本
+</code></pre></li>
+<li><p>安装指定版本</p>
+<pre><code>pyenv install 3.7.0     #安装指定版本
+</code></pre></li>
+<li><p>查看当前python版本</p>
+<pre><code>pyenv version       #查看当前python版本
+</code></pre></li>
+<li><p>查看已安装python版本</p>
+<pre><code>pyenv versions      #查看已安装python版本
+</code></pre></li>
+<li><p>设置python版本</p>
+<pre><code>pyenv global 3.7.0  #对所有的Shell全局有效，版本号写入~/.pyenv/version文件
+pyenv local 3.7.0   #对当前目录有效，版本号写入当前目录下的.python-version文件
+pyenv shell 3.7.0   #对当前会话有效
+</code></pre></li>
+<li><p>重置python版本设置</p>
+<pre><code>pyenv shell --unset
+pyenv local --unset
+</code></pre></li>
+<li><p>卸载版本</p>
+<pre><code>pyenv uninstall 3.7.0   
+</code></pre></li>
+</ul>
+<h3 id="二、pyenv-virtualenv安装和使用"><a href="#二、pyenv-virtualenv安装和使用" class="headerlink" title="二、pyenv-virtualenv安装和使用"></a>二、pyenv-virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
+<pre><code>brew update
+brew install pyenv-virtualenv
+</code></pre><p><strong>2、配置</strong></p>
+<ol>
+<li><p>编辑配置文件</p>
+<pre><code>vim ~/.zshrc    #使用zsh shell
+vim ~/.bash_profile #使用系统默认
+</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
+<pre><code># pyenv-virtualenv
+if which pyenv-virtualenv-init &gt; /dev/null;
+  then eval &quot;$(pyenv virtualenv-init -)&quot;;
+fi      
+</code></pre></li>
+<li><p>使配置生效</p>
+<pre><code>source ~/.zshrc
+#或
+source ~/.bash_profile  
+</code></pre></li>
+</ol>
+<p><strong>3、使用</strong></p>
+<ul>
+<li><p>从当前版本创建虚拟环境</p>
+<pre><code>pyenv virtualenv py370
+</code></pre></li>
+<li><p>指定版本创建虚拟环境</p>
+<pre><code>pyenv virtualenv 3.7.0 py370
+</code></pre></li>
+<li><p>查看已创建的虚拟环境</p>
+<pre><code>pyenv versions
+</code></pre></li>
+<li><p>激活和停用虚拟环境</p>
+<pre><code>#手动激活
+pyenv activate py370
+pyenv deactivate
+
+#自动激活，进入目录自动激活
+pyenv local py370
+</code></pre></li>
+<li><p>删除现有虚拟环境</p>
+<pre><code>pyenv uninstall py370
+</code></pre></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/29/pyenv-virtualenv/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="title-virtualenv-virtualenvwrapper" class="article article-type-title  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/29/virtualenv-virtualenvwrapper/">Python多版本管理virtualenv、virtualenvwrapper</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/29/virtualenv-virtualenvwrapper/" class="archive-article-date">
+  	<time datetime="2018-10-29T03:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、virtualenv安装和使用"><a href="#一、virtualenv安装和使用" class="headerlink" title="一、virtualenv安装和使用"></a>一、virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
+<pre><code>pip install virtualenv
+</code></pre><p><strong>2、创建虚拟环境</strong></p>
+<pre><code>virtualenv --no-site-packages -p /usr/local/bin/python3 venv3
+    --no-site-packages不复制系统环境中已安装的第三方包
+    -p /usr/local/bin/python3指定新建python解释器程序的路径
+</code></pre><p><strong>3、激活venv3虚拟环境</strong></p>
+<pre><code>source venv3/bin/activate
+</code></pre><p><strong>4、退出venv3虚拟环境</strong></p>
+<pre><code>source venv3/bin/deactivate
+</code></pre><p>Linux环境（与Windows区别：目录bin变成Scripts）</p>
+<h3 id="二、virtualenvwrapper安装和使用"><a href="#二、virtualenvwrapper安装和使用" class="headerlink" title="二、virtualenvwrapper安装和使用"></a>二、virtualenvwrapper安装和使用</h3><p>因为virtualenv不便于虚拟环境集中管理，可以使用virtualenvwrapper提供统一的命令来管理虚拟环境</p>
+<p><strong>1、安装</strong></p>
+<pre><code>pip install virtualenvwrapper
+pip install virtualenvwrapper-win       #Windows使用该命令
+</code></pre><p><strong>2、配置</strong></p>
+<ol>
+<li><p>编辑配置文件</p>
+<pre><code>vim ~/.zshrc    #使用zsh shell
+vim ~/.bash_profile #使用系统默认
+</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
+<pre><code># virtualenvwrapper
+echo &apos;export WORKON_HOME=~/Venvs&apos; &gt;&gt; ~/.zshrc #指定虚拟环境目录存放位置
+echo &apos;source /usr/local/bin/virtualenvwrapper.sh&apos; &gt;&gt; ~/.zshrc
+</code></pre></li>
+<li><p>使配置生效</p>
+<pre><code>source ~/.zshrc
+#或
+source ~/.bash_profile  
+</code></pre></li>
+</ol>
+<p><strong>3、使用</strong></p>
+<ul>
+<li><p>创建虚拟环境</p>
+<pre><code>mkvirtualenv venv
+</code></pre></li>
+<li><p>查看当前虚拟目录</p>
+<pre><code>workon
+</code></pre></li>
+<li><p>切换虚拟目录</p>
+<pre><code>workon py3
+</code></pre></li>
+<li><p>退出虚拟环境</p>
+<pre><code>deactivate
+</code></pre></li>
+<li><p>删除虚拟环境</p>
+<pre><code>rmvirtualenv venv
+</code></pre></li>
+</ul>
+<h3 id="三、问题"><a href="#三、问题" class="headerlink" title="三、问题"></a>三、问题</h3><h4 id="1、Mac下安装virtualenvwrapper时报错Cannot-uninstall-‘six’-It-is-a-distutils-installed-project-and-thus-we-cannot-accurately-determine-which-files-belong-to-it-which-would-lead-to-only-a-partial-uninstall"><a href="#1、Mac下安装virtualenvwrapper时报错Cannot-uninstall-‘six’-It-is-a-distutils-installed-project-and-thus-we-cannot-accurately-determine-which-files-belong-to-it-which-would-lead-to-only-a-partial-uninstall" class="headerlink" title="1、Mac下安装virtualenvwrapper时报错Cannot uninstall ‘six’. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall."></a>1、Mac下安装virtualenvwrapper时报错Cannot uninstall ‘six’. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.</h4><p>先升级six，再安装virtualenvwrapper</p>
+<pre><code>sudo python -m pip install --upgrade six #正常升级命令执行报错，需使用下面命令
+sudo python -m pip install --upgrade --ignore-installed six
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/29/virtualenv-virtualenvwrapper/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="title-hexo-categories-tags" class="article article-type-title  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -707,7 +977,7 @@ firewall-cmd --permanent --zone=public --list-ports
 <h2 id="时间管理"><a href="#时间管理" class="headerlink" title="时间管理"></a>时间管理</h2><p><a href="https://www.playpcesor.com/2017/12/2018-calendar-printable.html" target="_blank" rel="noopener">2018 免費列印行事曆的5個方法</a><br><a href="https://www.printablepaper.net/" target="_blank" rel="noopener">PrintablePaper各种书页格式</a></p>
 <h2 id="工具集合"><a href="#工具集合" class="headerlink" title="工具集合"></a>工具集合</h2><p>云端应用：<a href="https://uzer.me/" target="_blank" rel="noopener">https://uzer.me/</a>（不用打开ps就可以P图）<br>在线工具集合：<a href="http://www.nicetool.net/" target="_blank" rel="noopener">http://www.nicetool.net/</a><br>GitHub上整理的一些工具：<a href="http://www.runoob.com/w3cnote/github-tools.html" target="_blank" rel="noopener">http://www.runoob.com/w3cnote/github-tools.html</a><br>ATOOL在线工具：<a href="http://www.atool.org/" target="_blank" rel="noopener">http://www.atool.org/</a><br>站长之家在线工具：<a href="http://tools.jb51.net/" target="_blank" rel="noopener">http://tools.jb51.net/</a>（对照表、代码、正则、颜色、编码） </p>
 <h2 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h2><p>跨平台文件传输：<a href="https://fileroom.io/" target="_blank" rel="noopener">https://fileroom.io/</a>（用于传输的文件安全要求不高）<br>JSFiddle：<a href="https://jsfiddle.net/50wL7mdz/714954/" target="_blank" rel="noopener">https://jsfiddle.net/50wL7mdz/714954/</a>（JS代码测试）<br>菜鸟教程在线编辑器：<a href="http://www.runoob.com/try/try.php?filename=tryjs_events" target="_blank" rel="noopener">http://www.runoob.com/try/try.php?filename=tryjs_events</a>（JS代码测试）<br>草料二维码：<a href="https://cli.im/deqr" target="_blank" rel="noopener">https://cli.im/deqr</a><br>Excel转HTML表格1：<a href="http://tableizer.journalistopia.com/" target="_blank" rel="noopener">http://tableizer.journalistopia.com/</a><br>Excel转HTML表格2：<a href="http://pressbin.com/tools/excel_to_html_table/index.html" target="_blank" rel="noopener">http://pressbin.com/tools/excel_to_html_table/index.html</a><br>Online-StopWatch：<a href="https://www.online-stopwatch.com/" target="_blank" rel="noopener">https://www.online-stopwatch.com/</a><br>网络服务器时间发布：<a href="http://www.time.ac.cn/stime.asp" target="_blank" rel="noopener">http://www.time.ac.cn/stime.asp</a>  </p>
-<h2 id="Chrome工具"><a href="#Chrome工具" class="headerlink" title="Chrome工具"></a>Chrome工具</h2><p>清除自动HTTPS：<a href="chrome://net-internals/#hsts" target="_blank" rel="noopener">chrome://net-internals/#hsts</a>  </p>
+<h2 id="Chrome工具"><a href="#Chrome工具" class="headerlink" title="Chrome工具"></a>Chrome工具</h2><p><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">chromedriver下载地址</a><br>清除自动HTTPS：<a href="chrome://net-internals/#hsts" target="_blank" rel="noopener">chrome://net-internals/#hsts</a>  </p>
 <h2 id="备查手册"><a href="#备查手册" class="headerlink" title="备查手册"></a>备查手册</h2><p>SublimeText插件库：<a href="https://packagecontrol.io" target="_blank" rel="noopener">https://packagecontrol.io</a><br>SublimeText Emmet使用手册：<a href="https://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="noopener">https://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
 
       
@@ -1090,7 +1360,7 @@ hexo d 发布到远程仓库
 
         
         <a href="/2018/04/10/hello-world/" class="archive-article-date">
-  	<time datetime="2018-04-10T09:06:39.791Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
+  	<time datetime="2018-04-10T09:06:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-10</time>
 </a>
         
       </header>
@@ -1260,15 +1530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">problem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sublime</a>
               </li>
             
             <div class="clearfix"></div>
