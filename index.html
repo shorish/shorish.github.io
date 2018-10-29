@@ -365,22 +365,19 @@ pyenv local py370
 <pre><code>pip install virtualenvwrapper
 pip install virtualenvwrapper-win       #Windows使用该命令
 </code></pre><p><strong>2、配置</strong></p>
-<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vim ~/.zshrc    #使用zsh shell
-vim ~/.bash_profile #使用系统默认
-</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
-<pre><code># virtualenvwrapper
-echo &apos;export WORKON_HOME=~/Venvs&apos; &gt;&gt; ~/.zshrc #指定虚拟环境目录存放位置
-echo &apos;source /usr/local/bin/virtualenvwrapper.sh&apos; &gt;&gt; ~/.zshrc
-</code></pre></li>
-<li><p>使配置生效</p>
+<p>1.编辑配置文件</p>
+<pre><code>    vim ~/.zshrc    #使用zsh shell
+    vim ~/.bash_profile #使用系统默认
+在.zshrc或.bash_profile文件最后写入
+
+    # virtualenvwrapper
+    echo &apos;export WORKON_HOME=~/Venvs&apos; &gt;&gt; ~/.zshrc #指定虚拟环境目录存放位置
+    echo &apos;source /usr/local/bin/virtualenvwrapper.sh&apos; &gt;&gt; ~/.zshrc
+</code></pre><p>2.使配置生效</p>
 <pre><code>source ~/.zshrc
 #或
 source ~/.bash_profile  
-</code></pre></li>
-</ol>
-<p><strong>3、使用</strong></p>
+</code></pre><p><strong>3、使用</strong></p>
 <ul>
 <li><p>创建虚拟环境</p>
 <pre><code>mkvirtualenv venv
@@ -398,7 +395,8 @@ source ~/.bash_profile
 <pre><code>rmvirtualenv venv
 </code></pre></li>
 </ul>
-<h3 id="三、问题"><a href="#三、问题" class="headerlink" title="三、问题"></a>三、问题</h3><h4 id="1、Mac下安装virtualenvwrapper时报错Cannot-uninstall-‘six’-It-is-a-distutils-installed-project-and-thus-we-cannot-accurately-determine-which-files-belong-to-it-which-would-lead-to-only-a-partial-uninstall"><a href="#1、Mac下安装virtualenvwrapper时报错Cannot-uninstall-‘six’-It-is-a-distutils-installed-project-and-thus-we-cannot-accurately-determine-which-files-belong-to-it-which-would-lead-to-only-a-partial-uninstall" class="headerlink" title="1、Mac下安装virtualenvwrapper时报错Cannot uninstall ‘six’. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall."></a>1、Mac下安装virtualenvwrapper时报错Cannot uninstall ‘six’. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.</h4><p>先升级six，再安装virtualenvwrapper</p>
+<h3 id="三、问题"><a href="#三、问题" class="headerlink" title="三、问题"></a>三、问题</h3><h4 id="1、Mac下安装virtualenvwrapper时报错"><a href="#1、Mac下安装virtualenvwrapper时报错" class="headerlink" title="1、Mac下安装virtualenvwrapper时报错"></a>1、Mac下安装virtualenvwrapper时报错</h4><pre><code>Cannot uninstall &apos;six&apos;. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
+</code></pre><p>先升级six，再安装virtualenvwrapper</p>
 <pre><code>sudo python -m pip install --upgrade six #正常升级命令执行报错，需使用下面命令
 sudo python -m pip install --upgrade --ignore-installed six
 </code></pre>
