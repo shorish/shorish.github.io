@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/</loc>
+    
+    <lastmod>2018-10-29T07:25:21.897Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/</loc>
+    
+    <lastmod>2018-10-29T07:25:12.247Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/categories/index.html</loc>
     
     <lastmod>2018-10-29T06:51:09.165Z</lastmod>
@@ -12,20 +26,6 @@
     <loc>https://blog.wangyuehan.net/tags/index.html</loc>
     
     <lastmod>2018-10-29T06:42:17.703Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/</loc>
-    
-    <lastmod>2018-10-29T06:13:37.580Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/</loc>
-    
-    <lastmod>2018-10-29T06:05:15.817Z</lastmod>
     
   </url>
   
