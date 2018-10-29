@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/</loc>
+    <loc>https://blog.wangyuehan.net/categories/index.html</loc>
     
-    <lastmod>2018-10-29T06:13:37.580Z</lastmod>
+    <lastmod>2018-10-29T06:29:37.292Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.wangyuehan.net/tags/index.html</loc>
     
-    <lastmod>2018-10-29T06:10:07.636Z</lastmod>
+    <lastmod>2018-10-29T06:29:27.031Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.wangyuehan.net/categories/index.html</loc>
+    <loc>https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/</loc>
     
-    <lastmod>2018-10-29T06:09:59.342Z</lastmod>
+    <lastmod>2018-10-29T06:13:37.580Z</lastmod>
     
   </url>
   
