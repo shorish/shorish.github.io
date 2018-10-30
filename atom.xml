@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2018-10-29T07:25:21.897Z</updated>
+  <updated>2018-10-30T08:17:12.399Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>lnmp-install</title>
+    <link href="https://blog.wangyuehan.net/2018/10/30/lnmp-install/"/>
+    <id>https://blog.wangyuehan.net/2018/10/30/lnmp-install/</id>
+    <published>2018-10-30T08:15:37.000Z</published>
+    <updated>2018-10-30T08:17:12.399Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h2><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol><li><p>下载</p><p> 访问<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载地址</a>，找到需要安装的版本的下载地址，如：<code>http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz</code>  </p><pre><code>wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz</code></pre><p> 为了防止安装时掉线，建议使用screen</p><pre><code>yum install screen  #安装screenscreen -S lnmp      #指定screen作业的名称#开始执行安装过程，如果掉线执行下面命令恢复screen -r lnmp      #恢复离线的screen作业screen -list            #列出所有会话</code></pre></li><li><p>解压安装</p><pre><code>tar -zxvf lnmp1.5-full.tar.gzcd lnmp1.5-full./install.sh {lnmp|lnmpa|lamp}  #需选择安装的类型#按照提示安装mysql、php</code></pre></li></ol><h2 id="LNMP配置文件及日志文件"><a href="#LNMP配置文件及日志文件" class="headerlink" title="LNMP配置文件及日志文件"></a>LNMP配置文件及日志文件</h2><h3 id="默认目录位置"><a href="#默认目录位置" class="headerlink" title="默认目录位置"></a>默认目录位置</h3><pre><code>Nginx：/usr/local/nginx/MySQL：/usr/local/mysql/MariaDB：/usr/local/mariadb/PHP：/usr/local/php/多PHP目录：/usr/local/php5.6/ 版本号随安装版本不同而不同PHP扩展插件配置文件目录：/usr/local/php/conf.d/PHPMyAdmin：/home/wwwroot/default/phpmyadmin/默认虚拟主机网站目录：/home/wwwroot/default/Nginx日志目录：/home/wwwlogs/</code></pre><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>Nginx主配置文件：/usr/local/nginx/conf/nginx.confMySQL/MariaDB配置文件：/etc/my.cnfPHP配置文件：/usr/local/php/etc/php.iniPHP-FPM配置文件：/usr/local/php/etc/php-fpm.confPureFtpd配置文件：/usr/local/pureftpd/etc/pure-ftpd.confApache配置文件：/usr/local/apache/conf/httpd.conf</code></pre><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ul><li><p>安装目录</p><pre><code>/usr/local/nginx</code></pre></li><li><p>配置文件</p><pre><code>/usr/local/nginx/conf</code></pre></li><li><p>日志文件<br>  日志文件在配置文件中设置  </p><pre><code>error_log  错误日志http{log_format}        日志格式http{access_log}    nginx访问日志server{access_log}  server访问日志默认设置/usr/local/nginx/logs/error.log/usr/local/nginx/logs/access.log/usr/local/nginx/logs/host.access.log</code></pre></li><li><p>PID</p><pre><code>/usr/local/nginx/logs/nginx.pid</code></pre></li></ul><p>nginx进程用户：在<code>/usr/local/nginx/conf</code>文件中<code>user  nobody;</code>配置</p><h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><ul><li><p>安装目录</p><pre><code>Mysql：/usr/local/mysqlMariaDB：/usr/local/mariadb/</code></pre></li><li><p>配置文件</p><pre><code>/etc/my.cnf</code></pre></li><li><p>日志文件</p><pre><code>/usr/local/mysql/var/目录下通过下面查询语句查看日志设置及路径 show global variables like &apos;%LOG%&apos;;</code></pre></li></ul><h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><ul><li><p>安装目录</p><pre><code>/usr/local/php</code></pre></li><li><p>配置文件</p><pre><code>/usr/local/php/etc/php-fpm.conf/usr/local/php/etc/php.ini</code></pre></li><li><p>日志文件</p><pre><code>/usr/local/php/var/log/php-fpm.log/usr/local/php/var/log/slow.log</code></pre></li><li><p>PID</p><pre><code>/usr/local/php/var/run/php-fpm.pid</code></pre></li></ul><p>php-fpm进程用户：在<code>/usr/local/php/etc/php-fpm.conf</code>文件中<code>user = www</code>配置</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装LNMP&quot;&gt;&lt;a href=&quot;#安装LNMP&quot; class=&quot;headerlink&quot; title=&quot;安装LNMP&quot;&gt;&lt;/a&gt;安装LNMP&lt;/h2&gt;&lt;h3 id=&quot;安装过程&quot;&gt;&lt;a href=&quot;#安装过程&quot; class=&quot;headerlink&quot; title=&quot;安
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://blog.wangyuehan.net/categories/Linux/"/>
+    
+    
+      <category term="PHP" scheme="https://blog.wangyuehan.net/tags/PHP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Mac下Python多版本管理pyenv和pyenv-virtualenv</title>
     <link href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/"/>
     <id>https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/</id>
     <published>2018-10-29T03:51:19.000Z</published>
-    <updated>2018-10-29T07:25:21.897Z</updated>
+    <updated>2018-10-30T08:16:29.475Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、pyenv安装和使用"><a href="#一、pyenv安装和使用" class="headerlink" title="一、pyenv安装和使用"></a>一、pyenv安装和使用</h3><p><strong>1、安装</strong></p><pre><code>brew updatebrew install pyenv</code></pre><p><strong>2、配置</strong></p><pre><code>1. 编辑配置文件    vim ~/.zshrc    #使用zsh shell    vim ~/.bash_profile #使用系统默认在.zshrc或.bash_profile文件最后写入    # pyenv    echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.zshrc2. 使配置生效    source ~/.zshrc    #或    source ~/.bash_profile  </code></pre><p><strong>3、安装zlib</strong></p><pre><code>brew install zlib#如果命令pyenv install 3.7.0报错需执行下面命令ln -s /usr/local/Cellar/zlib/1.2.11/lib/* /usr/local/libln -s /usr/local/Cellar/zlib/1.2.11/include/* /usr/local/include</code></pre><p><strong>4、使用</strong></p><pre><code>- 查看可安装版本    pyenv install --list    #查看可安装版本- 安装指定版本    pyenv install 3.7.0     #安装指定版本- 查看当前python版本    pyenv version       #查看当前python版本- 查看已安装python版本    pyenv versions      #查看已安装python版本- 设置python版本    pyenv global 3.7.0  #对所有的Shell全局有效，版本号写入~/.pyenv/version文件    pyenv local 3.7.0   #对当前目录有效，版本号写入当前目录下的.python-version文件    pyenv shell 3.7.0   #对当前会话有效- 重置python版本设置    pyenv shell --unset    pyenv local --unset- 卸载版本    pyenv uninstall 3.7.0   </code></pre><h3 id="二、pyenv-virtualenv安装和使用"><a href="#二、pyenv-virtualenv安装和使用" class="headerlink" title="二、pyenv-virtualenv安装和使用"></a>二、pyenv-virtualenv安装和使用</h3><p><strong>1、安装</strong></p><pre><code>brew updatebrew install pyenv-virtualenv</code></pre><p><strong>2、配置</strong></p><pre><code>1. 编辑配置文件    vim ~/.zshrc    #使用zsh shell    vim ~/.bash_profile #使用系统默认在.zshrc或.bash_profile文件最后写入    # pyenv-virtualenv    if which pyenv-virtualenv-init &gt; /dev/null;      then eval &quot;$(pyenv virtualenv-init -)&quot;;    fi      2. 使配置生效    source ~/.zshrc    #或    source ~/.bash_profile  </code></pre><p><strong>3、使用</strong></p><pre><code>- 从当前版本创建虚拟环境    pyenv virtualenv py370- 指定版本创建虚拟环境    pyenv virtualenv 3.7.0 py370- 查看已创建的虚拟环境    pyenv versions- 激活和停用虚拟环境    #手动激活    pyenv activate py370    pyenv deactivate    #自动激活，进入目录自动激活    pyenv local py370- 删除现有虚拟环境    pyenv uninstall py370</code></pre>]]></content>
     
@@ -45,7 +70,7 @@
     <link href="https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/"/>
     <id>https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/</id>
     <published>2018-10-29T03:43:57.000Z</published>
-    <updated>2018-10-29T07:25:12.247Z</updated>
+    <updated>2018-10-30T08:16:24.980Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、virtualenv安装和使用"><a href="#一、virtualenv安装和使用" class="headerlink" title="一、virtualenv安装和使用"></a>一、virtualenv安装和使用</h3><p><strong>1、安装</strong></p><pre><code>pip install virtualenv</code></pre><p><strong>2、创建虚拟环境</strong></p><pre><code>virtualenv --no-site-packages -p /usr/local/bin/python3 venv3    --no-site-packages不复制系统环境中已安装的第三方包    -p /usr/local/bin/python3指定新建python解释器程序的路径</code></pre><p><strong>3、激活venv3虚拟环境</strong></p><pre><code>source venv3/bin/activate</code></pre><p><strong>4、退出venv3虚拟环境</strong></p><pre><code>source venv3/bin/deactivate</code></pre><p>Linux环境（与Windows区别：目录bin变成Scripts）</p><h3 id="二、virtualenvwrapper安装和使用"><a href="#二、virtualenvwrapper安装和使用" class="headerlink" title="二、virtualenvwrapper安装和使用"></a>二、virtualenvwrapper安装和使用</h3><p>因为virtualenv不便于虚拟环境集中管理，可以使用virtualenvwrapper提供统一的命令来管理虚拟环境</p><p><strong>1、安装</strong></p><pre><code>pip install virtualenvwrapperpip install virtualenvwrapper-win       #Windows使用该命令</code></pre><p><strong>2、配置</strong></p><pre><code>1. 编辑配置文件    vim ~/.zshrc    #使用zsh shell    vim ~/.bash_profile #使用系统默认在.zshrc或.bash_profile文件最后写入    # virtualenvwrapper    echo &apos;export WORKON_HOME=~/Venvs&apos; &gt;&gt; ~/.zshrc #指定虚拟环境目录存放位置    echo &apos;source /usr/local/bin/virtualenvwrapper.sh&apos; &gt;&gt; ~/.zshrc2. 使配置生效    source ~/.zshrc    #或    source ~/.bash_profile  </code></pre><p><strong>3、使用</strong></p><pre><code>- 创建虚拟环境    mkvirtualenv venv- 查看当前虚拟目录    workon- 切换虚拟目录    workon py3- 退出虚拟环境    deactivate- 删除虚拟环境    rmvirtualenv venv</code></pre><h3 id="三、问题"><a href="#三、问题" class="headerlink" title="三、问题"></a>三、问题</h3><h4 id="1、Mac下安装virtualenvwrapper时报错"><a href="#1、Mac下安装virtualenvwrapper时报错" class="headerlink" title="1、Mac下安装virtualenvwrapper时报错"></a>1、Mac下安装virtualenvwrapper时报错</h4><pre><code>Cannot uninstall &apos;six&apos;. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.</code></pre><p>先升级six，再安装virtualenvwrapper</p><pre><code>sudo python -m pip install --upgrade six #正常升级命令执行报错，需使用下面命令sudo python -m pip install --upgrade --ignore-installed six</code></pre>]]></content>
     

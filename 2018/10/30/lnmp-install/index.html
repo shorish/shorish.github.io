@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="安装LNMP安装过程 下载  访问下载地址，找到需要安装的版本的下载地址，如：http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz   wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz  为了防止安装时掉线，建议使用screen yum install screen  #安装screen screen">
+<meta name="keywords" content="PHP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://blog.wangyuehan.net/2018/04/10/hello-world/index.html">
+<meta property="og:title" content="lnmp-install">
+<meta property="og:url" content="https://blog.wangyuehan.net/2018/10/30/lnmp-install/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="安装LNMP安装过程 下载  访问下载地址，找到需要安装的版本的下载地址，如：http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz   wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz  为了防止安装时掉线，建议使用screen yum install screen  #安装screen screen">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T06:42:15.007Z">
+<meta property="og:updated_time" content="2018-10-30T08:17:12.399Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="lnmp-install">
+<meta name="twitter:description" content="安装LNMP安装过程 下载  访问下载地址，找到需要安装的版本的下载地址，如：http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz   wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz  为了防止安装时掉线，建议使用screen yum install screen  #安装screen screen">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2018/04/10/hello-world/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2018/10/30/lnmp-install/"/>
 
 
 
 
 
-  <title>Hello World | shorish's Blog</title>
+  <title>lnmp-install | shorish's Blog</title>
   
 
 
@@ -244,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/04/10/hello-world/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/30/lnmp-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">lnmp-install</h1>
         
 
         <div class="post-meta">
@@ -273,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T17:06:39+08:00">
-                2018-04-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T16:15:37+08:00">
+                2018-10-30
               </time>
             
 
@@ -296,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -333,15 +334,93 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h2><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
+<li><p>下载</p>
+<p> 访问<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载地址</a>，找到需要安装的版本的下载地址，如：<code>http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz</code>  </p>
+<pre><code>wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz
+</code></pre><p> 为了防止安装时掉线，建议使用screen</p>
+<pre><code>yum install screen  #安装screen
+screen -S lnmp      #指定screen作业的名称
+#开始执行安装过程，如果掉线执行下面命令恢复
+screen -r lnmp      #恢复离线的screen作业
+screen -list            #列出所有会话
+</code></pre></li>
+<li><p>解压安装</p>
+<pre><code>tar -zxvf lnmp1.5-full.tar.gz
+cd lnmp1.5-full
+./install.sh {lnmp|lnmpa|lamp}  #需选择安装的类型
+#按照提示安装mysql、php
+</code></pre></li>
+</ol>
+<h2 id="LNMP配置文件及日志文件"><a href="#LNMP配置文件及日志文件" class="headerlink" title="LNMP配置文件及日志文件"></a>LNMP配置文件及日志文件</h2><h3 id="默认目录位置"><a href="#默认目录位置" class="headerlink" title="默认目录位置"></a>默认目录位置</h3><pre><code>Nginx：/usr/local/nginx/
+MySQL：/usr/local/mysql/
+MariaDB：/usr/local/mariadb/
+PHP：/usr/local/php/
+多PHP目录：/usr/local/php5.6/ 版本号随安装版本不同而不同
+PHP扩展插件配置文件目录：/usr/local/php/conf.d/
+PHPMyAdmin：/home/wwwroot/default/phpmyadmin/
+默认虚拟主机网站目录：/home/wwwroot/default/
+Nginx日志目录：/home/wwwlogs/
+</code></pre><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>Nginx主配置文件：/usr/local/nginx/conf/nginx.conf
+MySQL/MariaDB配置文件：/etc/my.cnf
+PHP配置文件：/usr/local/php/etc/php.ini
+PHP-FPM配置文件：/usr/local/php/etc/php-fpm.conf
+PureFtpd配置文件：/usr/local/pureftpd/etc/pure-ftpd.conf
+Apache配置文件：/usr/local/apache/conf/httpd.conf
+</code></pre><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ul>
+<li><p>安装目录</p>
+<pre><code>/usr/local/nginx
+</code></pre></li>
+<li><p>配置文件</p>
+<pre><code>/usr/local/nginx/conf
+</code></pre></li>
+<li><p>日志文件<br>  日志文件在配置文件中设置  </p>
+<pre><code>error_log  错误日志
+http{log_format}        日志格式
+http{access_log}    nginx访问日志
+server{access_log}  server访问日志
+
+默认设置
+/usr/local/nginx/logs/error.log
+/usr/local/nginx/logs/access.log
+/usr/local/nginx/logs/host.access.log
+</code></pre></li>
+<li><p>PID</p>
+<pre><code>/usr/local/nginx/logs/nginx.pid
+</code></pre></li>
+</ul>
+<p>nginx进程用户：在<code>/usr/local/nginx/conf</code>文件中<code>user  nobody;</code>配置</p>
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><ul>
+<li><p>安装目录</p>
+<pre><code>Mysql：/usr/local/mysql
+MariaDB：/usr/local/mariadb/
+</code></pre></li>
+<li><p>配置文件</p>
+<pre><code>/etc/my.cnf
+</code></pre></li>
+<li><p>日志文件</p>
+<pre><code>/usr/local/mysql/var/目录下
+通过下面查询语句查看日志设置及路径 
+show global variables like &apos;%LOG%&apos;;
+</code></pre></li>
+</ul>
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><ul>
+<li><p>安装目录</p>
+<pre><code>/usr/local/php
+</code></pre></li>
+<li><p>配置文件</p>
+<pre><code>/usr/local/php/etc/php-fpm.conf
+/usr/local/php/etc/php.ini
+</code></pre></li>
+<li><p>日志文件</p>
+<pre><code>/usr/local/php/var/log/php-fpm.log
+/usr/local/php/var/log/slow.log
+</code></pre></li>
+<li><p>PID</p>
+<pre><code>/usr/local/php/var/run/php-fpm.pid
+</code></pre></li>
+</ul>
+<p>php-fpm进程用户：在<code>/usr/local/php/etc/php-fpm.conf</code>文件中<code>user = www</code>配置</p>
 
       
     </div>
@@ -357,6 +436,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
 
       
       
@@ -366,15 +451,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/29/pyenv-virtualenv/" rel="next" title="Mac下Python多版本管理pyenv和pyenv-virtualenv">
+                <i class="fa fa-chevron-left"></i> Mac下Python多版本管理pyenv和pyenv-virtualenv
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/25/hexo-in-github/" rel="prev" title="在Github上搭建Hexo博客">
-                在Github上搭建Hexo博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装LNMP"><span class="nav-number">1.</span> <span class="nav-text">安装LNMP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装过程"><span class="nav-number">1.1.</span> <span class="nav-text">安装过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LNMP配置文件及日志文件"><span class="nav-number">2.</span> <span class="nav-text">LNMP配置文件及日志文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#默认目录位置"><span class="nav-number">2.1.</span> <span class="nav-text">默认目录位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">2.2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx"><span class="nav-number">2.3.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql"><span class="nav-number">2.4.</span> <span class="nav-text">Mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PHP"><span class="nav-number">2.5.</span> <span class="nav-text">PHP</span></a></li></ol></li></ol></div>
             
 
           </div>
