@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2018/10/30/lnmp-install/</loc>
+    
+    <lastmod>2018-10-30T08:44:00.693Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/</loc>
     
     <lastmod>2018-10-30T08:26:42.932Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/</loc>
     
     <lastmod>2018-10-30T08:26:11.158Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/2018/10/30/lnmp-install/</loc>
-    
-    <lastmod>2018-10-30T08:23:56.380Z</lastmod>
     
   </url>
   

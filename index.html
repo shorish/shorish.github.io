@@ -260,7 +260,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/30/lnmp-install/" itemprop="url">Centos中安装LNMP</a></h1>
+                <a class="post-title-link" href="/2018/10/30/lnmp-install/" itemprop="url">Centos7中安装LNMP</a></h1>
         
 
         <div class="post-meta">
@@ -388,8 +388,11 @@ server{access_log}  server访问日志
 <li><p>PID</p>
 <pre><code>/usr/local/nginx/logs/nginx.pid
 </code></pre></li>
+<li><p>listen</p>
+<pre><code>监听端口：80
+监听进程用户：在`/usr/local/nginx/conf`文件中`user www;`配置
+</code></pre></li>
 </ul>
-<p>nginx进程用户：在<code>/usr/local/nginx/conf</code>文件中<code>user  nobody;</code>配置</p>
 <h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><ul>
 <li><p>安装目录</p>
 <pre><code>Mysql：/usr/local/mysql
@@ -403,8 +406,10 @@ MariaDB：/usr/local/mariadb/
 通过下面查询语句查看日志设置及路径 
 show global variables like &apos;%LOG%&apos;;
 </code></pre></li>
-</ul>
-<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><ul>
+<li><p>listen</p>
+<pre><code>监听端口：3306
+监听socket：/tmp/mysql.sock
+</code></pre><h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3></li>
 <li><p>安装目录</p>
 <pre><code>/usr/local/php
 </code></pre></li>
@@ -419,8 +424,11 @@ show global variables like &apos;%LOG%&apos;;
 <li><p>PID</p>
 <pre><code>/usr/local/php/var/run/php-fpm.pid
 </code></pre></li>
+<li><p>Listen</p>
+<pre><code>监听socket：/tmp/php-cgi.sock
+监听进程用户：在`/usr/local/php/etc/php-fpm.conf`文件中`listen.owner = www`配置
+</code></pre></li>
 </ul>
-<p>php-fpm进程用户：在<code>/usr/local/php/etc/php-fpm.conf</code>文件中<code>user = www</code>配置</p>
 
           
         
