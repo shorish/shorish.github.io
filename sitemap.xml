@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/</loc>
+    
+    <lastmod>2018-11-15T16:24:54.745Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/</loc>
     
-    <lastmod>2018-11-15T16:20:17.878Z</lastmod>
+    <lastmod>2018-11-15T16:22:33.795Z</lastmod>
     
   </url>
   

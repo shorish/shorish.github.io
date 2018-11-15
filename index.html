@@ -241,6 +241,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/problem-ubuntu-sudo/" itemprop="url">sudo执行管道命令报错</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:23:54+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问题描述：Ubuntu中执行<code>sudo iptables-save &gt; /etc/iptables.rules</code>报错Permission denied</p>
+<p>问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的第二个命令没有sudo，所以报错</p>
+<p>问题解决：</p>
+<pre><code>sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
+或
+echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -368,13 +493,7 @@ sudo chmod +x /etc/network/if-post-down.d/iptables
 sudo chmod +x /etc/network/if-pre-up.d/iptables
 </code></pre></li>
 </ul>
-<h3 id="sudo执行带有管道的命令报错"><a href="#sudo执行带有管道的命令报错" class="headerlink" title="sudo执行带有管道的命令报错"></a>sudo执行带有管道的命令报错</h3><p>问题描述：Ubuntu中执行<code>sudo iptables-save &gt; /etc/iptables.rules</code>报错Permission denied</p>
-<p>问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的第二个命令没有sudo，所以报错</p>
-<p>问题解决：</p>
-<pre><code>sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
-或
-echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
-</code></pre>
+
           
         
       
@@ -1977,179 +2096,6 @@ firewall-cmd --permanent --zone=public --list-ports
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/07/20/ttfb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/20/ttfb/" itemprop="url">服务器网页访问很慢，TTFB时间过长</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T23:01:45+08:00">
-                2018-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/server/" itemprop="url" rel="index">
-                    <span itemprop="name">server</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://p9s1ehmln.bkt.clouddn.com/note/TTFB001.jpg" alt=""></p>
-<h2 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h2><ol>
-<li>首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决</li>
-<li><p>考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容</p>
-<pre><code>&lt;?php&gt;
-    phpinfo();
-&lt;?&gt;
-</code></pre><p> 访问还是很慢</p>
-</li>
-<li><p>发现nginx访问日志文件<code>/app/nginx/logs/access.log</code>文件比较大，有2.6G</p>
-<p> 将日志文件改名，重启nginx<br> 访问还是很慢    </p>
-</li>
-</ol>
-<ol start="3">
-<li><p>查看php日志文件<code>/usr/local/php/var/log/php-fpm.log</code>中有警告<code>WARNING: server reached pm.max_children setting (5), consider raising it</code>，经百度查询问题，修改配置文件<code>/usr/local/php/etc/php-fpm.conf</code></p>
-<pre><code>#修改配置文件  
-修改pm.max_children = 1000 
-#重启PHP
-$ kill -sigint `cat /usr/local/php/var/php-fpm.pid`
-$ /usr/local/php/sbin/php-fpm -g php-fpm.pid 
-</code></pre><p> 重启PHP，访问还是很慢</p>
-</li>
-</ol>
-<ol start="4">
-<li><p>检查PHP配置文件<code>/usr/local/php/etc/php.ini</code>，发现xdebug扩展远程调试开关是打开的，将其关闭</p>
-<pre><code>#修改配置文件
-$ vim /usr/local/php/etc/php.ini
-修改参数xdebug.remote_enable=0  
-#重启PHP
-</code></pre><p> 访问慢的问题得以解决</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2200,7 +2146,7 @@ $ vim /usr/local/php/etc/php.ini
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
