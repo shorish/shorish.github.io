@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/</loc>
+    
+    <lastmod>2018-11-15T16:20:17.878Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
     
     <lastmod>2018-11-07T03:12:17.499Z</lastmod>
