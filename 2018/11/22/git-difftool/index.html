@@ -88,10 +88,12 @@
 <meta property="og:site_name" content="shorish&#39;s Blog">
 <meta property="og:description" content="1、Mac下载并安装kaleidoscope和ksdiff（下载地址），确保命令行中可以运行ksdiff命令 2、修改GIT配置文件~/.gitconfig，加入下面内容 [diff]     tool = Kaleidoscope [difftool &amp;quot;Kaleidoscope&amp;quot;]     cmd = ksdiff --partial-changeset --relative">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-22T15:38:43.445Z">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20181122234201git-difftool.png">
+<meta property="og:updated_time" content="2018-11-22T15:43:35.846Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git中配置difftools和mergetool使用kaleidoscope">
 <meta name="twitter:description" content="1、Mac下载并安装kaleidoscope和ksdiff（下载地址），确保命令行中可以运行ksdiff命令 2、修改GIT配置文件~/.gitconfig，加入下面内容 [diff]     tool = Kaleidoscope [difftool &amp;quot;Kaleidoscope&amp;quot;]     cmd = ksdiff --partial-changeset --relative">
+<meta name="twitter:image" content="http://image.wangyuehan.net//note/20181122234201git-difftool.png">
 
 
 
@@ -311,7 +313,7 @@
       
 
       
-        <p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行ksdiff命令</p>
+        <p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行<code>ksdiff</code>命令</p>
 <p>2、修改GIT配置文件<code>~/.gitconfig</code>，加入下面内容</p>
 <pre><code>[diff]
     tool = Kaleidoscope
@@ -327,7 +329,7 @@
     trustExitCode = true
 [mergetool]
     prompt = false
-</code></pre><p>3、命令行中运行git difftool或git mergetool（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件</p>
+</code></pre><p>3、命令行中运行<code>git difftool</code>或<code>git mergetool</code>（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件<br><img src="http://image.wangyuehan.net//note/20181122234201git-difftool.png" alt=""></p>
 
       
     </div>
