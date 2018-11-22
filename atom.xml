@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2018-11-15T16:24:54.745Z</updated>
+  <updated>2018-11-22T15:38:43.445Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git中配置difftools和mergetool使用kaleidoscope</title>
+    <link href="https://blog.wangyuehan.net/2018/11/22/git-difftool/"/>
+    <id>https://blog.wangyuehan.net/2018/11/22/git-difftool/</id>
+    <published>2018-11-22T15:34:30.000Z</published>
+    <updated>2018-11-22T15:38:43.445Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行ksdiff命令</p><p>2、修改GIT配置文件<code>~/.gitconfig</code>，加入下面内容</p><pre><code>[diff]    tool = Kaleidoscope[difftool &quot;Kaleidoscope&quot;]    cmd = ksdiff --partial-changeset --relative-path \&quot;$MERGED\&quot; -- \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;[difftool]    prompt = false[merge]    tool = Kaleidoscope[mergetool &quot;Kaleidoscope&quot;]    cmd = ksdiff --merge --output &quot;$MERGED&quot; --base &quot;$BASE&quot; -- &quot;$LOCAL&quot; --snapshot &quot;$REMOTE&quot; --snapshot    trustExitCode = true[mergetool]    prompt = false</code></pre><p>3、命令行中运行git difftool或git mergetool（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、Mac下载并安装kaleidoscope和ksdiff（&lt;a href=&quot;https://www.kaleidoscopeapp.com/ksdiff2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;下载地址&lt;/a&gt;），确保命令行中可以运行ksdiff
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>sudo执行管道命令报错</title>
