@@ -241,6 +241,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/09/14/hexo-custom-domain/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/14/hexo-custom-domain/" itemprop="url">Hexo+GitHub博客绑定个人域名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-14T10:52:44+08:00">
+                2018-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><p>使用Hexo+GitHub搭建的博客访问地址为<code>shorish.github.io</code>，希望通过个人域名<code>blog.wangyuehan.net</code>访问博客</p>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ol>
+<li><p>Hexo项目中设置CNAME</p>
+<p> 在Hexo项目中，source目录下新建CNAME文件（无扩展名），文件中填写个人域名 <code>blog.wangyuehan.net</code></p>
+</li>
+<li><p>配置域名解析</p>
+<p> 我的个人域名在腾讯云，进入到域名管理中添加域名解析。记录地址：blog，记录类型：CNAME，记录值：<code>shorish.github.io</code>，线路类型和TTL保留默认值</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914114600blog-custom-domain.png" alt=""></p>
+<p> 过几分钟可以通过ping命令验证域名解析是否成功，下面表示成功</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914104350blog-custom-domain.png" alt=""></p>
+</li>
+<li><p>在GitHub上配置个人域名</p>
+<p> 登录GitHub，进入<code>shorish/shorish.github.io</code>仓库，菜单Settings -&gt; Options -&gt; GitHub Pages -&gt; Custom domain，填写个人域名</p>
+<p> <img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914102639blog-custom-domain.png" alt=""></p>
+<p> 接下来通过个人域名便可以访问blog</p>
+</li>
+</ol>
+<p>另外域名解析也通过IP地址的方式添加，但这个方式GitHub会给出警告，并且GitHub如果改变IP后我们的域名解析也要修改，所以还是建议使用CNAME方式</p>
+<h2 id="报错"><a href="#报错" class="headerlink" title="报错:"></a>报错:</h2><ol>
+<li><p>访问显示GitHub返回的404错误，这个问题是Hexo项目中没有设置CNAME<br><img src="http://p9s1ehmln.bkt.clouddn.com//note/20180914110515blog-custom-domain.png" alt=""></p>
+</li>
+<li><p>配置完成后还是无法访问，这个问题是GitHub只通过https协议访问，注意自己是否使用了http协议，所以无法访问</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/09/09/bookmark/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1022,7 +1187,7 @@ hexo d 发布到远程仓库
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
