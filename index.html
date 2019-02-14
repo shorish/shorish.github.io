@@ -241,6 +241,512 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/12/git-get-file-of-gitignore/" itemprop="url">Git-如何将未跟踪的例外文件拉到本地</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T11:54:18+08:00">
+                2019-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境</p>
+</blockquote>
+<p>1、远程仓库：新建并切换到分支allfile</p>
+<pre><code>git checkout -b allfile
+</code></pre><p>2、远程仓库：修改.gitignore文件，移除例外文件</p>
+<pre><code>vim .gitignore
+去除内容public/uploads
+</code></pre><p>3、远程仓库：添加所有文件并提交</p>
+<pre><code>git add .
+git commit -m &quot;add all file&quot;
+</code></pre><p>4、本地仓库：拉取远程分支</p>
+<pre><code>git pull 
+</code></pre><p>6、本地仓库：迁出allfile分支中的例外文件</p>
+<pre><code>git checkout allfile public/uploads
+</code></pre><p>7、本地仓库：去除例外文件的跟踪</p>
+<pre><code>git rm -r --cached public/uploads
+</code></pre><p>此时例外文件<code>public/uploads</code>将保留在本地仓库并不被跟踪</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/30/git-deploy-local-to-remote/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/30/git-deploy-local-to-remote/" itemprop="url">Git-部署本地代码到远程仓库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-30T14:08:35+08:00">
+                2019-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>这样部署的前提是已经配置好远程服务器 <a href="http://www.xxxx.net" target="_blank" rel="noopener">www.xxxx.net</a> 中用户www的免密登录</p>
+</blockquote>
+<ol>
+<li>本地项目代码准备完毕，代码中无.gitignore文件</li>
+<li><p>初始化本地仓库，在本地执行</p>
+<pre><code>#初始化仓库
+git init    
+#windows中禁用自动转换
+git config --global core.autocrlf false
+#缓存文件
+git add .
+#提交本地仓库
+git commit -m &quot;init&quot;
+#创建远程连接
+git remote add origin www@www.xxxx.net:/home/www/heal     
+</code></pre></li>
+<li><p>初始化远程仓库，在远程执行</p>
+<pre><code>#创建远程仓库目录
+cd /home/www
+mkdir heal
+#进入目录
+cd heal
+#初始化仓库
+git init
+#设置允许修改当前分支
+git config receive.denyCurrentBranch ignore
+#添加钩子自动checkout
+vim .git/hooks/post-receive
+#添加以下代码
+    echo &quot;checkout to HEAD&quot;
+    git --work-tree=.. checkout -f
+#赋予权限
+chown www:www -R ../heal
+#设置用户www的bash
+usermod -s /bin/bash www
+</code></pre></li>
+<li><p>将本地仓库推送到远程，在本地执行</p>
+<pre><code>git push -u origin master
+#此时本地代码与远程仓库代码一致
+</code></pre></li>
+<li><p>添加或更新例外文件.gitignore，在远程执行</p>
+<pre><code>vim .gitignore
+git rm -r --cached .
+git add .
+git commit -m &apos;gitignore update&apos;
+</code></pre></li>
+<li><p>本地更新</p>
+<pre><code>#下载更新（在.gitignore中的内容不会下载到本地）
+git pull
+</code></pre></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/04/git-delete-untracked-files/" itemprop="url">Git-如何删除untracked files（未跟踪）的文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-04T14:01:45+08:00">
+                2019-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>清理Git仓库中未跟踪的文件时可以使用下面命令</p>
+</blockquote>
+<p>删除untracked文件</p>
+<pre><code>git clean -f
+</code></pre><p>删除untracked文件</p>
+<pre><code>git clean -fd
+</code></pre><p>删除.gitignore的untracked文件</p>
+<pre><code>git clean -xfd
+</code></pre><p>使用上面git clean之前，建议使用-n参数查看会删除哪些文件</p>
+<pre><code>git clean -nxfd
+git clean -nf
+git clean -nfd
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/29/software-service-price/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -282,6 +788,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件工程/" itemprop="url" rel="index">
+                    <span itemprop="name">软件工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -430,7 +958,7 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/22/git-difftool/" itemprop="url">Git中配置difftools和mergetool使用kaleidoscope</a></h1>
+                <a class="post-title-link" href="/2018/11/22/git-difftool/" itemprop="url">Git-配置difftools和mergetool使用kaleidoscope</a></h1>
         
 
         <div class="post-meta">
@@ -452,6 +980,28 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -589,6 +1139,28 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -713,6 +1285,28 @@ echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1499,586 +2093,6 @@ sudo python -m pip install --upgrade --ignore-installed six
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/21/hexo-categories-tags/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/21/hexo-categories-tags/" itemprop="url">Hexo使用-添加分类和标签</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-21T14:08:41+08:00">
-                2018-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="添加分类"><a href="#添加分类" class="headerlink" title="添加分类"></a>添加分类</h3><p>1、创建分类显示页</p>
-<pre><code>hexo new page categories  
-#创建了source/categories/index.md文件    
-</code></pre><p>index.md文件中添加内容</p>
-<pre><code>type: &quot;categories&quot;
-</code></pre><p>2、创建文章页</p>
-<pre><code>hexo new title pagename  
-#创建了source/_posts/pagename.md文件
-</code></pre><p>pagename.md文件中添加内容</p>
-<pre><code>categories: 
-    - Linux
-</code></pre><h3 id="添加标签"><a href="#添加标签" class="headerlink" title="添加标签"></a>添加标签</h3><p>1、创建标签显示页</p>
-<pre><code>hexo new page tags  
-#创建了source/tags/index.md文件
-</code></pre><p>index.md文件中添加内容</p>
-<pre><code>type: &quot;tags&quot;
-</code></pre><p>2、创建文章页</p>
-<pre><code>hexo new title pagename 
-#创建了source/_posts/pagename.md文件
-</code></pre><p>pagename.md文件中添加内容</p>
-<pre><code>tags: 
-    - 新页面
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/21/centos-firewall/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/21/centos-firewall/" itemprop="url">Centos7 firewall配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-21T13:52:00+08:00">
-                2018-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Centos7中默认使用的防火墙是firewall，下面是一些常用的命令</p>
-<h3 id="firewall服务管理"><a href="#firewall服务管理" class="headerlink" title="firewall服务管理"></a>firewall服务管理</h3><pre><code>#开启服务 
-systemctl start firewalld.service
-
-#关闭防火墙
-systemctl stop firewalld.service
-
-#开机自动启动
-systemctl enable firewalld.service
-
-#关闭开机制动启动
-systemctl disable firewalld.service
-
-#查看状态
-systemctl status firewalld
-</code></pre><h3 id="firewall-cmd配置命令"><a href="#firewall-cmd配置命令" class="headerlink" title="firewall-cmd配置命令"></a>firewall-cmd配置命令</h3><pre><code>#查看状态
-firewall-cmd --state    //running 表示运行
-
-#获取活动的区域
-firewall-cmd --get-active-zones
-
-#修改配置文件后 使用命令重新加载
-firewall-cmd --reload
-
-#启用某个服务
-firewall-cmd --zone=public --add-service=https
-firewall-cmd --permanent --zone=public --add-service=https
-
-#开启某个端口
-firewall-cmd --permanent --zone=public --add-port=8080-8081/tcp
-firewall-cmd  --zone=public --add-port=8080-8081/tcp
-
-#查看开启的端口和服务
-firewall-cmd --permanent --zone=public --list-services
-firewall-cmd --permanent --zone=public --list-ports
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/09/20/submit-package-recommend/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/20/submit-package-recommend/" itemprop="url">Sublime Text插件推荐</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-20T11:43:50+08:00">
-                2018-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ul>
-<li><p>Package Control</p>
-<p>  功能：安装插件<br>  快捷键：Ctrl + Shift + P，输入 Install 选择 Install Package</p>
-</li>
-</ul>
-<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><ul>
-<li><p>ChineseLocalizations    </p>
-<p>  功能：汉化<br>  菜单：Help -&gt; Language</p>
-</li>
-<li><p>ConvertToUTF8           </p>
-<p>  功能：将文件编码从GBK转换成UTF8<br>  菜单：File -&gt; Set File Encoding to / Reload with Encoding</p>
-</li>
-<li><p>codecs33                </p>
-<p>  功能：ConvertToUTF8在sublime3中无法使用时安装</p>
-</li>
-</ul>
-<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ul>
-<li><p>Material Theme  </p>
-<p>  功能：Material主题   </p>
-</li>
-<li><p>A File Icon     </p>
-<p>  功能：显示文件图标，Material主题需要安装  </p>
-</li>
-<li><p>ColorSublime    </p>
-<p>  功能：主题预览安装  </p>
-</li>
-<li><p>MarkdownExtended    </p>
-<p>  功能：markdown显示主题    </p>
-</li>
-</ul>
-<h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><ul>
-<li><p>Side​Bar​Enhancement      </p>
-<p>  功能：侧边栏增强工具，文件定义引用跳转</p>
-</li>
-<li><p>BracketHighlighter</p>
-<p>  功能：括号、引号匹配高亮显示</p>
-</li>
-</ul>
-<h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ul>
-<li><p>Alignment       </p>
-<p>  功能：进行智能对齐，选中代码<br>  快捷键：ctrl+alt+a</p>
-</li>
-<li><p>AutoPep8        </p>
-<p>  功能：格式化Python代码<br>  快捷键：ctrl+8（预览），ctrl+shift+8（格式化）</p>
-</li>
-<li><p>CodeFormatter   </p>
-<p>  功能：自动格式化代码，支持多种编程语言，需要指定编程语言路径（html格式化不好用，内联的script标签会一直缩进）<br>  快捷键：ctrl+alt+f</p>
-</li>
-<li><p>HTML-CSS-JS Prettify    </p>
-<p>  功能：格式化html，css，js代码（好用）<br>  快捷键：command+shift+h</p>
-</li>
-</ul>
-<h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><ul>
-<li><p>Emmet                   </p>
-<p>  功能：前端开发神器，缩写组合快速编写html</p>
-</li>
-<li><p>Jedi                    </p>
-<p>  功能：Python智能代码补全</p>
-</li>
-<li><p>DocBlockr               </p>
-<p>  功能：自动补全注释插件</p>
-</li>
-<li><p>SublimeLinter           </p>
-<p>  功能：语法检查工具，针对不同编程语言还需要单独安装插件，如linter-php</p>
-</li>
-<li><p>SublimeCodeIntel        </p>
-<p>  功能：代码智能提示</p>
-</li>
-<li><p>HTML5                   </p>
-<p>  功能：HTML snippets(可选)</p>
-</li>
-<li><p>JQuery                  </p>
-<p>  功能：JQuery snippets</p>
-</li>
-</ul>
-<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><ul>
-<li><p>Markdown Editing    </p>
-<p>  功能：高亮显示Markdown语法</p>
-</li>
-<li><p>OmniMarkupPreviewer </p>
-<p>  功能：预览markdown 编辑的效果，同样支持渲染代码高亮的样式<br>  快捷键：super+alt+o（网页预览），super+alt+x（导出）</p>
-</li>
-</ul>
-<h2 id="辅助"><a href="#辅助" class="headerlink" title="辅助"></a>辅助</h2><ul>
-<li><p>FileDiffs       </p>
-<p>  功能：对比文件区别</p>
-</li>
-<li><p>SublimeTmpl     </p>
-<p>  功能：提供常用文件的模板</p>
-</li>
-<li><p>SublimeREPL     </p>
-<p>  功能：多种脚本语言的执行环境，可以方便的进入代码所在目录的shell或python环境</p>
-</li>
-<li><p>SFTP            </p>
-<p>  功能：FTP工具</p>
-</li>
-<li><p>GIT             </p>
-<p>  功能：GIT工具</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2129,7 +2143,7 @@ firewall-cmd --permanent --zone=public --list-ports
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2140,7 +2154,7 @@ firewall-cmd --permanent --zone=public --list-ports
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2151,7 +2165,7 @@ firewall-cmd --permanent --zone=public --list-ports
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
