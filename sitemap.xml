@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
+    
+    <lastmod>2019-03-01T10:09:08.943Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/09/14/hexo-custom-domain/</loc>
     
     <lastmod>2019-02-14T06:24:00.819Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>https://blog.wangyuehan.net/2018/09/20/submit-package-recommend/</loc>
     
     <lastmod>2019-02-14T05:58:18.382Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
-    
-    <lastmod>2019-02-14T05:57:53.095Z</lastmod>
     
   </url>
   
