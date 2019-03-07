@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2019/01/07/python-setuptools-pip-install/</loc>
+    
+    <lastmod>2019-03-07T08:15:15.570Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/</loc>
     
     <lastmod>2019-03-07T07:17:31.690Z</lastmod>

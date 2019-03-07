@@ -96,6 +96,29 @@
   </entry>
   
   <entry>
+    <title>Python包管理工具：easy_install和pip的安装和使用</title>
+    <link href="https://blog.wangyuehan.net/2019/01/07/python-setuptools-pip-install/"/>
+    <id>https://blog.wangyuehan.net/2019/01/07/python-setuptools-pip-install/</id>
+    <published>2019-01-07T07:55:22.000Z</published>
+    <updated>2019-03-07T08:15:15.570Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、easy-install安装和使用"><a href="#一、easy-install安装和使用" class="headerlink" title="一、easy_install安装和使用"></a>一、easy_install安装和使用</h2><p>easy_install 是一个基于setuptools的工具，帮助我们自动下载、编译、安装和管理python packages。</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul><li><p>Linux包管理器安装</p><pre><code>yum install python-setuptools</code></pre></li><li><p>源码安装(windows、linux都适用)</p><p>  下载地址： <a href="https://pypi.org/project/distribute/#files" target="_blank" rel="noopener">https://pypi.org/project/distribute/#files</a></p><pre><code>wget https://files.pythonhosted.org/packages/5f/ad/1fde06877a8d7d5c9b60eff7de2d452f639916ae1d48f0b8f97bf97e570a/distribute-0.7.3.zipunzip distribute-0.7.3.zipcd distribute-0.7.3python3 setup.py install</code></pre></li></ul><h3 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h3><pre><code>#安装包：easy_install pyspider#删除包：easy_install -m  pyspider#升级:easy_install  --upgrade pyspider</code></pre><h2 id="二、pip安装和使用"><a href="#二、pip安装和使用" class="headerlink" title="二、pip安装和使用"></a>二、pip安装和使用</h2><p>pip是一个通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。</p><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ul><li><p>Linux包管理器安装</p><pre><code>yum install python-pip</code></pre></li><li><p>源码安装(windows、linux都适用)</p><p>  下载地址： <a href="https://pypi.org/project/pip/#files" target="_blank" rel="noopener">https://pypi.org/project/pip/#files</a></p><pre><code>wget https://files.pythonhosted.org/packages/45/ae/8a0ad77defb7cc903f09e551d88b443304a9bd6e6f124e75c0fbbf6de8f7/pip-18.1.tar.gztar zxvf pip-18.1.tar.gzcd pip-18.1python3 setup.py install</code></pre></li></ul><h3 id="使用命令-1"><a href="#使用命令-1" class="headerlink" title="使用命令"></a>使用命令</h3><pre><code>#安装包：pip install pyspider#查看包：pip show pyspider#升级：pip install --upgrade#删除包 ：pip  uninstall pyspider</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、easy-install安装和使用&quot;&gt;&lt;a href=&quot;#一、easy-install安装和使用&quot; class=&quot;headerlink&quot; title=&quot;一、easy_install安装和使用&quot;&gt;&lt;/a&gt;一、easy_install安装和使用&lt;/h2&gt;&lt;p&gt;ea
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://blog.wangyuehan.net/categories/Python/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Git-如何删除untracked files（未跟踪）的文件</title>
     <link href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/"/>
     <id>https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/</id>
@@ -441,9 +464,9 @@
       <category term="Web" scheme="https://blog.wangyuehan.net/categories/Web/"/>
     
     
-      <category term="problem" scheme="https://blog.wangyuehan.net/tags/problem/"/>
-    
       <category term="php" scheme="https://blog.wangyuehan.net/tags/php/"/>
+    
+      <category term="problem" scheme="https://blog.wangyuehan.net/tags/problem/"/>
     
   </entry>
   
