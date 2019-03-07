@@ -1617,9 +1617,7 @@ service iptables restart
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
 .....
 service iptables restart
-</code></pre><p>查看规则列表</p>
-<pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
-
+</code></pre><h4 id="查看规则列表"><a href="#查看规则列表" class="headerlink" title="查看规则列表"></a>查看规则列表</h4><pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
 iptables -L -t nat            //如果列出nat表下规则，就加-t参数
 </code></pre>
           

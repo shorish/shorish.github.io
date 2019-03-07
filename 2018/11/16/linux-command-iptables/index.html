@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="shorish&#39;s Blog">
 <meta property="og:description" content="iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃 1、添加iptables规则iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT iptables -A INPUT -p tcp --dport 3306 -j DROP -A INPUT or OUT 进还是出的规则">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-07T07:05:56.354Z">
+<meta property="og:updated_time" content="2019-03-07T07:08:36.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux命令：iptables">
 <meta name="twitter:description" content="iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃 1、添加iptables规则iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT iptables -A INPUT -p tcp --dport 3306 -j DROP -A INPUT or OUT 进还是出的规则">
@@ -449,9 +449,7 @@ service iptables restart
 -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
 .....
 service iptables restart
-</code></pre><p>查看规则列表</p>
-<pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
-
+</code></pre><h4 id="查看规则列表"><a href="#查看规则列表" class="headerlink" title="查看规则列表"></a>查看规则列表</h4><pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
 iptables -L -t nat            //如果列出nat表下规则，就加-t参数
 </code></pre>
       
@@ -634,7 +632,7 @@ iptables -L -t nat            //如果列出nat表下规则，就加-t参数
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、添加iptables规则"><span class="nav-number">1.</span> <span class="nav-text">1、添加iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、删除iptables规则"><span class="nav-number">2.</span> <span class="nav-text">2、删除iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、保存iptables规则，使之重启后有效"><span class="nav-number">3.</span> <span class="nav-text">3、保存iptables规则，使之重启后有效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、常用功能"><span class="nav-number">4.</span> <span class="nav-text">4、常用功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#白名单规则"><span class="nav-number">4.1.</span> <span class="nav-text">白名单规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT转发设置"><span class="nav-number">4.2.</span> <span class="nav-text">NAT转发设置</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、添加iptables规则"><span class="nav-number">1.</span> <span class="nav-text">1、添加iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、删除iptables规则"><span class="nav-number">2.</span> <span class="nav-text">2、删除iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、保存iptables规则，使之重启后有效"><span class="nav-number">3.</span> <span class="nav-text">3、保存iptables规则，使之重启后有效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、常用功能"><span class="nav-number">4.</span> <span class="nav-text">4、常用功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#白名单规则"><span class="nav-number">4.1.</span> <span class="nav-text">白名单规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT转发设置"><span class="nav-number">4.2.</span> <span class="nav-text">NAT转发设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看规则列表"><span class="nav-number">4.3.</span> <span class="nav-text">查看规则列表</span></a></li></ol></li></ol></div>
             
 
           </div>
