@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2019-02-14T05:47:59.564Z</updated>
+  <updated>2019-03-07T06:50:39.140Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用Charles抓取请求</title>
+    <link href="https://blog.wangyuehan.net/2019/03/07/charles-config/"/>
+    <id>https://blog.wangyuehan.net/2019/03/07/charles-config/</id>
+    <published>2019-03-07T06:39:50.000Z</published>
+    <updated>2019-03-07T06:50:39.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。</p><h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><ul><li>MacOS 10.14.3</li><li>Charles 4.2.7</li><li>小米MIX2 Android MIUI10.2.2</li></ul><h3 id="1、下载并安装Charles"><a href="#1、下载并安装Charles" class="headerlink" title="1、下载并安装Charles"></a>1、下载并安装Charles</h3><p><a href="https://www.charlesproxy.com/latest-release/download.do" target="_blank" rel="noopener">下载地址</a>    </p><p>工作界面和常用按钮<br><img src="http://image.wangyuehan.net//note/20190307141052charles.png" alt=""></p><h3 id="2、配置抓取HTTP请求"><a href="#2、配置抓取HTTP请求" class="headerlink" title="2、配置抓取HTTP请求"></a>2、配置抓取HTTP请求</h3><ul><li><p>配置代理，「Proxy Settings」<br><img src="http://image.wangyuehan.net//note/20190307115032charles.png" alt=""></p></li><li><p>抓取电脑端请求，菜单「Proxy」中，「macOS Proxy」打上勾，同时需要关闭开启的VPN代理<br><img src="http://image.wangyuehan.net//note/20190307114939charles.png" alt=""></p></li><li><p>抓取手机端请求，配置手机使用Charles代理<br>首先手机和电脑端连接同一个wifi，在手机「设置」—「WLAN」中，进入连接的WLAN，「代理」选择手动，填写主机名、端口<br><img src="http://image.wangyuehan.net//note/20190307120737charles.png" alt=""></p></li></ul><h3 id="3、配置抓取HTTPS请求"><a href="#3、配置抓取HTTPS请求" class="headerlink" title="3、配置抓取HTTPS请求"></a>3、配置抓取HTTPS请求</h3><ul><li><p>电脑端配置SSL，「SSL Proxying Settings」<br><img src="http://image.wangyuehan.net//note/20190307115117charles.png" alt=""></p></li><li><p>电脑端信任证书<br><img src="http://image.wangyuehan.net//note/20190307115903charles.png" alt=""><br><img src="http://image.wangyuehan.net//note/20190307142935charles.png" alt=""></p></li><li>手机端下载证书，将下载的证书文件扩展名pem改为crt，即可安装<br><img src="http://image.wangyuehan.net//note/20190307141427charles.png" alt=""></li></ul><p>安装证书后部分HTTPS请求可以正常获取，还有大部分显示<code>&lt;unknown&gt;</code>，待后续研究<br><img src="http://image.wangyuehan.net//note/20190307144711charles.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。&lt;/p&gt;
+&lt;h3 id=&quot;运行环境&quot;&gt;&lt;a href=&quot;#运行环境&quot; class=&quot;headerlink&quot; title=&quot;运行环境&quot;&gt;&lt;/a&gt;运行环境&lt;
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="https://blog.wangyuehan.net/categories/Web/"/>
+    
+    
+      <category term="tools" scheme="https://blog.wangyuehan.net/tags/tools/"/>
+    
+  </entry>
   
   <entry>
     <title>Git-如何将未跟踪的例外文件拉到本地</title>
