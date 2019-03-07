@@ -1570,16 +1570,16 @@ sudo chmod +x /etc/network/if-pre-up.d/iptables
 service iptables restart
 </code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下（其实上面在终端命令行里设置并save和restart防火墙后，就会自动保存规则到/etc/sysconfig/iptables这个文件中的）：</p>
 <pre><code>cat /etc/sysconfig/iptables
-......
-*filter
-:INPUT ACCEPT [442620:173026884]
-:FORWARD ACCEPT [118911:23993940]
-:OUTPUT ACCEPT [8215384:539509656]
--A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
--A INPUT -p icmp -j ACCEPT 
--A INPUT -i lo -j ACCEPT 
--A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
--A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+    ......
+    *filter
+    :INPUT ACCEPT [442620:173026884]
+    :FORWARD ACCEPT [118911:23993940]
+    :OUTPUT ACCEPT [8215384:539509656]
+    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
+    -A INPUT -p icmp -j ACCEPT 
+    -A INPUT -i lo -j ACCEPT 
+    -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+    -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 
 service iptables restart
 </code></pre><h4 id="NAT转发设置"><a href="#NAT转发设置" class="headerlink" title="NAT转发设置"></a>NAT转发设置</h4><p>比如访问本机（192.168.1.7）的8088端口转发到192.168.1.160的80端口；访问本机的33066端口转发到192.168.1.161的3306端口<br>准备工作：<br>本机打开ip_forword路由转发功能；192.168.1.160/161的内网网关要和本机网关一致！如果没有内网网关，就将网关设置成本机内网ip，并且关闭防火墙（防火墙要是打开了，就设置对应端口允许本机访问）</p>
