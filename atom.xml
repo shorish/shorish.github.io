@@ -426,7 +426,7 @@
     <link href="https://blog.wangyuehan.net/2018/07/20/ttfb/"/>
     <id>https://blog.wangyuehan.net/2018/07/20/ttfb/</id>
     <published>2018-07-20T15:01:45.000Z</published>
-    <updated>2019-02-14T06:22:57.217Z</updated>
+    <updated>2019-03-07T06:59:38.795Z</updated>
     
     <content type="html"><![CDATA[<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://image.wangyuehan.net/note/TTFB001.jpg" alt=""></p><h2 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h2><ol><li>首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决</li><li><p>考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容</p><pre><code>&lt;?php&gt;    phpinfo();&lt;?&gt;</code></pre><p> 访问还是很慢</p></li><li><p>发现nginx访问日志文件<code>/app/nginx/logs/access.log</code>文件比较大，有2.6G</p><p> 将日志文件改名，重启nginx<br> 访问还是很慢    </p></li></ol><ol start="3"><li><p>查看php日志文件<code>/usr/local/php/var/log/php-fpm.log</code>中有警告<code>WARNING: server reached pm.max_children setting (5), consider raising it</code>，经百度查询问题，修改配置文件<code>/usr/local/php/etc/php-fpm.conf</code></p><pre><code>#修改配置文件  修改pm.max_children = 1000 #重启PHP$ kill -sigint `cat /usr/local/php/var/php-fpm.pid`$ /usr/local/php/sbin/php-fpm -g php-fpm.pid </code></pre><p> 重启PHP，访问还是很慢</p></li></ol><ol start="4"><li><p>检查PHP配置文件<code>/usr/local/php/etc/php.ini</code>，发现xdebug扩展远程调试开关是打开的，将其关闭</p><pre><code>#修改配置文件$ vim /usr/local/php/etc/php.ini修改参数xdebug.remote_enable=0  #重启PHP</code></pre><p> 访问慢的问题得以解决</p></li></ol>]]></content>
     
@@ -439,7 +439,7 @@
     
     </summary>
     
-      <category term="服务器" scheme="https://blog.wangyuehan.net/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="Web" scheme="https://blog.wangyuehan.net/categories/Web/"/>
     
     
       <category term="problem" scheme="https://blog.wangyuehan.net/tags/problem/"/>
