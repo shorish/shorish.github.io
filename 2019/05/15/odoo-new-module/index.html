@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="开发," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="一、virtualenv安装和使用1、安装 pip install virtualenv 2、创建虚拟环境 virtualenv --no-site-packages -p /usr/local/bin/python3 venv3     --no-site-packages不复制系统环境中已安装的第三方包     -p /usr/local/bin/python3指定新建python解释器程序的">
+<meta name="description" content="1、进入模块目录（默认为odoo/addons），使用odoo-bin脚手架命令创建模块结构 odoo-bin scaffold library_app 模块结构如下 └─library_app     │  __init__.py  #Python模块文件     │  __manifest__.py  #描述文件     │     ├─controllers   #Web控制器     │">
+<meta name="keywords" content="开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python多版本管理virtualenv、virtualenvwrapper">
-<meta property="og:url" content="https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/index.html">
+<meta property="og:title" content="Odoo开发-创建模块步骤">
+<meta property="og:url" content="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="一、virtualenv安装和使用1、安装 pip install virtualenv 2、创建虚拟环境 virtualenv --no-site-packages -p /usr/local/bin/python3 venv3     --no-site-packages不复制系统环境中已安装的第三方包     -p /usr/local/bin/python3指定新建python解释器程序的">
+<meta property="og:description" content="1、进入模块目录（默认为odoo/addons），使用odoo-bin脚手架命令创建模块结构 odoo-bin scaffold library_app 模块结构如下 └─library_app     │  __init__.py  #Python模块文件     │  __manifest__.py  #描述文件     │     ├─controllers   #Web控制器     │">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T05:46:00.873Z">
+<meta property="og:updated_time" content="2019-05-15T02:11:58.350Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Python多版本管理virtualenv、virtualenvwrapper">
-<meta name="twitter:description" content="一、virtualenv安装和使用1、安装 pip install virtualenv 2、创建虚拟环境 virtualenv --no-site-packages -p /usr/local/bin/python3 venv3     --no-site-packages不复制系统环境中已安装的第三方包     -p /usr/local/bin/python3指定新建python解释器程序的">
+<meta name="twitter:title" content="Odoo开发-创建模块步骤">
+<meta name="twitter:description" content="1、进入模块目录（默认为odoo/addons），使用odoo-bin脚手架命令创建模块结构 odoo-bin scaffold library_app 模块结构如下 └─library_app     │  __init__.py  #Python模块文件     │  __manifest__.py  #描述文件     │     ├─controllers   #Web控制器     │">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/"/>
 
 
 
 
 
-  <title>Python多版本管理virtualenv、virtualenvwrapper | shorish's Blog</title>
+  <title>Odoo开发-创建模块步骤 | shorish's Blog</title>
   
 
 
@@ -244,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/29/virtualenv-virtualenvwrapper/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Python多版本管理virtualenv、virtualenvwrapper</h1>
+          <h1 class="post-title" itemprop="name headline">Odoo开发-创建模块步骤</h1>
         
 
         <div class="post-meta">
@@ -273,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T11:43:57+08:00">
-                2018-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T09:47:59+08:00">
+                2019-05-15
               </time>
             
 
@@ -296,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
                   </a>
                 </span>
 
@@ -333,60 +334,81 @@
       
 
       
-        <h3 id="一、virtualenv安装和使用"><a href="#一、virtualenv安装和使用" class="headerlink" title="一、virtualenv安装和使用"></a>一、virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
-<pre><code>pip install virtualenv
-</code></pre><p><strong>2、创建虚拟环境</strong></p>
-<pre><code>virtualenv --no-site-packages -p /usr/local/bin/python3 venv3
-    --no-site-packages不复制系统环境中已安装的第三方包
-    -p /usr/local/bin/python3指定新建python解释器程序的路径
-</code></pre><p><strong>3、激活venv3虚拟环境</strong></p>
-<pre><code>source venv3/bin/activate
-</code></pre><p><strong>4、退出venv3虚拟环境</strong></p>
-<pre><code>source venv3/bin/deactivate
-</code></pre><p>Linux环境（与Windows区别：目录bin变成Scripts）</p>
-<h3 id="二、virtualenvwrapper安装和使用"><a href="#二、virtualenvwrapper安装和使用" class="headerlink" title="二、virtualenvwrapper安装和使用"></a>二、virtualenvwrapper安装和使用</h3><p>因为virtualenv不便于虚拟环境集中管理，可以使用virtualenvwrapper提供统一的命令来管理虚拟环境</p>
-<p><strong>1、安装</strong></p>
-<pre><code>pip install virtualenvwrapper
-pip install virtualenvwrapper-win       #Windows使用该命令
-</code></pre><p><strong>2、配置</strong></p>
-<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vim ~/.zshrc    #使用zsh shell
-vim ~/.bash_profile #使用系统默认
-</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
-<pre><code># virtualenvwrapper
-echo &apos;export WORKON_HOME=~/Venvs&apos; &gt;&gt; ~/.zshrc #指定虚拟环境目录存放位置
-echo &apos;source /usr/local/bin/virtualenvwrapper.sh&apos; &gt;&gt; ~/.zshrc
-</code></pre></li>
-<li><p>使配置生效</p>
-<pre><code>source ~/.zshrc
-#或
-source ~/.bash_profile  
-</code></pre></li>
-</ol>
-<p><strong>3、使用</strong></p>
-<ul>
-<li><p>创建虚拟环境</p>
-<pre><code>mkvirtualenv venv
-</code></pre></li>
-<li><p>查看当前虚拟目录</p>
-<pre><code>workon
-</code></pre></li>
-<li><p>切换虚拟目录</p>
-<pre><code>workon py3
-</code></pre></li>
-<li><p>退出虚拟环境</p>
-<pre><code>deactivate
-</code></pre></li>
-<li><p>删除虚拟环境</p>
-<pre><code>rmvirtualenv venv
-</code></pre></li>
-</ul>
-<h3 id="三、问题"><a href="#三、问题" class="headerlink" title="三、问题"></a>三、问题</h3><h4 id="1、Mac下安装virtualenvwrapper时报错"><a href="#1、Mac下安装virtualenvwrapper时报错" class="headerlink" title="1、Mac下安装virtualenvwrapper时报错"></a>1、Mac下安装virtualenvwrapper时报错</h4><pre><code>Cannot uninstall &apos;six&apos;. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.
-</code></pre><p>先升级six，再安装virtualenvwrapper</p>
-<pre><code>sudo python -m pip install --upgrade six #正常升级命令执行报错，需使用下面命令
-sudo python -m pip install --upgrade --ignore-installed six
-</code></pre>
+        <p>1、进入模块目录（默认为<code>odoo/addons</code>），使用odoo-bin脚手架命令创建模块结构</p>
+<pre><code>odoo-bin scaffold library_app
+</code></pre><p>模块结构如下</p>
+<pre><code>└─library_app
+    │  __init__.py  #Python模块文件
+    │  __manifest__.py  #描述文件
+    │
+    ├─controllers   #Web控制器
+    │      controllers.py
+    │      __init__.py
+    │
+    ├─demo  #示例数据
+    │      demo.xml
+    │
+    ├─models    #业务对象
+    │      models.py
+    │      __init__.py
+    │
+    ├─security  #访问权限
+    │      ir.model.access.csv
+    │
+    └─views #视图
+            templates.xml
+            views.xml
+</code></pre><p>2、创建models文件</p>
+<pre><code>#新建models/library_book.py，定义model类
+class Book(models.Model):
+...
+#编辑models/__init__.py中加入引用
+from . import library_book
+</code></pre><p>3、添加访问规则，为自定义用户组可以指定<code>base.group_user</code></p>
+<pre><code>#编辑security/ir.model.access.csv，加入模型对象model_library_book的访问规则
+access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0
+...
+</code></pre><p>4、创建菜单及动作</p>
+<pre><code>#新建views/library_menu.xml，添加菜单及动作
+#主菜单
+&lt;menuitem id=&quot;library_menu&quot;
+          name=&quot;Library&quot; /&gt;
+#菜单点击动作
+&lt;act_window id=&quot;action_library_book&quot;
+  name=&quot;Library Books&quot;
+  res_model=&quot;library.book&quot;
+  view_mode=&quot;tree,form&quot;
+/&gt;
+#子菜单
+&lt;menuitem id=&quot;menu_library_book&quot;
+          name=&quot;Book&quot;
+          action=&quot;action_library_book&quot;
+          parent=&quot;library_menu&quot; /&gt;
+</code></pre><p>5、创建视图，定义form、tree、search视图</p>
+<pre><code>#新建views/book_view.xml，添加form、tree、search视图
+&lt;record id=&quot;view_form_book&quot; model=&quot;ir.ui.view&quot;&gt;
+&lt;form&gt;
+...
+&lt;record id=&quot;view_tree_book&quot; model=&quot;ir.ui.view&quot;&gt;
+&lt;tree&gt;
+...
+&lt;record id=&quot;view_search_book&quot; model=&quot;ir.ui.view&quot;&gt;
+&lt;search&gt;
+...
+</code></pre><p>6、编辑<strong>manifest</strong>.py，data和demo中引用数据文件csv或xml</p>
+<pre><code>&apos;data&apos;: [
+   &apos;security/ir.model.access.csv&apos;,
+   &apos;views/library_menu.xml&apos;,
+   &apos;views/book_view.xml&apos;,
+   ...
+],
+&apos;demo&apos;: [
+   &apos;data/book_demo.xml&apos;,
+],
+</code></pre><blockquote>
+<p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p>
+</blockquote>
+
       
     </div>
     
@@ -401,6 +423,12 @@ sudo python -m pip install --upgrade --ignore-installed six
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/开发/" rel="tag"># 开发</a>
+          
+        </div>
+      
 
       
       
@@ -410,8 +438,8 @@ sudo python -m pip install --upgrade --ignore-installed six
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/21/hexo-categories-tags/" rel="next" title="Hexo使用-添加分类和标签">
-                <i class="fa fa-chevron-left"></i> Hexo使用-添加分类和标签
+              <a href="/2019/03/07/charles-config/" rel="next" title="使用Charles抓取请求">
+                <i class="fa fa-chevron-left"></i> 使用Charles抓取请求
               </a>
             
           </div>
@@ -419,10 +447,6 @@ sudo python -m pip install --upgrade --ignore-installed six
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/29/pyenv-virtualenv/" rel="prev" title="Mac下Python多版本管理pyenv和pyenv-virtualenv">
-                Mac下Python多版本管理pyenv和pyenv-virtualenv <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -474,17 +498,8 @@ sudo python -m pip install --upgrade --ignore-installed six
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -551,22 +566,6 @@ sudo python -m pip install --upgrade --ignore-installed six
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、virtualenv安装和使用"><span class="nav-number">1.</span> <span class="nav-text">一、virtualenv安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、virtualenvwrapper安装和使用"><span class="nav-number">2.</span> <span class="nav-text">二、virtualenvwrapper安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、问题"><span class="nav-number">3.</span> <span class="nav-text">三、问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、Mac下安装virtualenvwrapper时报错"><span class="nav-number">3.1.</span> <span class="nav-text">1、Mac下安装virtualenvwrapper时报错</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

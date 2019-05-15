@@ -241,6 +241,242 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/30/lnmp-install/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/30/lnmp-install/" itemprop="url">Centos7中安装LNMP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T16:15:37+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h2><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
+<li><p>下载</p>
+<p> 访问<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载地址</a>，找到需要安装的版本的下载地址<br> 如：<code>http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz</code>  </p>
+<pre><code>wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz
+</code></pre><p> 为了防止安装时掉线，建议使用screen</p>
+<pre><code>yum install screen  #安装screen
+screen -S lnmp      #指定screen作业的名称
+#开始执行安装过程，如果掉线执行下面命令恢复
+screen -r lnmp      #恢复离线的screen作业
+screen -list            #列出所有会话
+</code></pre></li>
+<li><p>解压安装</p>
+<pre><code>tar -zxvf lnmp1.5-full.tar.gz
+cd lnmp1.5-full
+./install.sh {lnmp|lnmpa|lamp}  #需选择安装的类型
+#按照提示选择mysql、php版本安装
+</code></pre></li>
+</ol>
+<h3 id="默认安装目录"><a href="#默认安装目录" class="headerlink" title="默认安装目录"></a>默认安装目录</h3><pre><code>Nginx：/usr/local/nginx/
+MySQL：/usr/local/mysql/
+MariaDB：/usr/local/mariadb/
+PHP：/usr/local/php/
+多PHP目录：/usr/local/php5.6/ 版本号随安装版本不同而不同
+PHP扩展插件配置文件目录：/usr/local/php/conf.d/
+PHPMyAdmin：/home/wwwroot/default/phpmyadmin/
+默认虚拟主机网站目录：/home/wwwroot/default/
+Nginx日志目录：/home/wwwlogs/
+</code></pre><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>Nginx主配置文件：/usr/local/nginx/conf/nginx.conf
+MySQL/MariaDB配置文件：/etc/my.cnf
+PHP配置文件：/usr/local/php/etc/php.ini
+PHP-FPM配置文件：/usr/local/php/etc/php-fpm.conf
+PureFtpd配置文件：/usr/local/pureftpd/etc/pure-ftpd.conf
+Apache配置文件：/usr/local/apache/conf/httpd.conf
+</code></pre><h2 id="各应用对应的文件"><a href="#各应用对应的文件" class="headerlink" title="各应用对应的文件"></a>各应用对应的文件</h2><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ul>
+<li><p>安装目录</p>
+<pre><code>/usr/local/nginx
+</code></pre></li>
+<li><p>配置文件</p>
+<pre><code>/usr/local/nginx/conf
+</code></pre></li>
+<li><p>日志文件<br>  日志文件在配置文件中设置  </p>
+<pre><code>error_log  错误日志
+http{log_format}        日志格式
+http{access_log}    nginx访问日志
+server{access_log}  server访问日志
+
+默认设置
+/usr/local/nginx/logs/error.log
+/usr/local/nginx/logs/access.log
+/usr/local/nginx/logs/host.access.log
+</code></pre></li>
+<li><p>PID</p>
+<pre><code>/usr/local/nginx/logs/nginx.pid
+</code></pre></li>
+<li><p>listen</p>
+<pre><code>监听端口：80
+监听进程用户：在`/usr/local/nginx/conf`文件中`user www;`配置
+</code></pre></li>
+</ul>
+<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><ul>
+<li><p>安装目录</p>
+<pre><code>Mysql：/usr/local/mysql
+MariaDB：/usr/local/mariadb/
+</code></pre></li>
+<li><p>配置文件</p>
+<pre><code>/etc/my.cnf
+</code></pre></li>
+<li><p>日志文件</p>
+<pre><code>/usr/local/mysql/var/目录下
+通过下面查询语句查看日志设置及路径 
+show global variables like &apos;%LOG%&apos;;
+</code></pre></li>
+<li><p>listen</p>
+<pre><code>监听端口：3306
+监听socket：/tmp/mysql.sock
+</code></pre><h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3></li>
+<li><p>安装目录</p>
+<pre><code>/usr/local/php
+</code></pre></li>
+<li><p>配置文件</p>
+<pre><code>/usr/local/php/etc/php-fpm.conf
+/usr/local/php/etc/php.ini
+</code></pre></li>
+<li><p>日志文件</p>
+<pre><code>/usr/local/php/var/log/php-fpm.log
+/usr/local/php/var/log/slow.log
+</code></pre></li>
+<li><p>PID</p>
+<pre><code>/usr/local/php/var/run/php-fpm.pid
+</code></pre></li>
+<li><p>Listen</p>
+<pre><code>监听socket：/tmp/php-cgi.sock
+监听进程用户：在`/usr/local/php/etc/php-fpm.conf`文件中`listen.owner = www`配置
+</code></pre></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1520,13 +1756,13 @@ firewall-cmd --permanent --zone=public --list-ports
 <h2 id="流程图、UML"><a href="#流程图、UML" class="headerlink" title="流程图、UML"></a>流程图、UML</h2><p>ProcessOn：<a href="https://www.processon.com/" target="_blank" rel="noopener">https://www.processon.com/</a> | <a href="https://www.processon.com/i/56e6e3abe4b05387d0354c0d" target="_blank" rel="noopener">邀请注册</a>（可增加文件数量）<br>Diagram：<a href="https://www.draw.io/" target="_blank" rel="noopener">https://www.draw.io/</a><br>在线数据库设计网站：<a href="https://www.vertabelo.com" target="_blank" rel="noopener">https://www.vertabelo.com</a> (收费，一些数据库设计可以参考)<br>树状图：<a href="http://www.lizibuluo.com/tree/" target="_blank" rel="noopener">http://www.lizibuluo.com/tree/</a>（在线制作树状流程图）</p>
 <h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><p>格式转换：<a href="https://cn.office-converter.com/" target="_blank" rel="noopener">https://cn.office-converter.com/</a> | <a href="https://www.online-convert.com/" target="_blank" rel="noopener">https://www.online-convert.com/</a><br>在线文档：<a href="https://lightpdf.com/zh/" target="_blank" rel="noopener">https://lightpdf.com/zh/</a><br>PDF转换：<a href="https://www.ilovepdf.com/zh_cn" target="_blank" rel="noopener">https://www.ilovepdf.com/zh_cn</a> | <a href="https://www.pdfpai.com/" target="_blank" rel="noopener">https://www.pdfpai.com/</a> | <a href="https://lightpdf.com/" target="_blank" rel="noopener">https://lightpdf.com/</a> | <a href="https://smallpdf.com/cn/" target="_blank" rel="noopener">https://smallpdf.com/cn/</a>  </p>
 <h2 id="微信排版编辑器"><a href="#微信排版编辑器" class="headerlink" title="微信排版编辑器"></a>微信排版编辑器</h2><p>i排版：<a href="http://ipaiban.com/bianji.jsp" target="_blank" rel="noopener">http://ipaiban.com/bianji.jsp</a><br>秀米：<a href="https://xiumi.us/studio/v5#/paper/for/new" target="_blank" rel="noopener">https://xiumi.us/studio/v5#/paper/for/new</a><br>135编辑器：<a href="https://www.135editor.com/" target="_blank" rel="noopener">https://www.135editor.com/</a></p>
-<h2 id="时间管理"><a href="#时间管理" class="headerlink" title="时间管理"></a>时间管理</h2><p><a href="https://www.playpcesor.com/2017/12/2018-calendar-printable.html" target="_blank" rel="noopener">2018 免費列印行事曆的5個方法</a><br><a href="https://www.printablepaper.net/" target="_blank" rel="noopener">PrintablePaper各种书页格式</a></p>
+<h2 id="时间管理"><a href="#时间管理" class="headerlink" title="时间管理"></a>时间管理</h2><p><a href="https://www.playpcesor.com/2017/12/2018-calendar-printable.html" target="_blank" rel="noopener">2018 免費列印行事曆的5個方法</a><br><a href="https://www.printablepaper.net/" target="_blank" rel="noopener">PrintablePaper各种书页格式</a><br><a href="https://gubik.io/cal/?" target="_blank" rel="noopener">Calendar Generator</a>  </p>
 <h2 id="工具集合"><a href="#工具集合" class="headerlink" title="工具集合"></a>工具集合</h2><p>云端应用：<a href="https://uzer.me/" target="_blank" rel="noopener">https://uzer.me/</a>（不用打开ps就可以P图）<br>在线工具集合：<a href="http://www.nicetool.net/" target="_blank" rel="noopener">http://www.nicetool.net/</a><br>GitHub上整理的一些工具：<a href="http://www.runoob.com/w3cnote/github-tools.html" target="_blank" rel="noopener">http://www.runoob.com/w3cnote/github-tools.html</a><br>ATOOL在线工具：<a href="http://www.atool.org/" target="_blank" rel="noopener">http://www.atool.org/</a><br>站长之家在线工具：<a href="http://tools.jb51.net/" target="_blank" rel="noopener">http://tools.jb51.net/</a>（对照表、代码、正则、颜色、编码）<br>好用的在线工具：<a href="https://tool.lu/" target="_blank" rel="noopener">https://tool.lu/</a>   </p>
-<h2 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h2><p>跨平台文件传输：<a href="https://fileroom.io/" target="_blank" rel="noopener">https://fileroom.io/</a>（用于传输的文件安全要求不高）<br>一次性网盘：<a href="https://send.firefox.com/" target="_blank" rel="noopener">https://send.firefox.com/</a><br>在线打印信纸：<a href="http://www.gridzzly.com/" target="_blank" rel="noopener">http://www.gridzzly.com/</a><br>JSFiddle：<a href="https://jsfiddle.net/50wL7mdz/714954/" target="_blank" rel="noopener">https://jsfiddle.net/50wL7mdz/714954/</a>（JS代码测试）<br>PHP7代码测试：<a href="http://www.dooccn.com/php7/" target="_blank" rel="noopener">http://www.dooccn.com/php7/</a><br>菜鸟教程在线编辑器：<a href="http://www.runoob.com/try/try.php?filename=tryjs_events" target="_blank" rel="noopener">http://www.runoob.com/try/try.php?filename=tryjs_events</a>（JS代码测试）<br>草料二维码：<a href="https://cli.im/deqr" target="_blank" rel="noopener">https://cli.im/deqr</a><br>Excel转HTML表格：<a href="http://tableizer.journalistopia.com/" target="_blank" rel="noopener">http://tableizer.journalistopia.com/</a> |<br><a href="http://pressbin.com/tools/excel_to_html_table/index.html" target="_blank" rel="noopener">http://pressbin.com/tools/excel_to_html_table/index.html</a><br>Online-StopWatch：<a href="https://www.online-stopwatch.com/" target="_blank" rel="noopener">https://www.online-stopwatch.com/</a><br>网络服务器时间发布：<a href="http://www.time.ac.cn/stime.asp" target="_blank" rel="noopener">http://www.time.ac.cn/stime.asp</a><br>网盘搜索网站：<a href="https://so.ncckl.cn/" target="_blank" rel="noopener">https://so.ncckl.cn/</a><br>视频解析网站：<a href="https://206dy.com/" target="_blank" rel="noopener">https://206dy.com/</a><br>短视频去水印：<a href="https://dsp.zlkb.net/" target="_blank" rel="noopener">https://dsp.zlkb.net/</a><br>Ping检测：<a href="https://tools.ipip.net/ping.php" target="_blank" rel="noopener">https://tools.ipip.net/ping.php</a><br>端口检测：<a href="http://coolaf.com/tool/port" target="_blank" rel="noopener">http://coolaf.com/tool/port</a>(国内) |<br><a href="https://www.yougetsignal.com/tools/open-ports/" target="_blank" rel="noopener">https://www.yougetsignal.com/tools/open-ports/</a>(国外)  </p>
+<h2 id="工具箱"><a href="#工具箱" class="headerlink" title="工具箱"></a>工具箱</h2><p>跨平台文件传输：<a href="https://fileroom.io/" target="_blank" rel="noopener">https://fileroom.io/</a>（用于传输的文件安全要求不高）<br>一次性网盘：<a href="https://send.firefox.com/" target="_blank" rel="noopener">https://send.firefox.com/</a><br>在线打印信纸：<a href="http://www.gridzzly.com/" target="_blank" rel="noopener">http://www.gridzzly.com/</a><br>JSFiddle：<a href="https://jsfiddle.net/50wL7mdz/714954/" target="_blank" rel="noopener">https://jsfiddle.net/50wL7mdz/714954/</a>（JS代码测试）<br>PHP7代码测试：<a href="http://www.dooccn.com/php7/" target="_blank" rel="noopener">http://www.dooccn.com/php7/</a><br>菜鸟教程在线编辑器：<a href="http://www.runoob.com/try/try.php?filename=tryjs_events" target="_blank" rel="noopener">http://www.runoob.com/try/try.php?filename=tryjs_events</a>（JS代码测试）<br>草料二维码：<a href="https://cli.im/deqr" target="_blank" rel="noopener">https://cli.im/deqr</a><br>Excel转HTML表格：<a href="http://tableizer.journalistopia.com/" target="_blank" rel="noopener">http://tableizer.journalistopia.com/</a> |<br><a href="http://pressbin.com/tools/excel_to_html_table/index.html" target="_blank" rel="noopener">http://pressbin.com/tools/excel_to_html_table/index.html</a><br>Markdown online：<a href="https://stackedit.io/app#" target="_blank" rel="noopener">https://stackedit.io/app#</a><br>Markdown Wechat：<a href="https://lab.lyric.im/wxformat/" target="_blank" rel="noopener">https://lab.lyric.im/wxformat/</a><br>Markdown Table：<a href="https://www.tablesgenerator.com/markdown_tables" target="_blank" rel="noopener">https://www.tablesgenerator.com/markdown_tables</a><br>Markdown Paste：<a href="https://euangoddard.github.io/clipboard2markdown/" target="_blank" rel="noopener">https://euangoddard.github.io/clipboard2markdown/</a>（html粘贴为markdown格式）<br>Online-StopWatch：<a href="https://www.online-stopwatch.com/" target="_blank" rel="noopener">https://www.online-stopwatch.com/</a><br>网络服务器时间发布：<a href="http://www.time.ac.cn/stime.asp" target="_blank" rel="noopener">http://www.time.ac.cn/stime.asp</a><br>网盘搜索网站：<a href="https://so.ncckl.cn/" target="_blank" rel="noopener">https://so.ncckl.cn/</a><br>视频解析网站：<a href="https://206dy.com/" target="_blank" rel="noopener">https://206dy.com/</a><br>短视频去水印：<a href="https://dsp.zlkb.net/" target="_blank" rel="noopener">https://dsp.zlkb.net/</a><br>Ping检测：<a href="https://tools.ipip.net/ping.php" target="_blank" rel="noopener">https://tools.ipip.net/ping.php</a><br>端口检测：<a href="http://coolaf.com/tool/port" target="_blank" rel="noopener">http://coolaf.com/tool/port</a>(国内) |<br><a href="https://www.yougetsignal.com/tools/open-ports/" target="_blank" rel="noopener">https://www.yougetsignal.com/tools/open-ports/</a>(国外)<br><a href="http://www.ffcell.com/" target="_blank" rel="noopener">方方格子Excel插件</a>  </p>
 <h2 id="Chrome工具"><a href="#Chrome工具" class="headerlink" title="Chrome工具"></a>Chrome工具</h2><p>ChromeDriver下载地址：<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">下载地址</a><br>清除自动HTTPS：<a href="chrome://net-internals/#hsts" target="_blank" rel="noopener">chrome://net-internals/#hsts</a>  </p>
 <h2 id="备查手册"><a href="#备查手册" class="headerlink" title="备查手册"></a>备查手册</h2><p>SublimeText插件库：<a href="https://packagecontrol.io" target="_blank" rel="noopener">https://packagecontrol.io</a><br>SublimeText Emmet使用手册：<a href="https://www.w3cplus.com/tools/emmet-cheat-sheet.html" target="_blank" rel="noopener">https://www.w3cplus.com/tools/emmet-cheat-sheet.html</a></p>
 <h2 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h2><p>剑桥字典：<a href="https://dictionary.cambridge.org/" target="_blank" rel="noopener">Cambridge Dictionary</a></p>
-<h2 id="GitHub资源"><a href="#GitHub资源" class="headerlink" title="GitHub资源"></a>GitHub资源</h2><p>设计工具合集：<a href="https://github.com/LisaDziuba/Awesome-Design-Tools" target="_blank" rel="noopener">Awesome Design Tools</a><br>中国独立开发者项目列表：<a href="https://github.com/1c7/chinese-independent-developer" target="_blank" rel="noopener">chinese-independent-developer</a><br>Chrome 插件合辑：<a href="https://github.com/zhaoolee/ChromeAppHeroes" target="_blank" rel="noopener">ChromeAppHeroes</a><br>macOS 优质应用合辑：<a href="https://github.com/iCHAIT/awesome-macOS" target="_blank" rel="noopener">awesome-macOS</a> | <a href="https://github.com/serhii-londar/open-source-mac-os-apps" target="_blank" rel="noopener">open-source-mac-os-apps</a><br>Windows 优质应用合辑：<a href="https://github.com/Awesome-Windows/Awesome" target="_blank" rel="noopener">Awesome-Windows</a><br>GitHub 秘籍：<a href="https://github.com/tiimgreen/github-cheat-sheet" target="_blank" rel="noopener">github-cheat-sheet</a>  </p>
+<h2 id="GitHub资源"><a href="#GitHub资源" class="headerlink" title="GitHub资源"></a>GitHub资源</h2><p>设计工具合集：<a href="https://github.com/LisaDziuba/Awesome-Design-Tools" target="_blank" rel="noopener">Awesome Design Tools</a><br>中国独立开发者项目列表：<a href="https://github.com/1c7/chinese-independent-developer" target="_blank" rel="noopener">chinese-independent-developer</a><br>Chrome 插件合辑：<a href="https://github.com/zhaoolee/ChromeAppHeroes" target="_blank" rel="noopener">ChromeAppHeroes</a><br>macOS 优质应用合辑：<a href="https://github.com/iCHAIT/awesome-macOS" target="_blank" rel="noopener">awesome-macOS</a> | <a href="https://github.com/serhii-londar/open-source-mac-os-apps" target="_blank" rel="noopener">open-source-mac-os-apps</a><br>Windows 优质应用合辑：<a href="https://github.com/Awesome-Windows/Awesome" target="_blank" rel="noopener">Awesome-Windows</a><br>GitHub 秘籍：<a href="https://github.com/tiimgreen/github-cheat-sheet" target="_blank" rel="noopener">github-cheat-sheet</a><br>Cheatsheet合集：<a href="https://gist.github.com/FlorianHeigl/b025d91eeec0438c58d26908690b3ecb" target="_blank" rel="noopener">Cheatheet</a>  </p>
 
           
         
@@ -1998,161 +2234,11 @@ hexo d 发布到远程仓库
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/04/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/04/10/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-10T17:06:39+08:00">
-                2018-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2198,7 +2284,7 @@ hexo d 发布到远程仓库
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2209,7 +2295,7 @@ hexo d 发布到远程仓库
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2220,7 +2306,7 @@ hexo d 发布到远程仓库
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
