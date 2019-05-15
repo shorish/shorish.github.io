@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2019-05-15T02:11:58.350Z</updated>
+  <updated>2019-05-15T02:15:20.257Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Odoo开发-创建模块步骤</title>
+    <title>Odoo模块创建步骤</title>
     <link href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/"/>
     <id>https://blog.wangyuehan.net/2019/05/15/odoo-new-module/</id>
     <published>2019-05-15T01:47:59.000Z</published>
-    <updated>2019-05-15T02:11:58.350Z</updated>
+    <updated>2019-05-15T02:15:20.257Z</updated>
     
     <content type="html"><![CDATA[<p>1、进入模块目录（默认为<code>odoo/addons</code>），使用odoo-bin脚手架命令创建模块结构</p><pre><code>odoo-bin scaffold library_app</code></pre><p>模块结构如下</p><pre><code>└─library_app    │  __init__.py  #Python模块文件    │  __manifest__.py  #描述文件    │    ├─controllers   #Web控制器    │      controllers.py    │      __init__.py    │    ├─demo  #示例数据    │      demo.xml    │    ├─models    #业务对象    │      models.py    │      __init__.py    │    ├─security  #访问权限    │      ir.model.access.csv    │    └─views #视图            templates.xml            views.xml</code></pre><p>2、创建models文件</p><pre><code>#新建models/library_book.py，定义model类class Book(models.Model):...#编辑models/__init__.py中加入引用from . import library_book</code></pre><p>3、添加访问规则，为自定义用户组可以指定<code>base.group_user</code></p><pre><code>#编辑security/ir.model.access.csv，加入模型对象model_library_book的访问规则access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0...</code></pre><p>4、创建菜单及动作</p><pre><code>#新建views/library_menu.xml，添加菜单及动作#主菜单&lt;menuitem id=&quot;library_menu&quot;          name=&quot;Library&quot; /&gt;#菜单点击动作&lt;act_window id=&quot;action_library_book&quot;  name=&quot;Library Books&quot;  res_model=&quot;library.book&quot;  view_mode=&quot;tree,form&quot;/&gt;#子菜单&lt;menuitem id=&quot;menu_library_book&quot;          name=&quot;Book&quot;          action=&quot;action_library_book&quot;          parent=&quot;library_menu&quot; /&gt;</code></pre><p>5、创建视图，定义form、tree、search视图</p><pre><code>#新建views/book_view.xml，添加form、tree、search视图&lt;record id=&quot;view_form_book&quot; model=&quot;ir.ui.view&quot;&gt;&lt;form&gt;...&lt;record id=&quot;view_tree_book&quot; model=&quot;ir.ui.view&quot;&gt;&lt;tree&gt;...&lt;record id=&quot;view_search_book&quot; model=&quot;ir.ui.view&quot;&gt;&lt;search&gt;...</code></pre><p>6、编辑<strong>manifest</strong>.py，data和demo中引用数据文件csv或xml</p><pre><code>&apos;data&apos;: [   &apos;security/ir.model.access.csv&apos;,   &apos;views/library_menu.xml&apos;,   &apos;views/book_view.xml&apos;,   ...],&apos;demo&apos;: [   &apos;data/book_demo.xml&apos;,],</code></pre><blockquote><p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p></blockquote>]]></content>
     
