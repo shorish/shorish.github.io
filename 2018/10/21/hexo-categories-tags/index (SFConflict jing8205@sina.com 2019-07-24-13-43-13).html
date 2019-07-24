@@ -81,22 +81,17 @@
 
 
 
-<meta name="description" content="目标：使用Hexo+GitHub搭建的博客访问地址为shorish.github.io，希望通过个人域名blog.wangyuehan.net访问博客 步骤： Hexo项目中设置CNAME  在Hexo项目中，source目录下新建CNAME文件（无扩展名），文件中填写个人域名 blog.wangyuehan.net  配置域名解析  我的个人域名在腾讯云，进入到域名管理中添加域名解析。记录地址：">
+<meta name="description" content="添加分类1、创建分类显示页 hexo new page categories   #创建了source/categories/index.md文件     index.md文件中添加内容 type: &amp;quot;categories&amp;quot; 2、创建文章页 hexo new title pagename   #创建了source/_posts/pagename.md文件 pagename.md">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo+GitHub博客绑定个人域名">
-<meta property="og:url" content="https://blog.wangyuehan.net/2018/09/14/hexo-custom-domain/index.html">
+<meta property="og:title" content="Hexo使用-添加分类和标签">
+<meta property="og:url" content="https://blog.wangyuehan.net/2018/10/21/hexo-categories-tags/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="目标：使用Hexo+GitHub搭建的博客访问地址为shorish.github.io，希望通过个人域名blog.wangyuehan.net访问博客 步骤： Hexo项目中设置CNAME  在Hexo项目中，source目录下新建CNAME文件（无扩展名），文件中填写个人域名 blog.wangyuehan.net  配置域名解析  我的个人域名在腾讯云，进入到域名管理中添加域名解析。记录地址：">
+<meta property="og:description" content="添加分类1、创建分类显示页 hexo new page categories   #创建了source/categories/index.md文件     index.md文件中添加内容 type: &amp;quot;categories&amp;quot; 2、创建文章页 hexo new title pagename   #创建了source/_posts/pagename.md文件 pagename.md">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://image.wangyuehan.net//note/20180914114600blog-custom-domain.png">
-<meta property="og:image" content="http://image.wangyuehan.net//note/20180914104350blog-custom-domain.png">
-<meta property="og:image" content="http://image.wangyuehan.net//note/20180914102639blog-custom-domain.png">
-<meta property="og:image" content="http://image.wangyuehan.net//note/20180914110515blog-custom-domain.png">
-<meta property="og:updated_time" content="2019-02-14T06:24:00.000Z">
+<meta property="og:updated_time" content="2019-02-14T05:41:54.176Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo+GitHub博客绑定个人域名">
-<meta name="twitter:description" content="目标：使用Hexo+GitHub搭建的博客访问地址为shorish.github.io，希望通过个人域名blog.wangyuehan.net访问博客 步骤： Hexo项目中设置CNAME  在Hexo项目中，source目录下新建CNAME文件（无扩展名），文件中填写个人域名 blog.wangyuehan.net  配置域名解析  我的个人域名在腾讯云，进入到域名管理中添加域名解析。记录地址：">
-<meta name="twitter:image" content="http://image.wangyuehan.net//note/20180914114600blog-custom-domain.png">
+<meta name="twitter:title" content="Hexo使用-添加分类和标签">
+<meta name="twitter:description" content="添加分类1、创建分类显示页 hexo new page categories   #创建了source/categories/index.md文件     index.md文件中添加内容 type: &amp;quot;categories&amp;quot; 2、创建文章页 hexo new title pagename   #创建了source/_posts/pagename.md文件 pagename.md">
 
 
 
@@ -126,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2018/09/14/hexo-custom-domain/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2018/10/21/hexo-categories-tags/"/>
 
 
 
 
 
-  <title>Hexo+GitHub博客绑定个人域名 | shorish's Blog</title>
+  <title>Hexo使用-添加分类和标签 | shorish's Blog</title>
   
 
 
@@ -249,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/09/14/hexo-custom-domain/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/21/hexo-categories-tags/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -266,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo+GitHub博客绑定个人域名</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo使用-添加分类和标签</h1>
         
 
         <div class="post-meta">
@@ -278,8 +273,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-14T10:52:44+08:00">
-                2018-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-21T14:08:41+08:00">
+                2018-10-21
               </time>
             
 
@@ -338,31 +333,29 @@
       
 
       
-        <h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><p>使用Hexo+GitHub搭建的博客访问地址为<code>shorish.github.io</code>，希望通过个人域名<code>blog.wangyuehan.net</code>访问博客</p>
-<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><ol>
-<li><p>Hexo项目中设置CNAME</p>
-<p> 在Hexo项目中，source目录下新建CNAME文件（无扩展名），文件中填写个人域名 <code>blog.wangyuehan.net</code></p>
-</li>
-<li><p>配置域名解析</p>
-<p> 我的个人域名在腾讯云，进入到域名管理中添加域名解析。记录地址：blog，记录类型：CNAME，记录值：<code>shorish.github.io</code>，线路类型和TTL保留默认值</p>
-<p> <img src="http://image.wangyuehan.net//note/20180914114600blog-custom-domain.png" alt=""></p>
-<p> 过几分钟可以通过ping命令验证域名解析是否成功，下面表示成功</p>
-<p> <img src="http://image.wangyuehan.net//note/20180914104350blog-custom-domain.png" alt=""></p>
-</li>
-<li><p>在GitHub上配置个人域名</p>
-<p> 登录GitHub，进入<code>shorish/shorish.github.io</code>仓库，菜单Settings -&gt; Options -&gt; GitHub Pages -&gt; Custom domain，填写个人域名</p>
-<p> <img src="http://image.wangyuehan.net//note/20180914102639blog-custom-domain.png" alt=""></p>
-<p> 接下来通过个人域名便可以访问blog</p>
-</li>
-</ol>
-<p>另外域名解析也通过IP地址的方式添加，但这个方式GitHub会给出警告，并且GitHub如果改变IP后我们的域名解析也要修改，所以还是建议使用CNAME方式</p>
-<h2 id="报错"><a href="#报错" class="headerlink" title="报错:"></a>报错:</h2><ol>
-<li><p>访问显示GitHub返回的404错误，这个问题是Hexo项目中没有设置CNAME<br><img src="http://image.wangyuehan.net//note/20180914110515blog-custom-domain.png" alt=""></p>
-</li>
-<li><p>配置完成后还是无法访问，这个问题是GitHub只通过https协议访问，注意自己是否使用了http协议，所以无法访问</p>
-</li>
-</ol>
-
+        <h3 id="添加分类"><a href="#添加分类" class="headerlink" title="添加分类"></a>添加分类</h3><p>1、创建分类显示页</p>
+<pre><code>hexo new page categories  
+#创建了source/categories/index.md文件    
+</code></pre><p>index.md文件中添加内容</p>
+<pre><code>type: &quot;categories&quot;
+</code></pre><p>2、创建文章页</p>
+<pre><code>hexo new title pagename  
+#创建了source/_posts/pagename.md文件
+</code></pre><p>pagename.md文件中添加内容</p>
+<pre><code>categories: 
+    - Linux
+</code></pre><h3 id="添加标签"><a href="#添加标签" class="headerlink" title="添加标签"></a>添加标签</h3><p>1、创建标签显示页</p>
+<pre><code>hexo new page tags  
+#创建了source/tags/index.md文件
+</code></pre><p>index.md文件中添加内容</p>
+<pre><code>type: &quot;tags&quot;
+</code></pre><p>2、创建文章页</p>
+<pre><code>hexo new title pagename 
+#创建了source/_posts/pagename.md文件
+</code></pre><p>pagename.md文件中添加内容</p>
+<pre><code>tags: 
+    - 新页面
+</code></pre>
       
     </div>
     
@@ -386,8 +379,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/09/bookmark/" rel="next" title="Resource bookmark">
-                <i class="fa fa-chevron-left"></i> Resource bookmark
+              <a href="/2018/10/21/centos-firewall/" rel="next" title="Centos7 firewall配置">
+                <i class="fa fa-chevron-left"></i> Centos7 firewall配置
               </a>
             
           </div>
@@ -396,8 +389,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/20/submit-package-recommend/" rel="prev" title="Sublime Text插件推荐">
-                Sublime Text插件推荐 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/29/virtualenv-virtualenvwrapper/" rel="prev" title="Python多版本管理virtualenv、virtualenvwrapper">
+                Python多版本管理virtualenv、virtualenvwrapper <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -537,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标："><span class="nav-number">1.</span> <span class="nav-text">目标：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#步骤："><span class="nav-number">2.</span> <span class="nav-text">步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#报错"><span class="nav-number">3.</span> <span class="nav-text">报错:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加分类"><span class="nav-number">1.</span> <span class="nav-text">添加分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加标签"><span class="nav-number">2.</span> <span class="nav-text">添加标签</span></a></li></ol></div>
             
 
           </div>
