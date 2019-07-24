@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="tools," />
 
 
 
@@ -81,17 +81,28 @@
 
 
 
-<meta name="description" content="清理Git仓库中未跟踪的文件时可以使用下面命令  删除untracked文件 git clean -f 删除untracked文件 git clean -fd 删除.gitignore的untracked文件 git clean -xfd 使用上面git clean之前，建议使用-n参数查看会删除哪些文件 git clean -nxfd git clean -nf git clean -nfd">
+<meta name="description" content="Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。 运行环境 MacOS 10.14.3 Charles 4.2.7 小米MIX2 Android MIUI10.2.2  1、下载并安装Charles下载地址     工作界面和常用按钮 2、配置抓取HTTP请求 配置代理，「Proxy Settings」  抓取电脑端请求，菜">
+<meta name="keywords" content="tools">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-如何删除untracked files（未跟踪）的文件">
-<meta property="og:url" content="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/index.html">
+<meta property="og:title" content="使用Charles抓取请求">
+<meta property="og:url" content="https://blog.wangyuehan.net/2019/03/07/charles-config/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="清理Git仓库中未跟踪的文件时可以使用下面命令  删除untracked文件 git clean -f 删除untracked文件 git clean -fd 删除.gitignore的untracked文件 git clean -xfd 使用上面git clean之前，建议使用-n参数查看会删除哪些文件 git clean -nxfd git clean -nf git clean -nfd">
+<meta property="og:description" content="Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。 运行环境 MacOS 10.14.3 Charles 4.2.7 小米MIX2 Android MIUI10.2.2  1、下载并安装Charles下载地址     工作界面和常用按钮 2、配置抓取HTTP请求 配置代理，「Proxy Settings」  抓取电脑端请求，菜">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T06:06:12.000Z">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307141052charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307115032charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307114939charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307120737charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307115117charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307115903charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307142935charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307141427charles.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190307144711charles.png">
+<meta property="og:updated_time" content="2019-03-07T06:50:39.140Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-如何删除untracked files（未跟踪）的文件">
-<meta name="twitter:description" content="清理Git仓库中未跟踪的文件时可以使用下面命令  删除untracked文件 git clean -f 删除untracked文件 git clean -fd 删除.gitignore的untracked文件 git clean -xfd 使用上面git clean之前，建议使用-n参数查看会删除哪些文件 git clean -nxfd git clean -nf git clean -nfd">
+<meta name="twitter:title" content="使用Charles抓取请求">
+<meta name="twitter:description" content="Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。 运行环境 MacOS 10.14.3 Charles 4.2.7 小米MIX2 Android MIUI10.2.2  1、下载并安装Charles下载地址     工作界面和常用按钮 2、配置抓取HTTP请求 配置代理，「Proxy Settings」  抓取电脑端请求，菜">
+<meta name="twitter:image" content="http://image.wangyuehan.net//note/20190307141052charles.png">
 
 
 
@@ -121,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2019/03/07/charles-config/"/>
 
 
 
 
 
-  <title>Git-如何删除untracked files（未跟踪）的文件 | shorish's Blog</title>
+  <title>使用Charles抓取请求 | shorish's Blog</title>
   
 
 
@@ -244,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/03/07/charles-config/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git-如何删除untracked files（未跟踪）的文件</h1>
+          <h1 class="post-title" itemprop="name headline">使用Charles抓取请求</h1>
         
 
         <div class="post-meta">
@@ -273,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-04T14:01:45+08:00">
-                2019-01-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T14:39:50+08:00">
+                2019-03-07
               </time>
             
 
@@ -296,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
                   </a>
                 </span>
 
@@ -333,20 +344,31 @@
       
 
       
-        <blockquote>
-<p>清理Git仓库中未跟踪的文件时可以使用下面命令</p>
-</blockquote>
-<p>删除untracked文件</p>
-<pre><code>git clean -f
-</code></pre><p>删除untracked文件</p>
-<pre><code>git clean -fd
-</code></pre><p>删除.gitignore的untracked文件</p>
-<pre><code>git clean -xfd
-</code></pre><p>使用上面git clean之前，建议使用-n参数查看会删除哪些文件</p>
-<pre><code>git clean -nxfd
-git clean -nf
-git clean -nfd
-</code></pre>
+        <p>Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。</p>
+<h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><ul>
+<li>MacOS 10.14.3</li>
+<li>Charles 4.2.7</li>
+<li>小米MIX2 Android MIUI10.2.2</li>
+</ul>
+<h3 id="1、下载并安装Charles"><a href="#1、下载并安装Charles" class="headerlink" title="1、下载并安装Charles"></a>1、下载并安装Charles</h3><p><a href="https://www.charlesproxy.com/latest-release/download.do" target="_blank" rel="noopener">下载地址</a>    </p>
+<p>工作界面和常用按钮<br><img src="http://image.wangyuehan.net//note/20190307141052charles.png" alt=""></p>
+<h3 id="2、配置抓取HTTP请求"><a href="#2、配置抓取HTTP请求" class="headerlink" title="2、配置抓取HTTP请求"></a>2、配置抓取HTTP请求</h3><ul>
+<li><p>配置代理，「Proxy Settings」<br><img src="http://image.wangyuehan.net//note/20190307115032charles.png" alt=""></p>
+</li>
+<li><p>抓取电脑端请求，菜单「Proxy」中，「macOS Proxy」打上勾，同时需要关闭开启的VPN代理<br><img src="http://image.wangyuehan.net//note/20190307114939charles.png" alt=""></p>
+</li>
+<li><p>抓取手机端请求，配置手机使用Charles代理<br>首先手机和电脑端连接同一个wifi，在手机「设置」—「WLAN」中，进入连接的WLAN，「代理」选择手动，填写主机名、端口<br><img src="http://image.wangyuehan.net//note/20190307120737charles.png" alt=""></p>
+</li>
+</ul>
+<h3 id="3、配置抓取HTTPS请求"><a href="#3、配置抓取HTTPS请求" class="headerlink" title="3、配置抓取HTTPS请求"></a>3、配置抓取HTTPS请求</h3><ul>
+<li><p>电脑端配置SSL，「SSL Proxying Settings」<br><img src="http://image.wangyuehan.net//note/20190307115117charles.png" alt=""></p>
+</li>
+<li><p>电脑端信任证书<br><img src="http://image.wangyuehan.net//note/20190307115903charles.png" alt=""><br><img src="http://image.wangyuehan.net//note/20190307142935charles.png" alt=""></p>
+</li>
+<li>手机端下载证书，将下载的证书文件扩展名pem改为crt，即可安装<br><img src="http://image.wangyuehan.net//note/20190307141427charles.png" alt=""></li>
+</ul>
+<p>安装证书后部分HTTPS请求可以正常获取，还有大部分显示<code>&lt;unknown&gt;</code>，待后续研究<br><img src="http://image.wangyuehan.net//note/20190307144711charles.png" alt=""></p>
+
       
     </div>
     
@@ -361,6 +383,12 @@ git clean -nfd
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+        </div>
+      
 
       
       
@@ -370,8 +398,8 @@ git clean -nfd
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/29/software-service-price/" rel="next" title="软件（系统）开发、维护、集成价格估算（学习笔记）">
-                <i class="fa fa-chevron-left"></i> 软件（系统）开发、维护、集成价格估算（学习笔记）
+              <a href="/2019/02/12/git-get-file-of-gitignore/" rel="next" title="Git-如何将未跟踪的例外文件拉到本地">
+                <i class="fa fa-chevron-left"></i> Git-如何将未跟踪的例外文件拉到本地
               </a>
             
           </div>
@@ -380,8 +408,8 @@ git clean -nfd
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/07/python-setuptools-pip-install/" rel="prev" title="Python包管理工具：easy_install和pip的安装和使用">
-                Python包管理工具：easy_install和pip的安装和使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/15/odoo-new-module/" rel="prev" title="Odoo模块创建步骤">
+                Odoo模块创建步骤 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -434,8 +462,17 @@ git clean -nfd
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -502,6 +539,22 @@ git clean -nfd
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#运行环境"><span class="nav-number">1.</span> <span class="nav-text">运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、下载并安装Charles"><span class="nav-number">2.</span> <span class="nav-text">1、下载并安装Charles</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、配置抓取HTTP请求"><span class="nav-number">3.</span> <span class="nav-text">2、配置抓取HTTP请求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、配置抓取HTTPS请求"><span class="nav-number">4.</span> <span class="nav-text">3、配置抓取HTTPS请求</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

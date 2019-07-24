@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="command," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="一、pyenv安装和使用1、安装 brew update brew install pyenv 2、配置  编辑配置文件 vim ~/.zshrc    #使用zsh shell vim ~/.bash_profile #使用系统默认  在.zshrc或.bash_profile文件最后写入 # pyenv echo &amp;apos;eval &amp;quot;$(pyenv init -)&amp;quot;&amp;a">
+<meta name="description" content="iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃 1、添加iptables规则iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT iptables -A INPUT -p tcp --dport 3306 -j DROP #-A INPUT or OUT 进还是出的规">
+<meta name="keywords" content="command">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac下Python多版本管理pyenv和pyenv-virtualenv">
-<meta property="og:url" content="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/index.html">
+<meta property="og:title" content="Linux命令：iptables">
+<meta property="og:url" content="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="一、pyenv安装和使用1、安装 brew update brew install pyenv 2、配置  编辑配置文件 vim ~/.zshrc    #使用zsh shell vim ~/.bash_profile #使用系统默认  在.zshrc或.bash_profile文件最后写入 # pyenv echo &amp;apos;eval &amp;quot;$(pyenv init -)&amp;quot;&amp;a">
+<meta property="og:description" content="iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃 1、添加iptables规则iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT iptables -A INPUT -p tcp --dport 3306 -j DROP #-A INPUT or OUT 进还是出的规">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-30T08:26:11.000Z">
+<meta property="og:updated_time" content="2019-03-07T07:17:31.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac下Python多版本管理pyenv和pyenv-virtualenv">
-<meta name="twitter:description" content="一、pyenv安装和使用1、安装 brew update brew install pyenv 2、配置  编辑配置文件 vim ~/.zshrc    #使用zsh shell vim ~/.bash_profile #使用系统默认  在.zshrc或.bash_profile文件最后写入 # pyenv echo &amp;apos;eval &amp;quot;$(pyenv init -)&amp;quot;&amp;a">
+<meta name="twitter:title" content="Linux命令：iptables">
+<meta name="twitter:description" content="iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃 1、添加iptables规则iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT iptables -A INPUT -p tcp --dport 3306 -j DROP #-A INPUT or OUT 进还是出的规">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/"/>
 
 
 
 
 
-  <title>Mac下Python多版本管理pyenv和pyenv-virtualenv | shorish's Blog</title>
+  <title>Linux命令：iptables | shorish's Blog</title>
   
 
 
@@ -244,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mac下Python多版本管理pyenv和pyenv-virtualenv</h1>
+          <h1 class="post-title" itemprop="name headline">Linux命令：iptables</h1>
         
 
         <div class="post-meta">
@@ -273,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T11:51:19+08:00">
-                2018-10-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:18:18+08:00">
+                2018-11-16
               </time>
             
 
@@ -296,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -333,101 +334,124 @@
       
 
       
-        <h3 id="一、pyenv安装和使用"><a href="#一、pyenv安装和使用" class="headerlink" title="一、pyenv安装和使用"></a>一、pyenv安装和使用</h3><p><strong>1、安装</strong></p>
-<pre><code>brew update
-brew install pyenv
-</code></pre><p><strong>2、配置</strong></p>
-<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vim ~/.zshrc    #使用zsh shell
-vim ~/.bash_profile #使用系统默认
-</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
-<pre><code># pyenv
-echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.zshrc
-</code></pre></li>
-<li><p>使配置生效</p>
-<pre><code>source ~/.zshrc
-#或
-source ~/.bash_profile  
-</code></pre></li>
-</ol>
-<p><strong>3、安装zlib</strong></p>
-<pre><code>brew install zlib
+        <p>iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃</p>
+<h3 id="1、添加iptables规则"><a href="#1、添加iptables规则" class="headerlink" title="1、添加iptables规则"></a>1、添加iptables规则</h3><pre><code>iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT
+iptables -A INPUT -p tcp --dport 3306 -j DROP
+#-A INPUT or OUT 进还是出的规则
+#-p tcp or udp协议
+#-s 源ip地址 
+#--dport 端口号
+#-j ACCEPT 允许 REJECT 拒绝 DROP 丢弃
+</code></pre><h3 id="2、删除iptables规则"><a href="#2、删除iptables规则" class="headerlink" title="2、删除iptables规则"></a>2、删除iptables规则</h3><pre><code>#查看规则行号
+iptables -L -n INPUT --line-numbers
+#-L --list 显示规则
+#-n 端口显示数字
+#--line-numbers 显示规则编号，用于删除
+#删除规则
+iptables -D INPUT 3
+</code></pre><h3 id="3、保存iptables规则，使之重启后有效"><a href="#3、保存iptables规则，使之重启后有效" class="headerlink" title="3、保存iptables规则，使之重启后有效"></a>3、保存iptables规则，使之重启后有效</h3><ul>
+<li><p>centos6</p>
+<pre><code>service iptables save
 
-#如果命令pyenv install 3.7.0报错需执行下面命令
-ln -s /usr/local/Cellar/zlib/1.2.11/lib/* /usr/local/lib
-ln -s /usr/local/Cellar/zlib/1.2.11/include/* /usr/local/include
-</code></pre><p><strong>4、使用</strong></p>
-<ul>
-<li><p>查看可安装版本</p>
-<pre><code>pyenv install --list    #查看可安装版本
+#或
+#修改/etc/sysconfig/iptables配置文件中的规则后重启服务
+service iptables restart
 </code></pre></li>
-<li><p>安装指定版本</p>
-<pre><code>pyenv install 3.7.0     #安装指定版本
+<li><p>centos7（默认使用firewall，停用firewall后安装iptables，就与centos6相同）</p>
+<pre><code>#停用firewall
+systemctl stop firewall .service        #停止firewall
+systemctl disable firewall.service  #禁止开机启动firewall
+firewall-cmd --status           #查看firewall状态
+#安装iptables
+yum install iptables-service
+systemctl enable iptables
+systemctl start iptables
 </code></pre></li>
-<li><p>查看当前python版本</p>
-<pre><code>pyenv version       #查看当前python版本
-</code></pre></li>
-<li><p>查看已安装python版本</p>
-<pre><code>pyenv versions      #查看已安装python版本
-</code></pre></li>
-<li><p>设置python版本</p>
-<pre><code>pyenv global 3.7.0  #对所有的Shell全局有效，版本号写入~/.pyenv/version文件
-pyenv local 3.7.0   #对当前目录有效，版本号写入当前目录下的.python-version文件
-pyenv shell 3.7.0   #对当前会话有效
-</code></pre></li>
-<li><p>重置python版本设置</p>
-<pre><code>pyenv shell --unset
-pyenv local --unset
-</code></pre></li>
-<li><p>卸载版本</p>
-<pre><code>pyenv uninstall 3.7.0   
+<li><p>ubuntu（使用iptables-save和iptables-restore）</p>
+<p>  手动保存</p>
+<pre><code>#1.保存iptables规则到文件
+#sudo iptables-save &gt; /etc/iptables.rules会报错
+sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
+#2.设置网络配置文件中加载该文件
+vim /etc/network/interfaces
+加入pre-up iptables-restore &lt; /etc/iptables.up.rules
+</code></pre><p>  重启自动生效</p>
+<pre><code>#1.新增网络关闭自动执行脚本
+vim /etc/network/if-post-down.d/iptables
+内容为
+    #!/bin/bash
+    iptables-save &gt; /etc/iptables.rules
+#2.新增网络开启自动执行脚本
+sudo vim /etc/network/if-pre-up.d/iptables
+内容为
+    #!/bin/bash
+    iptables-restore &lt; /etc/iptables.rules
+#3.给两个脚本执行权限
+sudo chmod +x /etc/network/if-post-down.d/iptables
+sudo chmod +x /etc/network/if-pre-up.d/iptables
 </code></pre></li>
 </ul>
-<h3 id="二、pyenv-virtualenv安装和使用"><a href="#二、pyenv-virtualenv安装和使用" class="headerlink" title="二、pyenv-virtualenv安装和使用"></a>二、pyenv-virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
-<pre><code>brew update
-brew install pyenv-virtualenv
-</code></pre><p><strong>2、配置</strong></p>
-<ol>
-<li><p>编辑配置文件</p>
-<pre><code>vim ~/.zshrc    #使用zsh shell
-vim ~/.bash_profile #使用系统默认
-</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
-<pre><code># pyenv-virtualenv
-if which pyenv-virtualenv-init &gt; /dev/null;
-  then eval &quot;$(pyenv virtualenv-init -)&quot;;
-fi      
-</code></pre></li>
-<li><p>使配置生效</p>
-<pre><code>source ~/.zshrc
-#或
-source ~/.bash_profile  
-</code></pre></li>
-</ol>
-<p><strong>3、使用</strong></p>
-<ul>
-<li><p>从当前版本创建虚拟环境</p>
-<pre><code>pyenv virtualenv py370
-</code></pre></li>
-<li><p>指定版本创建虚拟环境</p>
-<pre><code>pyenv virtualenv 3.7.0 py370
-</code></pre></li>
-<li><p>查看已创建的虚拟环境</p>
-<pre><code>pyenv versions
-</code></pre></li>
-<li><p>激活和停用虚拟环境</p>
-<pre><code>#手动激活
-pyenv activate py370
-pyenv deactivate
+<h3 id="4、常用功能"><a href="#4、常用功能" class="headerlink" title="4、常用功能"></a>4、常用功能</h3><h4 id="白名单规则"><a href="#白名单规则" class="headerlink" title="白名单规则"></a>白名单规则</h4><p>比如开通本机的22端口，允许192.168.1.0网段的服务器访问（-t filter表配置可以省略，默认就是这种表的配置）</p>
+<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+</code></pre><p>或者</p>
+<pre><code>iptables -t filter -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+</code></pre><p>开通本机的80端口，只允许192.168.1.150机器访问（32位掩码表示单机，单机指定时可以不加掩码）</p>
+<pre><code>iptables -t filter -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+</code></pre><p>然后保存规则，重启iptables</p>
+<pre><code>service iptables save
+service iptables restart
+</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下（其实上面在终端命令行里设置并save和restart防火墙后，就会自动保存规则到/etc/sysconfig/iptables这个文件中的）：</p>
+<pre><code>cat /etc/sysconfig/iptables
+    ......
+    *filter
+    :INPUT ACCEPT [442620:173026884]
+    :FORWARD ACCEPT [118911:23993940]
+    :OUTPUT ACCEPT [8215384:539509656]
+    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
+    -A INPUT -p icmp -j ACCEPT 
+    -A INPUT -i lo -j ACCEPT 
+    -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+    -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
 
-#自动激活，进入目录自动激活
-pyenv local py370
-</code></pre></li>
-<li><p>删除现有虚拟环境</p>
-<pre><code>pyenv uninstall py370
-</code></pre></li>
-</ul>
+service iptables restart
+</code></pre><h4 id="NAT转发设置"><a href="#NAT转发设置" class="headerlink" title="NAT转发设置"></a>NAT转发设置</h4><p>比如访问本机（192.168.1.7）的8088端口转发到192.168.1.160的80端口；访问本机的33066端口转发到192.168.1.161的3306端口<br>准备工作：<br>本机打开ip_forword路由转发功能；192.168.1.160/161的内网网关要和本机网关一致！如果没有内网网关，就将网关设置成本机内网ip，并且关闭防火墙（防火墙要是打开了，就设置对应端口允许本机访问）</p>
+<pre><code>iptables -t nat -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80
+iptables -t nat -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7
+iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
 
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306
+iptables -t nat -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7
+iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
+
+service iptables save
+service iptables restart
+</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下</p>
+<pre><code>cat /etc/sysconfig/iptables
+    ......
+    *nat
+    :PREROUTING ACCEPT [60:4250]
+    :INPUT ACCEPT [31:1973]
+    :OUTPUT ACCEPT [3:220]
+    :POSTROUTING ACCEPT [3:220]
+    -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80                              //PREROUTING规则都放在上面
+    -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306
+    -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7             //POSTROUTING规则都放在下面
+    -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7
+    .....
+    *filter
+    :INPUT ACCEPT [16:7159]
+    :FORWARD ACCEPT [0:0]
+    :OUTPUT ACCEPT [715:147195]
+    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+    -A INPUT -p icmp -j ACCEPT
+    -A INPUT -i lo -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
+    .....
+service iptables restart
+</code></pre><h4 id="查看规则列表"><a href="#查看规则列表" class="headerlink" title="查看规则列表"></a>查看规则列表</h4><pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
+iptables -L -t nat            //如果列出nat表下规则，就加-t参数
+</code></pre>
       
     </div>
     
@@ -442,6 +466,12 @@ pyenv local py370
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/command/" rel="tag"># command</a>
+          
+        </div>
+      
 
       
       
@@ -451,8 +481,8 @@ pyenv local py370
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/29/virtualenv-virtualenvwrapper/" rel="next" title="Python多版本管理virtualenv、virtualenvwrapper">
-                <i class="fa fa-chevron-left"></i> Python多版本管理virtualenv、virtualenvwrapper
+              <a href="/2018/10/30/lnmp-install/" rel="next" title="Centos7中安装LNMP">
+                <i class="fa fa-chevron-left"></i> Centos7中安装LNMP
               </a>
             
           </div>
@@ -461,8 +491,8 @@ pyenv local py370
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/30/lnmp-install/" rel="prev" title="Centos7中安装LNMP">
-                Centos7中安装LNMP <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/16/problem-ubuntu-sudo/" rel="prev" title="sudo执行管道命令报错">
+                sudo执行管道命令报错 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -602,7 +632,7 @@ pyenv local py370
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、pyenv安装和使用"><span class="nav-number">1.</span> <span class="nav-text">一、pyenv安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、pyenv-virtualenv安装和使用"><span class="nav-number">2.</span> <span class="nav-text">二、pyenv-virtualenv安装和使用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、添加iptables规则"><span class="nav-number">1.</span> <span class="nav-text">1、添加iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、删除iptables规则"><span class="nav-number">2.</span> <span class="nav-text">2、删除iptables规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、保存iptables规则，使之重启后有效"><span class="nav-number">3.</span> <span class="nav-text">3、保存iptables规则，使之重启后有效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、常用功能"><span class="nav-number">4.</span> <span class="nav-text">4、常用功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#白名单规则"><span class="nav-number">4.1.</span> <span class="nav-text">白名单规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#NAT转发设置"><span class="nav-number">4.2.</span> <span class="nav-text">NAT转发设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看规则列表"><span class="nav-number">4.3.</span> <span class="nav-text">查看规则列表</span></a></li></ol></li></ol></div>
             
 
           </div>

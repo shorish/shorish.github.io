@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="开发," />
 
 
 
@@ -81,14 +81,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://blog.wangyuehan.net/categories/index.html">
+<meta name="description" content="1、进入模块目录（默认为odoo/addons），使用odoo-bin脚手架命令创建模块结构 odoo-bin scaffold library_app 模块结构如下 └─library_app     │  __init__.py  #Python模块文件     │  __manifest__.py  #描述文件     │     ├─controllers   #Web控制器     │">
+<meta name="keywords" content="开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Odoo模块创建步骤">
+<meta property="og:url" content="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
+<meta property="og:description" content="1、进入模块目录（默认为odoo/addons），使用odoo-bin脚手架命令创建模块结构 odoo-bin scaffold library_app 模块结构如下 └─library_app     │  __init__.py  #Python模块文件     │  __manifest__.py  #描述文件     │     ├─controllers   #Web控制器     │">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-29T06:51:09.000Z">
+<meta property="og:updated_time" content="2019-05-15T02:15:20.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="Odoo模块创建步骤">
+<meta name="twitter:description" content="1、进入模块目录（默认为odoo/addons），使用odoo-bin脚手架命令创建模块结构 odoo-bin scaffold library_app 模块结构如下 └─library_app     │  __init__.py  #Python模块文件     │  __manifest__.py  #描述文件     │     ├─controllers   #Web控制器     │">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/categories/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/"/>
 
 
 
 
 
-  <title>分类 | shorish's Blog</title>
+  <title>Odoo模块创建步骤 | shorish's Blog</title>
   
 
 
@@ -229,40 +233,239 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                8 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Odoo/">Odoo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/清单/">清单</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工程/">软件工程</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Odoo模块创建步骤</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-15T09:47:59+08:00">
+                2019-05-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>1、进入模块目录（默认为<code>odoo/addons</code>），使用odoo-bin脚手架命令创建模块结构</p>
+<pre><code>odoo-bin scaffold library_app
+</code></pre><p>模块结构如下</p>
+<pre><code>└─library_app
+    │  __init__.py  #Python模块文件
+    │  __manifest__.py  #描述文件
+    │
+    ├─controllers   #Web控制器
+    │      controllers.py
+    │      __init__.py
+    │
+    ├─demo  #示例数据
+    │      demo.xml
+    │
+    ├─models    #业务对象
+    │      models.py
+    │      __init__.py
+    │
+    ├─security  #访问权限
+    │      ir.model.access.csv
+    │
+    └─views #视图
+            templates.xml
+            views.xml
+</code></pre><p>2、创建models文件</p>
+<pre><code>#新建models/library_book.py，定义model类
+class Book(models.Model):
+...
+#编辑models/__init__.py中加入引用
+from . import library_book
+</code></pre><p>3、添加访问规则，为自定义用户组可以指定<code>base.group_user</code></p>
+<pre><code>#编辑security/ir.model.access.csv，加入模型对象model_library_book的访问规则
+access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0
+...
+</code></pre><p>4、创建菜单及动作</p>
+<pre><code>#新建views/library_menu.xml，添加菜单及动作
+#主菜单
+&lt;menuitem id=&quot;library_menu&quot;
+          name=&quot;Library&quot; /&gt;
+#菜单点击动作
+&lt;act_window id=&quot;action_library_book&quot;
+  name=&quot;Library Books&quot;
+  res_model=&quot;library.book&quot;
+  view_mode=&quot;tree,form&quot;
+/&gt;
+#子菜单
+&lt;menuitem id=&quot;menu_library_book&quot;
+          name=&quot;Book&quot;
+          action=&quot;action_library_book&quot;
+          parent=&quot;library_menu&quot; /&gt;
+</code></pre><p>5、创建视图，定义form、tree、search视图</p>
+<pre><code>#新建views/book_view.xml，添加form、tree、search视图
+&lt;record id=&quot;view_form_book&quot; model=&quot;ir.ui.view&quot;&gt;
+&lt;form&gt;
+...
+&lt;record id=&quot;view_tree_book&quot; model=&quot;ir.ui.view&quot;&gt;
+&lt;tree&gt;
+...
+&lt;record id=&quot;view_search_book&quot; model=&quot;ir.ui.view&quot;&gt;
+&lt;search&gt;
+...
+</code></pre><p>6、编辑<strong>manifest</strong>.py，data和demo中引用数据文件csv或xml</p>
+<pre><code>&apos;data&apos;: [
+   &apos;security/ir.model.access.csv&apos;,
+   &apos;views/library_menu.xml&apos;,
+   &apos;views/book_view.xml&apos;,
+   ...
+],
+&apos;demo&apos;: [
+   &apos;data/book_demo.xml&apos;,
+],
+</code></pre><blockquote>
+<p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p>
+</blockquote>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/开发/" rel="tag"># 开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/07/charles-config/" rel="next" title="使用Charles抓取请求">
+                <i class="fa fa-chevron-left"></i> 使用Charles抓取请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 

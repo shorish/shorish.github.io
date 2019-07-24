@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="清理Git仓库中未跟踪的文件时可以使用下面命令  删除untracked文件 git clean -f 删除untracked文件 git clean -fd 删除.gitignore的untracked文件 git clean -xfd 使用上面git clean之前，建议使用-n参数查看会删除哪些文件 git clean -nxfd git clean -nf git clean -nfd">
+<meta name="description" content="一、pyenv安装和使用1、安装 brew update brew install pyenv 2、配置  编辑配置文件 vim ~/.zshrc    #使用zsh shell vim ~/.bash_profile #使用系统默认  在.zshrc或.bash_profile文件最后写入 # pyenv echo &amp;apos;eval &amp;quot;$(pyenv init -)&amp;quot;&amp;a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-如何删除untracked files（未跟踪）的文件">
-<meta property="og:url" content="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/index.html">
+<meta property="og:title" content="Mac下Python多版本管理pyenv和pyenv-virtualenv">
+<meta property="og:url" content="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="清理Git仓库中未跟踪的文件时可以使用下面命令  删除untracked文件 git clean -f 删除untracked文件 git clean -fd 删除.gitignore的untracked文件 git clean -xfd 使用上面git clean之前，建议使用-n参数查看会删除哪些文件 git clean -nxfd git clean -nf git clean -nfd">
+<meta property="og:description" content="一、pyenv安装和使用1、安装 brew update brew install pyenv 2、配置  编辑配置文件 vim ~/.zshrc    #使用zsh shell vim ~/.bash_profile #使用系统默认  在.zshrc或.bash_profile文件最后写入 # pyenv echo &amp;apos;eval &amp;quot;$(pyenv init -)&amp;quot;&amp;a">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T06:06:12.000Z">
+<meta property="og:updated_time" content="2018-10-30T08:26:11.158Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-如何删除untracked files（未跟踪）的文件">
-<meta name="twitter:description" content="清理Git仓库中未跟踪的文件时可以使用下面命令  删除untracked文件 git clean -f 删除untracked文件 git clean -fd 删除.gitignore的untracked文件 git clean -xfd 使用上面git clean之前，建议使用-n参数查看会删除哪些文件 git clean -nxfd git clean -nf git clean -nfd">
+<meta name="twitter:title" content="Mac下Python多版本管理pyenv和pyenv-virtualenv">
+<meta name="twitter:description" content="一、pyenv安装和使用1、安装 brew update brew install pyenv 2、配置  编辑配置文件 vim ~/.zshrc    #使用zsh shell vim ~/.bash_profile #使用系统默认  在.zshrc或.bash_profile文件最后写入 # pyenv echo &amp;apos;eval &amp;quot;$(pyenv init -)&amp;quot;&amp;a">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/"/>
 
 
 
 
 
-  <title>Git-如何删除untracked files（未跟踪）的文件 | shorish's Blog</title>
+  <title>Mac下Python多版本管理pyenv和pyenv-virtualenv | shorish's Blog</title>
   
 
 
@@ -244,7 +244,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +261,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git-如何删除untracked files（未跟踪）的文件</h1>
+          <h1 class="post-title" itemprop="name headline">Mac下Python多版本管理pyenv和pyenv-virtualenv</h1>
         
 
         <div class="post-meta">
@@ -273,8 +273,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-04T14:01:45+08:00">
-                2019-01-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-29T11:51:19+08:00">
+                2018-10-29
               </time>
             
 
@@ -296,8 +296,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -333,20 +333,101 @@
       
 
       
-        <blockquote>
-<p>清理Git仓库中未跟踪的文件时可以使用下面命令</p>
-</blockquote>
-<p>删除untracked文件</p>
-<pre><code>git clean -f
-</code></pre><p>删除untracked文件</p>
-<pre><code>git clean -fd
-</code></pre><p>删除.gitignore的untracked文件</p>
-<pre><code>git clean -xfd
-</code></pre><p>使用上面git clean之前，建议使用-n参数查看会删除哪些文件</p>
-<pre><code>git clean -nxfd
-git clean -nf
-git clean -nfd
-</code></pre>
+        <h3 id="一、pyenv安装和使用"><a href="#一、pyenv安装和使用" class="headerlink" title="一、pyenv安装和使用"></a>一、pyenv安装和使用</h3><p><strong>1、安装</strong></p>
+<pre><code>brew update
+brew install pyenv
+</code></pre><p><strong>2、配置</strong></p>
+<ol>
+<li><p>编辑配置文件</p>
+<pre><code>vim ~/.zshrc    #使用zsh shell
+vim ~/.bash_profile #使用系统默认
+</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
+<pre><code># pyenv
+echo &apos;eval &quot;$(pyenv init -)&quot;&apos; &gt;&gt; ~/.zshrc
+</code></pre></li>
+<li><p>使配置生效</p>
+<pre><code>source ~/.zshrc
+#或
+source ~/.bash_profile  
+</code></pre></li>
+</ol>
+<p><strong>3、安装zlib</strong></p>
+<pre><code>brew install zlib
+
+#如果命令pyenv install 3.7.0报错需执行下面命令
+ln -s /usr/local/Cellar/zlib/1.2.11/lib/* /usr/local/lib
+ln -s /usr/local/Cellar/zlib/1.2.11/include/* /usr/local/include
+</code></pre><p><strong>4、使用</strong></p>
+<ul>
+<li><p>查看可安装版本</p>
+<pre><code>pyenv install --list    #查看可安装版本
+</code></pre></li>
+<li><p>安装指定版本</p>
+<pre><code>pyenv install 3.7.0     #安装指定版本
+</code></pre></li>
+<li><p>查看当前python版本</p>
+<pre><code>pyenv version       #查看当前python版本
+</code></pre></li>
+<li><p>查看已安装python版本</p>
+<pre><code>pyenv versions      #查看已安装python版本
+</code></pre></li>
+<li><p>设置python版本</p>
+<pre><code>pyenv global 3.7.0  #对所有的Shell全局有效，版本号写入~/.pyenv/version文件
+pyenv local 3.7.0   #对当前目录有效，版本号写入当前目录下的.python-version文件
+pyenv shell 3.7.0   #对当前会话有效
+</code></pre></li>
+<li><p>重置python版本设置</p>
+<pre><code>pyenv shell --unset
+pyenv local --unset
+</code></pre></li>
+<li><p>卸载版本</p>
+<pre><code>pyenv uninstall 3.7.0   
+</code></pre></li>
+</ul>
+<h3 id="二、pyenv-virtualenv安装和使用"><a href="#二、pyenv-virtualenv安装和使用" class="headerlink" title="二、pyenv-virtualenv安装和使用"></a>二、pyenv-virtualenv安装和使用</h3><p><strong>1、安装</strong></p>
+<pre><code>brew update
+brew install pyenv-virtualenv
+</code></pre><p><strong>2、配置</strong></p>
+<ol>
+<li><p>编辑配置文件</p>
+<pre><code>vim ~/.zshrc    #使用zsh shell
+vim ~/.bash_profile #使用系统默认
+</code></pre><p> 在.zshrc或.bash_profile文件最后写入</p>
+<pre><code># pyenv-virtualenv
+if which pyenv-virtualenv-init &gt; /dev/null;
+  then eval &quot;$(pyenv virtualenv-init -)&quot;;
+fi      
+</code></pre></li>
+<li><p>使配置生效</p>
+<pre><code>source ~/.zshrc
+#或
+source ~/.bash_profile  
+</code></pre></li>
+</ol>
+<p><strong>3、使用</strong></p>
+<ul>
+<li><p>从当前版本创建虚拟环境</p>
+<pre><code>pyenv virtualenv py370
+</code></pre></li>
+<li><p>指定版本创建虚拟环境</p>
+<pre><code>pyenv virtualenv 3.7.0 py370
+</code></pre></li>
+<li><p>查看已创建的虚拟环境</p>
+<pre><code>pyenv versions
+</code></pre></li>
+<li><p>激活和停用虚拟环境</p>
+<pre><code>#手动激活
+pyenv activate py370
+pyenv deactivate
+
+#自动激活，进入目录自动激活
+pyenv local py370
+</code></pre></li>
+<li><p>删除现有虚拟环境</p>
+<pre><code>pyenv uninstall py370
+</code></pre></li>
+</ul>
+
       
     </div>
     
@@ -370,8 +451,8 @@ git clean -nfd
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/29/software-service-price/" rel="next" title="软件（系统）开发、维护、集成价格估算（学习笔记）">
-                <i class="fa fa-chevron-left"></i> 软件（系统）开发、维护、集成价格估算（学习笔记）
+              <a href="/2018/10/29/virtualenv-virtualenvwrapper/" rel="next" title="Python多版本管理virtualenv、virtualenvwrapper">
+                <i class="fa fa-chevron-left"></i> Python多版本管理virtualenv、virtualenvwrapper
               </a>
             
           </div>
@@ -380,8 +461,8 @@ git clean -nfd
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/01/07/python-setuptools-pip-install/" rel="prev" title="Python包管理工具：easy_install和pip的安装和使用">
-                Python包管理工具：easy_install和pip的安装和使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/30/lnmp-install/" rel="prev" title="Centos7中安装LNMP">
+                Centos7中安装LNMP <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -434,8 +515,17 @@ git clean -nfd
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -502,6 +592,22 @@ git clean -nfd
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、pyenv安装和使用"><span class="nav-number">1.</span> <span class="nav-text">一、pyenv安装和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、pyenv-virtualenv安装和使用"><span class="nav-number">2.</span> <span class="nav-text">二、pyenv-virtualenv安装和使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

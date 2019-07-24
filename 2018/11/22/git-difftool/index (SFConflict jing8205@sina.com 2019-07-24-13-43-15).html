@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="tools," />
 
 
 
@@ -81,14 +81,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://blog.wangyuehan.net/categories/index.html">
+<meta name="description" content="1、Mac下载并安装kaleidoscope和ksdiff（下载地址），确保命令行中可以运行ksdiff命令 2、修改GIT配置文件~/.gitconfig，加入下面内容 [diff]     tool = Kaleidoscope [difftool &amp;quot;Kaleidoscope&amp;quot;]     cmd = ksdiff --partial-changeset --relative">
+<meta name="keywords" content="tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git-配置difftools和mergetool使用kaleidoscope">
+<meta property="og:url" content="https://blog.wangyuehan.net/2018/11/22/git-difftool/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
+<meta property="og:description" content="1、Mac下载并安装kaleidoscope和ksdiff（下载地址），确保命令行中可以运行ksdiff命令 2、修改GIT配置文件~/.gitconfig，加入下面内容 [diff]     tool = Kaleidoscope [difftool &amp;quot;Kaleidoscope&amp;quot;]     cmd = ksdiff --partial-changeset --relative">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-29T06:51:09.000Z">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20181122234201git-difftool.png">
+<meta property="og:updated_time" content="2019-02-14T06:03:53.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="Git-配置difftools和mergetool使用kaleidoscope">
+<meta name="twitter:description" content="1、Mac下载并安装kaleidoscope和ksdiff（下载地址），确保命令行中可以运行ksdiff命令 2、修改GIT配置文件~/.gitconfig，加入下面内容 [diff]     tool = Kaleidoscope [difftool &amp;quot;Kaleidoscope&amp;quot;]     cmd = ksdiff --partial-changeset --relative">
+<meta name="twitter:image" content="http://image.wangyuehan.net//note/20181122234201git-difftool.png">
 
 
 
@@ -118,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/categories/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2018/11/22/git-difftool/"/>
 
 
 
 
 
-  <title>分类 | shorish's Blog</title>
+  <title>Git-配置difftools和mergetool使用kaleidoscope | shorish's Blog</title>
   
 
 
@@ -229,40 +235,186 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/22/git-difftool/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                8 categories in total
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git/">Git</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hexo/">Hexo</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Odoo/">Odoo</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Web/">Web</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/清单/">清单</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/软件工程/">软件工程</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">Git-配置difftools和mergetool使用kaleidoscope</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-22T23:34:30+08:00">
+                2018-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行<code>ksdiff</code>命令</p>
+<p>2、修改GIT配置文件<code>~/.gitconfig</code>，加入下面内容</p>
+<pre><code>[diff]
+    tool = Kaleidoscope
+[difftool &quot;Kaleidoscope&quot;]
+    cmd = ksdiff --partial-changeset --relative-path \&quot;$MERGED\&quot; -- \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;
+[difftool]
+    prompt = false
+
+[merge]
+    tool = Kaleidoscope
+[mergetool &quot;Kaleidoscope&quot;]
+    cmd = ksdiff --merge --output &quot;$MERGED&quot; --base &quot;$BASE&quot; -- &quot;$LOCAL&quot; --snapshot &quot;$REMOTE&quot; --snapshot
+    trustExitCode = true
+[mergetool]
+    prompt = false
+</code></pre><p>3、命令行中运行<code>git difftool</code>或<code>git mergetool</code>（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件<br><img src="http://image.wangyuehan.net//note/20181122234201git-difftool.png" alt=""></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/tools/" rel="tag"># tools</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/16/problem-ubuntu-sudo/" rel="next" title="sudo执行管道命令报错">
+                <i class="fa fa-chevron-left"></i> sudo执行管道命令报错
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/29/software-service-price/" rel="prev" title="软件（系统）开发、维护、集成价格估算（学习笔记）">
+                软件（系统）开发、维护、集成价格估算（学习笔记） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
