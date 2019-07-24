@@ -241,6 +241,411 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/problem-ubuntu-sudo/" itemprop="url">sudo执行管道命令报错</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:23:54+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>问题描述：Ubuntu中执行<code>sudo iptables-save &gt; /etc/iptables.rules</code>报错Permission denied</p>
+<p>问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的第二个命令没有sudo，所以报错</p>
+<p>问题解决：</p>
+<pre><code>sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
+或
+echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/16/linux-command-iptables/" itemprop="url">Linux命令：iptables</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:18:18+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃</p>
+<h3 id="1、添加iptables规则"><a href="#1、添加iptables规则" class="headerlink" title="1、添加iptables规则"></a>1、添加iptables规则</h3><pre><code>iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT
+iptables -A INPUT -p tcp --dport 3306 -j DROP
+#-A INPUT or OUT 进还是出的规则
+#-p tcp or udp协议
+#-s 源ip地址 
+#--dport 端口号
+#-j ACCEPT 允许 REJECT 拒绝 DROP 丢弃
+</code></pre><h3 id="2、删除iptables规则"><a href="#2、删除iptables规则" class="headerlink" title="2、删除iptables规则"></a>2、删除iptables规则</h3><pre><code>#查看规则行号
+iptables -L -n INPUT --line-numbers
+#-L --list 显示规则
+#-n 端口显示数字
+#--line-numbers 显示规则编号，用于删除
+#删除规则
+iptables -D INPUT 3
+</code></pre><h3 id="3、保存iptables规则，使之重启后有效"><a href="#3、保存iptables规则，使之重启后有效" class="headerlink" title="3、保存iptables规则，使之重启后有效"></a>3、保存iptables规则，使之重启后有效</h3><ul>
+<li><p>centos6</p>
+<pre><code>service iptables save
+
+#或
+#修改/etc/sysconfig/iptables配置文件中的规则后重启服务
+service iptables restart
+</code></pre></li>
+<li><p>centos7（默认使用firewall，停用firewall后安装iptables，就与centos6相同）</p>
+<pre><code>#停用firewall
+systemctl stop firewall .service        #停止firewall
+systemctl disable firewall.service  #禁止开机启动firewall
+firewall-cmd --status           #查看firewall状态
+#安装iptables
+yum install iptables-service
+systemctl enable iptables
+systemctl start iptables
+</code></pre></li>
+<li><p>ubuntu（使用iptables-save和iptables-restore）</p>
+<p>  手动保存</p>
+<pre><code>#1.保存iptables规则到文件
+#sudo iptables-save &gt; /etc/iptables.rules会报错
+sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
+#2.设置网络配置文件中加载该文件
+vim /etc/network/interfaces
+加入pre-up iptables-restore &lt; /etc/iptables.up.rules
+</code></pre><p>  重启自动生效</p>
+<pre><code>#1.新增网络关闭自动执行脚本
+vim /etc/network/if-post-down.d/iptables
+内容为
+    #!/bin/bash
+    iptables-save &gt; /etc/iptables.rules
+#2.新增网络开启自动执行脚本
+sudo vim /etc/network/if-pre-up.d/iptables
+内容为
+    #!/bin/bash
+    iptables-restore &lt; /etc/iptables.rules
+#3.给两个脚本执行权限
+sudo chmod +x /etc/network/if-post-down.d/iptables
+sudo chmod +x /etc/network/if-pre-up.d/iptables
+</code></pre></li>
+</ul>
+<h3 id="4、常用功能"><a href="#4、常用功能" class="headerlink" title="4、常用功能"></a>4、常用功能</h3><h4 id="白名单规则"><a href="#白名单规则" class="headerlink" title="白名单规则"></a>白名单规则</h4><p>比如开通本机的22端口，允许192.168.1.0网段的服务器访问（-t filter表配置可以省略，默认就是这种表的配置）</p>
+<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+</code></pre><p>或者</p>
+<pre><code>iptables -t filter -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+</code></pre><p>开通本机的80端口，只允许192.168.1.150机器访问（32位掩码表示单机，单机指定时可以不加掩码）</p>
+<pre><code>iptables -t filter -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+</code></pre><p>然后保存规则，重启iptables</p>
+<pre><code>service iptables save
+service iptables restart
+</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下（其实上面在终端命令行里设置并save和restart防火墙后，就会自动保存规则到/etc/sysconfig/iptables这个文件中的）：</p>
+<pre><code>cat /etc/sysconfig/iptables
+    ......
+    *filter
+    :INPUT ACCEPT [442620:173026884]
+    :FORWARD ACCEPT [118911:23993940]
+    :OUTPUT ACCEPT [8215384:539509656]
+    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
+    -A INPUT -p icmp -j ACCEPT 
+    -A INPUT -i lo -j ACCEPT 
+    -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
+    -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+
+service iptables restart
+</code></pre><h4 id="NAT转发设置"><a href="#NAT转发设置" class="headerlink" title="NAT转发设置"></a>NAT转发设置</h4><p>比如访问本机（192.168.1.7）的8088端口转发到192.168.1.160的80端口；访问本机的33066端口转发到192.168.1.161的3306端口<br>准备工作：<br>本机打开ip_forword路由转发功能；192.168.1.160/161的内网网关要和本机网关一致！如果没有内网网关，就将网关设置成本机内网ip，并且关闭防火墙（防火墙要是打开了，就设置对应端口允许本机访问）</p>
+<pre><code>iptables -t nat -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80
+iptables -t nat -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7
+iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
+
+iptables -t nat -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306
+iptables -t nat -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7
+iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
+
+service iptables save
+service iptables restart
+</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下</p>
+<pre><code>cat /etc/sysconfig/iptables
+    ......
+    *nat
+    :PREROUTING ACCEPT [60:4250]
+    :INPUT ACCEPT [31:1973]
+    :OUTPUT ACCEPT [3:220]
+    :POSTROUTING ACCEPT [3:220]
+    -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80                              //PREROUTING规则都放在上面
+    -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306
+    -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7             //POSTROUTING规则都放在下面
+    -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7
+    .....
+    *filter
+    :INPUT ACCEPT [16:7159]
+    :FORWARD ACCEPT [0:0]
+    :OUTPUT ACCEPT [715:147195]
+    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+    -A INPUT -p icmp -j ACCEPT
+    -A INPUT -i lo -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
+    -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
+    .....
+service iptables restart
+</code></pre><h4 id="查看规则列表"><a href="#查看规则列表" class="headerlink" title="查看规则列表"></a>查看规则列表</h4><pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
+iptables -L -t nat            //如果列出nat表下规则，就加-t参数
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/30/lnmp-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2022,442 +2427,6 @@ firewall-cmd --permanent --zone=public --list-ports
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/07/20/ttfb/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/20/ttfb/" itemprop="url">服务器网页访问很慢，TTFB时间过长</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-20T23:01:45+08:00">
-                2018-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长<br><img src="http://image.wangyuehan.net/note/TTFB001.jpg" alt=""></p>
-<h2 id="解决尝试"><a href="#解决尝试" class="headerlink" title="解决尝试"></a>解决尝试</h2><ol>
-<li>首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决</li>
-<li><p>考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容</p>
-<pre><code>&lt;?php&gt;
-    phpinfo();
-&lt;?&gt;
-</code></pre><p> 访问还是很慢</p>
-</li>
-<li><p>发现nginx访问日志文件<code>/app/nginx/logs/access.log</code>文件比较大，有2.6G</p>
-<p> 将日志文件改名，重启nginx<br> 访问还是很慢    </p>
-</li>
-</ol>
-<ol start="3">
-<li><p>查看php日志文件<code>/usr/local/php/var/log/php-fpm.log</code>中有警告<code>WARNING: server reached pm.max_children setting (5), consider raising it</code>，经百度查询问题，修改配置文件<code>/usr/local/php/etc/php-fpm.conf</code></p>
-<pre><code>#修改配置文件  
-修改pm.max_children = 1000 
-#重启PHP
-$ kill -sigint `cat /usr/local/php/var/php-fpm.pid`
-$ /usr/local/php/sbin/php-fpm -g php-fpm.pid 
-</code></pre><p> 重启PHP，访问还是很慢</p>
-</li>
-</ol>
-<ol start="4">
-<li><p>检查PHP配置文件<code>/usr/local/php/etc/php.ini</code>，发现xdebug扩展远程调试开关是打开的，将其关闭</p>
-<pre><code>#修改配置文件
-$ vim /usr/local/php/etc/php.ini
-修改参数xdebug.remote_enable=0  
-#重启PHP
-</code></pre><p> 访问慢的问题得以解决</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/06/25/hexo-in-github/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/25/hexo-in-github/" itemprop="url">在Github上搭建Hexo博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-25T18:21:34+08:00">
-                2018-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p><a href="https://www.cnblogs.com/visugar/p/6821777.html" target="_blank" rel="noopener">https://www.cnblogs.com/visugar/p/6821777.html</a></p>
-</blockquote>
-<h2 id="搭建步骤"><a href="#搭建步骤" class="headerlink" title="搭建步骤"></a>搭建步骤</h2><ol>
-<li><p>安装git for windows</p>
-<ul>
-<li><a href="https://gitforwindows.org/" target="_blank" rel="noopener">下载地址</a></li>
-<li>安装：一直点击下一步</li>
-<li><p>查看版本</p>
-<pre><code>git version
-</code></pre></li>
-</ul>
-</li>
-<li><p>安装NodeJs</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a></li>
-<li>安装：一直点击下一步，Custom Setup中勾选 <code>Add to PATH</code> </li>
-<li><p>查看版本</p>
-<pre><code>node -v
-</code></pre></li>
-</ul>
-</li>
-<li><p>安装hexo</p>
-<ul>
-<li><p>创建blog目录，进入目录</p>
-<pre><code>mkdir blogdir
-cd blogdir
-</code></pre></li>
-<li><p>安装命令：<code>npm -i -g hexo</code></p>
-</li>
-<li><p>查看版本</p>
-<pre><code>hexo -v
-</code></pre></li>
-</ul>
-</li>
-<li><p>构建hexo项目，本地测试</p>
-<ul>
-<li><p>生成hexo代码</p>
-<pre><code>hexo init
-hexo clean
-hexo generate
-</code></pre></li>
-<li><p>启动本地服务器</p>
-<pre><code>#注：hexo 3.0把服务器独立成个别模块，需要单独安装
-npm install hexo-server --save
-hexo server
-</code></pre></li>
-<li>打开浏览器测试： <code>http://localhost:4000</code></li>
-</ul>
-</li>
-<li><p>gitbash中配置git环境，生成ssh密钥</p>
-<ul>
-<li><p>执行</p>
-<pre><code>git config --global user.name &quot;YourName&quot;
-git config --global user.email &quot;YourEmail&quot;
-</code></pre></li>
-<li><p>创建ssh公钥</p>
-<pre><code>ssh-keygen -t rsa -C &quot;yourmail@example.com&quot;
-生成ssh，找到id_rsa.pub文件内容
-</code></pre></li>
-</ul>
-</li>
-<li><p>申请github账号，创建repo，配置免密登录</p>
-<ul>
-<li>申请账号，<a href="https://github.com/" target="_blank" rel="noopener">github地址</a></li>
-<li>创建仓库<ul>
-<li>新建仓库</li>
-<li>仓库名：yourname.github.io</li>
-</ul>
-</li>
-<li>配置免密登录<ul>
-<li>Setting——SSH and GPG keys——New SSH key——粘贴刚创建id_rsa.pub公钥文件内容</li>
-<li>验证是否成功 <code>ssh -T git@github.com</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>部署hexo</p>
-<ul>
-<li>安装部署工具<pre><code>npm install hexo-deployer-git --save
-</code></pre></li>
-<li><p>配置部署参数</p>
-<pre><code>编辑_config.yml，最下方添加内容
-    deploy:
-      type: git
-      repo: git@github.com:yourname/yourname.github.io.git
-      branch: master
-
-repo也可以是https://github.com/yourname/yourname.github.io.git
-</code></pre></li>
-<li><p>部署到github<br>   执行命令</p>
-<pre><code>hexo clean
-hexo generate
-hexo deploy
-</code></pre></li>
-</ul>
-</li>
-<li><p>修改配置内容</p>
-<ul>
-<li><p>选择主题</p>
-<p>  下载主题<a href="https://hexo.io/themes/" target="_blank" rel="noopener">下载地址</a>，如<code>next</code><a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">下载地址</a>，解压到themes目录下，配置 <code>themes/next/_config.yml</code></p>
-</li>
-<li>导航栏</li>
-<li>侧边栏</li>
-</ul>
-</li>
-<li><p>hexo使用</p>
-<ul>
-<li><p>发布新文章</p>
-<pre><code>hexo new title  
-</code></pre><p>在source-&gt;_posts目录下，存放要发布的文章</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>hexo编写步骤</p>
-<pre><code>hexo new &lt;title&gt;
-编辑markdown
-hexo clean 清理你的项目缓存
-hexo g 将你刚刚编写的md编译为浏览器可以识别的html
-hexo d 发布到远程仓库
-</code></pre><p>主题库<br><a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2508,7 +2477,7 @@ hexo d 发布到远程仓库
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

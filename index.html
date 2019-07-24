@@ -241,6 +241,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/24/odoo-sequence-range/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/24/odoo-sequence-range/" itemprop="url">Odoo序列号增加按周期快捷生成日期范围</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T13:49:36+08:00">
+                2019-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>实现后效果如图所示，增加了范围类型、范围开始日期、范围结束日期和一个生成按钮</p>
+<p><img src="http://image.wangyuehan.net/note/20190724/3rpDuWOszprp.png?imageslim" alt="mark"></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、开发前找到修改目标</p>
+<p>首先激活开发者模式，通过菜单Settings | Technical | Sequences进入序列编辑界面，通过菜单Open Developer Tools | Edit View: Form查看表单视图，得到需要修改的模型为<code>ir.sequence</code>，视图为<code>base.sequence_view</code>（为了排除翻译导致菜单名不一致，所以这里菜单和截图是英文的）</p>
+<p><img src="http://image.wangyuehan.net/note/20190724/whzYyjDdJLaQ.png?imageslim" alt="mark"></p>
+<p>2、进入自己的模块目录中，使用脚手架生成模块结构</p>
+<pre><code>cd C:/Project/odoo12-x64/source\odoo\custom-addons
+C:\Project\venv\odoo12\Scripts\python.exe C:/Project/odoo12-x64/source/odoo-bin scaffold myapp_sequence
+</code></pre><p><img src="http://image.wangyuehan.net/note/20190724/JUo8oyO3vhsL.png?imageslim" alt="mark"></p>
+<p>3、继承序列模型，添加设置日期范围的字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#models/models.py</span><br><span class="line"></span><br><span class="line">from odoo import models, fields, api</span><br><span class="line">class IrSequence(models.Model):</span><br><span class="line">    _inherit = &apos;ir.sequence&apos;</span><br><span class="line"></span><br><span class="line">    range_type = fields.Selection(selection=[(&apos;day&apos;,&apos;Day&apos;),(&apos;week&apos;,&apos;Week&apos;),(&apos;month&apos;,&apos;Month&apos;)],</span><br><span class="line">                                  string=&apos;范围类型&apos;)</span><br><span class="line">    range_from = fields.Date(string=&apos;范围开始日期&apos;)</span><br><span class="line">    range_to = fields.Date(string=&apos;范围结束日期&apos;)</span><br></pre></td></tr></table></figure>
+<p>4、继承序列表单视图，添加字段和按钮</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- views/views.xml --&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">  &lt;data&gt;</span><br><span class="line">    &lt;record model=&quot;ir.ui.view&quot; id=&quot;sequence_view_inherit&quot;&gt;</span><br><span class="line">      &lt;field name=&quot;name&quot;&gt;Sequences Inherit&lt;/field&gt;</span><br><span class="line">      &lt;field name=&quot;model&quot;&gt;ir.sequence&lt;/field&gt;</span><br><span class="line">      &lt;field name=&quot;inherit_id&quot; ref=&quot;base.sequence_view&quot;/&gt;</span><br><span class="line">      &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;</span><br><span class="line">        &lt;field name=&quot;use_date_range&quot; position=&quot;after&quot;&gt;</span><br><span class="line">          &lt;field name=&quot;range_type&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">          &lt;button name=&quot;create_range&quot; type=&quot;object&quot; string=&quot;创建日期范围&quot; class=&quot;oe_edit_only oe_highlight&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">        &lt;/field&gt;</span><br><span class="line">        &lt;field name=&quot;number_next_actual&quot; position=&quot;after&quot;&gt;</span><br><span class="line">          &lt;field name=&quot;range_from&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">          &lt;field name=&quot;range_to&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">        &lt;/field&gt;</span><br><span class="line">      &lt;/field&gt;</span><br><span class="line">    &lt;/record&gt;</span><br><span class="line">  &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure>
+<p>其中</p>
+<p><code>class=&quot;oe_edit_only oe_highlight&quot;</code> 表示按钮编辑时可见</p>
+<p><code>attrs=&quot;{&#39;invisible&#39;: [(&#39;use_date_range&#39;, &#39;=&#39;, False)]}&quot;</code> 表示字段<code>use_date_range</code>为False时隐藏</p>
+<p>5、为按钮添加事件函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#models/models.py</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import datetime, calendar</span><br><span class="line">from odoo.exceptions import UserError</span><br><span class="line">#class IrSequence中</span><br><span class="line">    def get_date_range_list(self, start_date, end_date, flags=&apos;day&apos;):</span><br><span class="line">        result = []</span><br><span class="line">        result.append(start_date)</span><br><span class="line">        if flags == &apos;day&apos;:</span><br><span class="line">            for n in range(int((end_date - start_date).days - 1)):</span><br><span class="line">                compute_date = start_date + datetime.timedelta(days=n + 1)</span><br><span class="line">                result.append(compute_date)</span><br><span class="line">        elif flags == &apos;week&apos;:</span><br><span class="line">            for n in range(int((end_date - start_date).days - 1)):</span><br><span class="line">                compute_date = start_date + datetime.timedelta(days=n + 1)</span><br><span class="line">                if compute_date.weekday() != calendar.MONDAY:</span><br><span class="line">                    continue</span><br><span class="line">                    result.append(compute_date)</span><br><span class="line">        elif flags == &apos;month&apos;:</span><br><span class="line">            for n in range(int((end_date - start_date).days - 1)):</span><br><span class="line">                compute_date = start_date + datetime.timedelta(days=n + 1)</span><br><span class="line">                if compute_date.day != 1:</span><br><span class="line">                    continue</span><br><span class="line">                result.append(compute_date)</span><br><span class="line">        result.append(end_date)</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">    @api.multi</span><br><span class="line">    def create_range(self, values):</span><br><span class="line">        self.ensure_one()</span><br><span class="line">        if not self.range_type or not self.range_from or not self.range_to:</span><br><span class="line">            raise UserError(&apos;请填写必要的参数（范围类型/范围开始日期/范围结束日期）&apos;)</span><br><span class="line">        if self.range_from &gt; self.range_to:</span><br><span class="line">            raise UserError(&apos;范围开始时间不能大于结束时间&apos;)</span><br><span class="line">        self.date_range_ids.unlink()</span><br><span class="line">        date_range = self.get_date_range_list(self.range_from, self.range_to, self.range_type)</span><br><span class="line">        print(date_range)</span><br><span class="line">        date_range_pair = list(dict(zip(date_range[:-1], date_range[1:])).items())</span><br><span class="line"></span><br><span class="line">        for date_from ,date_to  in date_range_pair:</span><br><span class="line">            values = &#123;&apos;number_next_actual&apos;: 1, &apos;date_from&apos;:date_from.strftime(&apos;%Y-%m-%d&apos;), &apos;date_to&apos;:date_to.strftime(&apos;%Y-%m-%d&apos;), &apos;sequence_id&apos;: self.id&#125;</span><br><span class="line">            self.date_range_ids.create(values)</span><br></pre></td></tr></table></figure>
+<p>6、安装并使用模块</p>
+<p>从应用中安装这个模块，进入序列号编辑表单，选择范围类型，范围开始日期和结束日期，点击创建日期范围，将清除之前的日期范围，按照规则重新创建日期范围</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -408,6 +569,156 @@ access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0
 </code></pre><blockquote>
 <p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p>
 </blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/04/09/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T17:52:59+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -1645,411 +1956,6 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/16/problem-ubuntu-sudo/" itemprop="url">sudo执行管道命令报错</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:23:54+08:00">
-                2018-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问题描述：Ubuntu中执行<code>sudo iptables-save &gt; /etc/iptables.rules</code>报错Permission denied</p>
-<p>问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的第二个命令没有sudo，所以报错</p>
-<p>问题解决：</p>
-<pre><code>sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
-或
-echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/16/linux-command-iptables/" itemprop="url">Linux命令：iptables</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:18:18+08:00">
-                2018-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃</p>
-<h3 id="1、添加iptables规则"><a href="#1、添加iptables规则" class="headerlink" title="1、添加iptables规则"></a>1、添加iptables规则</h3><pre><code>iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPT
-iptables -A INPUT -p tcp --dport 3306 -j DROP
-#-A INPUT or OUT 进还是出的规则
-#-p tcp or udp协议
-#-s 源ip地址 
-#--dport 端口号
-#-j ACCEPT 允许 REJECT 拒绝 DROP 丢弃
-</code></pre><h3 id="2、删除iptables规则"><a href="#2、删除iptables规则" class="headerlink" title="2、删除iptables规则"></a>2、删除iptables规则</h3><pre><code>#查看规则行号
-iptables -L -n INPUT --line-numbers
-#-L --list 显示规则
-#-n 端口显示数字
-#--line-numbers 显示规则编号，用于删除
-#删除规则
-iptables -D INPUT 3
-</code></pre><h3 id="3、保存iptables规则，使之重启后有效"><a href="#3、保存iptables规则，使之重启后有效" class="headerlink" title="3、保存iptables规则，使之重启后有效"></a>3、保存iptables规则，使之重启后有效</h3><ul>
-<li><p>centos6</p>
-<pre><code>service iptables save
-
-#或
-#修改/etc/sysconfig/iptables配置文件中的规则后重启服务
-service iptables restart
-</code></pre></li>
-<li><p>centos7（默认使用firewall，停用firewall后安装iptables，就与centos6相同）</p>
-<pre><code>#停用firewall
-systemctl stop firewall .service        #停止firewall
-systemctl disable firewall.service  #禁止开机启动firewall
-firewall-cmd --status           #查看firewall状态
-#安装iptables
-yum install iptables-service
-systemctl enable iptables
-systemctl start iptables
-</code></pre></li>
-<li><p>ubuntu（使用iptables-save和iptables-restore）</p>
-<p>  手动保存</p>
-<pre><code>#1.保存iptables规则到文件
-#sudo iptables-save &gt; /etc/iptables.rules会报错
-sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
-#2.设置网络配置文件中加载该文件
-vim /etc/network/interfaces
-加入pre-up iptables-restore &lt; /etc/iptables.up.rules
-</code></pre><p>  重启自动生效</p>
-<pre><code>#1.新增网络关闭自动执行脚本
-vim /etc/network/if-post-down.d/iptables
-内容为
-    #!/bin/bash
-    iptables-save &gt; /etc/iptables.rules
-#2.新增网络开启自动执行脚本
-sudo vim /etc/network/if-pre-up.d/iptables
-内容为
-    #!/bin/bash
-    iptables-restore &lt; /etc/iptables.rules
-#3.给两个脚本执行权限
-sudo chmod +x /etc/network/if-post-down.d/iptables
-sudo chmod +x /etc/network/if-pre-up.d/iptables
-</code></pre></li>
-</ul>
-<h3 id="4、常用功能"><a href="#4、常用功能" class="headerlink" title="4、常用功能"></a>4、常用功能</h3><h4 id="白名单规则"><a href="#白名单规则" class="headerlink" title="白名单规则"></a>白名单规则</h4><p>比如开通本机的22端口，允许192.168.1.0网段的服务器访问（-t filter表配置可以省略，默认就是这种表的配置）</p>
-<pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
-</code></pre><p>或者</p>
-<pre><code>iptables -t filter -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
-</code></pre><p>开通本机的80端口，只允许192.168.1.150机器访问（32位掩码表示单机，单机指定时可以不加掩码）</p>
-<pre><code>iptables -t filter -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
-</code></pre><p>然后保存规则，重启iptables</p>
-<pre><code>service iptables save
-service iptables restart
-</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下（其实上面在终端命令行里设置并save和restart防火墙后，就会自动保存规则到/etc/sysconfig/iptables这个文件中的）：</p>
-<pre><code>cat /etc/sysconfig/iptables
-    ......
-    *filter
-    :INPUT ACCEPT [442620:173026884]
-    :FORWARD ACCEPT [118911:23993940]
-    :OUTPUT ACCEPT [8215384:539509656]
-    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT 
-    -A INPUT -p icmp -j ACCEPT 
-    -A INPUT -i lo -j ACCEPT 
-    -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT
-    -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
-
-service iptables restart
-</code></pre><h4 id="NAT转发设置"><a href="#NAT转发设置" class="headerlink" title="NAT转发设置"></a>NAT转发设置</h4><p>比如访问本机（192.168.1.7）的8088端口转发到192.168.1.160的80端口；访问本机的33066端口转发到192.168.1.161的3306端口<br>准备工作：<br>本机打开ip_forword路由转发功能；192.168.1.160/161的内网网关要和本机网关一致！如果没有内网网关，就将网关设置成本机内网ip，并且关闭防火墙（防火墙要是打开了，就设置对应端口允许本机访问）</p>
-<pre><code>iptables -t nat -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80
-iptables -t nat -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7
-iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
-
-iptables -t nat -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306
-iptables -t nat -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7
-iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
-
-service iptables save
-service iptables restart
-</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下</p>
-<pre><code>cat /etc/sysconfig/iptables
-    ......
-    *nat
-    :PREROUTING ACCEPT [60:4250]
-    :INPUT ACCEPT [31:1973]
-    :OUTPUT ACCEPT [3:220]
-    :POSTROUTING ACCEPT [3:220]
-    -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80                              //PREROUTING规则都放在上面
-    -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306
-    -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7             //POSTROUTING规则都放在下面
-    -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7
-    .....
-    *filter
-    :INPUT ACCEPT [16:7159]
-    :FORWARD ACCEPT [0:0]
-    :OUTPUT ACCEPT [715:147195]
-    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
-    -A INPUT -p icmp -j ACCEPT
-    -A INPUT -i lo -j ACCEPT
-    -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT
-    -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT
-    .....
-service iptables restart
-</code></pre><h4 id="查看规则列表"><a href="#查看规则列表" class="headerlink" title="查看规则列表"></a>查看规则列表</h4><pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则
-iptables -L -t nat            //如果列出nat表下规则，就加-t参数
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2100,7 +2006,7 @@ iptables -L -t nat            //如果列出nat表下规则，就加-t参数
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
