@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="开发," />
 
 
 
@@ -81,17 +81,26 @@
 
 
 
-<meta name="description" content="远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境  1、远程仓库：新建并切换到分支allfile git checkout -b allfile 2、远程仓库：修改.gitignore文件，移除例外文件 vim .gitignore 去除内容public/uploads 3、远程仓">
+<meta name="description" content="Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期 在命令行输入下面指令即可启动Odoo shell： python3 odoo-bin shell -c odoofile/odoo.conf -d test shell类型">
+<meta name="keywords" content="开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-如何将未跟踪的例外文件拉到本地">
-<meta property="og:url" content="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/index.html">
+<meta property="og:title" content="Odoo交互式命令行shell">
+<meta property="og:url" content="https://blog.wangyuehan.net/2019/07/25/odoo-shell/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境  1、远程仓库：新建并切换到分支allfile git checkout -b allfile 2、远程仓库：修改.gitignore文件，移除例外文件 vim .gitignore 去除内容public/uploads 3、远程仓">
+<meta property="og:description" content="Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期 在命令行输入下面指令即可启动Odoo shell： python3 odoo-bin shell -c odoofile/odoo.conf -d test shell类型">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T05:47:59.564Z">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530150317.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530150528.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530150658.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530150923.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530151223.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530151338.png">
+<meta property="og:image" content="http://image.wangyuehan.net//note/20190530151656.png">
+<meta property="og:updated_time" content="2019-07-25T16:20:21.226Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-如何将未跟踪的例外文件拉到本地">
-<meta name="twitter:description" content="远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境  1、远程仓库：新建并切换到分支allfile git checkout -b allfile 2、远程仓库：修改.gitignore文件，移除例外文件 vim .gitignore 去除内容public/uploads 3、远程仓">
+<meta name="twitter:title" content="Odoo交互式命令行shell">
+<meta name="twitter:description" content="Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期 在命令行输入下面指令即可启动Odoo shell： python3 odoo-bin shell -c odoofile/odoo.conf -d test shell类型">
+<meta name="twitter:image" content="http://image.wangyuehan.net//note/20190530150317.png">
 
 
 
@@ -121,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2019/07/25/odoo-shell/"/>
 
 
 
 
 
-  <title>Git-如何将未跟踪的例外文件拉到本地 | shorish's Blog</title>
+  <title>Odoo交互式命令行shell | shorish's Blog</title>
   
 
 
@@ -244,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/25/odoo-shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git-如何将未跟踪的例外文件拉到本地</h1>
+          <h1 class="post-title" itemprop="name headline">Odoo交互式命令行shell</h1>
         
 
         <div class="post-meta">
@@ -273,8 +282,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T11:54:18+08:00">
-                2019-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-25T23:54:38+08:00">
+                2019-07-25
               </time>
             
 
@@ -296,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
                   </a>
                 </span>
 
@@ -333,24 +342,45 @@
       
 
       
-        <blockquote>
-<p>远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境</p>
-</blockquote>
-<p>1、远程仓库：新建并切换到分支allfile</p>
-<pre><code>git checkout -b allfile
-</code></pre><p>2、远程仓库：修改.gitignore文件，移除例外文件</p>
-<pre><code>vim .gitignore
-去除内容public/uploads
-</code></pre><p>3、远程仓库：添加所有文件并提交</p>
-<pre><code>git add .
-git commit -m &quot;add all file&quot;
-</code></pre><p>4、本地仓库：拉取远程分支</p>
-<pre><code>git pull 
-</code></pre><p>6、本地仓库：迁出allfile分支中的例外文件</p>
-<pre><code>git checkout allfile public/uploads
-</code></pre><p>7、本地仓库：去除例外文件的跟踪</p>
-<pre><code>git rm -r --cached public/uploads
-</code></pre><p>此时例外文件<code>public/uploads</code>将保留在本地仓库并不被跟踪</p>
+        <p>Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期</p>
+<p>在命令行输入下面指令即可启动Odoo shell：</p>
+<pre><code>python3 odoo-bin shell -c odoofile/odoo.conf -d test
+</code></pre><h3 id="shell类型"><a href="#shell类型" class="headerlink" title="shell类型"></a>shell类型</h3><p>Odoo shell有下面几种类型</p>
+<ul>
+<li>ipython（需安装ipython）</li>
+<li>ptpython</li>
+<li>bpython</li>
+<li>python，默认使用python（无法按上输入历史命令，推荐使用ipython）</li>
+</ul>
+<p>通过参数shell-interface可以指定shell类型，如下所示使用ipython启动shell</p>
+<pre><code>python3 odoo-bin shell -c odoofile/odoo.conf --shell-interface ipython -d test
+</code></pre><p><img src="http://image.wangyuehan.net//note/20190530150317.png" alt=""></p>
+<h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><p>shell启动后提供以下几个变量</p>
+<ul>
+<li>env: odoo.api.Environment对象</li>
+<li>odoo: odoo模块</li>
+<li>openerp: odoo模块</li>
+<li>self: res.user(1,)记录</li>
+</ul>
+<p><img src="http://image.wangyuehan.net//note/20190530150528.png" alt=""></p>
+<h3 id="shell操作"><a href="#shell操作" class="headerlink" title="shell操作"></a>shell操作</h3><p><strong>1、获取模型列表</strong></p>
+<p>registry是Odoo实例维护的信息中心，通过env.registry获取</p>
+<p><code>env.registry.models</code>可以获取当前Odoo实例的模型列表，返回ModelClass和Model字典键值对</p>
+<p><img src="http://image.wangyuehan.net//note/20190530150658.png" alt=""></p>
+<p><strong>2、查看常用模型</strong></p>
+<p>示例：product.product是ModelClass，odoo.api.product.product是Model<br><img src="http://image.wangyuehan.net//note/20190530150923.png" alt=""><br>1) 获取model的两种方式</p>
+<ul>
+<li>env.registry.models.get(‘product.product’)</li>
+<li>env[‘product.product’]</li>
+</ul>
+<p>2) 访问基类</p>
+<p>odoo.api.product.product 的基类可以通过<code>env.registry.get(&#39;product.product&#39;).__bases__</code>访问</p>
+<p><strong>3、操作记录集</strong></p>
+<ul>
+<li>查询产品<code>env[&#39;product.product&#39;].search([])</code><br><img src="http://image.wangyuehan.net//note/20190530151223.png" alt=""></li>
+<li>遍历产品名称<code>rec.name</code><br><img src="http://image.wangyuehan.net//note/20190530151338.png" alt=""></li>
+<li>修改产品属性<code>rec.write()</code><br><img src="http://image.wangyuehan.net//note/20190530151656.png" alt=""></li>
+</ul>
 
       
     </div>
@@ -366,6 +396,12 @@ git commit -m &quot;add all file&quot;
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/开发/" rel="tag"># 开发</a>
+          
+        </div>
+      
 
       
       
@@ -375,8 +411,8 @@ git commit -m &quot;add all file&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/30/git-deploy-local-to-remote/" rel="next" title="Git-部署本地代码到远程仓库">
-                <i class="fa fa-chevron-left"></i> Git-部署本地代码到远程仓库
+              <a href="/2019/07/24/odoo-sequence-range/" rel="next" title="Odoo为序列号管理增加快捷生成日期范围">
+                <i class="fa fa-chevron-left"></i> Odoo为序列号管理增加快捷生成日期范围
               </a>
             
           </div>
@@ -384,10 +420,6 @@ git commit -m &quot;add all file&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/07/charles-config/" rel="prev" title="使用Charles抓取请求">
-                使用Charles抓取请求 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -439,8 +471,17 @@ git commit -m &quot;add all file&quot;
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -507,6 +548,22 @@ git commit -m &quot;add all file&quot;
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#shell类型"><span class="nav-number">1.</span> <span class="nav-text">shell类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell变量"><span class="nav-number">2.</span> <span class="nav-text">shell变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shell操作"><span class="nav-number">3.</span> <span class="nav-text">shell操作</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

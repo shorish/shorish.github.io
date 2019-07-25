@@ -241,6 +241,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/25/odoo-shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/25/odoo-shell/" itemprop="url">Odoo交互式命令行shell</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-25T23:54:38+08:00">
+                2019-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期</p>
+<p>在命令行输入下面指令即可启动Odoo shell：</p>
+<pre><code>python3 odoo-bin shell -c odoofile/odoo.conf -d test
+</code></pre><h3 id="shell类型"><a href="#shell类型" class="headerlink" title="shell类型"></a>shell类型</h3><p>Odoo shell有下面几种类型</p>
+<ul>
+<li>ipython（需安装ipython）</li>
+<li>ptpython</li>
+<li>bpython</li>
+<li>python，默认使用python（无法按上输入历史命令，推荐使用ipython）</li>
+</ul>
+<p>通过参数shell-interface可以指定shell类型，如下所示使用ipython启动shell</p>
+<pre><code>python3 odoo-bin shell -c odoofile/odoo.conf --shell-interface ipython -d test
+</code></pre><p><img src="http://image.wangyuehan.net//note/20190530150317.png" alt=""></p>
+<h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><p>shell启动后提供以下几个变量</p>
+<ul>
+<li>env: odoo.api.Environment对象</li>
+<li>odoo: odoo模块</li>
+<li>openerp: odoo模块</li>
+<li>self: res.user(1,)记录</li>
+</ul>
+<p><img src="http://image.wangyuehan.net//note/20190530150528.png" alt=""></p>
+<h3 id="shell操作"><a href="#shell操作" class="headerlink" title="shell操作"></a>shell操作</h3><p><strong>1、获取模型列表</strong></p>
+<p>registry是Odoo实例维护的信息中心，通过env.registry获取</p>
+<p><code>env.registry.models</code>可以获取当前Odoo实例的模型列表，返回ModelClass和Model字典键值对</p>
+<p><img src="http://image.wangyuehan.net//note/20190530150658.png" alt=""></p>
+<p><strong>2、查看常用模型</strong></p>
+<p>示例：product.product是ModelClass，odoo.api.product.product是Model<br><img src="http://image.wangyuehan.net//note/20190530150923.png" alt=""><br>1) 获取model的两种方式</p>
+<ul>
+<li>env.registry.models.get(‘product.product’)</li>
+<li>env[‘product.product’]</li>
+</ul>
+<p>2) 访问基类</p>
+<p>odoo.api.product.product 的基类可以通过<code>env.registry.get(&#39;product.product&#39;).__bases__</code>访问</p>
+<p><strong>3、操作记录集</strong></p>
+<ul>
+<li>查询产品<code>env[&#39;product.product&#39;].search([])</code><br><img src="http://image.wangyuehan.net//note/20190530151223.png" alt=""></li>
+<li>遍历产品名称<code>rec.name</code><br><img src="http://image.wangyuehan.net//note/20190530151338.png" alt=""></li>
+<li>修改产品属性<code>rec.write()</code><br><img src="http://image.wangyuehan.net//note/20190530151656.png" alt=""></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/24/odoo-sequence-range/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -334,9 +514,9 @@
       
         
           
-            <h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>实现后效果如图所示，增加了范围类型、范围开始日期、范围结束日期和一个生成按钮</p>
+            <h3 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h3><p>实现后效果如图所示，增加了范围类型、范围开始日期、范围结束日期和一个生成按钮</p>
 <p><img src="http://image.wangyuehan.net/note/20190724/3rpDuWOszprp.png?imageslim" alt="mark"></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p><strong>1、开发前找到修改目标</strong></p>
+<h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><p><strong>1、开发前找到修改目标</strong></p>
 <p>首先激活开发者模式，通过菜单<code>Settings | Technical | Sequences</code>进入序列编辑界面，通过菜单<code>Open Developer Tools | Edit View: Form</code>查看表单视图，得到需要修改的模型为<code>ir.sequence</code>，视图为<code>base.sequence_view</code>（为了排除翻译导致的名称不一致，这里菜单名和截图使用英文的）</p>
 <p><img src="http://image.wangyuehan.net/note/20190724/whzYyjDdJLaQ.png?imageslim" alt="mark"></p>
 <p><strong>2、创建模块</strong></p>
@@ -570,156 +750,6 @@ access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0
 </code></pre><blockquote>
 <p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p>
 </blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/04/09/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/09/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T17:52:59+08:00">
-                2019-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -2007,7 +2037,7 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
