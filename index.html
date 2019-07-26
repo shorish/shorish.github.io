@@ -376,9 +376,9 @@
 <p><div id="container"></div></p>
 <p><link rel="stylesheet" href="https://blog.wangyuehan.net/gitment/default.css"></p>
 <script src="https://blog.wangyuehan.net/gitment/gitment.browser.js"></script>
-<!-- <script> -->
+<script>
 var gitment = new Gitment({
-  id: '<%= page.date="" %="">', // 可选。默认为 location.href
+  id: '<%= page.date %>', // 可选。默认为 location.href
   owner: 'shorish',  //改你自己的名字
   repo: 'shorish.github.io',  //专门储存评论一个GitHub仓库
   oauth: {
@@ -387,8 +387,8 @@ var gitment = new Gitment({
   },
 })
 gitment.render('container')
+</script>
 
-</%=>
           
         
       
