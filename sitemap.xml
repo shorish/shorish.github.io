@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
+    
+    <lastmod>2019-07-26T05:08:25.600Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2019/07/25/odoo-shell/</loc>
     
-    <lastmod>2019-07-26T04:03:50.468Z</lastmod>
+    <lastmod>2019-07-26T05:07:39.023Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://blog.wangyuehan.net/2019/05/15/odoo-new-module/</loc>
     
     <lastmod>2019-07-24T06:09:16.377Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
-    
-    <lastmod>2019-07-16T09:48:35.000Z</lastmod>
     
   </url>
   

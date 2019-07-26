@@ -577,6 +577,40 @@
 </ul>
 </li>
 </ul>
+<!--gitment 评论-->
+<!--汉化-->
+<p><link rel="stylesheet" href="https://billts.site/extra_css/gitment.css"></p>
+<script src="https://billts.site/js/gitment.js"></script>
+<!--原型-->
+<!--
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js" type="text/javascript"></script>
+-->
+<div id="gitmentContainer" style="margin-bottom: -19px;"></div>
+<style>
+  .gitment-container a {
+    border: none;
+  }
+  .comments {
+    margin: 60px 0 0;padding: 0 60px;
+  }
+</style>
+
+<script type="text/javascript">
+  var gitment = new Gitment({
+  id: '<%= page.title %>',
+  title: '<%= page.title %>',
+  owner: 'shorish',
+  repo: 'shorish.github.io',
+  oauth: {
+  client_id: 'a3d257bbb31cc79039b5',
+  client_secret: '9816c2a8ca3ada8fa57739c3c50ca2a0a94cc8d9',
+  },
+  })
+  gitment.render('gitmentContainer')
+</script>
+
+<p><br><!--gitment 评论 end--></p>
 
           
         
