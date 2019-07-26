@@ -648,6 +648,31 @@ echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+<div id="gitmentContainer" style="margin-bottom: -19px;"></div>
+<style>
+  .gitment-container a {
+    border: none;
+  }
+  .comments {
+    margin: 60px 0 0;padding: 0 60px;
+  }
+</style>
+
+<script type="text/javascript">
+  var gitment = new Gitment({
+  // id: '<%= page.title %>',
+  owner: 'shorish',
+  repo: 'blog-gitment',
+  oauth: {
+  client_id: 'a3d257bbb31cc79039b5',
+  client_secret: '9816c2a8ca3ada8fa57739c3c50ca2a0a94cc8d9',
+  },
+  })
+  gitment.render('gitmentContainer')
+</script>
+
+</div>
+<!--gitment 评论 end-->
 
 
 
