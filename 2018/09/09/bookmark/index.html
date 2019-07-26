@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="shorish&#39;s Blog">
 <meta property="og:description" content="Relax music defonic： http://defonic.com/ [sound of sea]   coffitivity咖啡馆：https://coffitivity.com soundrown：http://soundrown.com/ noisli：http://www.noisli.com/ jazz radio爵士风：http://www.jazzradio.com/ m">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-26T06:48:48.910Z">
+<meta property="og:updated_time" content="2019-07-26T07:53:38.989Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Resource bookmark">
 <meta name="twitter:description" content="Relax music defonic： http://defonic.com/ [sound of sea]   coffitivity咖啡馆：https://coffitivity.com soundrown：http://soundrown.com/ noisli：http://www.noisli.com/ jazz radio爵士风：http://www.jazzradio.com/ m">
@@ -312,6 +312,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/09/bookmark/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/09/bookmark/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -582,14 +592,14 @@
 </ul>
 <!--gitment 评论-->
 <!--汉化-->
-<p><link rel="stylesheet" href="https://billts.site/extra_css/gitment.css"></p>
-<script src="https://billts.site/js/gitment.js"></script>
+<!-- <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
+<script src="https://billts.site/js/gitment.js"></script> -->
 <!--原型-->
 <!--
 <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
 <script src="https://imsun.github.io/gitment/dist/gitment.browser.js" type="text/javascript"></script>
 -->
-<div id="gitmentContainer" style="margin-bottom: -19px;"></div>
+<p><div id="gitmentContainer" style="margin-bottom: -19px;"></div></p>
 <style>
   .gitment-container a {
     border: none;
@@ -677,6 +687,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
 
   
 
@@ -936,31 +953,6 @@
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-<div id="gitmentContainer" style="margin-bottom: -19px;"></div>
-<style>
-  .gitment-container a {
-    border: none;
-  }
-  .comments {
-    margin: 60px 0 0;padding: 0 60px;
-  }
-</style>
-
-<script type="text/javascript">
-  var gitment = new Gitment({
-  // id: '<%= page.title %>',
-  owner: 'shorish',
-  repo: 'blog-gitment',
-  oauth: {
-  client_id: 'a3d257bbb31cc79039b5',
-  client_secret: '9816c2a8ca3ada8fa57739c3c50ca2a0a94cc8d9',
-  },
-  })
-  gitment.render('gitmentContainer')
-</script>
-
-</div>
-<!--gitment 评论 end-->
 
 
 
@@ -997,6 +989,43 @@
 
 
 
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'shorish',
+            repo: 'blog-gitment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '9816c2a8ca3ada8fa57739c3c50ca2a0a94cc8d9',
+            
+                client_id: 'a3d257bbb31cc79039b5'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
 
 
 
