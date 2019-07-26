@@ -3414,7 +3414,7 @@ var Gitment = function () {
 
       this.state.user.isLoggingIn = true;
       // _utils.http.post('https://blog.wangyuehan.net', {
-      _utils.http.post('https://auth.baixiaotu.cc', {
+      _utils.http.post('https://shorish.github.io', {
         code: code,
         client_id: client_id,
         client_secret: client_secret
