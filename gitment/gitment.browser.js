@@ -3372,7 +3372,7 @@ var Gitment = function () {
       }, options);
 
       this.state.user.isLoggingIn = true;
-      _utils.http.post('https://gh-oauth.imsun.net', {
+      _utils.http.post('https://blog.wangyuehan.net', {
         code: code,
         client_id: client_id,
         client_secret: client_secret
@@ -3707,4 +3707,5 @@ var spinner = exports.spinner = '<svg class="gitment-spinner-icon" xmlns="http:/
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=gitment.browser.js.map</=></=></unnamed></not></unnamed></unnamed>
+//# sourceMappingURL=gitment.browser.js.map
+</=></=></unnamed></not></unnamed></unnamed>
