@@ -241,6 +241,174 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/30/console-log-to-file/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/30/console-log-to-file/" itemprop="url">如何将console.log的内容导出到文件中</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T13:48:08+08:00">
+                2019-07-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web/" itemprop="url" rel="index">
+                    <span itemprop="name">Web</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在Chrome浏览器的Console控制台中，使用<code>console.log()</code>命令可以输出js变量或字符串，但如何将这些输出保存到文件中呢</p>
+<p>使用<a href="https://github.com/wangduanduan/log4b" target="_blank" rel="noopener">log4b.js</a>可以实现输出保存到文件，这个功能可用于在console中使用xpath获取页面内容并保存到文件</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、载入log4b</p>
+<p>js原生的console.log无法输出到文件，下载<a href="https://github.com/wangduanduan/log4b" target="_blank" rel="noopener">log4b.js</a>文件，复制<code>log4b.js</code>的内容到console中执行</p>
+<p>2、创建log4b对象</p>
+<p>在console中执行</p>
+<pre><code>var Log4b = new log4b();
+</code></pre><p>3、输出内容</p>
+<p>使用<code>Log4b.log()</code>替代<code>console.log()</code>来输出内容</p>
+<p>4、导出到文件</p>
+<p>使用<code>Log4b.downloadLog()</code>可以下载由<code>Log4b.log()</code>输出的内容</p>
+<h3 id="log4b使用"><a href="#log4b使用" class="headerlink" title="log4b使用"></a>log4b使用</h3><h4 id="log4b方法"><a href="#log4b方法" class="headerlink" title="log4b方法"></a>log4b方法</h4><pre><code>getLog: get log show on the console tab
+downloadLog: download the log
+clear: clear all saved log
+log:    write log
+lines: get how many lines of log
+search: search a string
+</code></pre><h4 id="log4b配置"><a href="#log4b配置" class="headerlink" title="log4b配置"></a>log4b配置</h4><pre><code>self.realTimeLoggingOn = true; // log in real time (forwards to console.log)
+self.useTimestamps = false; // insert a timestamp in front of each log
+self.recordLogs = true; // set to false after you&apos;re done debugging to avoid the log eating up memory
+self.maxLines = 2500; // if autoTrim is true, this many most recent lines are saved
+self.lineMaxChars = 1500; // if one log is max than lineMaxChars, it will be cut
+self.logFilename = &apos;log4b.txt&apos;; // filename of log downloaded with downloadLog()
+self.lineBreak = &apos;\n\n&apos;;
+</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p><a href="https://segmentfault.com/a/1190000009426931" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009426931</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/25/odoo-shell/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -750,6 +918,156 @@ access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0
 </code></pre><blockquote>
 <p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p>
 </blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/04/09/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T17:52:59+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
         
@@ -1637,356 +1955,6 @@ git clean -nfd
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/29/software-service-price/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/29/software-service-price/" itemprop="url">软件（系统）开发、维护、集成价格估算（学习笔记）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-29T11:50:40+08:00">
-                2018-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/软件工程/" itemprop="url" rel="index">
-                    <span itemprop="name">软件工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="一、软件（系统）开发报价"><a href="#一、软件（系统）开发报价" class="headerlink" title="一、软件（系统）开发报价"></a>一、软件（系统）开发报价</h3><p><strong>软件开发价格 ＝ A（估算工作量） × σ（软件人员月平均工资） × τ（风险系数） × B（复用系数） × λ（综合系数）</strong></p>
-<pre><code>A：估算工作量经验值
-B：软件企业的平均工资／人·月
-σ：风险系数l ≤ Q ≤ 1.5
-τ：复用系数0.25 ≤ τ ≤ 1
-λ：综合系数（国内）2.7 ≤ λ ≤ 3.09（综合了公司税收利润、管理系数、优质系数）
-</code></pre><p>分解计算过程展开</p>
-<p>软件开发价格 ＝ 开发工作量 × 开发费用／人·月  </p>
-<p>软件开发工作量 ＝ 估算工作量经验值A × 风险系数σ × 复用系数τ</p>
-<pre><code>风险系数：l ≤ σ ≤ 1.5（业务领域不熟悉，用户需求不明确）
-复用系数：0.25（实施基于构件开发方法，已有可复用的构件库） ≤ τ ≤ 1
-</code></pre><p>开发费用／人·月 ＝（P＋Q＋R）× S× T</p>
-<pre><code>P（人员成本） ＝ B（月平均工资） × 1.476（公积金7%、医疗保险12%、养老金22%、失业金2%、工伤0.5%，生育0.5%，残疾基金1.6%，工会基金2%，累计47.6%）
-Q（办公费） ＝ B／3
-R（国家税收和企业利润） ＝ B／3
-S（管理系数）：1 ≤ S ≤ 1.2 （十个软件人员需要两个管理人员）
-T（优质系数，提高软件质量，必然有所开支，即质量成本）：1.05 &lt;= T &lt;= 1.2
-</code></pre><h3 id="二、软件（系统）维护费用"><a href="#二、软件（系统）维护费用" class="headerlink" title="二、软件（系统）维护费用"></a>二、软件（系统）维护费用</h3><p><strong>根据不同用户的要求，分为四种级别分别按照开发费用的15%、10%、5%或按次计算收取软件（系统）维护费用</strong></p>
-<p>首先定义U（系统建设费用），也就是该应用软件（系统）开发费用</p>
-<ol>
-<li><p>A级：软件企业派出技术人员常驻用户，解决日常运行中发生的问题。</p>
-<pre><code>软件企业派出N个技术人员，常驻用户，因此：
-软件（系统）维护费／年 ＝ U × 15% 或 B × λ × N × 12
-</code></pre></li>
-<li><p>B级：软件企业每周七天，每天24小时（即7×24小时）响应，2小时到现场，且每天派技术人员到现场进行软件（系统）性能调试，使之运行处于良好状态。</p>
-<pre><code>软件（系统）维护费／年 ＝ U × 10%
-</code></pre></li>
-<li><p>C级：软件企业7×24小时响应，2小时到场。</p>
-<pre><code>软件（系统）维护费／年＝U × 5%
-</code></pre></li>
-<li><p>D级：用户的信息工程系统或应用软件发生问题，由原承担的软件企业派人维护。</p>
-<pre><code>软件（系统）维护费／次＝B’（人·天） × τ’（同复用系数）× n
-</code></pre></li>
-</ol>
-<h3 id="三、系统集成价格估算方法"><a href="#三、系统集成价格估算方法" class="headerlink" title="三、系统集成价格估算方法"></a>三、系统集成价格估算方法</h3><p><strong>系统集成费 ＝ U（系统建设费用） × α（四种级别的复杂程度） × T（优质系数）</strong></p>
-<p>复杂程度（以α来表示）可分四种级别来区分</p>
-<ol>
-<li><p>A级：整个系统涉及到计算机硬件、软件、局域网络，且体系结构在三层次以下（含三层次）。</p>
-<pre><code>5% ≤ α ≤ 8%
-</code></pre></li>
-<li><p>B级：整个系统涉及到计算机硬件、软件、局域网络、互联网，且体系结构在三层以上（含三层次）。</p>
-<pre><code>7% ≤ α ≤ 10%
-</code></pre></li>
-<li><p>C级：整个系统涉及到计算机硬件、软件、局域网络、互联网以及多种网络接口。</p>
-<pre><code>8% ≤ α ≤ 12%
-</code></pre></li>
-<li><p>D级：整个系统涉及到计算机硬件、软件、网络、通信以及各种数据采集设备接口或者与用主系统有接口。</p>
-<pre><code>10% ≤ α ≤ 15%
-</code></pre></li>
-</ol>
-<p>学习文章<a href="https://wenku.baidu.com/view/48805bedf8c75fbfc77db29a.html" target="_blank" rel="noopener">《软件开发和服务项目价格构成及评估方法》</a>的笔记</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/22/git-difftool/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/22/git-difftool/" itemprop="url">Git-配置difftools和mergetool使用kaleidoscope</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-22T23:34:30+08:00">
-                2018-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行<code>ksdiff</code>命令</p>
-<p>2、修改GIT配置文件<code>~/.gitconfig</code>，加入下面内容</p>
-<pre><code>[diff]
-    tool = Kaleidoscope
-[difftool &quot;Kaleidoscope&quot;]
-    cmd = ksdiff --partial-changeset --relative-path \&quot;$MERGED\&quot; -- \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;
-[difftool]
-    prompt = false
-
-[merge]
-    tool = Kaleidoscope
-[mergetool &quot;Kaleidoscope&quot;]
-    cmd = ksdiff --merge --output &quot;$MERGED&quot; --base &quot;$BASE&quot; -- &quot;$LOCAL&quot; --snapshot &quot;$REMOTE&quot; --snapshot
-    trustExitCode = true
-[mergetool]
-    prompt = false
-</code></pre><p>3、命令行中运行<code>git difftool</code>或<code>git mergetool</code>（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件<br><img src="http://image.wangyuehan.net//note/20181122234201git-difftool.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2037,7 +2005,7 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2059,7 +2027,7 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
