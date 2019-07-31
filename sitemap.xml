@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/</loc>
+    
+    <lastmod>2019-07-31T06:55:59.382Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2019/07/30/console-log-to-file/</loc>
     
     <lastmod>2019-07-30T06:08:03.933Z</lastmod>

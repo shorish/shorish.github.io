@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2019-07-30T06:08:03.933Z</updated>
+  <updated>2019-07-31T06:55:59.382Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Odoo一个简单的Client Action示例</title>
+    <link href="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/"/>
+    <id>https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/</id>
+    <published>2019-07-31T06:53:24.000Z</published>
+    <updated>2019-07-31T06:55:59.382Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板</p><p>这个示例包括下面三个文件</p><ul><li>模板文件<code>static/src/xml/client_action.xml</code><ul><li>定义模板<code>HelloJS</code>显示<code>&lt;div&gt;Display HelloJS&lt;/div&gt;</code></li></ul></li><li>JS文件<code>static/src/js/client_action.js</code><ul><li>定义对象<code>HomePage</code>继承于<code>web.AbstractAction</code></li><li>对象中调用<code>HelloJS</code>模板</li><li>对象中定义<code>init</code>方法和<code>start</code>方法</li><li>将<code>HomePage</code>对象注册为动作：<code>HelloJS_tag</code></li></ul></li><li>视图文件<code>views/client_action.xml</code><ul><li>继承<code>web.assets_backend</code>加载JS文件</li><li>定义客户端动作关联<code>HelloJS_tag</code></li><li>定义显示的菜单关联客户端动作</li></ul></li></ul><h3 id="示例文件内容"><a href="#示例文件内容" class="headerlink" title="示例文件内容"></a>示例文件内容</h3><p><strong>1、定义模板文件<code>static/src/xml/client_action.xml</code></strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;  encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;templates xml:space=&quot;preserve&quot;&gt;</span><br><span class="line">   &lt;t t-name=&quot;HelloJS&quot;&gt;</span><br><span class="line">      &lt;div&gt;Display HelloJS&lt;/div&gt;</span><br><span class="line">   &lt;/t&gt;</span><br><span class="line">&lt;/templates&gt;</span><br></pre></td></tr></table></figure><p><strong>2、定义js<code>static/src/js/client_action.js</code></strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;hello.js&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var Widget = require(&apos;web.Widget&apos;);</span><br><span class="line">    var core = require(&apos;web.core&apos;);</span><br><span class="line">    var utils = require(&apos;web.utils&apos;);</span><br><span class="line">    var AbstractAction = require(&apos;web.AbstractAction&apos;);</span><br><span class="line"></span><br><span class="line">    var HomePage = AbstractAction.extend(&#123;</span><br><span class="line">        template: &quot;HelloJS&quot;,</span><br><span class="line"></span><br><span class="line">        init: function (parent) &#123;</span><br><span class="line">            this._super(parent);</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of init.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        start: function () &#123;</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of start.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    core.action_registry.add(&apos;HelloJS_tag&apos;, HomePage);</span><br><span class="line"></span><br><span class="line">    return HomePage;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><strong>3、创建视图文件<code>views/client_action.xml</code></strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">    &lt;data&gt;</span><br><span class="line"></span><br><span class="line">        &lt;template id=&quot;assets_backend&quot; name=&quot;petstore&quot;</span><br><span class="line">                  inherit_id=&quot;web.assets_backend&quot;&gt;</span><br><span class="line">            &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;</span><br><span class="line">                &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">                        src=&quot;demo_client_action/static/src/js/client_action.js&quot;&gt;</span><br><span class="line">                &lt;/script&gt;</span><br><span class="line">            &lt;/xpath&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">        &lt;record id=&quot;hellojs_id&quot; model=&quot;ir.actions.client&quot;&gt;</span><br><span class="line">            &lt;field name=&quot;name&quot;&gt;HelloJS&lt;/field&gt;</span><br><span class="line">            &lt;field name=&quot;tag&quot;&gt;HelloJS_tag&lt;/field&gt;</span><br><span class="line">        &lt;/record&gt;</span><br><span class="line"></span><br><span class="line">        &lt;menuitem id=&quot;hellojs_menu&quot;</span><br><span class="line">                  name=&quot;HelloJS&quot;</span><br><span class="line">                  action=&quot;hellojs_id&quot;/&gt;</span><br><span class="line">    &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure><p><strong>4、在<code>__manifest__.py</code>文件中引入XML文件</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;qweb&apos;: [</span><br><span class="line">    &apos;static/src/xml/client_action_template.xml&apos;</span><br><span class="line">],</span><br><span class="line">&apos;data&apos;: [</span><br><span class="line">    &apos;views/client_action.xml&apos;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;总览&quot;&gt;&lt;a href=&quot;#总览&quot; class=&quot;headerlink&quot; title=&quot;总览&quot;&gt;&lt;/a&gt;总览&lt;/h3&gt;&lt;p&gt;这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板&lt;/p&gt;
+&lt;p&gt;这个示例包括下面三个文件&lt;/p&gt;
+&lt;ul&gt;
+
+      
+    
+    </summary>
+    
+      <category term="Odoo" scheme="https://blog.wangyuehan.net/categories/Odoo/"/>
+    
+    
+      <category term="开发" scheme="https://blog.wangyuehan.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
   
   <entry>
     <title>如何将console.log的内容导出到文件中</title>
@@ -496,33 +524,6 @@
     
     
       <category term="command" scheme="https://blog.wangyuehan.net/tags/command/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Sublime Text插件推荐</title>
-    <link href="https://blog.wangyuehan.net/2018/09/20/submit-package-recommend/"/>
-    <id>https://blog.wangyuehan.net/2018/09/20/submit-package-recommend/</id>
-    <published>2018-09-20T03:43:50.000Z</published>
-    <updated>2019-02-14T05:58:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ul><li><p>Package Control</p><p>  功能：安装插件<br>  快捷键：Ctrl + Shift + P，输入 Install 选择 Install Package</p></li></ul><h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><ul><li><p>ChineseLocalizations    </p><p>  功能：汉化<br>  菜单：Help -&gt; Language</p></li><li><p>ConvertToUTF8           </p><p>  功能：将文件编码从GBK转换成UTF8<br>  菜单：File -&gt; Set File Encoding to / Reload with Encoding</p></li><li><p>codecs33                </p><p>  功能：ConvertToUTF8在sublime3中无法使用时安装</p></li></ul><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ul><li><p>Material Theme  </p><p>  功能：Material主题   </p></li><li><p>A File Icon     </p><p>  功能：显示文件图标，Material主题需要安装  </p></li><li><p>ColorSublime    </p><p>  功能：主题预览安装  </p></li><li><p>MarkdownExtended    </p><p>  功能：markdown显示主题    </p></li></ul><h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><ul><li><p>Side​Bar​Enhancement      </p><p>  功能：侧边栏增强工具，文件定义引用跳转</p></li><li><p>BracketHighlighter</p><p>  功能：括号、引号匹配高亮显示</p></li></ul><h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ul><li><p>Alignment       </p><p>  功能：进行智能对齐，选中代码<br>  快捷键：ctrl+alt+a</p></li><li><p>AutoPep8        </p><p>  功能：格式化Python代码<br>  快捷键：ctrl+8（预览），ctrl+shift+8（格式化）</p></li><li><p>CodeFormatter   </p><p>  功能：自动格式化代码，支持多种编程语言，需要指定编程语言路径（html格式化不好用，内联的script标签会一直缩进）<br>  快捷键：ctrl+alt+f</p></li><li><p>HTML-CSS-JS Prettify    </p><p>  功能：格式化html，css，js代码（好用）<br>  快捷键：command+shift+h</p></li></ul><h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><ul><li><p>Emmet                   </p><p>  功能：前端开发神器，缩写组合快速编写html</p></li><li><p>Jedi                    </p><p>  功能：Python智能代码补全</p></li><li><p>DocBlockr               </p><p>  功能：自动补全注释插件</p></li><li><p>SublimeLinter           </p><p>  功能：语法检查工具，针对不同编程语言还需要单独安装插件，如linter-php</p></li><li><p>SublimeCodeIntel        </p><p>  功能：代码智能提示</p></li><li><p>HTML5                   </p><p>  功能：HTML snippets(可选)</p></li><li><p>JQuery                  </p><p>  功能：JQuery snippets</p></li></ul><h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><ul><li><p>Markdown Editing    </p><p>  功能：高亮显示Markdown语法</p></li><li><p>OmniMarkupPreviewer </p><p>  功能：预览markdown 编辑的效果，同样支持渲染代码高亮的样式<br>  快捷键：super+alt+o（网页预览），super+alt+x（导出）</p></li></ul><h2 id="辅助"><a href="#辅助" class="headerlink" title="辅助"></a>辅助</h2><ul><li><p>FileDiffs       </p><p>  功能：对比文件区别</p></li><li><p>SublimeTmpl     </p><p>  功能：提供常用文件的模板</p></li><li><p>SublimeREPL     </p><p>  功能：多种脚本语言的执行环境，可以方便的进入代码所在目录的shell或python环境</p></li><li><p>SFTP            </p><p>  功能：FTP工具</p></li><li><p>GIT             </p><p>  功能：GIT工具</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;插件安装&quot;&gt;&lt;a href=&quot;#插件安装&quot; class=&quot;headerlink&quot; title=&quot;插件安装&quot;&gt;&lt;/a&gt;插件安装&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Package Control&lt;/p&gt;
-&lt;p&gt;  功能：安装插件&lt;br&gt;  快捷键：Ctrl + Shif
-      
-    
-    </summary>
-    
-      <category term="清单" scheme="https://blog.wangyuehan.net/categories/%E6%B8%85%E5%8D%95/"/>
-    
-    
-      <category term="tools" scheme="https://blog.wangyuehan.net/tags/tools/"/>
     
   </entry>
   

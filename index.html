@@ -241,6 +241,176 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/31/odoo-create-client-action/" itemprop="url">Odoo一个简单的Client Action示例</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-31T14:53:24+08:00">
+                2019-07-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板</p>
+<p>这个示例包括下面三个文件</p>
+<ul>
+<li>模板文件<code>static/src/xml/client_action.xml</code><ul>
+<li>定义模板<code>HelloJS</code>显示<code>&lt;div&gt;Display HelloJS&lt;/div&gt;</code></li>
+</ul>
+</li>
+<li>JS文件<code>static/src/js/client_action.js</code><ul>
+<li>定义对象<code>HomePage</code>继承于<code>web.AbstractAction</code></li>
+<li>对象中调用<code>HelloJS</code>模板</li>
+<li>对象中定义<code>init</code>方法和<code>start</code>方法</li>
+<li>将<code>HomePage</code>对象注册为动作：<code>HelloJS_tag</code></li>
+</ul>
+</li>
+<li>视图文件<code>views/client_action.xml</code><ul>
+<li>继承<code>web.assets_backend</code>加载JS文件</li>
+<li>定义客户端动作关联<code>HelloJS_tag</code></li>
+<li>定义显示的菜单关联客户端动作</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例文件内容"><a href="#示例文件内容" class="headerlink" title="示例文件内容"></a>示例文件内容</h3><p><strong>1、定义模板文件<code>static/src/xml/client_action.xml</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;  encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;templates xml:space=&quot;preserve&quot;&gt;</span><br><span class="line">   &lt;t t-name=&quot;HelloJS&quot;&gt;</span><br><span class="line">      &lt;div&gt;Display HelloJS&lt;/div&gt;</span><br><span class="line">   &lt;/t&gt;</span><br><span class="line">&lt;/templates&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>2、定义js<code>static/src/js/client_action.js</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;hello.js&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var Widget = require(&apos;web.Widget&apos;);</span><br><span class="line">    var core = require(&apos;web.core&apos;);</span><br><span class="line">    var utils = require(&apos;web.utils&apos;);</span><br><span class="line">    var AbstractAction = require(&apos;web.AbstractAction&apos;);</span><br><span class="line"></span><br><span class="line">    var HomePage = AbstractAction.extend(&#123;</span><br><span class="line">        template: &quot;HelloJS&quot;,</span><br><span class="line"></span><br><span class="line">        init: function (parent) &#123;</span><br><span class="line">            this._super(parent);</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of init.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        start: function () &#123;</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of start.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    core.action_registry.add(&apos;HelloJS_tag&apos;, HomePage);</span><br><span class="line"></span><br><span class="line">    return HomePage;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>3、创建视图文件<code>views/client_action.xml</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">    &lt;data&gt;</span><br><span class="line"></span><br><span class="line">        &lt;template id=&quot;assets_backend&quot; name=&quot;petstore&quot;</span><br><span class="line">                  inherit_id=&quot;web.assets_backend&quot;&gt;</span><br><span class="line">            &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;</span><br><span class="line">                &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">                        src=&quot;demo_client_action/static/src/js/client_action.js&quot;&gt;</span><br><span class="line">                &lt;/script&gt;</span><br><span class="line">            &lt;/xpath&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">        &lt;record id=&quot;hellojs_id&quot; model=&quot;ir.actions.client&quot;&gt;</span><br><span class="line">            &lt;field name=&quot;name&quot;&gt;HelloJS&lt;/field&gt;</span><br><span class="line">            &lt;field name=&quot;tag&quot;&gt;HelloJS_tag&lt;/field&gt;</span><br><span class="line">        &lt;/record&gt;</span><br><span class="line"></span><br><span class="line">        &lt;menuitem id=&quot;hellojs_menu&quot;</span><br><span class="line">                  name=&quot;HelloJS&quot;</span><br><span class="line">                  action=&quot;hellojs_id&quot;/&gt;</span><br><span class="line">    &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>4、在<code>__manifest__.py</code>文件中引入XML文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;qweb&apos;: [</span><br><span class="line">    &apos;static/src/xml/client_action_template.xml&apos;</span><br><span class="line">],</span><br><span class="line">&apos;data&apos;: [</span><br><span class="line">    &apos;views/client_action.xml&apos;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/30/console-log-to-file/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1801,160 +1971,6 @@ pip  uninstall pyspider
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/04/git-delete-untracked-files/" itemprop="url">Git-如何删除untracked files（未跟踪）的文件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-04T14:01:45+08:00">
-                2019-01-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>清理Git仓库中未跟踪的文件时可以使用下面命令</p>
-</blockquote>
-<p>删除untracked文件</p>
-<pre><code>git clean -f
-</code></pre><p>删除untracked文件</p>
-<pre><code>git clean -fd
-</code></pre><p>删除.gitignore的untracked文件</p>
-<pre><code>git clean -xfd
-</code></pre><p>使用上面git clean之前，建议使用-n参数查看会删除哪些文件</p>
-<pre><code>git clean -nxfd
-git clean -nf
-git clean -nfd
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2005,7 +2021,7 @@ git clean -nfd
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

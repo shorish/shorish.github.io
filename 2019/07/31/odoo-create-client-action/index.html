@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="开发," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境  1、远程仓库：新建并切换到分支allfile git checkout -b allfile 2、远程仓库：修改.gitignore文件，移除例外文件 vim .gitignore 去除内容public/uploads 3、远程仓">
+<meta name="description" content="总览这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板 这个示例包括下面三个文件  模板文件static/src/xml/client_action.xml 定义模板HelloJS显示&amp;lt;div&amp;gt;Display HelloJS&amp;lt;/div&amp;gt;   JS文件static/src/js/client_action.js 定义对象HomePage继承于we">
+<meta name="keywords" content="开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-如何将未跟踪的例外文件拉到本地">
-<meta property="og:url" content="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/index.html">
+<meta property="og:title" content="Odoo一个简单的Client Action示例">
+<meta property="og:url" content="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/index.html">
 <meta property="og:site_name" content="shorish&#39;s Blog">
-<meta property="og:description" content="远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境  1、远程仓库：新建并切换到分支allfile git checkout -b allfile 2、远程仓库：修改.gitignore文件，移除例外文件 vim .gitignore 去除内容public/uploads 3、远程仓">
+<meta property="og:description" content="总览这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板 这个示例包括下面三个文件  模板文件static/src/xml/client_action.xml 定义模板HelloJS显示&amp;lt;div&amp;gt;Display HelloJS&amp;lt;/div&amp;gt;   JS文件static/src/js/client_action.js 定义对象HomePage继承于we">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-14T05:47:59.000Z">
+<meta property="og:updated_time" content="2019-07-31T06:55:59.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-如何将未跟踪的例外文件拉到本地">
-<meta name="twitter:description" content="远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境  1、远程仓库：新建并切换到分支allfile git checkout -b allfile 2、远程仓库：修改.gitignore文件，移除例外文件 vim .gitignore 去除内容public/uploads 3、远程仓">
+<meta name="twitter:title" content="Odoo一个简单的Client Action示例">
+<meta name="twitter:description" content="总览这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板 这个示例包括下面三个文件  模板文件static/src/xml/client_action.xml 定义模板HelloJS显示&amp;lt;div&amp;gt;Display HelloJS&amp;lt;/div&amp;gt;   JS文件static/src/js/client_action.js 定义对象HomePage继承于we">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/"/>
+  <link rel="canonical" href="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/"/>
 
 
 
 
 
-  <title>Git-如何将未跟踪的例外文件拉到本地 | shorish's Blog</title>
+  <title>Odoo一个简单的Client Action示例 | shorish's Blog</title>
   
 
 
@@ -244,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Wang Jing">
@@ -261,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Git-如何将未跟踪的例外文件拉到本地</h1>
+          <h1 class="post-title" itemprop="name headline">Odoo一个简单的Client Action示例</h1>
         
 
         <div class="post-meta">
@@ -273,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T11:54:18+08:00">
-                2019-02-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-31T14:53:24+08:00">
+                2019-07-31
               </time>
             
 
@@ -296,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
                   </a>
                 </span>
 
@@ -314,8 +315,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/02/12/git-get-file-of-gitignore/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/02/12/git-get-file-of-gitignore/" itemprop="commentsCount"></span>
+                <a href="/2019/07/31/odoo-create-client-action/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/31/odoo-create-client-action/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -348,24 +349,35 @@
       
 
       
-        <blockquote>
-<p>远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境</p>
-</blockquote>
-<p>1、远程仓库：新建并切换到分支allfile</p>
-<pre><code>git checkout -b allfile
-</code></pre><p>2、远程仓库：修改.gitignore文件，移除例外文件</p>
-<pre><code>vim .gitignore
-去除内容public/uploads
-</code></pre><p>3、远程仓库：添加所有文件并提交</p>
-<pre><code>git add .
-git commit -m &quot;add all file&quot;
-</code></pre><p>4、本地仓库：拉取远程分支</p>
-<pre><code>git pull 
-</code></pre><p>6、本地仓库：迁出allfile分支中的例外文件</p>
-<pre><code>git checkout allfile public/uploads
-</code></pre><p>7、本地仓库：去除例外文件的跟踪</p>
-<pre><code>git rm -r --cached public/uploads
-</code></pre><p>此时例外文件<code>public/uploads</code>将保留在本地仓库并不被跟踪</p>
+        <h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板</p>
+<p>这个示例包括下面三个文件</p>
+<ul>
+<li>模板文件<code>static/src/xml/client_action.xml</code><ul>
+<li>定义模板<code>HelloJS</code>显示<code>&lt;div&gt;Display HelloJS&lt;/div&gt;</code></li>
+</ul>
+</li>
+<li>JS文件<code>static/src/js/client_action.js</code><ul>
+<li>定义对象<code>HomePage</code>继承于<code>web.AbstractAction</code></li>
+<li>对象中调用<code>HelloJS</code>模板</li>
+<li>对象中定义<code>init</code>方法和<code>start</code>方法</li>
+<li>将<code>HomePage</code>对象注册为动作：<code>HelloJS_tag</code></li>
+</ul>
+</li>
+<li>视图文件<code>views/client_action.xml</code><ul>
+<li>继承<code>web.assets_backend</code>加载JS文件</li>
+<li>定义客户端动作关联<code>HelloJS_tag</code></li>
+<li>定义显示的菜单关联客户端动作</li>
+</ul>
+</li>
+</ul>
+<h3 id="示例文件内容"><a href="#示例文件内容" class="headerlink" title="示例文件内容"></a>示例文件内容</h3><p><strong>1、定义模板文件<code>static/src/xml/client_action.xml</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;  encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;templates xml:space=&quot;preserve&quot;&gt;</span><br><span class="line">   &lt;t t-name=&quot;HelloJS&quot;&gt;</span><br><span class="line">      &lt;div&gt;Display HelloJS&lt;/div&gt;</span><br><span class="line">   &lt;/t&gt;</span><br><span class="line">&lt;/templates&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>2、定义js<code>static/src/js/client_action.js</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;hello.js&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var Widget = require(&apos;web.Widget&apos;);</span><br><span class="line">    var core = require(&apos;web.core&apos;);</span><br><span class="line">    var utils = require(&apos;web.utils&apos;);</span><br><span class="line">    var AbstractAction = require(&apos;web.AbstractAction&apos;);</span><br><span class="line"></span><br><span class="line">    var HomePage = AbstractAction.extend(&#123;</span><br><span class="line">        template: &quot;HelloJS&quot;,</span><br><span class="line"></span><br><span class="line">        init: function (parent) &#123;</span><br><span class="line">            this._super(parent);</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of init.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        start: function () &#123;</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of start.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    core.action_registry.add(&apos;HelloJS_tag&apos;, HomePage);</span><br><span class="line"></span><br><span class="line">    return HomePage;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>3、创建视图文件<code>views/client_action.xml</code></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">    &lt;data&gt;</span><br><span class="line"></span><br><span class="line">        &lt;template id=&quot;assets_backend&quot; name=&quot;petstore&quot;</span><br><span class="line">                  inherit_id=&quot;web.assets_backend&quot;&gt;</span><br><span class="line">            &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;</span><br><span class="line">                &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">                        src=&quot;demo_client_action/static/src/js/client_action.js&quot;&gt;</span><br><span class="line">                &lt;/script&gt;</span><br><span class="line">            &lt;/xpath&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">        &lt;record id=&quot;hellojs_id&quot; model=&quot;ir.actions.client&quot;&gt;</span><br><span class="line">            &lt;field name=&quot;name&quot;&gt;HelloJS&lt;/field&gt;</span><br><span class="line">            &lt;field name=&quot;tag&quot;&gt;HelloJS_tag&lt;/field&gt;</span><br><span class="line">        &lt;/record&gt;</span><br><span class="line"></span><br><span class="line">        &lt;menuitem id=&quot;hellojs_menu&quot;</span><br><span class="line">                  name=&quot;HelloJS&quot;</span><br><span class="line">                  action=&quot;hellojs_id&quot;/&gt;</span><br><span class="line">    &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>4、在<code>__manifest__.py</code>文件中引入XML文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;qweb&apos;: [</span><br><span class="line">    &apos;static/src/xml/client_action_template.xml&apos;</span><br><span class="line">],</span><br><span class="line">&apos;data&apos;: [</span><br><span class="line">    &apos;views/client_action.xml&apos;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,6 +393,12 @@ git commit -m &quot;add all file&quot;
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/开发/" rel="tag"><i class="fa fa-tag"></i> 开发</a>
+          
+        </div>
+      
 
       
       
@@ -390,8 +408,8 @@ git commit -m &quot;add all file&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/30/git-deploy-local-to-remote/" rel="next" title="Git-部署本地代码到远程仓库">
-                <i class="fa fa-chevron-left"></i> Git-部署本地代码到远程仓库
+              <a href="/2019/07/30/console-log-to-file/" rel="next" title="如何将console.log的内容导出到文件中">
+                <i class="fa fa-chevron-left"></i> 如何将console.log的内容导出到文件中
               </a>
             
           </div>
@@ -399,10 +417,6 @@ git commit -m &quot;add all file&quot;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/07/charles-config/" rel="prev" title="使用Charles抓取请求">
-                使用Charles抓取请求 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -461,8 +475,17 @@ git commit -m &quot;add all file&quot;
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -529,6 +552,22 @@ git commit -m &quot;add all file&quot;
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#总览"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例文件内容"><span class="nav-number">2.</span> <span class="nav-text">示例文件内容</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
