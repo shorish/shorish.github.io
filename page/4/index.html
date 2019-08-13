@@ -241,242 +241,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/30/lnmp-install/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/30/lnmp-install/" itemprop="url">Centos7中安装LNMP</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T16:15:37+08:00">
-                2018-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h2><h3 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h3><ol>
-<li><p>下载</p>
-<p> 访问<a href="https://lnmp.org/download.html" target="_blank" rel="noopener">下载地址</a>，找到需要安装的版本的下载地址<br> 如：<code>http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz</code>  </p>
-<pre><code>wget http://soft1.vpser.net/lnmp/lnmp1.5-full.tar.gz
-</code></pre><p> 为了防止安装时掉线，建议使用screen</p>
-<pre><code>yum install screen  #安装screen
-screen -S lnmp      #指定screen作业的名称
-#开始执行安装过程，如果掉线执行下面命令恢复
-screen -r lnmp      #恢复离线的screen作业
-screen -list            #列出所有会话
-</code></pre></li>
-<li><p>解压安装</p>
-<pre><code>tar -zxvf lnmp1.5-full.tar.gz
-cd lnmp1.5-full
-./install.sh {lnmp|lnmpa|lamp}  #需选择安装的类型
-#按照提示选择mysql、php版本安装
-</code></pre></li>
-</ol>
-<h3 id="默认安装目录"><a href="#默认安装目录" class="headerlink" title="默认安装目录"></a>默认安装目录</h3><pre><code>Nginx：/usr/local/nginx/
-MySQL：/usr/local/mysql/
-MariaDB：/usr/local/mariadb/
-PHP：/usr/local/php/
-多PHP目录：/usr/local/php5.6/ 版本号随安装版本不同而不同
-PHP扩展插件配置文件目录：/usr/local/php/conf.d/
-PHPMyAdmin：/home/wwwroot/default/phpmyadmin/
-默认虚拟主机网站目录：/home/wwwroot/default/
-Nginx日志目录：/home/wwwlogs/
-</code></pre><h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><pre><code>Nginx主配置文件：/usr/local/nginx/conf/nginx.conf
-MySQL/MariaDB配置文件：/etc/my.cnf
-PHP配置文件：/usr/local/php/etc/php.ini
-PHP-FPM配置文件：/usr/local/php/etc/php-fpm.conf
-PureFtpd配置文件：/usr/local/pureftpd/etc/pure-ftpd.conf
-Apache配置文件：/usr/local/apache/conf/httpd.conf
-</code></pre><h2 id="各应用对应的文件"><a href="#各应用对应的文件" class="headerlink" title="各应用对应的文件"></a>各应用对应的文件</h2><h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ul>
-<li><p>安装目录</p>
-<pre><code>/usr/local/nginx
-</code></pre></li>
-<li><p>配置文件</p>
-<pre><code>/usr/local/nginx/conf
-</code></pre></li>
-<li><p>日志文件<br>  日志文件在配置文件中设置  </p>
-<pre><code>error_log  错误日志
-http{log_format}        日志格式
-http{access_log}    nginx访问日志
-server{access_log}  server访问日志
-
-默认设置
-/usr/local/nginx/logs/error.log
-/usr/local/nginx/logs/access.log
-/usr/local/nginx/logs/host.access.log
-</code></pre></li>
-<li><p>PID</p>
-<pre><code>/usr/local/nginx/logs/nginx.pid
-</code></pre></li>
-<li><p>listen</p>
-<pre><code>监听端口：80
-监听进程用户：在`/usr/local/nginx/conf`文件中`user www;`配置
-</code></pre></li>
-</ul>
-<h3 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h3><ul>
-<li><p>安装目录</p>
-<pre><code>Mysql：/usr/local/mysql
-MariaDB：/usr/local/mariadb/
-</code></pre></li>
-<li><p>配置文件</p>
-<pre><code>/etc/my.cnf
-</code></pre></li>
-<li><p>日志文件</p>
-<pre><code>/usr/local/mysql/var/目录下
-通过下面查询语句查看日志设置及路径 
-show global variables like &apos;%LOG%&apos;;
-</code></pre></li>
-<li><p>listen</p>
-<pre><code>监听端口：3306
-监听socket：/tmp/mysql.sock
-</code></pre><h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3></li>
-<li><p>安装目录</p>
-<pre><code>/usr/local/php
-</code></pre></li>
-<li><p>配置文件</p>
-<pre><code>/usr/local/php/etc/php-fpm.conf
-/usr/local/php/etc/php.ini
-</code></pre></li>
-<li><p>日志文件</p>
-<pre><code>/usr/local/php/var/log/php-fpm.log
-/usr/local/php/var/log/slow.log
-</code></pre></li>
-<li><p>PID</p>
-<pre><code>/usr/local/php/var/run/php-fpm.pid
-</code></pre></li>
-<li><p>Listen</p>
-<pre><code>监听socket：/tmp/php-cgi.sock
-监听进程用户：在`/usr/local/php/etc/php-fpm.conf`文件中`listen.owner = www`配置
-</code></pre></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/10/29/pyenv-virtualenv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1198,6 +962,247 @@ firewall-cmd  --zone=public --add-port=8080-8081/tcp
 firewall-cmd --permanent --zone=public --list-services
 firewall-cmd --permanent --zone=public --list-ports
 </code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/09/20/submit-package-recommend/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/20/submit-package-recommend/" itemprop="url">Sublime Text插件推荐</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-20T11:43:50+08:00">
+                2018-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/清单/" itemprop="url" rel="index">
+                    <span itemprop="name">清单</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ul>
+<li><p>Package Control</p>
+<p>  功能：安装插件<br>  快捷键：Ctrl + Shift + P，输入 Install 选择 Install Package</p>
+</li>
+</ul>
+<h2 id="中文支持"><a href="#中文支持" class="headerlink" title="中文支持"></a>中文支持</h2><ul>
+<li><p>ChineseLocalizations    </p>
+<p>  功能：汉化<br>  菜单：Help -&gt; Language</p>
+</li>
+<li><p>ConvertToUTF8           </p>
+<p>  功能：将文件编码从GBK转换成UTF8<br>  菜单：File -&gt; Set File Encoding to / Reload with Encoding</p>
+</li>
+<li><p>codecs33                </p>
+<p>  功能：ConvertToUTF8在sublime3中无法使用时安装</p>
+</li>
+</ul>
+<h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><ul>
+<li><p>Material Theme  </p>
+<p>  功能：Material主题   </p>
+</li>
+<li><p>A File Icon     </p>
+<p>  功能：显示文件图标，Material主题需要安装  </p>
+</li>
+<li><p>ColorSublime    </p>
+<p>  功能：主题预览安装  </p>
+</li>
+<li><p>MarkdownExtended    </p>
+<p>  功能：markdown显示主题    </p>
+</li>
+</ul>
+<h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><ul>
+<li><p>Side​Bar​Enhancement      </p>
+<p>  功能：侧边栏增强工具，文件定义引用跳转</p>
+</li>
+<li><p>BracketHighlighter</p>
+<p>  功能：括号、引号匹配高亮显示</p>
+</li>
+</ul>
+<h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ul>
+<li><p>Alignment       </p>
+<p>  功能：进行智能对齐，选中代码<br>  快捷键：ctrl+alt+a</p>
+</li>
+<li><p>AutoPep8        </p>
+<p>  功能：格式化Python代码<br>  快捷键：ctrl+8（预览），ctrl+shift+8（格式化）</p>
+</li>
+<li><p>CodeFormatter   </p>
+<p>  功能：自动格式化代码，支持多种编程语言，需要指定编程语言路径（html格式化不好用，内联的script标签会一直缩进）<br>  快捷键：ctrl+alt+f</p>
+</li>
+<li><p>HTML-CSS-JS Prettify    </p>
+<p>  功能：格式化html，css，js代码（好用）<br>  快捷键：command+shift+h</p>
+</li>
+</ul>
+<h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><ul>
+<li><p>Emmet                   </p>
+<p>  功能：前端开发神器，缩写组合快速编写html</p>
+</li>
+<li><p>Jedi                    </p>
+<p>  功能：Python智能代码补全</p>
+</li>
+<li><p>DocBlockr               </p>
+<p>  功能：自动补全注释插件</p>
+</li>
+<li><p>SublimeLinter           </p>
+<p>  功能：语法检查工具，针对不同编程语言还需要单独安装插件，如linter-php</p>
+</li>
+<li><p>SublimeCodeIntel        </p>
+<p>  功能：代码智能提示</p>
+</li>
+<li><p>HTML5                   </p>
+<p>  功能：HTML snippets(可选)</p>
+</li>
+<li><p>JQuery                  </p>
+<p>  功能：JQuery snippets</p>
+</li>
+</ul>
+<h1 id="Markdown"><a href="#Markdown" class="headerlink" title="Markdown"></a>Markdown</h1><ul>
+<li><p>Markdown Editing    </p>
+<p>  功能：高亮显示Markdown语法</p>
+</li>
+<li><p>OmniMarkupPreviewer </p>
+<p>  功能：预览markdown 编辑的效果，同样支持渲染代码高亮的样式<br>  快捷键：super+alt+o（网页预览），super+alt+x（导出）</p>
+</li>
+</ul>
+<h2 id="辅助"><a href="#辅助" class="headerlink" title="辅助"></a>辅助</h2><ul>
+<li><p>FileDiffs       </p>
+<p>  功能：对比文件区别</p>
+</li>
+<li><p>SublimeTmpl     </p>
+<p>  功能：提供常用文件的模板</p>
+</li>
+<li><p>SublimeREPL     </p>
+<p>  功能：多种脚本语言的执行环境，可以方便的进入代码所在目录的shell或python环境</p>
+</li>
+<li><p>SFTP            </p>
+<p>  功能：FTP工具</p>
+</li>
+<li><p>GIT             </p>
+<p>  功能：GIT工具</p>
+</li>
+</ul>
+
           
         
       
