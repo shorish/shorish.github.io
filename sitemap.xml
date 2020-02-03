@@ -2,37 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2020/02/03/free-read/</loc>
+    
+    <lastmod>2020-02-03T13:49:19.095Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
     
-    <lastmod>2019-10-24T01:16:16.342Z</lastmod>
+    <lastmod>2019-10-24T01:16:16.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/</loc>
     
-    <lastmod>2019-07-31T07:17:36.352Z</lastmod>
+    <lastmod>2019-07-31T07:17:36.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.wangyuehan.net/2019/07/30/console-log-to-file/</loc>
     
-    <lastmod>2019-07-30T06:08:03.933Z</lastmod>
+    <lastmod>2019-07-30T06:08:03.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.wangyuehan.net/2018/07/20/ttfb/</loc>
     
-    <lastmod>2019-07-30T05:51:19.033Z</lastmod>
+    <lastmod>2019-07-30T05:51:19.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.wangyuehan.net/2019/07/25/odoo-shell/</loc>
     
-    <lastmod>2019-07-26T05:07:39.023Z</lastmod>
+    <lastmod>2019-07-26T05:07:39.000Z</lastmod>
     
   </url>
   
@@ -46,7 +53,7 @@
   <url>
     <loc>https://blog.wangyuehan.net/2019/05/15/odoo-new-module/</loc>
     
-    <lastmod>2019-07-24T06:09:16.377Z</lastmod>
+    <lastmod>2019-07-24T06:09:16.000Z</lastmod>
     
   </url>
   
@@ -163,7 +170,7 @@
   </url>
   
   <url>
-    <loc>https://blog.wangyuehan.net/2019/04/09/hello-world/</loc>
+    <loc>https://blog.wangyuehan.net/2018/04/10/hello-world/</loc>
     
     <lastmod>2019-02-14T05:41:34.000Z</lastmod>
     
