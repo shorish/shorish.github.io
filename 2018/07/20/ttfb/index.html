@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="chrome,problem,php," />
+  <meta name="keywords" content="chrome,php,problem," />
 
 
 
@@ -82,7 +82,7 @@
 
 
 <meta name="description" content="问题分析今天突然发现服务器网页访问很慢，使用chrome开发者工具，发现TTFB时间很长 解决尝试 首先到服务器上使用命令top查看资源消耗情况，发现开着一个KVM，将其关闭，问题未解决 考虑是否是数据库访问过慢，网站目录下新建不访问数据库的文件，添加内容 &amp;lt;?php&amp;gt;     phpinfo(); &amp;lt;?&amp;gt;  访问还是很慢  发现nginx访问日志文件/app/nginx/">
-<meta name="keywords" content="chrome,problem,php">
+<meta name="keywords" content="chrome,php,problem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务器网页访问很慢，TTFB时间过长">
 <meta property="og:url" content="https://blog.wangyuehan.net/2018/07/20/ttfb/index.html">
@@ -402,9 +402,9 @@ $ vim /usr/local/php/etc/php.ini
           
             <a href="/tags/chrome/" rel="tag"><i class="fa fa-tag"></i> chrome</a>
           
-            <a href="/tags/problem/" rel="tag"><i class="fa fa-tag"></i> problem</a>
-          
             <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+          
+            <a href="/tags/problem/" rel="tag"><i class="fa fa-tag"></i> problem</a>
           
         </div>
       
@@ -784,8 +784,12 @@ $ vim /usr/local/php/etc/php.ini
 <!-- LOCAL: You can save these files to your site and update links -->
     
         
+        <link rel="stylesheet" href="css/gitment.css">
+        <script src="js/src/gitment.js"></script>
+<!--
         <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
         <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+-->
     
 <!-- END LOCAL -->
 
