@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.wangyuehan.net/"/>
-  <updated>2020-02-03T14:16:23.000Z</updated>
+  <updated>2020-03-13T09:34:53.216Z</updated>
   <id>https://blog.wangyuehan.net/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>信息更新</title>
+    <link href="https://blog.wangyuehan.net/2020/03/13/information-update/"/>
+    <id>https://blog.wangyuehan.net/2020/03/13/information-update/</id>
+    <published>2020-03-13T09:32:42.000Z</published>
+    <updated>2020-03-13T09:34:53.216Z</updated>
+    
+    <content type="html"><![CDATA[<p>地址：<br>104.156.224.48:62331</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;地址：&lt;br&gt;104.156.224.48:62331&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="清单" scheme="https://blog.wangyuehan.net/categories/%E6%B8%85%E5%8D%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>非常时期，在家充电的免费资源</title>
@@ -496,32 +520,6 @@
     
       <category term="Hexo" scheme="https://blog.wangyuehan.net/categories/Hexo/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Centos7 firewall配置</title>
-    <link href="https://blog.wangyuehan.net/2018/10/21/centos-firewall/"/>
-    <id>https://blog.wangyuehan.net/2018/10/21/centos-firewall/</id>
-    <published>2018-10-21T05:52:00.000Z</published>
-    <updated>2019-02-14T05:53:59.240Z</updated>
-    
-    <content type="html"><![CDATA[<p>Centos7中默认使用的防火墙是firewall，下面是一些常用的命令</p><h3 id="firewall服务管理"><a href="#firewall服务管理" class="headerlink" title="firewall服务管理"></a>firewall服务管理</h3><pre><code>#开启服务 systemctl start firewalld.service#关闭防火墙systemctl stop firewalld.service#开机自动启动systemctl enable firewalld.service#关闭开机制动启动systemctl disable firewalld.service#查看状态systemctl status firewalld</code></pre><h3 id="firewall-cmd配置命令"><a href="#firewall-cmd配置命令" class="headerlink" title="firewall-cmd配置命令"></a>firewall-cmd配置命令</h3><pre><code>#查看状态firewall-cmd --state    //running 表示运行#获取活动的区域firewall-cmd --get-active-zones#修改配置文件后 使用命令重新加载firewall-cmd --reload#启用某个服务firewall-cmd --zone=public --add-service=httpsfirewall-cmd --permanent --zone=public --add-service=https#开启某个端口firewall-cmd --permanent --zone=public --add-port=8080-8081/tcpfirewall-cmd  --zone=public --add-port=8080-8081/tcp#查看开启的端口和服务firewall-cmd --permanent --zone=public --list-servicesfirewall-cmd --permanent --zone=public --list-ports</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Centos7中默认使用的防火墙是firewall，下面是一些常用的命令&lt;/p&gt;
-&lt;h3 id=&quot;firewall服务管理&quot;&gt;&lt;a href=&quot;#firewall服务管理&quot; class=&quot;headerlink&quot; title=&quot;firewall服务管理&quot;&gt;&lt;/a&gt;firewa
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://blog.wangyuehan.net/categories/Linux/"/>
-    
-    
-      <category term="command" scheme="https://blog.wangyuehan.net/tags/command/"/>
     
   </entry>
   
