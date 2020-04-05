@@ -241,6 +241,199 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/30/git-deploy-local-to-remote/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/30/git-deploy-local-to-remote/" itemprop="url">Git-部署本地代码到远程仓库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-30T14:08:35+08:00">
+                2019-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>这样部署的前提是已经配置好远程服务器 <a href="http://www.xxxx.net" target="_blank" rel="noopener">www.xxxx.net</a> 中用户www的免密登录</p>
+</blockquote>
+<ol>
+<li>本地项目代码准备完毕，代码中无.gitignore文件</li>
+<li><p>初始化本地仓库，在本地执行</p>
+<pre><code>#初始化仓库
+git init    
+#windows中禁用自动转换
+git config --global core.autocrlf false
+#缓存文件
+git add .
+#提交本地仓库
+git commit -m &quot;init&quot;
+#创建远程连接
+git remote add origin www@www.xxxx.net:/home/www/heal     
+</code></pre></li>
+<li><p>初始化远程仓库，在远程执行</p>
+<pre><code>#创建远程仓库目录
+cd /home/www
+mkdir heal
+#进入目录
+cd heal
+#初始化仓库
+git init
+#设置允许修改当前分支
+git config receive.denyCurrentBranch ignore
+#添加钩子自动checkout
+vim .git/hooks/post-receive
+#添加以下代码
+    echo &quot;checkout to HEAD&quot;
+    git --work-tree=.. checkout -f
+#赋予权限
+chown www:www -R ../heal
+#设置用户www的bash
+usermod -s /bin/bash www
+</code></pre></li>
+<li><p>将本地仓库推送到远程，在本地执行</p>
+<pre><code>git push -u origin master
+#此时本地代码与远程仓库代码一致
+</code></pre></li>
+<li><p>添加或更新例外文件.gitignore，在远程执行</p>
+<pre><code>vim .gitignore
+git rm -r --cached .
+git add .
+git commit -m &apos;gitignore update&apos;
+</code></pre></li>
+<li><p>本地更新</p>
+<pre><code>#下载更新（在.gitignore中的内容不会下载到本地）
+git pull
+</code></pre></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/07/python-setuptools-pip-install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -913,153 +1106,6 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/16/problem-ubuntu-sudo/" itemprop="url">sudo执行管道命令报错</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-16T00:23:54+08:00">
-                2018-11-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>问题描述：Ubuntu中执行<code>sudo iptables-save &gt; /etc/iptables.rules</code>报错Permission denied</p>
-<p>问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的第二个命令没有sudo，所以报错</p>
-<p>问题解决：</p>
-<pre><code>sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;
-或
-echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1110,7 +1156,7 @@ echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

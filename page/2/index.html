@@ -241,6 +241,186 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/25/odoo-shell/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/25/odoo-shell/" itemprop="url">Odoo交互式命令行shell</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-25T23:54:38+08:00">
+                2019-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Odoo/" itemprop="url" rel="index">
+                    <span itemprop="name">Odoo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期</p>
+<p>在命令行输入下面指令即可启动Odoo shell：</p>
+<pre><code>python3 odoo-bin shell -c odoofile/odoo.conf -d test
+</code></pre><h3 id="shell类型"><a href="#shell类型" class="headerlink" title="shell类型"></a>shell类型</h3><p>Odoo shell有下面几种类型</p>
+<ul>
+<li>ipython（需安装ipython）</li>
+<li>ptpython</li>
+<li>bpython</li>
+<li>python，默认使用python（无法按上输入历史命令，推荐使用ipython）</li>
+</ul>
+<p>通过参数shell-interface可以指定shell类型，如下所示使用ipython启动shell</p>
+<pre><code>python3 odoo-bin shell -c odoofile/odoo.conf --shell-interface ipython -d test
+</code></pre><p><img src="http://image.wangyuehan.net//note/20190530150317.png" alt=""></p>
+<h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><p>shell启动后提供以下几个变量</p>
+<ul>
+<li>env: odoo.api.Environment对象</li>
+<li>odoo: odoo模块</li>
+<li>openerp: odoo模块</li>
+<li>self: res.user(1,)记录</li>
+</ul>
+<p><img src="http://image.wangyuehan.net//note/20190530150528.png" alt=""></p>
+<h3 id="shell操作"><a href="#shell操作" class="headerlink" title="shell操作"></a>shell操作</h3><p><strong>1、获取模型列表</strong></p>
+<p>registry是Odoo实例维护的信息中心，通过env.registry获取</p>
+<p><code>env.registry.models</code>可以获取当前Odoo实例的模型列表，返回ModelClass和Model字典键值对</p>
+<p><img src="http://image.wangyuehan.net//note/20190530150658.png" alt=""></p>
+<p><strong>2、查看常用模型</strong></p>
+<p>示例：product.product是ModelClass，odoo.api.product.product是Model<br><img src="http://image.wangyuehan.net//note/20190530150923.png" alt=""><br>1) 获取model的两种方式</p>
+<ul>
+<li>env.registry.models.get(‘product.product’)</li>
+<li>env[‘product.product’]</li>
+</ul>
+<p>2) 访问基类</p>
+<p>odoo.api.product.product 的基类可以通过<code>env.registry.get(&#39;product.product&#39;).__bases__</code>访问</p>
+<p><strong>3、操作记录集</strong></p>
+<ul>
+<li>查询产品<code>env[&#39;product.product&#39;].search([])</code><br><img src="http://image.wangyuehan.net//note/20190530151223.png" alt=""></li>
+<li>遍历产品名称<code>rec.name</code><br><img src="http://image.wangyuehan.net//note/20190530151338.png" alt=""></li>
+<li>修改产品属性<code>rec.write()</code><br><img src="http://image.wangyuehan.net//note/20190530151656.png" alt=""></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/24/odoo-sequence-range/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -929,199 +1109,6 @@ git commit -m &quot;add all file&quot;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/30/git-deploy-local-to-remote/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/30/git-deploy-local-to-remote/" itemprop="url">Git-部署本地代码到远程仓库</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-30T14:08:35+08:00">
-                2019-01-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>这样部署的前提是已经配置好远程服务器 <a href="http://www.xxxx.net" target="_blank" rel="noopener">www.xxxx.net</a> 中用户www的免密登录</p>
-</blockquote>
-<ol>
-<li>本地项目代码准备完毕，代码中无.gitignore文件</li>
-<li><p>初始化本地仓库，在本地执行</p>
-<pre><code>#初始化仓库
-git init    
-#windows中禁用自动转换
-git config --global core.autocrlf false
-#缓存文件
-git add .
-#提交本地仓库
-git commit -m &quot;init&quot;
-#创建远程连接
-git remote add origin www@www.xxxx.net:/home/www/heal     
-</code></pre></li>
-<li><p>初始化远程仓库，在远程执行</p>
-<pre><code>#创建远程仓库目录
-cd /home/www
-mkdir heal
-#进入目录
-cd heal
-#初始化仓库
-git init
-#设置允许修改当前分支
-git config receive.denyCurrentBranch ignore
-#添加钩子自动checkout
-vim .git/hooks/post-receive
-#添加以下代码
-    echo &quot;checkout to HEAD&quot;
-    git --work-tree=.. checkout -f
-#赋予权限
-chown www:www -R ../heal
-#设置用户www的bash
-usermod -s /bin/bash www
-</code></pre></li>
-<li><p>将本地仓库推送到远程，在本地执行</p>
-<pre><code>git push -u origin master
-#此时本地代码与远程仓库代码一致
-</code></pre></li>
-<li><p>添加或更新例外文件.gitignore，在远程执行</p>
-<pre><code>vim .gitignore
-git rm -r --cached .
-git add .
-git commit -m &apos;gitignore update&apos;
-</code></pre></li>
-<li><p>本地更新</p>
-<pre><code>#下载更新（在.gitignore中的内容不会下载到本地）
-git pull
-</code></pre></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1172,7 +1159,7 @@ git pull
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
