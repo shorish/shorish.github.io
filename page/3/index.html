@@ -241,6 +241,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/12/git-get-file-of-gitignore/" itemprop="url">Git-如何将未跟踪的例外文件拉到本地</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T11:54:18+08:00">
+                2019-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境</p>
+</blockquote>
+<p>1、远程仓库：新建并切换到分支allfile</p>
+<pre><code>git checkout -b allfile
+</code></pre><p>2、远程仓库：修改.gitignore文件，移除例外文件</p>
+<pre><code>vim .gitignore
+去除内容public/uploads
+</code></pre><p>3、远程仓库：添加所有文件并提交</p>
+<pre><code>git add .
+git commit -m &quot;add all file&quot;
+</code></pre><p>4、本地仓库：拉取远程分支</p>
+<pre><code>git pull 
+</code></pre><p>6、本地仓库：迁出allfile分支中的例外文件</p>
+<pre><code>git checkout allfile public/uploads
+</code></pre><p>7、本地仓库：去除例外文件的跟踪</p>
+<pre><code>git rm -r --cached public/uploads
+</code></pre><p>此时例外文件<code>public/uploads</code>将保留在本地仓库并不被跟踪</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/01/30/git-deploy-local-to-remote/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -948,164 +1107,6 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2018/11/22/git-difftool/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/22/git-difftool/" itemprop="url">Git-配置difftools和mergetool使用kaleidoscope</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-22T23:34:30+08:00">
-                2018-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Git/" itemprop="url" rel="index">
-                    <span itemprop="name">Git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行<code>ksdiff</code>命令</p>
-<p>2、修改GIT配置文件<code>~/.gitconfig</code>，加入下面内容</p>
-<pre><code>[diff]
-    tool = Kaleidoscope
-[difftool &quot;Kaleidoscope&quot;]
-    cmd = ksdiff --partial-changeset --relative-path \&quot;$MERGED\&quot; -- \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;
-[difftool]
-    prompt = false
-
-[merge]
-    tool = Kaleidoscope
-[mergetool &quot;Kaleidoscope&quot;]
-    cmd = ksdiff --merge --output &quot;$MERGED&quot; --base &quot;$BASE&quot; -- &quot;$LOCAL&quot; --snapshot &quot;$REMOTE&quot; --snapshot
-    trustExitCode = true
-[mergetool]
-    prompt = false
-</code></pre><p>3、命令行中运行<code>git difftool</code>或<code>git mergetool</code>（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件<br><img src="http://image.wangyuehan.net//note/20181122234201git-difftool.png" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1156,7 +1157,7 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1167,7 +1168,7 @@ T（优质系数，提高软件质量，必然有所开支，即质量成本）�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

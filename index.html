@@ -241,6 +241,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2021/04/22/oa-problem-solving/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shorish's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/22/oa-problem-solving/" itemprop="url">泛微OA7.0常见问题解决</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-22T15:45:02+08:00">
+                2021-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Work/" itemprop="url" rel="index">
+                    <span itemprop="name">Work</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><ul>
+<li><a href="http://emobile.weaver.com.cn/customerproduce.do" target="_blank" rel="noopener">OA手机端下载</a>（泛微OA7.0版本对应移动客户端版本为4.8）</li>
+</ul>
+<h2 id="OA插件下载与安装"><a href="#OA插件下载与安装" class="headerlink" title="OA插件下载与安装"></a>OA插件下载与安装</h2><ol>
+<li>下载<a href="https://file.wangyuehan.net/f/c9b3aca4e58b40608203/?dl=1" target="_blank" rel="noopener">OA插件</a></li>
+<li>解压并进入EcologyPlugin目录</li>
+</ol>
+<p><img src="http://image.wangyuehan.net/note/20210422182059.png?imageslim" alt=""></p>
+<ol start="3">
+<li>鼠标双击执行目录中的【受信站点设置.reg】，设置IE配置</li>
+<li>选择目录中的【setup.bat】，点击鼠标右键选择【以管理员身份运行】，根据提示执行安装操作</li>
+<li>拷贝目录中的【OA系统入口】到桌面，鼠标双击即可打开IE浏览器进入OA系统</li>
+<li>登录OA系统后，按下图提示进入控件检测界面，逐一完成三项检测，出现的IE浏览器弹窗都选择【是】</li>
+</ol>
+<p><img src="http://image.wangyuehan.net/note/20210422182604.png?imageslim" alt=""></p>
+<p><img src="C:\Users\13577\AppData\Roaming\Typora\typora-user-images\image-20210422182701119.png" alt="image-20210422182701119"></p>
+<h2 id="问题一：使用360浏览器无法OA"><a href="#问题一：使用360浏览器无法OA" class="headerlink" title="问题一：使用360浏览器无法OA"></a>问题一：使用360浏览器无法OA</h2><p>原因：近期360浏览器升级后，默认没有使用IE内核，就不能打开OA表单</p>
+<p>解决：下载<a href="https://file.wangyuehan.net/f/29ba22e32878457daf39/?dl=1" target="_blank" rel="noopener">OA系统入口快捷方式</a>，解压后放到桌面，使用时直接双击该快捷方式打开</p>
+<h2 id="问题二：附件无法上传"><a href="#问题二：附件无法上传" class="headerlink" title="问题二：附件无法上传"></a>问题二：附件无法上传</h2><h3 id="情况一：看不到上传按钮"><a href="#情况一：看不到上传按钮" class="headerlink" title="情况一：看不到上传按钮"></a>情况一：看不到上传按钮</h3><p>原因：OA中上传使用了flash插件，flash发布新版本后可能导致原有控件失效</p>
+<p>解决：下载<a href="https://file.wangyuehan.net/f/c020b534d23d4c809db2/?dl=1" target="_blank" rel="noopener">Flash大厅</a>，安装后，点击【一键检测】，发现问题点击【一键修复】，之后重启IE浏览器再次尝试</p>
+<p><img src="http://image.wangyuehan.net/note/20210422171744.png?imageslim" alt=""></p>
+<h3 id="情况二：无法弹窗选择选择上传文件"><a href="#情况二：无法弹窗选择选择上传文件" class="headerlink" title="情况二：无法弹窗选择选择上传文件"></a>情况二：无法弹窗选择选择上传文件</h3><p>原因：弹窗被浏览器阻止</p>
+<p>解决：在IE浏览器中，点击右上角齿轮，进入【Internet选项】，进入【隐私】选项页，取消【启用弹出窗口阻止程序】，重启IE浏览器再次尝试</p>
+<p><img src="http://image.wangyuehan.net/note/20210422172733.png?imageView2/2/h/300" alt=""><img src="http://image.wangyuehan.net/note/20210422173149.png?imageView2/2/h/300" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2020/04/05/pip-slow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -842,174 +1007,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/30/console-log-to-file/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/30/console-log-to-file/" itemprop="url">如何将console.log的内容导出到文件中</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T13:48:08+08:00">
-                2019-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Web/" itemprop="url" rel="index">
-                    <span itemprop="name">Web</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>在Chrome浏览器的Console控制台中，使用<code>console.log()</code>命令可以输出js变量或字符串，但如何将这些输出保存到文件中呢</p>
-<p>使用<a href="https://github.com/wangduanduan/log4b" target="_blank" rel="noopener">log4b.js</a>可以实现输出保存到文件，这个功能可用于在console中使用xpath获取页面内容并保存到文件</p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、载入log4b</p>
-<p>js原生的<code>console.log()</code>无法输出到文件，下载<a href="https://github.com/wangduanduan/log4b" target="_blank" rel="noopener">log4b.js</a>文件，复制<code>log4b.js</code>的内容到console中执行</p>
-<p>2、创建log4b对象</p>
-<p>在console中执行</p>
-<pre><code>var Log4b = new log4b();
-</code></pre><p>3、输出内容</p>
-<p>使用<code>Log4b.log()</code>替代<code>console.log()</code>来输出内容</p>
-<p>4、导出到文件</p>
-<p>使用<code>Log4b.downloadLog()</code>可以下载由<code>Log4b.log()</code>输出的内容</p>
-<h3 id="log4b使用"><a href="#log4b使用" class="headerlink" title="log4b使用"></a>log4b使用</h3><h4 id="log4b方法"><a href="#log4b方法" class="headerlink" title="log4b方法"></a>log4b方法</h4><pre><code>getLog: get log show on the console tab
-downloadLog: download the log
-clear: clear all saved log
-log:    write log
-lines: get how many lines of log
-search: search a string
-</code></pre><h4 id="log4b配置"><a href="#log4b配置" class="headerlink" title="log4b配置"></a>log4b配置</h4><pre><code>self.realTimeLoggingOn = true; // log in real time (forwards to console.log)
-self.useTimestamps = false; // insert a timestamp in front of each log
-self.recordLogs = true; // set to false after you&apos;re done debugging to avoid the log eating up memory
-self.maxLines = 2500; // if autoTrim is true, this many most recent lines are saved
-self.lineMaxChars = 1500; // if one log is max than lineMaxChars, it will be cut
-self.logFilename = &apos;log4b.txt&apos;; // filename of log downloaded with downloadLog()
-self.lineBreak = &apos;\n\n&apos;;
-</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
-<p><a href="https://segmentfault.com/a/1190000009426931" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009426931</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1060,7 +1057,7 @@ self.lineBreak = &apos;\n\n&apos;;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1071,7 +1068,7 @@ self.lineBreak = &apos;\n\n&apos;;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
