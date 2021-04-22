@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.wangyuehan.net/2020/02/03/free-read/</loc>
+    
+    <lastmod>2021-04-22T07:15:12.706Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.wangyuehan.net/2018/09/09/bookmark/</loc>
     
-    <lastmod>2021-03-22T01:52:28.000Z</lastmod>
+    <lastmod>2021-03-30T06:44:07.000Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://blog.wangyuehan.net/2020/04/05/pip-slow/</loc>
     
     <lastmod>2020-04-05T11:08:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.wangyuehan.net/2020/02/03/free-read/</loc>
-    
-    <lastmod>2020-02-03T14:16:24.000Z</lastmod>
     
   </url>
   
