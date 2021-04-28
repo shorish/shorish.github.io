@@ -74,7 +74,7 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="shorish's Blog" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="wiggin's Blog" type="application/atom+xml" />
 
 
 
@@ -82,12 +82,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="shorish&#39;s Blog">
+<meta property="og:title" content="wiggin&#39;s Blog">
 <meta property="og:url" content="https://blog.wangyuehan.net/index.html">
-<meta property="og:site_name" content="shorish&#39;s Blog">
+<meta property="og:site_name" content="wiggin&#39;s Blog">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shorish&#39;s Blog">
+<meta name="twitter:title" content="wiggin&#39;s Blog">
 
 
 
@@ -123,7 +123,7 @@
 
 
 
-  <title>shorish's Blog</title>
+  <title>wiggin's Blog</title>
   
 
 
@@ -154,7 +154,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">shorish's Blog</span>
+        <span class="site-title">wiggin's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -241,16 +241,185 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2021/04/22/oa-problem-solving/">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2021/04/28/file-dir-operation-with-python/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="name" content="wiggin">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
+      <meta itemprop="name" content="wiggin's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/04/28/file-dir-operation-with-python/" itemprop="url">Python中文件和目录操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-04-28T15:17:48+08:00">
+                2021-04-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import shutil</span><br><span class="line">os.getcwd()  # 获取当前工作目录，非脚本目录</span><br><span class="line">os.listdir()  # 返回指定目录下的所有文件和目录，非递归</span><br><span class="line">os.remove()  # 删除文件</span><br><span class="line">os.removedirs()  #删除目录</span><br><span class="line">os.path.isfile()  # 检验给出的路径是否是一个文件</span><br><span class="line">os.path.isdir()  # 检验给出的路径是否是一个目录</span><br><span class="line">os.path.isabs()  # 判断是否是绝对路径</span><br><span class="line">os.path.exists()  # 检验给出的路径是否真实存在</span><br><span class="line">os.path.split()  # 返回一个路径的目录名和文件名</span><br><span class="line">os.path.splitext()  # 分离文件扩展名</span><br><span class="line">os.path.dirname()  # 获取文件路径名</span><br><span class="line">os.path.basename() # 获取一个绝对路径下的文件名</span><br><span class="line">os.system()  # 运行shell命令</span><br><span class="line">os.rename(old,new) # 重命名文件或目录</span><br><span class="line">os.makedirs(r&quot;c:\python\test&quot;)  # 创建多级目录</span><br><span class="line">os.mkdir(&quot;test&quot;)  # 创建单个目录</span><br><span class="line">os.exit()  # 终止当前进程</span><br><span class="line">os.path.getsize(filename)  # 获取文件大小</span><br><span class="line">os.mknod(&quot;test.txt&quot;)  # 创建空文件</span><br><span class="line">shutil.copyfile(&quot;oldfile&quot;,&quot;newfile&quot;)  # oldfile和newfile都只能是文件</span><br><span class="line">shutil.copytree(&quot;olddir&quot;,&quot;newdir&quot;)  # olddir和newdir都只能是目录，且newdir必须不存在</span><br><span class="line">shutil.move(&quot;oldpos&quot;,&quot;newpos&quot;)  # 移动文件或目录</span><br><span class="line">shutil.rmtree(&quot;dir&quot;)  # 删除目录，与os.removedirs()相同</span><br><span class="line">os.path.join(“home”, &quot;me&quot;, &quot;mywork&quot;)  # 路径连接</span><br></pre></td></tr></table></figure>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="1-获取目录中的文件名os-listdir-dir-name"><a href="#1-获取目录中的文件名os-listdir-dir-name" class="headerlink" title="1. 获取目录中的文件名os.listdir(dir_name)"></a>1. 获取目录中的文件名os.listdir(dir_name)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">#获取当前目录中的文件名</span><br><span class="line">os.listdir(&apos;.&apos;)</span><br><span class="line">#获取当前目录中的.vtt文件</span><br><span class="line">vttFileNameList = [f for f in os.listdir(&apos;.&apos;) if &apos;.vtt&apos; in f]</span><br></pre></td></tr></table></figure>
+<h4 id="2-获取当前路径os-getcwd"><a href="#2-获取当前路径os-getcwd" class="headerlink" title="2. 获取当前路径os.getcwd()"></a>2. 获取当前路径os.getcwd()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 当前路径</span><br><span class="line">sys.path[0]</span><br><span class="line">sys.argv[0]</span><br><span class="line">os.getcwd()</span><br><span class="line">os.path.abspath(__file__)</span><br><span class="line">os.path.realpath(__file__)</span><br></pre></td></tr></table></figure>
+<h4 id="3-创建目录os-mkdir-dir-name-或os-makedirs-dir-name"><a href="#3-创建目录os-mkdir-dir-name-或os-makedirs-dir-name" class="headerlink" title="3. 创建目录os.mkdir(dir_name)或os.makedirs(dir_name)"></a>3. 创建目录os.mkdir(dir_name)或os.makedirs(dir_name)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">创建单个目录</span><br><span class="line">import os</span><br><span class="line">os.mkdir(&apos;public&apos;)</span><br><span class="line"></span><br><span class="line">创建多级目录</span><br><span class="line">import os</span><br><span class="line">os.makedirs(&apos;public/attachment/201706/21/16&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="4-返回文件或目录是否存在"><a href="#4-返回文件或目录是否存在" class="headerlink" title="4. 返回文件或目录是否存在"></a>4. 返回文件或目录是否存在</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">os.path.exists(fileName)   </span><br><span class="line">import os</span><br><span class="line">if not os.path.exists(&apos;foldername&apos;):</span><br><span class="line">  os.mkdir(&apos;foldername&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="5-删除目录或文件"><a href="#5-删除目录或文件" class="headerlink" title="5. 删除目录或文件"></a>5. 删除目录或文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">os.remove(p)</span><br><span class="line">os.rmtree(p)  </span><br><span class="line">def del_dir_or_file(p):</span><br><span class="line">if os.path.isdir(p):</span><br><span class="line">    os.rmtree(p)</span><br><span class="line">    print &quot;delete dictionary %s&quot; % p</span><br><span class="line">else if os.path.isfile(p):</span><br><span class="line">    os.remove(p)</span><br><span class="line">    print &quot;delete file %s&quot; % p</span><br></pre></td></tr></table></figure>
+<h4 id="6-添加path环境变量"><a href="#6-添加path环境变量" class="headerlink" title="6. 添加path环境变量"></a>6. 添加path环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 用于加载非本目录的模块</span><br><span class="line">sys.path.append(&apos;..&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="7-目录拼接"><a href="#7-目录拼接" class="headerlink" title="7. 目录拼接"></a>7. 目录拼接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.join(dir_name, file_name)</span><br></pre></td></tr></table></figure>
+<h4 id="8-移动文件"><a href="#8-移动文件" class="headerlink" title="8. 移动文件"></a>8. 移动文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shutil.move</span><br><span class="line">shutil.copyfile(&quot;oldfile&quot;,&quot;newfile&quot;)  # oldfile和newfile都只能是文件</span><br><span class="line">shutil.copytree(&quot;olddir&quot;,&quot;newdir&quot;)  # olddir和newdir都只能是目录，且newdir必须不存在</span><br><span class="line">shutil.move(&quot;oldpos&quot;,&quot;newpos&quot;)  # 移动文件或目录</span><br><span class="line">shutil.rmtree(&quot;dir&quot;)  # 删除目录，与os.removedirs()相同</span><br><span class="line">os.path.join(&quot;home”, &quot;me&quot;, &quot;mywork&quot;)  # 路径连接</span><br></pre></td></tr></table></figure>
+<h4 id="9-判断是文件还是目录os-path-isdir-和os-path-isfile"><a href="#9-判断是文件还是目录os-path-isdir-和os-path-isfile" class="headerlink" title="9. 判断是文件还是目录os.path.isdir()和os.path.isfile()"></a>9. 判断是文件还是目录os.path.isdir()和os.path.isfile()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.path.isdir(filename)</span><br><span class="line">os.path.isfile(filename)</span><br></pre></td></tr></table></figure>
+<h4 id="10-执行shell命令"><a href="#10-执行shell命令" class="headerlink" title="10. 执行shell命令"></a>10. 执行shell命令</h4><ul>
+<li>os.system(cmd)的返回值只会有0(成功),1,2</li>
+<li>os.popen(cmd)会吧执行的cmd的输出作为值返回</li>
+<li>subprocess.call()</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 代码示例：</span><br><span class="line">比如，我想得到ntpd的进程id，就要这么做：</span><br><span class="line">os.popen(&apos;ps -C ntpd | grep -v CMD |awk &apos;&#123; print $1 &#125;&apos;).readlines()[0]</span><br><span class="line">获取执行dir命令的返回内容</span><br><span class="line">os.popen(&apos;dir&apos;).readlines()</span><br><span class="line"></span><br><span class="line">from subprocess import call</span><br><span class="line">command = &quot;youtube-dl https://www.youtube.com/watch?v=NG3WygJmiVs -c&quot;</span><br><span class="line">call(command.split(), shell=False)</span><br></pre></td></tr></table></figure>
+<h3 id="复杂应用"><a href="#复杂应用" class="headerlink" title="复杂应用"></a>复杂应用</h3><h4 id="1-读取目录下所有TXT文件，并写入TXT文档中"><a href="#1-读取目录下所有TXT文件，并写入TXT文档中" class="headerlink" title="1. 读取目录下所有TXT文件，并写入TXT文档中"></a>1. 读取目录下所有TXT文件，并写入TXT文档中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">def write_txt(dist, big_txt):</span><br><span class="line">    with open(&quot;&#123;&#125;&#123;&#125;&quot;.format(big_txt,&quot;.txt&quot;), &quot;a&quot;) as fw:</span><br><span class="line">        lines = []</span><br><span class="line">        for file in os.listdir(dist):</span><br><span class="line">            file_path = r&quot;&#123;&#125;\&#123;&#125;&quot;.format(dist,file)</span><br><span class="line">            if os.path.isfile(file_path) and file.endswith(&quot;.py&quot;):</span><br><span class="line">                with open(file_path, &quot;r&quot;) as fr:</span><br><span class="line">                    lines = lines + fr.readlines()</span><br><span class="line">        for line in lines:</span><br><span class="line">            fw.write(line)</span><br><span class="line">        </span><br><span class="line">write_txt(&apos;G:\Work\workspace_python\selenium&apos;,&apos;111&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="2-日志记录"><a href="#2-日志记录" class="headerlink" title="2. 日志记录"></a>2. 日志记录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import datetime, time</span><br><span class="line">def write_log(log_str):</span><br><span class="line">    curr_day = datetime.date.today().strftime(&apos;%Y-%m-%d&apos;)</span><br><span class="line">    curr_time = time.strftime(&apos;%H:%M:%S&apos;)</span><br><span class="line">    with open(&apos;log.txt&apos;, &apos;a&apos;) as f:</span><br><span class="line">        f.write(&quot;&#123;&#125;&#123;&#125;&#123;&#125; \n&quot;.format(curr_day, curr_time, log_str))</span><br><span class="line">write_log(&apos;testsetst&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="3-使用Python批量重命名文件"><a href="#3-使用Python批量重命名文件" class="headerlink" title="3. 使用Python批量重命名文件"></a>3. 使用Python批量重命名文件</h4><p>使用的函数</p>
+<ul>
+<li>os.listdir(‘.’)                    #列出目录中所有文件名</li>
+<li>os.path.join(path, file_name)    #拼接完整文件名</li>
+<li>os.path.isdir(file_name)        #判断是否是目录</li>
+<li>os.path.splittext(file_name)    #分离文件名[0]和扩展名[1]</li>
+<li>os.rename(old_name, new_name)    #重命名文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">path = r&quot;I:\desktop\Python&quot;</span><br><span class="line">for file in os.listdir(path):</span><br><span class="line">    new_name = file.replace(&apos;51CTO下载-&apos;, &apos;&apos;)</span><br><span class="line">    os.rename(os.path.join(path, file), os.path.join(path, new_name))</span><br><span class="line">    print(os.path.join(path, new_name))</span><br></pre></td></tr></table></figure>
+<h4 id="4-判断文件内容是二进制还是文本"><a href="#4-判断文件内容是二进制还是文本" class="headerlink" title="4. 判断文件内容是二进制还是文本"></a>4. 判断文件内容是二进制还是文本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def is_binary_string(bytes):</span><br><span class="line">    textchars = bytearray(&#123;7, 8, 9, 10, 12, 13, 27&#125; | set(range(0x20, 0x100)) - &#123;0x7f&#125;)</span><br><span class="line">    return bool(bytes.translate(None, textchars))</span><br><span class="line">is_binary_string(open(filename, &apos;rb&apos;).read(1024))</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2021/04/22/oa-problem-solving/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="wiggin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wiggin's Blog">
     </span>
 
     
@@ -408,13 +577,13 @@
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2020/04/05/pip-slow/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="name" content="wiggin">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
+      <meta itemprop="name" content="wiggin's Blog">
     </span>
 
     
@@ -557,13 +726,13 @@
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2020/03/13/information-update/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="name" content="wiggin">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
+      <meta itemprop="name" content="wiggin's Blog">
     </span>
 
     
@@ -699,13 +868,13 @@
     <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2020/02/03/free-read/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
+      <meta itemprop="name" content="wiggin">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
+      <meta itemprop="name" content="wiggin's Blog">
     </span>
 
     
@@ -836,176 +1005,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Wang Jing">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shorish's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/31/odoo-create-client-action/" itemprop="url">Odoo一个简单的Client Action示例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-31T14:53:24+08:00">
-                2019-07-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Odoo/" itemprop="url" rel="index">
-                    <span itemprop="name">Odoo</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板</p>
-<p>这个示例包括下面三个文件<br><img src="http://image.wangyuehan.net/note/20190731/AM6JzbCls3R9.png?imageslim" alt="mark"></p>
-<ul>
-<li>模板文件<code>static/src/xml/client_action.xml</code><ul>
-<li>定义模板<code>HelloJS</code>显示<code>&lt;div&gt;Display HelloJS&lt;/div&gt;</code></li>
-</ul>
-</li>
-<li>JS文件<code>static/src/js/client_action.js</code><ul>
-<li>定义对象<code>HomePage</code>继承于<code>web.AbstractAction</code></li>
-<li>对象中调用<code>HelloJS</code>模板</li>
-<li>对象中定义<code>init</code>方法和<code>start</code>方法</li>
-<li>将<code>HomePage</code>对象注册为动作：<code>HelloJS_tag</code></li>
-</ul>
-</li>
-<li>视图文件<code>views/client_action.xml</code><ul>
-<li>继承<code>web.assets_backend</code>加载JS文件</li>
-<li>定义客户端动作关联<code>HelloJS_tag</code></li>
-<li>定义显示的菜单关联客户端动作</li>
-</ul>
-</li>
-</ul>
-<h3 id="示例文件内容"><a href="#示例文件内容" class="headerlink" title="示例文件内容"></a>示例文件内容</h3><p><strong>1、定义模板文件<code>static/src/xml/client_action.xml</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;  encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;templates xml:space=&quot;preserve&quot;&gt;</span><br><span class="line">   &lt;t t-name=&quot;HelloJS&quot;&gt;</span><br><span class="line">      &lt;div&gt;Display HelloJS&lt;/div&gt;</span><br><span class="line">   &lt;/t&gt;</span><br><span class="line">&lt;/templates&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>2、定义JS文件<code>static/src/js/client_action.js</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;hello.js&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var Widget = require(&apos;web.Widget&apos;);</span><br><span class="line">    var core = require(&apos;web.core&apos;);</span><br><span class="line">    var utils = require(&apos;web.utils&apos;);</span><br><span class="line">    var AbstractAction = require(&apos;web.AbstractAction&apos;);</span><br><span class="line"></span><br><span class="line">    var HomePage = AbstractAction.extend(&#123;</span><br><span class="line">        template: &quot;HelloJS&quot;,</span><br><span class="line"></span><br><span class="line">        init: function (parent) &#123;</span><br><span class="line">            this._super(parent);</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of init.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        start: function () &#123;</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of start.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    core.action_registry.add(&apos;HelloJS_tag&apos;, HomePage);</span><br><span class="line"></span><br><span class="line">    return HomePage;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>3、创建视图文件<code>views/client_action.xml</code></strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">    &lt;data&gt;</span><br><span class="line"></span><br><span class="line">        &lt;template id=&quot;assets_backend&quot; name=&quot;petstore&quot;</span><br><span class="line">                  inherit_id=&quot;web.assets_backend&quot;&gt;</span><br><span class="line">            &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;</span><br><span class="line">                &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">                        src=&quot;demo_client_action/static/src/js/client_action.js&quot;&gt;</span><br><span class="line">                &lt;/script&gt;</span><br><span class="line">            &lt;/xpath&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">        &lt;record id=&quot;hellojs_id&quot; model=&quot;ir.actions.client&quot;&gt;</span><br><span class="line">            &lt;field name=&quot;name&quot;&gt;HelloJS&lt;/field&gt;</span><br><span class="line">            &lt;field name=&quot;tag&quot;&gt;HelloJS_tag&lt;/field&gt;</span><br><span class="line">        &lt;/record&gt;</span><br><span class="line"></span><br><span class="line">        &lt;menuitem id=&quot;hellojs_menu&quot;</span><br><span class="line">                  name=&quot;HelloJS&quot;</span><br><span class="line">                  action=&quot;hellojs_id&quot;/&gt;</span><br><span class="line">    &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>4、在<code>__manifest__.py</code>文件中引入XML文件</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;qweb&apos;: [</span><br><span class="line">    &apos;static/src/xml/client_action_template.xml&apos;</span><br><span class="line">],</span><br><span class="line">&apos;data&apos;: [</span><br><span class="line">    &apos;views/client_action.xml&apos;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1045,7 +1044,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Wang Jing</p>
+              <p class="site-author-name" itemprop="name">wiggin</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -1056,7 +1055,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1126,7 +1125,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Wang Jing</span>
+  <span class="author" itemprop="copyrightHolder">wiggin</span>
 
   
 </div>
