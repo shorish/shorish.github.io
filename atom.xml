@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>wiggin&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.wangyuehan.net/"/>
+  <updated>2021-04-28T07:20:59.000Z</updated>
+  <id>https://blog.wangyuehan.net/</id>
+  
+  <author>
+    <name>wiggin</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python中文件和目录操作</title>
+    <link href="https://blog.wangyuehan.net/2021/04/28/file-dir-operation-with-python/"/>
+    <id>https://blog.wangyuehan.net/2021/04/28/file-dir-operation-with-python/</id>
+    <published>2021-04-28T07:17:48.000Z</published>
+    <updated>2021-04-28T07:20:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="命令汇总"><a href="#命令汇总" class="headerlink" title="命令汇总"></a>命令汇总</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import shutil</span><br><span class="line">os.getcwd()  # 获取当前工作目录，非脚本目录</span><br><span class="line">os.listdir()  # 返回指定目录下的所有文件和目录，非递归</span><br><span class="line">os.remove()  # 删除文件</span><br><span class="line">os.removedirs()  #删除目录</span><br><span class="line">os.path.isfile()  # 检验给出的路径是否是一个文件</span><br><span class="line">os.path.isdir()  # 检验给出的路径是否是一个目录</span><br><span class="line">os.path.isabs()  # 判断是否是绝对路径</span><br><span class="line">os.path.exists()  # 检验给出的路径是否真实存在</span><br><span class="line">os.path.split()  # 返回一个路径的目录名和文件名</span><br><span class="line">os.path.splitext()  # 分离文件扩展名</span><br><span class="line">os.path.dirname()  # 获取文件路径名</span><br><span class="line">os.path.basename() # 获取一个绝对路径下的文件名</span><br><span class="line">os.system()  # 运行shell命令</span><br><span class="line">os.rename(old,new) # 重命名文件或目录</span><br><span class="line">os.makedirs(r&quot;c:\python\test&quot;)  # 创建多级目录</span><br><span class="line">os.mkdir(&quot;test&quot;)  # 创建单个目录</span><br><span class="line">os.exit()  # 终止当前进程</span><br><span class="line">os.path.getsize(filename)  # 获取文件大小</span><br><span class="line">os.mknod(&quot;test.txt&quot;)  # 创建空文件</span><br><span class="line">shutil.copyfile(&quot;oldfile&quot;,&quot;newfile&quot;)  # oldfile和newfile都只能是文件</span><br><span class="line">shutil.copytree(&quot;olddir&quot;,&quot;newdir&quot;)  # olddir和newdir都只能是目录，且newdir必须不存在</span><br><span class="line">shutil.move(&quot;oldpos&quot;,&quot;newpos&quot;)  # 移动文件或目录</span><br><span class="line">shutil.rmtree(&quot;dir&quot;)  # 删除目录，与os.removedirs()相同</span><br><span class="line">os.path.join(“home”, &quot;me&quot;, &quot;mywork&quot;)  # 路径连接</span><br></pre></td></tr></table></figure><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h4 id="1-获取目录中的文件名os-listdir-dir-name"><a href="#1-获取目录中的文件名os-listdir-dir-name" class="headerlink" title="1. 获取目录中的文件名os.listdir(dir_name)"></a>1. 获取目录中的文件名os.listdir(dir_name)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">#获取当前目录中的文件名</span><br><span class="line">os.listdir(&apos;.&apos;)</span><br><span class="line">#获取当前目录中的.vtt文件</span><br><span class="line">vttFileNameList = [f for f in os.listdir(&apos;.&apos;) if &apos;.vtt&apos; in f]</span><br></pre></td></tr></table></figure><h4 id="2-获取当前路径os-getcwd"><a href="#2-获取当前路径os-getcwd" class="headerlink" title="2. 获取当前路径os.getcwd()"></a>2. 获取当前路径os.getcwd()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 当前路径</span><br><span class="line">sys.path[0]</span><br><span class="line">sys.argv[0]</span><br><span class="line">os.getcwd()</span><br><span class="line">os.path.abspath(__file__)</span><br><span class="line">os.path.realpath(__file__)</span><br></pre></td></tr></table></figure><h4 id="3-创建目录os-mkdir-dir-name-或os-makedirs-dir-name"><a href="#3-创建目录os-mkdir-dir-name-或os-makedirs-dir-name" class="headerlink" title="3. 创建目录os.mkdir(dir_name)或os.makedirs(dir_name)"></a>3. 创建目录os.mkdir(dir_name)或os.makedirs(dir_name)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">创建单个目录</span><br><span class="line">import os</span><br><span class="line">os.mkdir(&apos;public&apos;)</span><br><span class="line"></span><br><span class="line">创建多级目录</span><br><span class="line">import os</span><br><span class="line">os.makedirs(&apos;public/attachment/201706/21/16&apos;)</span><br></pre></td></tr></table></figure><h4 id="4-返回文件或目录是否存在"><a href="#4-返回文件或目录是否存在" class="headerlink" title="4. 返回文件或目录是否存在"></a>4. 返回文件或目录是否存在</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">os.path.exists(fileName)   </span><br><span class="line">import os</span><br><span class="line">if not os.path.exists(&apos;foldername&apos;):</span><br><span class="line">  os.mkdir(&apos;foldername&apos;)</span><br></pre></td></tr></table></figure><h4 id="5-删除目录或文件"><a href="#5-删除目录或文件" class="headerlink" title="5. 删除目录或文件"></a>5. 删除目录或文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">os.remove(p)</span><br><span class="line">os.rmtree(p)  </span><br><span class="line">def del_dir_or_file(p):</span><br><span class="line">if os.path.isdir(p):</span><br><span class="line">    os.rmtree(p)</span><br><span class="line">    print &quot;delete dictionary %s&quot; % p</span><br><span class="line">else if os.path.isfile(p):</span><br><span class="line">    os.remove(p)</span><br><span class="line">    print &quot;delete file %s&quot; % p</span><br></pre></td></tr></table></figure><h4 id="6-添加path环境变量"><a href="#6-添加path环境变量" class="headerlink" title="6. 添加path环境变量"></a>6. 添加path环境变量</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 用于加载非本目录的模块</span><br><span class="line">sys.path.append(&apos;..&apos;)</span><br></pre></td></tr></table></figure><h4 id="7-目录拼接"><a href="#7-目录拼接" class="headerlink" title="7. 目录拼接"></a>7. 目录拼接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.path.join(dir_name, file_name)</span><br></pre></td></tr></table></figure><h4 id="8-移动文件"><a href="#8-移动文件" class="headerlink" title="8. 移动文件"></a>8. 移动文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">shutil.move</span><br><span class="line">shutil.copyfile(&quot;oldfile&quot;,&quot;newfile&quot;)  # oldfile和newfile都只能是文件</span><br><span class="line">shutil.copytree(&quot;olddir&quot;,&quot;newdir&quot;)  # olddir和newdir都只能是目录，且newdir必须不存在</span><br><span class="line">shutil.move(&quot;oldpos&quot;,&quot;newpos&quot;)  # 移动文件或目录</span><br><span class="line">shutil.rmtree(&quot;dir&quot;)  # 删除目录，与os.removedirs()相同</span><br><span class="line">os.path.join(&quot;home”, &quot;me&quot;, &quot;mywork&quot;)  # 路径连接</span><br></pre></td></tr></table></figure><h4 id="9-判断是文件还是目录os-path-isdir-和os-path-isfile"><a href="#9-判断是文件还是目录os-path-isdir-和os-path-isfile" class="headerlink" title="9. 判断是文件还是目录os.path.isdir()和os.path.isfile()"></a>9. 判断是文件还是目录os.path.isdir()和os.path.isfile()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.path.isdir(filename)</span><br><span class="line">os.path.isfile(filename)</span><br></pre></td></tr></table></figure><h4 id="10-执行shell命令"><a href="#10-执行shell命令" class="headerlink" title="10. 执行shell命令"></a>10. 执行shell命令</h4><ul><li>os.system(cmd)的返回值只会有0(成功),1,2</li><li>os.popen(cmd)会吧执行的cmd的输出作为值返回</li><li>subprocess.call()</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 代码示例：</span><br><span class="line">比如，我想得到ntpd的进程id，就要这么做：</span><br><span class="line">os.popen(&apos;ps -C ntpd | grep -v CMD |awk &apos;&#123; print $1 &#125;&apos;).readlines()[0]</span><br><span class="line">获取执行dir命令的返回内容</span><br><span class="line">os.popen(&apos;dir&apos;).readlines()</span><br><span class="line"></span><br><span class="line">from subprocess import call</span><br><span class="line">command = &quot;youtube-dl https://www.youtube.com/watch?v=NG3WygJmiVs -c&quot;</span><br><span class="line">call(command.split(), shell=False)</span><br></pre></td></tr></table></figure><h3 id="复杂应用"><a href="#复杂应用" class="headerlink" title="复杂应用"></a>复杂应用</h3><h4 id="1-读取目录下所有TXT文件，并写入TXT文档中"><a href="#1-读取目录下所有TXT文件，并写入TXT文档中" class="headerlink" title="1. 读取目录下所有TXT文件，并写入TXT文档中"></a>1. 读取目录下所有TXT文件，并写入TXT文档中</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">def write_txt(dist, big_txt):</span><br><span class="line">    with open(&quot;&#123;&#125;&#123;&#125;&quot;.format(big_txt,&quot;.txt&quot;), &quot;a&quot;) as fw:</span><br><span class="line">        lines = []</span><br><span class="line">        for file in os.listdir(dist):</span><br><span class="line">            file_path = r&quot;&#123;&#125;\&#123;&#125;&quot;.format(dist,file)</span><br><span class="line">            if os.path.isfile(file_path) and file.endswith(&quot;.py&quot;):</span><br><span class="line">                with open(file_path, &quot;r&quot;) as fr:</span><br><span class="line">                    lines = lines + fr.readlines()</span><br><span class="line">        for line in lines:</span><br><span class="line">            fw.write(line)</span><br><span class="line">        </span><br><span class="line">write_txt(&apos;G:\Work\workspace_python\selenium&apos;,&apos;111&apos;)</span><br></pre></td></tr></table></figure><h4 id="2-日志记录"><a href="#2-日志记录" class="headerlink" title="2. 日志记录"></a>2. 日志记录</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import datetime, time</span><br><span class="line">def write_log(log_str):</span><br><span class="line">    curr_day = datetime.date.today().strftime(&apos;%Y-%m-%d&apos;)</span><br><span class="line">    curr_time = time.strftime(&apos;%H:%M:%S&apos;)</span><br><span class="line">    with open(&apos;log.txt&apos;, &apos;a&apos;) as f:</span><br><span class="line">        f.write(&quot;&#123;&#125;&#123;&#125;&#123;&#125; \n&quot;.format(curr_day, curr_time, log_str))</span><br><span class="line">write_log(&apos;testsetst&apos;)</span><br></pre></td></tr></table></figure><h4 id="3-使用Python批量重命名文件"><a href="#3-使用Python批量重命名文件" class="headerlink" title="3. 使用Python批量重命名文件"></a>3. 使用Python批量重命名文件</h4><p>使用的函数</p><ul><li>os.listdir(‘.’)                    #列出目录中所有文件名</li><li>os.path.join(path, file_name)    #拼接完整文件名</li><li>os.path.isdir(file_name)        #判断是否是目录</li><li>os.path.splittext(file_name)    #分离文件名[0]和扩展名[1]</li><li>os.rename(old_name, new_name)    #重命名文件</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">path = r&quot;I:\desktop\Python&quot;</span><br><span class="line">for file in os.listdir(path):</span><br><span class="line">    new_name = file.replace(&apos;51CTO下载-&apos;, &apos;&apos;)</span><br><span class="line">    os.rename(os.path.join(path, file), os.path.join(path, new_name))</span><br><span class="line">    print(os.path.join(path, new_name))</span><br></pre></td></tr></table></figure><h4 id="4-判断文件内容是二进制还是文本"><a href="#4-判断文件内容是二进制还是文本" class="headerlink" title="4. 判断文件内容是二进制还是文本"></a>4. 判断文件内容是二进制还是文本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def is_binary_string(bytes):</span><br><span class="line">    textchars = bytearray(&#123;7, 8, 9, 10, 12, 13, 27&#125; | set(range(0x20, 0x100)) - &#123;0x7f&#125;)</span><br><span class="line">    return bool(bytes.translate(None, textchars))</span><br><span class="line">is_binary_string(open(filename, &apos;rb&apos;).read(1024))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;命令汇总&quot;&gt;&lt;a href=&quot;#命令汇总&quot; class=&quot;headerlink&quot; title=&quot;命令汇总&quot;&gt;&lt;/a&gt;命令汇总&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pr
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://blog.wangyuehan.net/categories/Python/"/>
+    
+    
+      <category term="command" scheme="https://blog.wangyuehan.net/tags/command/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>泛微OA7.0常见问题解决</title>
+    <link href="https://blog.wangyuehan.net/2021/04/22/oa-problem-solving/"/>
+    <id>https://blog.wangyuehan.net/2021/04/22/oa-problem-solving/</id>
+    <published>2021-04-22T07:45:02.000Z</published>
+    <updated>2021-08-02T07:18:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><ul><li><a href="http://emobile.weaver.com.cn/customerproduce.do" target="_blank" rel="noopener">OA手机端下载</a>（泛微OA7.0版本对应移动客户端版本为4.8）</li></ul><h2 id="OA插件下载与安装"><a href="#OA插件下载与安装" class="headerlink" title="OA插件下载与安装"></a>OA插件下载与安装</h2><ol><li>下载<a href="http://kjgy.kmjt.iceflowsoft.com:680/f/c0de96d6629a47c192ae/?dl=1" target="_blank" rel="noopener">OA插件</a></li><li>解压并进入EcologyPlugin目录</li></ol><p><img src="http://image.wangyuehan.net/note/20210422182059.png?imageslim" alt=""></p><ol start="3"><li>鼠标双击执行目录中的【受信站点设置.reg】，设置IE配置</li><li>选择目录中的【setup.bat】，点击鼠标右键选择【以管理员身份运行】，根据提示执行安装操作</li><li>拷贝目录中的【OA系统入口】到桌面，鼠标双击即可打开IE浏览器进入OA系统</li><li>登录OA系统后，按下图提示进入控件检测界面，逐一完成三项检测，出现的IE浏览器弹窗都选择【是】</li></ol><p><img src="http://image.wangyuehan.net/note/20210422182604.png?imageslim" alt=""><br><img src="http://image.wangyuehan.net/note/20210422183917.png?imageslim" alt=""></p><h2 id="问题一：使用360浏览器无法OA"><a href="#问题一：使用360浏览器无法OA" class="headerlink" title="问题一：使用360浏览器无法OA"></a>问题一：使用360浏览器无法OA</h2><p>原因：近期360浏览器升级后，默认没有使用IE内核，就不能打开OA表单</p><p>解决：下载<a href="http://kjgy.kmjt.iceflowsoft.com:680/f/ac715f43b3434561a553/?dl=1" target="_blank" rel="noopener">OA系统入口快捷方式</a>，解压后放到桌面，使用时直接双击该快捷方式打开</p><h2 id="问题二：附件无法上传"><a href="#问题二：附件无法上传" class="headerlink" title="问题二：附件无法上传"></a>问题二：附件无法上传</h2><h3 id="情况一：看不到上传按钮"><a href="#情况一：看不到上传按钮" class="headerlink" title="情况一：看不到上传按钮"></a>情况一：看不到上传按钮</h3><p>原因：OA中上传使用了flash插件，flash发布新版本后可能导致原有控件失效</p><p>解决：下载<a href="https://www.flash.cn/" target="_blank" rel="noopener">Flash中心</a>，安装后，点击【一键检测】，发现问题点击【一键修复】，之后重启IE浏览器再次尝试</p><p><img src="http://image.wangyuehan.net/note/20210422171744.png?imageslim" alt=""></p><h3 id="情况二：无法弹窗选择选择上传文件"><a href="#情况二：无法弹窗选择选择上传文件" class="headerlink" title="情况二：无法弹窗选择选择上传文件"></a>情况二：无法弹窗选择选择上传文件</h3><p>原因：弹窗被浏览器阻止</p><p>解决：在IE浏览器中，点击右上角齿轮，进入【Internet选项】，进入【隐私】选项页，取消【启用弹出窗口阻止程序】，重启IE浏览器再次尝试</p><p><img src="http://image.wangyuehan.net/note/20210422172733.png?imageView2/2/h/400" alt=""><br><img src="http://image.wangyuehan.net/note/20210422173149.png?imageView2/2/w/400" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;资源&quot;&gt;&lt;a href=&quot;#资源&quot; class=&quot;headerlink&quot; title=&quot;资源&quot;&gt;&lt;/a&gt;资源&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://emobile.weaver.com.cn/customerproduce.do&quot; target
+      
+    
+    </summary>
+    
+      <category term="Work" scheme="https://blog.wangyuehan.net/categories/Work/"/>
+    
+    
+      <category term="problem" scheme="https://blog.wangyuehan.net/tags/problem/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决pip下载太慢</title>
+    <link href="https://blog.wangyuehan.net/2020/04/05/pip-slow/"/>
+    <id>https://blog.wangyuehan.net/2020/04/05/pip-slow/</id>
+    <published>2020-04-05T11:07:15.000Z</published>
+    <updated>2020-04-05T11:08:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、临时使用"><a href="#一、临时使用" class="headerlink" title="一、临时使用"></a>一、临时使用</h2><p>命令行中使用pip install -i指定源安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Django==1.11.6 -i https://pypi.douban.com/simple</span><br></pre></td></tr></table></figure></p><h2 id="二、永久修改"><a href="#二、永久修改" class="headerlink" title="二、永久修改"></a>二、永久修改</h2><ul><li>Linux：修改~/.pip/pip.conf；</li><li>Windows：直接在user目录中创建一个pip目录，如：C:\Users\xx\pip，新建文件pip.ini</li></ul><p>配置文件内容如下</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.douban.com/simple</span><br><span class="line">#没有这句会包warning</span><br><span class="line">trusted-host = pypi.douban.com</span><br><span class="line">#版本不检查</span><br><span class="line">disable-pip-version-check = true</span><br><span class="line">#超时时间设置</span><br><span class="line">timeout = 120</span><br></pre></td></tr></table></figure><h2 id="三、几个中国的PyPI镜像源"><a href="#三、几个中国的PyPI镜像源" class="headerlink" title="三、几个中国的PyPI镜像源"></a>三、几个中国的PyPI镜像源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">阿里云 速度最快 http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line">豆瓣(douban) http://pypi.douban.com/simple/</span><br><span class="line">Python官方 https://pypi.python.org/simple/</span><br><span class="line">v2ex http://pypi.v2ex.com/simple/</span><br><span class="line">中国科学院 http://pypi.mirrors.opencas.cn/simple/</span><br><span class="line">清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、临时使用&quot;&gt;&lt;a href=&quot;#一、临时使用&quot; class=&quot;headerlink&quot; title=&quot;一、临时使用&quot;&gt;&lt;/a&gt;一、临时使用&lt;/h2&gt;&lt;p&gt;命令行中使用pip install -i指定源安装&lt;br&gt;&lt;figure class=&quot;highlight 
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://blog.wangyuehan.net/categories/Python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>信息更新</title>
+    <link href="https://blog.wangyuehan.net/2020/03/13/information-update/"/>
+    <id>https://blog.wangyuehan.net/2020/03/13/information-update/</id>
+    <published>2020-03-13T09:32:42.000Z</published>
+    <updated>2020-04-17T02:40:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><del>20200323更新地址：<br>45.32.6.137:50011</del></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;del&gt;20200323更新地址：&lt;br&gt;45.32.6.137:50011&lt;/del&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="清单" scheme="https://blog.wangyuehan.net/categories/%E6%B8%85%E5%8D%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>非常时期，在家充电的免费资源</title>
+    <link href="https://blog.wangyuehan.net/2020/02/03/free-read/"/>
+    <id>https://blog.wangyuehan.net/2020/02/03/free-read/</id>
+    <published>2020-02-03T05:02:44.000Z</published>
+    <updated>2021-04-22T07:15:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="喜马拉雅APP：免费领取29天VIP会员"><a href="#喜马拉雅APP：免费领取29天VIP会员" class="headerlink" title="喜马拉雅APP：免费领取29天VIP会员"></a>喜马拉雅APP：免费领取29天VIP会员</h3><p>如何获取：下面链接中输入手机号，接收验证码领取，下载喜马拉雅APP使用</p><ul><li><del><a href="http://m.ximalaya.com/marketing/activity2/4993" target="_blank" rel="noopener">领取14天链接</a></del></li><li><del><a href="http://m.ximalaya.com/marketing/activity2/4996" target="_blank" rel="noopener">领取15天链接</a></del></li></ul><h3 id="得到APP：免费听书两个月VIP"><a href="#得到APP：免费听书两个月VIP" class="headerlink" title="得到APP：免费听书两个月VIP"></a>得到APP：免费听书两个月VIP</h3><p><del>如何获取：打开得到APP——我的——卡券——兑换卡券——输入“平平安安”</del></p><h3 id="电子图书免费读（电脑在线阅读）"><a href="#电子图书免费读（电脑在线阅读）" class="headerlink" title="电子图书免费读（电脑在线阅读）"></a>电子图书免费读（电脑在线阅读）</h3><ul><li><del><a href="http://ebooks.cmanuf.com/" target="_blank" rel="noopener">机械工业出版社</a></del></li><li><del><a href="https://lib-nuanxin.wqxuetang.com/" target="_blank" rel="noopener">清华大学出版社</a>，2月16日前</del>   </li><li><del><a href="https://open.bfsu.edu.cn/" target="_blank" rel="noopener">北京外国语大学外语在线学习平台</a></del></li><li><del><a href="http://www.cnbksy.com/home" target="_blank" rel="noopener">全国报刊索引</a>，2月29日前，免费注册后，每个帐号每天可下载全文内容100次，50幅图片（图片库）</del></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;喜马拉雅APP：免费领取29天VIP会员&quot;&gt;&lt;a href=&quot;#喜马拉雅APP：免费领取29天VIP会员&quot; class=&quot;headerlink&quot; title=&quot;喜马拉雅APP：免费领取29天VIP会员&quot;&gt;&lt;/a&gt;喜马拉雅APP：免费领取29天VIP会员&lt;/h3&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="清单" scheme="https://blog.wangyuehan.net/categories/%E6%B8%85%E5%8D%95/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Odoo一个简单的Client Action示例</title>
+    <link href="https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/"/>
+    <id>https://blog.wangyuehan.net/2019/07/31/odoo-create-client-action/</id>
+    <published>2019-07-31T06:53:24.000Z</published>
+    <updated>2019-07-31T07:17:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><p>这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板</p><p>这个示例包括下面三个文件<br><img src="http://image.wangyuehan.net/note/20190731/AM6JzbCls3R9.png?imageslim" alt="mark"></p><ul><li>模板文件<code>static/src/xml/client_action.xml</code><ul><li>定义模板<code>HelloJS</code>显示<code>&lt;div&gt;Display HelloJS&lt;/div&gt;</code></li></ul></li><li>JS文件<code>static/src/js/client_action.js</code><ul><li>定义对象<code>HomePage</code>继承于<code>web.AbstractAction</code></li><li>对象中调用<code>HelloJS</code>模板</li><li>对象中定义<code>init</code>方法和<code>start</code>方法</li><li>将<code>HomePage</code>对象注册为动作：<code>HelloJS_tag</code></li></ul></li><li>视图文件<code>views/client_action.xml</code><ul><li>继承<code>web.assets_backend</code>加载JS文件</li><li>定义客户端动作关联<code>HelloJS_tag</code></li><li>定义显示的菜单关联客户端动作</li></ul></li></ul><h3 id="示例文件内容"><a href="#示例文件内容" class="headerlink" title="示例文件内容"></a>示例文件内容</h3><p><strong>1、定义模板文件<code>static/src/xml/client_action.xml</code></strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;  encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;templates xml:space=&quot;preserve&quot;&gt;</span><br><span class="line">   &lt;t t-name=&quot;HelloJS&quot;&gt;</span><br><span class="line">      &lt;div&gt;Display HelloJS&lt;/div&gt;</span><br><span class="line">   &lt;/t&gt;</span><br><span class="line">&lt;/templates&gt;</span><br></pre></td></tr></table></figure><p><strong>2、定义JS文件<code>static/src/js/client_action.js</code></strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">odoo.define(&apos;hello.js&apos;, function (require) &#123;</span><br><span class="line">    &quot;use strict&quot;;</span><br><span class="line"></span><br><span class="line">    var Widget = require(&apos;web.Widget&apos;);</span><br><span class="line">    var core = require(&apos;web.core&apos;);</span><br><span class="line">    var utils = require(&apos;web.utils&apos;);</span><br><span class="line">    var AbstractAction = require(&apos;web.AbstractAction&apos;);</span><br><span class="line"></span><br><span class="line">    var HomePage = AbstractAction.extend(&#123;</span><br><span class="line">        template: &quot;HelloJS&quot;,</span><br><span class="line"></span><br><span class="line">        init: function (parent) &#123;</span><br><span class="line">            this._super(parent);</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of init.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">        start: function () &#123;</span><br><span class="line">            console.log(&quot;Hello JS, I&apos;m inside of start.&quot;);</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    core.action_registry.add(&apos;HelloJS_tag&apos;, HomePage);</span><br><span class="line"></span><br><span class="line">    return HomePage;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p><strong>3、创建视图文件<code>views/client_action.xml</code></strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">    &lt;data&gt;</span><br><span class="line"></span><br><span class="line">        &lt;template id=&quot;assets_backend&quot; name=&quot;petstore&quot;</span><br><span class="line">                  inherit_id=&quot;web.assets_backend&quot;&gt;</span><br><span class="line">            &lt;xpath expr=&quot;.&quot; position=&quot;inside&quot;&gt;</span><br><span class="line">                &lt;script type=&quot;text/javascript&quot;</span><br><span class="line">                        src=&quot;demo_client_action/static/src/js/client_action.js&quot;&gt;</span><br><span class="line">                &lt;/script&gt;</span><br><span class="line">            &lt;/xpath&gt;</span><br><span class="line">        &lt;/template&gt;</span><br><span class="line"></span><br><span class="line">        &lt;record id=&quot;hellojs_id&quot; model=&quot;ir.actions.client&quot;&gt;</span><br><span class="line">            &lt;field name=&quot;name&quot;&gt;HelloJS&lt;/field&gt;</span><br><span class="line">            &lt;field name=&quot;tag&quot;&gt;HelloJS_tag&lt;/field&gt;</span><br><span class="line">        &lt;/record&gt;</span><br><span class="line"></span><br><span class="line">        &lt;menuitem id=&quot;hellojs_menu&quot;</span><br><span class="line">                  name=&quot;HelloJS&quot;</span><br><span class="line">                  action=&quot;hellojs_id&quot;/&gt;</span><br><span class="line">    &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure><p><strong>4、在<code>__manifest__.py</code>文件中引入XML文件</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;qweb&apos;: [</span><br><span class="line">    &apos;static/src/xml/client_action_template.xml&apos;</span><br><span class="line">],</span><br><span class="line">&apos;data&apos;: [</span><br><span class="line">    &apos;views/client_action.xml&apos;</span><br><span class="line">],</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;总览&quot;&gt;&lt;a href=&quot;#总览&quot; class=&quot;headerlink&quot; title=&quot;总览&quot;&gt;&lt;/a&gt;总览&lt;/h3&gt;&lt;p&gt;这个示例将创建一个菜单，点击触发一个客户端动作，关联js定义的对象，显示相应模板&lt;/p&gt;
+&lt;p&gt;这个示例包括下面三个文件&lt;br&gt;&lt;img s
+      
+    
+    </summary>
+    
+      <category term="Odoo" scheme="https://blog.wangyuehan.net/categories/Odoo/"/>
+    
+    
+      <category term="开发" scheme="https://blog.wangyuehan.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何将console.log的内容导出到文件中</title>
+    <link href="https://blog.wangyuehan.net/2019/07/30/console-log-to-file/"/>
+    <id>https://blog.wangyuehan.net/2019/07/30/console-log-to-file/</id>
+    <published>2019-07-30T05:48:08.000Z</published>
+    <updated>2019-07-30T06:08:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在Chrome浏览器的Console控制台中，使用<code>console.log()</code>命令可以输出js变量或字符串，但如何将这些输出保存到文件中呢</p><p>使用<a href="https://github.com/wangduanduan/log4b" target="_blank" rel="noopener">log4b.js</a>可以实现输出保存到文件，这个功能可用于在console中使用xpath获取页面内容并保存到文件</p><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1、载入log4b</p><p>js原生的<code>console.log()</code>无法输出到文件，下载<a href="https://github.com/wangduanduan/log4b" target="_blank" rel="noopener">log4b.js</a>文件，复制<code>log4b.js</code>的内容到console中执行</p><p>2、创建log4b对象</p><p>在console中执行</p><pre><code>var Log4b = new log4b();</code></pre><p>3、输出内容</p><p>使用<code>Log4b.log()</code>替代<code>console.log()</code>来输出内容</p><p>4、导出到文件</p><p>使用<code>Log4b.downloadLog()</code>可以下载由<code>Log4b.log()</code>输出的内容</p><h3 id="log4b使用"><a href="#log4b使用" class="headerlink" title="log4b使用"></a>log4b使用</h3><h4 id="log4b方法"><a href="#log4b方法" class="headerlink" title="log4b方法"></a>log4b方法</h4><pre><code>getLog: get log show on the console tabdownloadLog: download the logclear: clear all saved loglog:    write loglines: get how many lines of logsearch: search a string</code></pre><h4 id="log4b配置"><a href="#log4b配置" class="headerlink" title="log4b配置"></a>log4b配置</h4><pre><code>self.realTimeLoggingOn = true; // log in real time (forwards to console.log)self.useTimestamps = false; // insert a timestamp in front of each logself.recordLogs = true; // set to false after you&apos;re done debugging to avoid the log eating up memoryself.maxLines = 2500; // if autoTrim is true, this many most recent lines are savedself.lineMaxChars = 1500; // if one log is max than lineMaxChars, it will be cutself.logFilename = &apos;log4b.txt&apos;; // filename of log downloaded with downloadLog()self.lineBreak = &apos;\n\n&apos;;</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote><p><a href="https://segmentfault.com/a/1190000009426931" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009426931</a></p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在Chrome浏览器的Console控制台中，使用&lt;code&gt;console.log()&lt;/code&gt;命令可以输出js变量或字符串，但如何将这些输出保存到文件中呢&lt;/p&gt;
+&lt;p&gt;使用&lt;a href=&quot;https://github.com/wangduanduan/log4b
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="https://blog.wangyuehan.net/categories/Web/"/>
+    
+    
+      <category term="chrome" scheme="https://blog.wangyuehan.net/tags/chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Odoo交互式命令行shell</title>
+    <link href="https://blog.wangyuehan.net/2019/07/25/odoo-shell/"/>
+    <id>https://blog.wangyuehan.net/2019/07/25/odoo-shell/</id>
+    <published>2019-07-25T15:54:38.000Z</published>
+    <updated>2019-07-26T05:07:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期</p><p>在命令行输入下面指令即可启动Odoo shell：</p><pre><code>python3 odoo-bin shell -c odoofile/odoo.conf -d test</code></pre><h3 id="shell类型"><a href="#shell类型" class="headerlink" title="shell类型"></a>shell类型</h3><p>Odoo shell有下面几种类型</p><ul><li>ipython（需安装ipython）</li><li>ptpython</li><li>bpython</li><li>python，默认使用python（无法按上输入历史命令，推荐使用ipython）</li></ul><p>通过参数shell-interface可以指定shell类型，如下所示使用ipython启动shell</p><pre><code>python3 odoo-bin shell -c odoofile/odoo.conf --shell-interface ipython -d test</code></pre><p><img src="http://image.wangyuehan.net//note/20190530150317.png" alt=""></p><h3 id="shell变量"><a href="#shell变量" class="headerlink" title="shell变量"></a>shell变量</h3><p>shell启动后提供以下几个变量</p><ul><li>env: odoo.api.Environment对象</li><li>odoo: odoo模块</li><li>openerp: odoo模块</li><li>self: res.user(1,)记录</li></ul><p><img src="http://image.wangyuehan.net//note/20190530150528.png" alt=""></p><h3 id="shell操作"><a href="#shell操作" class="headerlink" title="shell操作"></a>shell操作</h3><p><strong>1、获取模型列表</strong></p><p>registry是Odoo实例维护的信息中心，通过env.registry获取</p><p><code>env.registry.models</code>可以获取当前Odoo实例的模型列表，返回ModelClass和Model字典键值对</p><p><img src="http://image.wangyuehan.net//note/20190530150658.png" alt=""></p><p><strong>2、查看常用模型</strong></p><p>示例：product.product是ModelClass，odoo.api.product.product是Model<br><img src="http://image.wangyuehan.net//note/20190530150923.png" alt=""><br>1) 获取model的两种方式</p><ul><li>env.registry.models.get(‘product.product’)</li><li>env[‘product.product’]</li></ul><p>2) 访问基类</p><p>odoo.api.product.product 的基类可以通过<code>env.registry.get(&#39;product.product&#39;).__bases__</code>访问</p><p><strong>3、操作记录集</strong></p><ul><li>查询产品<code>env[&#39;product.product&#39;].search([])</code><br><img src="http://image.wangyuehan.net//note/20190530151223.png" alt=""></li><li>遍历产品名称<code>rec.name</code><br><img src="http://image.wangyuehan.net//note/20190530151338.png" alt=""></li><li>修改产品属性<code>rec.write()</code><br><img src="http://image.wangyuehan.net//note/20190530151656.png" alt=""></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Odoo shell是一个交互式命令行工具，它类似Python shell或Django  shell一样，可以在开发过程中调试Odoo内置对象和API函数，比如：测试对象有哪些属性和方法，或是测试API调用的返回是否达到预期&lt;/p&gt;
+&lt;p&gt;在命令行输入下面指令即可启动Od
+      
+    
+    </summary>
+    
+      <category term="Odoo" scheme="https://blog.wangyuehan.net/categories/Odoo/"/>
+    
+    
+      <category term="开发" scheme="https://blog.wangyuehan.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Odoo为序列号管理增加快捷生成日期范围</title>
+    <link href="https://blog.wangyuehan.net/2019/07/24/odoo-sequence-range/"/>
+    <id>https://blog.wangyuehan.net/2019/07/24/odoo-sequence-range/</id>
+    <published>2019-07-24T05:49:36.000Z</published>
+    <updated>2019-07-25T15:57:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="实现目标"><a href="#实现目标" class="headerlink" title="实现目标"></a>实现目标</h3><p>实现后效果如图所示，增加了范围类型、范围开始日期、范围结束日期和一个生成按钮</p><p><img src="http://image.wangyuehan.net/note/20190724/3rpDuWOszprp.png?imageslim" alt="mark"></p><h3 id="开发步骤"><a href="#开发步骤" class="headerlink" title="开发步骤"></a>开发步骤</h3><p><strong>1、开发前找到修改目标</strong></p><p>首先激活开发者模式，通过菜单<code>Settings | Technical | Sequences</code>进入序列编辑界面，通过菜单<code>Open Developer Tools | Edit View: Form</code>查看表单视图，得到需要修改的模型为<code>ir.sequence</code>，视图为<code>base.sequence_view</code>（为了排除翻译导致的名称不一致，这里菜单名和截图使用英文的）</p><p><img src="http://image.wangyuehan.net/note/20190724/whzYyjDdJLaQ.png?imageslim" alt="mark"></p><p><strong>2、创建模块</strong></p><p>进入自己的模块目录中，使用脚手架生成模块结构</p><pre><code>cd C:/Project/odoo12-x64/source\odoo\custom-addonsC:\Project\venv\odoo12\Scripts\python.exe C:/Project/odoo12-x64/source/odoo-bin scaffold myapp_sequence</code></pre><p><img src="http://image.wangyuehan.net/note/20190724/JUo8oyO3vhsL.png?imageslim" alt="mark"></p><p><strong>3、继承序列模型，添加设置日期范围的字段</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#models/models.py</span><br><span class="line"></span><br><span class="line">from odoo import models, fields, api</span><br><span class="line">class IrSequence(models.Model):</span><br><span class="line">    _inherit = &apos;ir.sequence&apos;</span><br><span class="line"></span><br><span class="line">    range_type = fields.Selection(selection=[(&apos;day&apos;,&apos;Day&apos;),(&apos;week&apos;,&apos;Week&apos;),(&apos;month&apos;,&apos;Month&apos;)],</span><br><span class="line">                                  string=&apos;范围类型&apos;)</span><br><span class="line">    range_from = fields.Date(string=&apos;范围开始日期&apos;)</span><br><span class="line">    range_to = fields.Date(string=&apos;范围结束日期&apos;)</span><br></pre></td></tr></table></figure><p><strong>4、继承序列表单视图，添加字段和按钮</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- views/views.xml --&gt;</span><br><span class="line">&lt;odoo&gt;</span><br><span class="line">  &lt;data&gt;</span><br><span class="line">    &lt;record model=&quot;ir.ui.view&quot; id=&quot;sequence_view_inherit&quot;&gt;</span><br><span class="line">      &lt;field name=&quot;name&quot;&gt;Sequences Inherit&lt;/field&gt;</span><br><span class="line">      &lt;field name=&quot;model&quot;&gt;ir.sequence&lt;/field&gt;</span><br><span class="line">      &lt;field name=&quot;inherit_id&quot; ref=&quot;base.sequence_view&quot;/&gt;</span><br><span class="line">      &lt;field name=&quot;arch&quot; type=&quot;xml&quot;&gt;</span><br><span class="line">        &lt;field name=&quot;use_date_range&quot; position=&quot;after&quot;&gt;</span><br><span class="line">          &lt;field name=&quot;range_type&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">          &lt;button name=&quot;create_range&quot; type=&quot;object&quot; string=&quot;创建日期范围&quot; class=&quot;oe_edit_only oe_highlight&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">        &lt;/field&gt;</span><br><span class="line">        &lt;field name=&quot;number_next_actual&quot; position=&quot;after&quot;&gt;</span><br><span class="line">          &lt;field name=&quot;range_from&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">          &lt;field name=&quot;range_to&quot; attrs=&quot;&#123;&apos;invisible&apos;: [(&apos;use_date_range&apos;, &apos;=&apos;, False)]&#125;&quot;/&gt;</span><br><span class="line">        &lt;/field&gt;</span><br><span class="line">      &lt;/field&gt;</span><br><span class="line">    &lt;/record&gt;</span><br><span class="line">  &lt;/data&gt;</span><br><span class="line">&lt;/odoo&gt;</span><br></pre></td></tr></table></figure><p>其中</p><p><code>class=&quot;oe_edit_only oe_highlight&quot;</code> 表示按钮编辑时可见</p><p><code>attrs=&quot;{&#39;invisible&#39;: [(&#39;use_date_range&#39;, &#39;=&#39;, False)]}&quot;</code> 表示字段<code>use_date_range</code>为False时隐藏</p><p><strong>5、为按钮添加事件函数</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#models/models.py</span><br><span class="line"></span><br><span class="line">import datetime, calendar</span><br><span class="line">from odoo.exceptions import UserError</span><br><span class="line"></span><br><span class="line">#在class IrSequence中添加函数</span><br><span class="line">    def get_date_range_list(self, start_date, end_date, flags=&apos;day&apos;):</span><br><span class="line">        result = []</span><br><span class="line">        result.append(start_date)</span><br><span class="line">        if flags == &apos;day&apos;:</span><br><span class="line">            for n in range(int((end_date - start_date).days - 1)):</span><br><span class="line">                compute_date = start_date + datetime.timedelta(days=n + 1)</span><br><span class="line">                result.append(compute_date)</span><br><span class="line">        elif flags == &apos;week&apos;:</span><br><span class="line">            for n in range(int((end_date - start_date).days - 1)):</span><br><span class="line">                compute_date = start_date + datetime.timedelta(days=n + 1)</span><br><span class="line">                if compute_date.weekday() != calendar.MONDAY:</span><br><span class="line">                    continue</span><br><span class="line">                    result.append(compute_date)</span><br><span class="line">        elif flags == &apos;month&apos;:</span><br><span class="line">            for n in range(int((end_date - start_date).days - 1)):</span><br><span class="line">                compute_date = start_date + datetime.timedelta(days=n + 1)</span><br><span class="line">                if compute_date.day != 1:</span><br><span class="line">                    continue</span><br><span class="line">                result.append(compute_date)</span><br><span class="line">        result.append(end_date)</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">    @api.multi</span><br><span class="line">    def create_range(self, values):</span><br><span class="line">        self.ensure_one()</span><br><span class="line">        if not self.range_type or not self.range_from or not self.range_to:</span><br><span class="line">            raise UserError(&apos;请填写必要的参数（范围类型/范围开始日期/范围结束日期）&apos;)</span><br><span class="line">        if self.range_from &gt; self.range_to:</span><br><span class="line">            raise UserError(&apos;范围开始时间不能大于结束时间&apos;)</span><br><span class="line">        self.date_range_ids.unlink()</span><br><span class="line">        date_range = self.get_date_range_list(self.range_from, self.range_to, self.range_type)</span><br><span class="line">        print(date_range)</span><br><span class="line">        date_range_pair = list(dict(zip(date_range[:-1], date_range[1:])).items())</span><br><span class="line"></span><br><span class="line">        for date_from ,date_to  in date_range_pair:</span><br><span class="line">            values = &#123;&apos;number_next_actual&apos;: 1, &apos;date_from&apos;:date_from.strftime(&apos;%Y-%m-%d&apos;), &apos;date_to&apos;:date_to.strftime(&apos;%Y-%m-%d&apos;), &apos;sequence_id&apos;: self.id&#125;</span><br><span class="line">            self.date_range_ids.create(values)</span><br></pre></td></tr></table></figure><p><strong>6、安装并使用模块</strong></p><p>从应用中安装这个模块，进入序列号编辑表单，选择范围类型，范围开始日期和结束日期，点击创建日期范围，将清除之前的日期范围，按照规则重新创建日期范围</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;实现目标&quot;&gt;&lt;a href=&quot;#实现目标&quot; class=&quot;headerlink&quot; title=&quot;实现目标&quot;&gt;&lt;/a&gt;实现目标&lt;/h3&gt;&lt;p&gt;实现后效果如图所示，增加了范围类型、范围开始日期、范围结束日期和一个生成按钮&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http:/
+      
+    
+    </summary>
+    
+      <category term="Odoo" scheme="https://blog.wangyuehan.net/categories/Odoo/"/>
+    
+    
+      <category term="开发" scheme="https://blog.wangyuehan.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Odoo模块创建步骤</title>
+    <link href="https://blog.wangyuehan.net/2019/05/15/odoo-new-module/"/>
+    <id>https://blog.wangyuehan.net/2019/05/15/odoo-new-module/</id>
+    <published>2019-05-15T01:47:59.000Z</published>
+    <updated>2019-07-24T06:09:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、进入模块目录（默认为<code>odoo/addons</code>），使用odoo-bin脚手架命令创建模块结构</p><pre><code>odoo-bin scaffold library_app</code></pre><p>模块结构如下</p><pre><code>└─library_app    │  __init__.py  #Python模块文件    │  __manifest__.py  #描述文件    │    ├─controllers   #Web控制器    │      controllers.py    │      __init__.py    │    ├─demo  #示例数据    │      demo.xml    │    ├─models    #业务对象    │      models.py    │      __init__.py    │    ├─security  #访问权限    │      ir.model.access.csv    │    └─views #视图            templates.xml            views.xml</code></pre><p>2、创建models文件</p><pre><code>#新建models/library_book.py，定义model类class Book(models.Model):...#编辑models/__init__.py中加入引用from . import library_book</code></pre><p>3、添加访问规则，为自定义用户组可以指定<code>base.group_user</code></p><pre><code>#编辑security/ir.model.access.csv，加入模型对象model_library_book的访问规则access_book_user,Book User Access,model_library_book,library_group_user,1,0,0,0...</code></pre><p>4、创建菜单及动作</p><pre><code>#新建views/library_menu.xml，添加菜单及动作#主菜单&lt;menuitem id=&quot;library_menu&quot;          name=&quot;Library&quot; /&gt;#菜单点击动作&lt;act_window id=&quot;action_library_book&quot;  name=&quot;Library Books&quot;  res_model=&quot;library.book&quot;  view_mode=&quot;tree,form&quot;/&gt;#子菜单&lt;menuitem id=&quot;menu_library_book&quot;          name=&quot;Book&quot;          action=&quot;action_library_book&quot;          parent=&quot;library_menu&quot; /&gt;</code></pre><p>5、创建视图，定义form、tree、search视图</p><pre><code>#新建views/book_view.xml，添加form、tree、search视图&lt;record id=&quot;view_form_book&quot; model=&quot;ir.ui.view&quot;&gt;&lt;form&gt;...&lt;record id=&quot;view_tree_book&quot; model=&quot;ir.ui.view&quot;&gt;&lt;tree&gt;...&lt;record id=&quot;view_search_book&quot; model=&quot;ir.ui.view&quot;&gt;&lt;search&gt;...</code></pre><p>6、编辑<code>__manifest__.py</code>，data和demo中引用数据文件csv或xml</p><pre><code>&apos;data&apos;: [   &apos;security/ir.model.access.csv&apos;,   &apos;views/library_menu.xml&apos;,   &apos;views/book_view.xml&apos;,   ...],&apos;demo&apos;: [   &apos;data/book_demo.xml&apos;,],</code></pre><blockquote><p>问题：如果菜单不显示，请检查<strong>manifest</strong>.py中是否没有正常引用数据文件</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、进入模块目录（默认为&lt;code&gt;odoo/addons&lt;/code&gt;），使用odoo-bin脚手架命令创建模块结构&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;odoo-bin scaffold library_app
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;模块结构如下&lt;/p&gt;
+&lt;pre&gt;
+      
+    
+    </summary>
+    
+      <category term="Odoo" scheme="https://blog.wangyuehan.net/categories/Odoo/"/>
+    
+    
+      <category term="开发" scheme="https://blog.wangyuehan.net/tags/%E5%BC%80%E5%8F%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用Charles抓取请求</title>
+    <link href="https://blog.wangyuehan.net/2019/03/07/charles-config/"/>
+    <id>https://blog.wangyuehan.net/2019/03/07/charles-config/</id>
+    <published>2019-03-07T06:39:50.000Z</published>
+    <updated>2019-03-07T06:50:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。</p><h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><ul><li>MacOS 10.14.3</li><li>Charles 4.2.7</li><li>小米MIX2 Android MIUI10.2.2</li></ul><h3 id="1、下载并安装Charles"><a href="#1、下载并安装Charles" class="headerlink" title="1、下载并安装Charles"></a>1、下载并安装Charles</h3><p><a href="https://www.charlesproxy.com/latest-release/download.do" target="_blank" rel="noopener">下载地址</a>    </p><p>工作界面和常用按钮<br><img src="http://image.wangyuehan.net//note/20190307141052charles.png" alt=""></p><h3 id="2、配置抓取HTTP请求"><a href="#2、配置抓取HTTP请求" class="headerlink" title="2、配置抓取HTTP请求"></a>2、配置抓取HTTP请求</h3><ul><li><p>配置代理，「Proxy Settings」<br><img src="http://image.wangyuehan.net//note/20190307115032charles.png" alt=""></p></li><li><p>抓取电脑端请求，菜单「Proxy」中，「macOS Proxy」打上勾，同时需要关闭开启的VPN代理<br><img src="http://image.wangyuehan.net//note/20190307114939charles.png" alt=""></p></li><li><p>抓取手机端请求，配置手机使用Charles代理<br>首先手机和电脑端连接同一个wifi，在手机「设置」—「WLAN」中，进入连接的WLAN，「代理」选择手动，填写主机名、端口<br><img src="http://image.wangyuehan.net//note/20190307120737charles.png" alt=""></p></li></ul><h3 id="3、配置抓取HTTPS请求"><a href="#3、配置抓取HTTPS请求" class="headerlink" title="3、配置抓取HTTPS请求"></a>3、配置抓取HTTPS请求</h3><ul><li><p>电脑端配置SSL，「SSL Proxying Settings」<br><img src="http://image.wangyuehan.net//note/20190307115117charles.png" alt=""></p></li><li><p>电脑端信任证书<br><img src="http://image.wangyuehan.net//note/20190307115903charles.png" alt=""><br><img src="http://image.wangyuehan.net//note/20190307142935charles.png" alt=""></p></li><li>手机端下载证书，将下载的证书文件扩展名pem改为crt，即可安装<br><img src="http://image.wangyuehan.net//note/20190307141427charles.png" alt=""></li></ul><p>安装证书后部分HTTPS请求可以正常获取，还有大部分显示<code>&lt;unknown&gt;</code>，待后续研究<br><img src="http://image.wangyuehan.net//note/20190307144711charles.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Charles是一个HTTP代理服务器，当浏览器连接Charles的代理访问互联网时，可以监控浏览器发送和接收的所有数据。&lt;/p&gt;
+&lt;h3 id=&quot;运行环境&quot;&gt;&lt;a href=&quot;#运行环境&quot; class=&quot;headerlink&quot; title=&quot;运行环境&quot;&gt;&lt;/a&gt;运行环境&lt;
+      
+    
+    </summary>
+    
+      <category term="Web" scheme="https://blog.wangyuehan.net/categories/Web/"/>
+    
+    
+      <category term="tools" scheme="https://blog.wangyuehan.net/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://blog.wangyuehan.net/2019/02/14/hello-world/"/>
+    <id>https://blog.wangyuehan.net/2019/02/14/hello-world/</id>
+    <published>2019-02-14T05:41:34.000Z</published>
+    <updated>2019-02-14T05:41:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://blog.wangyuehan.net/categories/Hexo/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git-如何将未跟踪的例外文件拉到本地</title>
+    <link href="https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/"/>
+    <id>https://blog.wangyuehan.net/2019/02/12/git-get-file-of-gitignore/</id>
+    <published>2019-02-12T03:54:18.000Z</published>
+    <updated>2019-02-14T05:48:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境</p></blockquote><p>1、远程仓库：新建并切换到分支allfile</p><pre><code>git checkout -b allfile</code></pre><p>2、远程仓库：修改.gitignore文件，移除例外文件</p><pre><code>vim .gitignore去除内容public/uploads</code></pre><p>3、远程仓库：添加所有文件并提交</p><pre><code>git add .git commit -m &quot;add all file&quot;</code></pre><p>4、本地仓库：拉取远程分支</p><pre><code>git pull </code></pre><p>6、本地仓库：迁出allfile分支中的例外文件</p><pre><code>git checkout allfile public/uploads</code></pre><p>7、本地仓库：去除例外文件的跟踪</p><pre><code>git rm -r --cached public/uploads</code></pre><p>此时例外文件<code>public/uploads</code>将保留在本地仓库并不被跟踪</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;远程仓库中添加了一些未跟踪的例外文件到.gitignore中，通过git clone到本地仓库中，这些文件会缺失，通过下面步骤可以获取这些例外文件，便于搭建本地环境&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;1、远程仓库：新建并切换到分支allfi
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://blog.wangyuehan.net/categories/Git/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git-部署本地代码到远程仓库</title>
+    <link href="https://blog.wangyuehan.net/2019/01/30/git-deploy-local-to-remote/"/>
+    <id>https://blog.wangyuehan.net/2019/01/30/git-deploy-local-to-remote/</id>
+    <published>2019-01-30T06:08:35.000Z</published>
+    <updated>2019-02-14T06:21:24.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>这样部署的前提是已经配置好远程服务器 <a href="http://www.xxxx.net" target="_blank" rel="noopener">www.xxxx.net</a> 中用户www的免密登录</p></blockquote><ol><li>本地项目代码准备完毕，代码中无.gitignore文件</li><li><p>初始化本地仓库，在本地执行</p><pre><code>#初始化仓库git init    #windows中禁用自动转换git config --global core.autocrlf false#缓存文件git add .#提交本地仓库git commit -m &quot;init&quot;#创建远程连接git remote add origin www@www.xxxx.net:/home/www/heal     </code></pre></li><li><p>初始化远程仓库，在远程执行</p><pre><code>#创建远程仓库目录cd /home/wwwmkdir heal#进入目录cd heal#初始化仓库git init#设置允许修改当前分支git config receive.denyCurrentBranch ignore#添加钩子自动checkoutvim .git/hooks/post-receive#添加以下代码    echo &quot;checkout to HEAD&quot;    git --work-tree=.. checkout -f#赋予权限chown www:www -R ../heal#设置用户www的bashusermod -s /bin/bash www</code></pre></li><li><p>将本地仓库推送到远程，在本地执行</p><pre><code>git push -u origin master#此时本地代码与远程仓库代码一致</code></pre></li><li><p>添加或更新例外文件.gitignore，在远程执行</p><pre><code>vim .gitignoregit rm -r --cached .git add .git commit -m &apos;gitignore update&apos;</code></pre></li><li><p>本地更新</p><pre><code>#下载更新（在.gitignore中的内容不会下载到本地）git pull</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;这样部署的前提是已经配置好远程服务器 &lt;a href=&quot;http://www.xxxx.net&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;www.xxxx.net&lt;/a&gt; 中用户www的免密登录&lt;/p&gt;
+&lt;/blockquot
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://blog.wangyuehan.net/categories/Git/"/>
+    
+    
+      <category term="deploy" scheme="https://blog.wangyuehan.net/tags/deploy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python包管理工具：easy_install和pip的安装和使用</title>
+    <link href="https://blog.wangyuehan.net/2019/01/07/python-setuptools-pip-install/"/>
+    <id>https://blog.wangyuehan.net/2019/01/07/python-setuptools-pip-install/</id>
+    <published>2019-01-07T07:55:22.000Z</published>
+    <updated>2019-03-07T08:15:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一、easy-install安装和使用"><a href="#一、easy-install安装和使用" class="headerlink" title="一、easy_install安装和使用"></a>一、easy_install安装和使用</h2><p>easy_install 是一个基于setuptools的工具，帮助我们自动下载、编译、安装和管理python packages。</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul><li><p>Linux包管理器安装</p><pre><code>yum install python-setuptools</code></pre></li><li><p>源码安装(windows、linux都适用)</p><p>  下载地址： <a href="https://pypi.org/project/distribute/#files" target="_blank" rel="noopener">https://pypi.org/project/distribute/#files</a></p><pre><code>wget https://files.pythonhosted.org/packages/5f/ad/1fde06877a8d7d5c9b60eff7de2d452f639916ae1d48f0b8f97bf97e570a/distribute-0.7.3.zipunzip distribute-0.7.3.zipcd distribute-0.7.3python3 setup.py install</code></pre></li></ul><h3 id="使用命令"><a href="#使用命令" class="headerlink" title="使用命令"></a>使用命令</h3><pre><code>#安装包：easy_install pyspider#删除包：easy_install -m  pyspider#升级:easy_install  --upgrade pyspider</code></pre><h2 id="二、pip安装和使用"><a href="#二、pip安装和使用" class="headerlink" title="二、pip安装和使用"></a>二、pip安装和使用</h2><p>pip是一个通用的 Python 包管理工具。提供了对 Python 包的查找、下载、安装、卸载的功能。</p><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ul><li><p>Linux包管理器安装</p><pre><code>yum install python-pip</code></pre></li><li><p>源码安装(windows、linux都适用)</p><p>  下载地址： <a href="https://pypi.org/project/pip/#files" target="_blank" rel="noopener">https://pypi.org/project/pip/#files</a></p><pre><code>wget https://files.pythonhosted.org/packages/45/ae/8a0ad77defb7cc903f09e551d88b443304a9bd6e6f124e75c0fbbf6de8f7/pip-18.1.tar.gztar zxvf pip-18.1.tar.gzcd pip-18.1python3 setup.py install</code></pre></li></ul><h3 id="使用命令-1"><a href="#使用命令-1" class="headerlink" title="使用命令"></a>使用命令</h3><pre><code>#安装包：pip install pyspider#查看包：pip show pyspider#升级：pip install --upgrade#删除包 ：pip  uninstall pyspider</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;一、easy-install安装和使用&quot;&gt;&lt;a href=&quot;#一、easy-install安装和使用&quot; class=&quot;headerlink&quot; title=&quot;一、easy_install安装和使用&quot;&gt;&lt;/a&gt;一、easy_install安装和使用&lt;/h2&gt;&lt;p&gt;ea
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://blog.wangyuehan.net/categories/Python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git-如何删除untracked files（未跟踪）的文件</title>
+    <link href="https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/"/>
+    <id>https://blog.wangyuehan.net/2019/01/04/git-delete-untracked-files/</id>
+    <published>2019-01-04T06:01:45.000Z</published>
+    <updated>2019-02-14T06:06:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>清理Git仓库中未跟踪的文件时可以使用下面命令</p></blockquote><p>删除untracked文件</p><pre><code>git clean -f</code></pre><p>删除untracked文件</p><pre><code>git clean -fd</code></pre><p>删除.gitignore的untracked文件</p><pre><code>git clean -xfd</code></pre><p>使用上面git clean之前，建议使用-n参数查看会删除哪些文件</p><pre><code>git clean -nxfdgit clean -nfgit clean -nfd</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;清理Git仓库中未跟踪的文件时可以使用下面命令&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;删除untracked文件&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clean -f
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;删除untracked文件&lt;/p&gt;
+&lt;pr
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://blog.wangyuehan.net/categories/Git/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>软件（系统）开发、维护、集成价格估算（学习笔记）</title>
+    <link href="https://blog.wangyuehan.net/2018/11/29/software-service-price/"/>
+    <id>https://blog.wangyuehan.net/2018/11/29/software-service-price/</id>
+    <published>2018-11-29T03:50:40.000Z</published>
+    <updated>2019-03-09T14:55:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、软件（系统）开发报价"><a href="#一、软件（系统）开发报价" class="headerlink" title="一、软件（系统）开发报价"></a>一、软件（系统）开发报价</h3><p><strong>软件开发价格 ＝ A（估算工作量） × σ（软件人员月平均工资） × τ（风险系数） × B（复用系数） × λ（综合系数）</strong></p><pre><code>A：估算工作量经验值B：软件企业的平均工资／人·月σ：风险系数l ≤ Q ≤ 1.5τ：复用系数0.25 ≤ τ ≤ 1λ：综合系数（国内）2.7 ≤ λ ≤ 3.09（综合了公司税收利润、管理系数、优质系数）</code></pre><p>分解计算过程展开</p><p>软件开发价格 ＝ 开发工作量 × 开发费用／人·月  </p><p>软件开发工作量 ＝ 估算工作量经验值A × 风险系数σ × 复用系数τ</p><pre><code>风险系数：l ≤ σ ≤ 1.5（业务领域不熟悉，用户需求不明确）复用系数：0.25（实施基于构件开发方法，已有可复用的构件库） ≤ τ ≤ 1</code></pre><p>开发费用／人·月 ＝（P＋Q＋R）× S× T</p><pre><code>P（人员成本） ＝ B（月平均工资） × 1.476（公积金7%、医疗保险12%、养老金22%、失业金2%、工伤0.5%，生育0.5%，残疾基金1.6%，工会基金2%，累计47.6%）Q（办公费） ＝ B／3R（国家税收和企业利润） ＝ B／3S（管理系数）：1 ≤ S ≤ 1.2 （十个软件人员需要两个管理人员）T（优质系数，提高软件质量，必然有所开支，即质量成本）：1.05 &lt;= T &lt;= 1.2</code></pre><h3 id="二、软件（系统）维护费用"><a href="#二、软件（系统）维护费用" class="headerlink" title="二、软件（系统）维护费用"></a>二、软件（系统）维护费用</h3><p><strong>根据不同用户的要求，分为四种级别分别按照开发费用的15%、10%、5%或按次计算收取软件（系统）维护费用</strong></p><p>首先定义U（系统建设费用），也就是该应用软件（系统）开发费用</p><ol><li><p>A级：软件企业派出技术人员常驻用户，解决日常运行中发生的问题。</p><pre><code>软件企业派出N个技术人员，常驻用户，因此：软件（系统）维护费／年 ＝ U × 15% 或 B × λ × N × 12</code></pre></li><li><p>B级：软件企业每周七天，每天24小时（即7×24小时）响应，2小时到现场，且每天派技术人员到现场进行软件（系统）性能调试，使之运行处于良好状态。</p><pre><code>软件（系统）维护费／年 ＝ U × 10%</code></pre></li><li><p>C级：软件企业7×24小时响应，2小时到场。</p><pre><code>软件（系统）维护费／年＝U × 5%</code></pre></li><li><p>D级：用户的信息工程系统或应用软件发生问题，由原承担的软件企业派人维护。</p><pre><code>软件（系统）维护费／次＝B’（人·天） × τ’（同复用系数）× n</code></pre></li></ol><h3 id="三、系统集成价格估算方法"><a href="#三、系统集成价格估算方法" class="headerlink" title="三、系统集成价格估算方法"></a>三、系统集成价格估算方法</h3><p><strong>系统集成费 ＝ U（系统建设费用） × α（四种级别的复杂程度） × T（优质系数）</strong></p><p>复杂程度（以α来表示）可分四种级别来区分</p><ol><li><p>A级：整个系统涉及到计算机硬件、软件、局域网络，且体系结构在三层次以下（含三层次）。</p><pre><code>5% ≤ α ≤ 8%</code></pre></li><li><p>B级：整个系统涉及到计算机硬件、软件、局域网络、互联网，且体系结构在三层以上（含三层次）。</p><pre><code>7% ≤ α ≤ 10%</code></pre></li><li><p>C级：整个系统涉及到计算机硬件、软件、局域网络、互联网以及多种网络接口。</p><pre><code>8% ≤ α ≤ 12%</code></pre></li><li><p>D级：整个系统涉及到计算机硬件、软件、网络、通信以及各种数据采集设备接口或者与用主系统有接口。</p><pre><code>10% ≤ α ≤ 15%</code></pre></li></ol><p>学习文章<a href="https://wenku.baidu.com/view/48805bedf8c75fbfc77db29a.html" target="_blank" rel="noopener">《软件开发和服务项目价格构成及评估方法》</a>的笔记</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;一、软件（系统）开发报价&quot;&gt;&lt;a href=&quot;#一、软件（系统）开发报价&quot; class=&quot;headerlink&quot; title=&quot;一、软件（系统）开发报价&quot;&gt;&lt;/a&gt;一、软件（系统）开发报价&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;软件开发价格 ＝ A（估算工作量） × σ（
+      
+    
+    </summary>
+    
+      <category term="软件工程" scheme="https://blog.wangyuehan.net/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Git-配置difftools和mergetool使用kaleidoscope</title>
+    <link href="https://blog.wangyuehan.net/2018/11/22/git-difftool/"/>
+    <id>https://blog.wangyuehan.net/2018/11/22/git-difftool/</id>
+    <published>2018-11-22T15:34:30.000Z</published>
+    <updated>2019-02-14T06:03:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>1、Mac下载并安装kaleidoscope和ksdiff（<a href="https://www.kaleidoscopeapp.com/ksdiff2" target="_blank" rel="noopener">下载地址</a>），确保命令行中可以运行<code>ksdiff</code>命令</p><p>2、修改GIT配置文件<code>~/.gitconfig</code>，加入下面内容</p><pre><code>[diff]    tool = Kaleidoscope[difftool &quot;Kaleidoscope&quot;]    cmd = ksdiff --partial-changeset --relative-path \&quot;$MERGED\&quot; -- \&quot;$LOCAL\&quot; \&quot;$REMOTE\&quot;[difftool]    prompt = false[merge]    tool = Kaleidoscope[mergetool &quot;Kaleidoscope&quot;]    cmd = ksdiff --merge --output &quot;$MERGED&quot; --base &quot;$BASE&quot; -- &quot;$LOCAL&quot; --snapshot &quot;$REMOTE&quot; --snapshot    trustExitCode = true[mergetool]    prompt = false</code></pre><p>3、命令行中运行<code>git difftool</code>或<code>git mergetool</code>（git difftool用于与git diff相同）将使用kaleidoscope打开对比的文件<br><img src="http://image.wangyuehan.net//note/20181122234201git-difftool.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;1、Mac下载并安装kaleidoscope和ksdiff（&lt;a href=&quot;https://www.kaleidoscopeapp.com/ksdiff2&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;下载地址&lt;/a&gt;），确保命令行中可以运行&lt;code&gt;
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://blog.wangyuehan.net/categories/Git/"/>
+    
+    
+      <category term="tools" scheme="https://blog.wangyuehan.net/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sudo执行管道命令报错</title>
+    <link href="https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/"/>
+    <id>https://blog.wangyuehan.net/2018/11/16/problem-ubuntu-sudo/</id>
+    <published>2018-11-15T16:23:54.000Z</published>
+    <updated>2019-02-14T05:52:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>问题描述：Ubuntu中执行<code>sudo iptables-save &gt; /etc/iptables.rules</code>报错Permission denied</p><p>问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的第二个命令没有sudo，所以报错</p><p>问题解决：</p><pre><code>sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;或echo &apos;iptables-save &gt; /etc/iptables.rules&apos; | sudo bash</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;问题描述：Ubuntu中执行&lt;code&gt;sudo iptables-save &amp;gt; /etc/iptables.rules&lt;/code&gt;报错Permission denied&lt;/p&gt;
+&lt;p&gt;问题分析：命令中有管道，第一个命令iptables -L有sudo，但是管道后的
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://blog.wangyuehan.net/categories/Linux/"/>
+    
+    
+      <category term="problem" scheme="https://blog.wangyuehan.net/tags/problem/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux命令：iptables</title>
+    <link href="https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/"/>
+    <id>https://blog.wangyuehan.net/2018/11/16/linux-command-iptables/</id>
+    <published>2018-11-15T16:18:18.000Z</published>
+    <updated>2019-03-07T07:17:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃</p><h3 id="1、添加iptables规则"><a href="#1、添加iptables规则" class="headerlink" title="1、添加iptables规则"></a>1、添加iptables规则</h3><pre><code>iptables -A INPUT -p tcp -s 192.168.0.104 --dport 3306 -j ACCEPTiptables -A INPUT -p tcp --dport 3306 -j DROP#-A INPUT or OUT 进还是出的规则#-p tcp or udp协议#-s 源ip地址 #--dport 端口号#-j ACCEPT 允许 REJECT 拒绝 DROP 丢弃</code></pre><h3 id="2、删除iptables规则"><a href="#2、删除iptables规则" class="headerlink" title="2、删除iptables规则"></a>2、删除iptables规则</h3><pre><code>#查看规则行号iptables -L -n INPUT --line-numbers#-L --list 显示规则#-n 端口显示数字#--line-numbers 显示规则编号，用于删除#删除规则iptables -D INPUT 3</code></pre><h3 id="3、保存iptables规则，使之重启后有效"><a href="#3、保存iptables规则，使之重启后有效" class="headerlink" title="3、保存iptables规则，使之重启后有效"></a>3、保存iptables规则，使之重启后有效</h3><ul><li><p>centos6</p><pre><code>service iptables save#或#修改/etc/sysconfig/iptables配置文件中的规则后重启服务service iptables restart</code></pre></li><li><p>centos7（默认使用firewall，停用firewall后安装iptables，就与centos6相同）</p><pre><code>#停用firewallsystemctl stop firewall .service        #停止firewallsystemctl disable firewall.service  #禁止开机启动firewallfirewall-cmd --status           #查看firewall状态#安装iptablesyum install iptables-servicesystemctl enable iptablessystemctl start iptables</code></pre></li><li><p>ubuntu（使用iptables-save和iptables-restore）</p><p>  手动保存</p><pre><code>#1.保存iptables规则到文件#sudo iptables-save &gt; /etc/iptables.rules会报错sudo bash -c &apos;iptables-save &gt; /etc/iptables.rules&apos;#2.设置网络配置文件中加载该文件vim /etc/network/interfaces加入pre-up iptables-restore &lt; /etc/iptables.up.rules</code></pre><p>  重启自动生效</p><pre><code>#1.新增网络关闭自动执行脚本vim /etc/network/if-post-down.d/iptables内容为    #!/bin/bash    iptables-save &gt; /etc/iptables.rules#2.新增网络开启自动执行脚本sudo vim /etc/network/if-pre-up.d/iptables内容为    #!/bin/bash    iptables-restore &lt; /etc/iptables.rules#3.给两个脚本执行权限sudo chmod +x /etc/network/if-post-down.d/iptablessudo chmod +x /etc/network/if-pre-up.d/iptables</code></pre></li></ul><h3 id="4、常用功能"><a href="#4、常用功能" class="headerlink" title="4、常用功能"></a>4、常用功能</h3><h4 id="白名单规则"><a href="#白名单规则" class="headerlink" title="白名单规则"></a>白名单规则</h4><p>比如开通本机的22端口，允许192.168.1.0网段的服务器访问（-t filter表配置可以省略，默认就是这种表的配置）</p><pre><code>iptables -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT</code></pre><p>或者</p><pre><code>iptables -t filter -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT</code></pre><p>开通本机的80端口，只允许192.168.1.150机器访问（32位掩码表示单机，单机指定时可以不加掩码）</p><pre><code>iptables -t filter -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT</code></pre><p>然后保存规则，重启iptables</p><pre><code>service iptables saveservice iptables restart</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下（其实上面在终端命令行里设置并save和restart防火墙后，就会自动保存规则到/etc/sysconfig/iptables这个文件中的）：</p><pre><code>cat /etc/sysconfig/iptables    ......    *filter    :INPUT ACCEPT [442620:173026884]    :FORWARD ACCEPT [118911:23993940]    :OUTPUT ACCEPT [8215384:539509656]    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT     -A INPUT -p icmp -j ACCEPT     -A INPUT -i lo -j ACCEPT     -A INPUT -s 192.168.1.0/24 -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT    -A INPUT -s 192.168.1.150/32 -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPTservice iptables restart</code></pre><h4 id="NAT转发设置"><a href="#NAT转发设置" class="headerlink" title="NAT转发设置"></a>NAT转发设置</h4><p>比如访问本机（192.168.1.7）的8088端口转发到192.168.1.160的80端口；访问本机的33066端口转发到192.168.1.161的3306端口<br>准备工作：<br>本机打开ip_forword路由转发功能；192.168.1.160/161的内网网关要和本机网关一致！如果没有内网网关，就将网关设置成本机内网ip，并且关闭防火墙（防火墙要是打开了，就设置对应端口允许本机访问）</p><pre><code>iptables -t nat -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80iptables -t nat -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPTiptables -t nat -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306iptables -t nat -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7iptables -t filter -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPTservice iptables saveservice iptables restart</code></pre><p>或者在/etc/sysconfig/iptables文件里设置如下</p><pre><code>cat /etc/sysconfig/iptables    ......    *nat    :PREROUTING ACCEPT [60:4250]    :INPUT ACCEPT [31:1973]    :OUTPUT ACCEPT [3:220]    :POSTROUTING ACCEPT [3:220]    -A PREROUTING -p tcp -m tcp --dport 8088 -j DNAT --to-destination 192.168.1.160:80                              //PREROUTING规则都放在上面    -A PREROUTING -p tcp -m tcp --dport 33066 -j DNAT --to-destination 192.168.1.161:3306    -A POSTROUTING -d 192.168.1.160/32 -p tcp -m tcp --sport 80 -j SNAT --to-source 192.168.1.7             //POSTROUTING规则都放在下面    -A POSTROUTING -d 192.168.1.161/32 -p tcp -m tcp --sport 3306 -j SNAT --to-source 192.168.1.7    .....    *filter    :INPUT ACCEPT [16:7159]    :FORWARD ACCEPT [0:0]    :OUTPUT ACCEPT [715:147195]    -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT    -A INPUT -p icmp -j ACCEPT    -A INPUT -i lo -j ACCEPT    -A INPUT -p tcp -m state --state NEW -m tcp --dport 8088 -j ACCEPT    -A INPUT -p tcp -m state --state NEW -m tcp --dport 33066 -j ACCEPT    .....service iptables restart</code></pre><h4 id="查看规则列表"><a href="#查看规则列表" class="headerlink" title="查看规则列表"></a>查看规则列表</h4><pre><code>iptables -L                      //列出设置的规则，默认列出的是filter表下的规则iptables -L -t nat            //如果列出nat表下规则，就加-t参数</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;iptables命令用于linux下防火墙规则管理，可以对指定协议、来源、端口的访问数据进行放行或丢弃&lt;/p&gt;
+&lt;h3 id=&quot;1、添加iptables规则&quot;&gt;&lt;a href=&quot;#1、添加iptables规则&quot; class=&quot;headerlink&quot; title=&quot;1、添加i
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://blog.wangyuehan.net/categories/Linux/"/>
+    
+    
+      <category term="command" scheme="https://blog.wangyuehan.net/tags/command/"/>
+    
+  </entry>
+  
+</feed>
